@@ -1,6 +1,6 @@
 package totoBook.domain;
 
-public class Comment {
+public class Review {
 
 	private Product product;
 	private Member member;
