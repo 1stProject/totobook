@@ -38,7 +38,7 @@ ADD CONSTRAINT QUESTION_TB FOREIGN KEY(MEMBER_ID)
 REFERENCES MEMBER_TB(MEMBER_ID);
 
 INSERT INTO QUESTION_TB(post_id, member_id, post_name, content, image_address, image_ext)
-VALUES(QUESTION_SEQ.NEXTVAL, 'rure14', '문의드려요.', '배송언제와요?','image/default01.jpg', '.JPG');
+VALUES(QUESTION_SEQ.NEXTVAL, 'RURE1114', '문의드려요.', '배송언제와요?','image/default01.jpg', '.JPG');
 
 
 CREATE TABLE ANSWER_TB (
