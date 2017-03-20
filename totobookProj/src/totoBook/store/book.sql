@@ -1,6 +1,9 @@
 DROP TABLE BOOK_TB;
 
+DROP SEQUENCE book_seq;
+
 CREATE SEQUENCE book_seq START WITH 1 INCREMENT BY 1;
+
 
 CREATE TABLE book_tb (
   book_id varchar2(50),
