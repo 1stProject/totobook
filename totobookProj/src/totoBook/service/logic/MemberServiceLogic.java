@@ -28,7 +28,7 @@ public class MemberServiceLogic implements MemberService {
 	}
 
 	@Override
-	public boolean chackId(String memberId) {
+	public boolean checkId(String memberId) {
 		return false;
 	}
 

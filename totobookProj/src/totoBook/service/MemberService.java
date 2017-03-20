@@ -10,7 +10,7 @@ public interface MemberService {
 	Member findMemberById(String memberId);
 	void modifyMember(Member member);
 	void removeMember(String member);
-	boolean chackId(String memberId);
+	boolean checkId(String memberId);
 	boolean checkPw(Member member);
 	List<Member> findMembersByTel(String memberTel);
 	List<Member> findMembersByName(String memberName);
