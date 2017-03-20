@@ -9,6 +9,7 @@ import totoBook.service.PrintService;
 public class PrintServiceLogic implements PrintService {
 	@Override
 	public void registerPrint(Print print) {
+		
 	}
 
 	@Override
