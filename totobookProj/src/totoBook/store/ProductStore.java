@@ -5,7 +5,7 @@ import java.util.List;
 import totoBook.domain.Option;
 import totoBook.domain.Product;
 
-public interface ProductService {
+public interface ProductStore {
 
 	public List<Product> findProductsByName(String name);
 	public List<Product> findAllProducts();
