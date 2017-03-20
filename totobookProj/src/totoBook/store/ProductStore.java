@@ -17,6 +17,6 @@ public interface ProductStore {
 	void insertOption(Option option);
 	void modifyOption(Option option);
 	void removeOption(Option option);
-	
+	Option findOption(String product_id);
 	
 }

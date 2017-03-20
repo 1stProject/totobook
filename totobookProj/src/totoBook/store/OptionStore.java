@@ -9,6 +9,6 @@ public interface OptionStore {
 	void insertOption(Option option);
 	void modifyOption(Option option);
 	void removeOption(Option option);
-	List<Option> findAll();
-	
+	Option selectOption(String product_id);
+
 }
