@@ -25,9 +25,4 @@ public class CharacterEncodingFilter implements Filter {
 		
 		chain.doFilter(request, response);
 	}
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
-
-
 }
