@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="totoBook.store.mapper.OrderMapper">
+</mapper>
+
+<!-- 
+	void insertOrder(Order order);
+	void updateOrder(Order order);
+	List<Order> selectAllOrders();
+	List<Order> selectOrdersByMemberId(String memberId);
+	List<Order> selectOrdersByDates(Date StartDate, Date endDate);
+	List<Order> selectOrdersByOrderId(String orderId);
+-->
