@@ -28,4 +28,7 @@ public class SqlSessionFactoryProvider {
 			e.printStackTrace();
 		}
 	}
+	
+	
+//	흠.. 왜 안올라가는지 잘 모르겠음.
 }
