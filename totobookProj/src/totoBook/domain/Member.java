@@ -2,6 +2,7 @@ package totoBook.domain;
 
 public class Member {
 
+
 	private String memberid;
 	private String name;
 	private String password;
