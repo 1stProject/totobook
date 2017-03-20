@@ -7,16 +7,17 @@ import totoBook.domain.Product;
 
 public interface ProductMapper {
 
-	List<Product> selectProductsByName(String name);
-	List<Product> selectAllProducts();
-	void insertProduct(Product product);
-	void updateProduct(Product product);
-	void deleteProduct(Product product);
-	Product selectProductById(Product product);
-	List<Product> selectProductsByCategory(String category);
-	void insertOption(Option option);
+	List<Product> findProductsByName(String name);
+	List<Product> findAllProducts();
+	void registerProduct(Product product);
+	void modifyProduct(Product product);
+	Product findProductById(String productId);
+	void removeProduct(String productId);
+	List<Product> findProductsByCategory(String category);
+	void registerOption(Option option);
 	void modifyOption(Option option);
 	void removeOption(Option option);
+	List<Option> findAllOptions();
 	
 	
 }
