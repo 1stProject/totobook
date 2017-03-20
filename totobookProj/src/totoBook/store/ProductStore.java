@@ -7,14 +7,13 @@ import totoBook.domain.Product;
 
 public interface ProductStore {
 
-	public List<Product> findProductsByName(String name);
-	public List<Product> findAllProducts();
-	public void registerProduct(Product product);
-	public void modifyProduct(Product product);
-	public Product findProductById(String productId);
-	public void removeProduct(String productId);
-	public List<Product> findProductsByCategory(String category);
-	public void registerOption(Option option);
-	
+	List<Product> selectProductsByName(String name);
+	List<Product> selectAllProducts();
+	void insertProduct(Product product);
+	void updateProduct(Product product);
+	void deleteProduct(Product product);
+	Product selectProductById(Product product);
+	List<Product> selectProductsByCategory(String category);
+	void insertOption(Option option);
 	
 }
