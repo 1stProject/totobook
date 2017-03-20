@@ -41,6 +41,9 @@ public class Book {
 		this.product = product;
 	}
 	
+	public int countPages(){
+		return this.pages.size();
+	}
 	
 	
 
