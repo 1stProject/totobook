@@ -2,10 +2,11 @@ package totoBook.domain;
 
 public class Option {
 
-	String optionid;
-	String optionname;
-	String optiondesp;
-	int optionprice;
+	private String optionid;
+	private String optionname;
+	private String optiondesp;
+	private int optionprice;
+	
 	public String getOptionid() {
 		return optionid;
 	}

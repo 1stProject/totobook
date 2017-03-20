@@ -8,6 +8,7 @@ public class Print {
 	private Member member;
 	private Product product;
 	private Option option;
+	
 	public String getPrintId() {
 		return printId;
 	}

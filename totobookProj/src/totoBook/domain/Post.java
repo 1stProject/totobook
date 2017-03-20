@@ -1,11 +1,11 @@
 package totoBook.domain;
 
 public class Post {
-	String postId;
-	Member member;
-	String title;
-	String content;
-	Photo photo;
+	private String postId;
+	private Member member;
+	private String title;
+	private String content;
+	private Photo photo;
 	
 	public String getPostId() {
 		return postId;

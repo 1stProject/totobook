@@ -12,6 +12,7 @@ public class Product {
 	private String descript;
 	private List<Option> options;
 	private int quantity;
+	
 	public String getProductid() {
 		return productid;
 	}
