@@ -1,4 +1,4 @@
-package totoBook.controller;
+package totoBook.controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/memberRemove.do")
-public class MemberRemoveController extends HttpServlet {
+@WebServlet("/IdCheck.do")
+public class IdCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	
-	
-	
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	}
 
 }
