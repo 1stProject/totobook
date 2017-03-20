@@ -1,11 +1,11 @@
-package totoBook.store;
+package totoBook.store.mapper;
 
 import java.util.List;
 
 import totoBook.domain.Option;
 import totoBook.domain.Product;
 
-public interface ProductStore {
+public interface ProductMapper {
 
 	List<Product> selectProductsByName(String name);
 	List<Product> selectAllProducts();

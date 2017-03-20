@@ -15,6 +15,8 @@ public interface ProductService {
 	public void removeProduct(String productId);
 	public List<Product> findProductsByCategory(String category);
 	public void registerOption(Option option);
+	public void modifyOption(Option option);
+	public void removeOption(Option option);
 	
 	
 }
