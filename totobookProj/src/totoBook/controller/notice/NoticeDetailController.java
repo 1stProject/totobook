@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class NoticeDetailController
+ * @author
+ * @version 1.0
  */
 @WebServlet("/notice/detail.do")
 public class NoticeDetailController extends HttpServlet {

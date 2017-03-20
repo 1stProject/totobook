@@ -1,5 +1,9 @@
 package totoBook.domain;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class Answer {
 	private String content;
 	private Post post;

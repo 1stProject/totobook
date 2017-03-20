@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BookRegisterController
+ * @author 김주희
+ * @version 1.0
  */
 @WebServlet("/book/register.do")
 public class BookRegisterController extends HttpServlet {

@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/member/memberModify.do")
+/**
+ * @author
+ * @version 1.0
+ */
+@WebServlet("/member/modify.do")
 public class MemberModifyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

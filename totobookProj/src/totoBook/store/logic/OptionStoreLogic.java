@@ -1,15 +1,14 @@
 package totoBook.store.logic;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import totoBook.domain.Option;
 import totoBook.store.OptionStore;
-import totoBook.store.mapper.ProductMapper;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class OptionStoreLogic implements OptionStore{
 
 	

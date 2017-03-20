@@ -1,11 +1,11 @@
 package totoBook.store.mapper;
 
-import java.util.List;
-
 import totoBook.domain.Answer;
-import totoBook.domain.Book;
-import totoBook.domain.Post;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public interface AnswerMapper {
 	
 	void insertAnswer(Answer answer);

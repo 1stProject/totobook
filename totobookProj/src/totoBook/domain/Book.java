@@ -2,6 +2,10 @@ package totoBook.domain;
 
 import java.util.List;
 
+/**
+ * @author juhee Kim
+ * @version 1.0
+ */
 public class Book {
 	
 	private String bookId;

@@ -5,6 +5,10 @@ import java.util.List;
 import totoBook.domain.Option;
 import totoBook.domain.Product;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public interface ProductService {
 
 	public List<Product> findProductsByName(String name);

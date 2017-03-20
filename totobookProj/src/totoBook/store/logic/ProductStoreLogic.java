@@ -11,6 +11,10 @@ import totoBook.domain.Product;
 import totoBook.store.ProductStore;
 import totoBook.store.mapper.ProductMapper;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class ProductStoreLogic implements ProductStore {
 
 	private SqlSessionFactory factory;

@@ -6,6 +6,10 @@ import java.util.List;
 import totoBook.domain.Order;
 import totoBook.service.OrderService;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class OrderServiceLogic implements OrderService {
 
 	@Override

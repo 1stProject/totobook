@@ -1,5 +1,9 @@
 package totoBook.domain;
 
+/**
+ * @author juhee Kim
+ * @version 1.0
+ */
 public class Post {
 	private String postId;
 	private Member member;

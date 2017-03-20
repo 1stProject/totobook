@@ -6,6 +6,10 @@ import totoBook.domain.Photo;
 import totoBook.domain.Print;
 import totoBook.service.PrintService;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class PrintServiceLogic implements PrintService {
 	@Override
 	public void registerPrint(Print print) {

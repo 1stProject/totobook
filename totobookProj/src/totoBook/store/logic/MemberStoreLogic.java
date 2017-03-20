@@ -5,6 +5,10 @@ import java.util.List;
 import totoBook.domain.Member;
 import totoBook.store.MemberStore;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class MemberStoreLogic implements MemberStore{
 
 	@Override
