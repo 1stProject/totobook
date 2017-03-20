@@ -1,9 +1,26 @@
 drop table review_tb;
 
 CREATE TABLE review_tb (
-  member_id varchar2(20),
-  product_id varchar2(20),
-  review_description varchar2(400),
-  IMG_CONT_TYPE varchar2(20),
-  IMG_FILE_NAME varchar2(20)
+  member_id varchar2(20) NOT NULL,
+  product_id varchar2(20) NOT NULL,
+  CONTENT varchar2(400) NOT NULL,
+  IMAGE_ADDRESS varchar2(20),
+  IMAGE_EXT varchar2(20),
+  CONSTRAINT PK_REVIEW_TB PRIMARY KEY(MEMBER_ID, PRODUCT_ID)
 );
+
+ALTER TABLE review_tb
+ADD CONSTRAINT review_tb FOREIGN KEY(MEMBER_ID)
+REFERENCES MEMBER_TB(MEMBER_ID);
+
+ALTER TABLE review_tb
+ADD CONSTRAINT review_tb FOREIGN KEY(product_id)
+REFERENCES product_tb(product_id);
+
+INSERT INTO REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, IMAGE_EXT)
+VALUES('RURE1114', '1', '예뻐요 배송빠름', '','');
+
+INSERT INTO REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, IMAGE_EXT)
+VALUES('RURE1114', '2', '별로... 배송빠름', '','');
+
+COMMIT;
