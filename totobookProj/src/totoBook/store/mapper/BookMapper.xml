@@ -4,32 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="totoBook.store.mapper.BookMapper">
-	<!-- TypeAlias로 Customer를 정의했기 때문에 parameterType에는 자동으로 domain.Customer 
-		가 들어감. -->
-	<insert id="create" parameterType="Lecture">
-		INSERT INTO book_tb(, lectureName, instructor, introduce)
-		<!-- #{id} 라는 건 Parameter로 넘어오는 Object의 getId() 를 호출함. -->
-		VALUES(#{id}, #{lectureName}, #{instructor}, #{introduce})
-	</insert>
-	<select id="readAll" resultType="Lecture">
-		SELECT ID, lectureName, instructor, introduce
-		FROM lecture_tb
-	</select>
-	<select id="read" parameterType="string" resultType="Lecture">
-		SELECT ID, lectureName, instructor, introduce
-		FROM lecture_tb
-		WHERE id = #{id}
-	</select>
-	<update id="update" parameterType="Lecture">
-		UPDATE lecture_tb
-		SET
-		lectureName = #{lectureName} , instructor = #{instructor}, introduce = #{introduce}
-		WHERE ID = #{id}
-	</update>
-	<delete id="delete" parameterType="string">
-		DELETE FROM lecture_tb
-		WHERE ID = #{id}
-	</delete>
+
 </mapper>
   
   

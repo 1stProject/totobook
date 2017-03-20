@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+ 
+	<properties resource="totoBook/store/datasource.properties">
+	</properties>
+
+	<typeAliases>
+		<typeAlias type="totoBook.domain.Answer" alias="Answer" />
+		<typeAlias type="totoBook.domain.Book" alias="Book" />
+		<typeAlias type="totoBook.domain.Review" alias="Review" />
+		<typeAlias type="totoBook.domain.Member" alias="Member" />
+		<typeAlias type="totoBook.domain.Option" alias="Option" />
+		<typeAlias type="totoBook.domain.Order" alias="Order" />
+		<typeAlias type="totoBook.domain.Page" alias="Page" />
+		<typeAlias type="totoBook.domain.Photo" alias="Photo" />
+		<typeAlias type="totoBook.domain.Print" alias="Print" />
+		<typeAlias type="totoBook.domain.Product" alias="Product" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="totoBook/store/mapper/AnswerMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/BookMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/ReviewMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/MemberMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/OptionMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/OrderMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/PageMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/PhotoMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/PrintMapper.xml"/>
+		<mapper resource="totoBook/store/mapper/ProductMapper.xml"/>
+	</mappers>
+
+</configuration>
