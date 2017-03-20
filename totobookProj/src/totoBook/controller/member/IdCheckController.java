@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/IdCheck.do")
+@WebServlet("/member/idCheck.do")
 public class IdCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
