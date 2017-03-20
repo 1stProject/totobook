@@ -8,7 +8,6 @@
 		가 들어감. -->
 	<insert id="create" parameterType="Book">
 		INSERT INTO book_tb(, lectureName, instructor, introduce)
-		<!-- #{id} 라는 건 Parameter로 넘어오는 Object의 getId() 를 호출함. -->
 		VALUES(#{id}, #{lectureName}, #{instructor}, #{introduce})
 	</insert>
 	<select id="readAll" resultType="Book">
