@@ -38,3 +38,5 @@ REFERENCES BOOK_TB(book_ID);
 
 INSERT INTO PAGE_TB(PAGE_ID, BOOK_ID, IMAGE_ADDRESS)
 VALUES(PAGE_seq.nextval, 2, 'images/defaultpage01.jpg');
+
+commit;

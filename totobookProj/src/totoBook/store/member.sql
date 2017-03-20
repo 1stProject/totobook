@@ -10,8 +10,8 @@ CREATE TABLE member_tb (
   PRIMARY KEY (member_id)
 );
 
-insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('RURE1114','±èÁÖÈñ','1234','¼­¿ï ±İÃµ±¸','010-1234-1234','true');
-insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('Lee@Lee.com','ÀÌ½Â°Ç','4321','¼­¿ï ±İÃµ±¸','010-1111-1111','true');
+insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('RURE1114','ê¹€ì£¼í¬','1234','ì„œìš¸ì‹œ êµ¬ë¡œêµ¬','010-1234-1234','true');
+insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('Lee@Lee.com','ì´ìŠ¹ê±´','4321','ì„œìš¸ì‹œ ê´‘ì§„êµ¬','010-1111-1111','true');
 
 
 commit;
