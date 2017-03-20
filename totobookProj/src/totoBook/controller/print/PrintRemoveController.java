@@ -1,4 +1,4 @@
-package totoBook.controller;
+package totoBook.controller.print;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
