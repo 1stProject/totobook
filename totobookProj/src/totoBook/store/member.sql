@@ -10,8 +10,8 @@ CREATE TABLE member_tb (
   receiveEmail varchar2(50)
 );
 
-insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('user','서대현','1234','서울 금천구','010-1234-1234','true');
-insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('man','이승건','4321','서울 금천구','010-1111-1111','true');
+insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('RURE1114','김주희','1234','서울 금천구','010-1234-1234','true');
+insert into member_tb(member_id, name, password, address, phoneNumber, receiveEmail) values ('Lee@Lee.com','이승건','4321','서울 금천구','010-1111-1111','true');
 
 
 commit;
