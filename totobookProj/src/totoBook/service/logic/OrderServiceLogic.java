@@ -10,6 +10,7 @@ public class OrderServiceLogic implements OrderService {
 
 	@Override
 	public void registerOrder(Order order) {
+		
 	}
 
 	@Override
