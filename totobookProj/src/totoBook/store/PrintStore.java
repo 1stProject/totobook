@@ -1,5 +1,8 @@
 package totoBook.store;
 
-public interface PrintStore {
+import totoBook.domain.Print;
 
+public interface PrintStore {
+	void insertPrint(Print print);
+	void deletePrint(Print print);
 }

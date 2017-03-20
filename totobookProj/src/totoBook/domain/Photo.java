@@ -1,5 +1,8 @@
 package totoBook.domain;
 
-public class Photo {
+import java.util.List;
 
+public class Photo {
+	private String printId;
+	private List<Photo> photos;
 }
