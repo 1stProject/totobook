@@ -3,19 +3,18 @@ package totoBook.domain;
 public class Member {
 
 
-	private String memberid;
+	private String memberId;
 	private String name;
 	private String password;
-	private String adrress;
-	private String phonumber;
-	private String receiveemail;
+	private String address;
+	private String phoneNumber;
+	private String receiveEmail;
 	
-	
-	public String getMemberid() {
-		return memberid;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setMemberid(String memberid) {
-		this.memberid = memberid;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public String getName() {
 		return name;
@@ -29,28 +28,25 @@ public class Member {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getAdrress() {
-		return adrress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdrress(String adrress) {
-		this.adrress = adrress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getPhonumber() {
-		return phonumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhonumber(String phonumber) {
-		this.phonumber = phonumber;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
-	public String getReceiveemail() {
-		return receiveemail;
+	public String getReceiveEmail() {
+		return receiveEmail;
 	}
-	public void setReceiveemail(String receiveemail) {
-		this.receiveemail = receiveemail;
+	public void setReceiveEmail(String receiveEmail) {
+		this.receiveEmail = receiveEmail;
 	}
-	@Override
-	public String toString() {
-		return "Member [memberid=" + memberid + ", name=" + name + ", password=" + password + ", adrress=" + adrress
-				+ ", phonumber=" + phonumber + ", receiveemail=" + receiveemail + "]";
-	}
+	
+	
 	
 }
