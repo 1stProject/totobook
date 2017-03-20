@@ -28,4 +28,7 @@ public class SqlSessionFactoryProvider {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 }
