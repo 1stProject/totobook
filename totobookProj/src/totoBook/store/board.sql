@@ -43,7 +43,7 @@ VALUES(QUESTION_SEQ.NEXTVAL, 'rure14', '문의드려요.', '배송언제와요?'
 
 CREATE TABLE ANSWER_TB (
   answer_id varchar2(50),
-  content varchar2(50) not null,
+  content varchar2(1000) not null,
   post_id varchar2(50) not null,
  PRIMARY KEY (answer_id)
 );
