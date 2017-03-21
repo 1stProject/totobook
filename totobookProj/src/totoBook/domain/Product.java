@@ -10,7 +10,7 @@ public class Product {
 
 	private String productId;
 	private String name;
-	private Photo photo;
+	private String imageAddress;
 	private int productprice;
 	private String category;
 	private String descript;
@@ -59,12 +59,13 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public Photo getPhoto() {
-		return photo;
+	public String getImageAddress() {
+		return imageAddress;
 	}
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setImageAddress(String imageAddress) {
+		this.imageAddress = imageAddress;
 	}
+
 	
 	
 }
