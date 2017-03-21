@@ -22,25 +22,25 @@
 	
 	
 	<select id="selectMemberById" parameterType="String" resultMap="MemberMap">
-	SELECT memberId, name, password, address, phone,receiveEmail
+	SELECT member_Id, name, password, address, phone,receive_Email
 	FROM member_tb
 	WHERE member_id = #{memberId}	
 	</select>
 	
 	<select id="selectMembersByTel" parameterType="String" resultMap="MemberMap">
-	SELECT memberId, name, password, address, phone,receiveEmail
+	SELECT member_Id, name, password, address, phone,receive_Email
 	FROM member_tb
 	WHERE phone = #{phone}
 	
 	</select>
 	<select id="selectMembersByName" parameterType="Member" resultMap="MemberMap">
-	SELECT memberId, name, password, address, phone,receiveEmail
+	SELECT member_Id, name, password, address, phone,receive_Email
 	FROM member_tb
 	ORDER BY memberId DESC	
 	</select>
 	
 	<select id="selectMember" parameterType="Member" resultMap="MemberMap">
-	SELECT memberId, name, password, address, phone, receiveEmail
+	SELECT member_Id, name, password, address, phone, receive_Email
 	FROM member_tb
 	WHERE member_id = #{memberId}
 	
@@ -48,7 +48,7 @@
 	
 	<update id="updateMember" parameterType="Member">
 		UPDATE member_tb
-		SET member_id=#{memberId} ,member_address=#{address}, member_phone=#{phone},receiveEmail=#{receiveEmail}
+		SET member_id=#{memberId} ,member_address=#{address}, member_phone=#{phone},receive_Email=#{receiveEmail}
 		WHERE member_id= #{memberId}
 	
 	</update>
