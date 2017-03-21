@@ -39,7 +39,7 @@ public class MemberRegisterController extends HttpServlet {
 	
 	service.registerMember(member);
 	
-	response.sendRedirect("find.do");
+	response.sendRedirect("list.do");
 	
 	
 	}

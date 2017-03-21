@@ -7,8 +7,6 @@
 <head>
     <meta charset="UTF-8">
     <title>회원목록</title>
-    <link rel="stylesheet" href="${ctx }/style/css/reset.css">
-    <link rel="stylesheet" href="${ctx }/style/css/style.css">
 </head>
 <body>
 <div class="contents-wrap">
@@ -29,22 +27,12 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${employees }" var ="emp" varStatus="sts">
+            <c:forEach items="${memberList }" var ="ml">
             <tr>
-                <td>${sts.count }</td>
-                <td>${emp.no }</td>
-                <td>${emp.name }</td>
-                <c:choose>
-            
-                <c:when test="${emp.deptNo ne null }">
-                <td>${emp.deptNo }</td>
-                </c:when>
-				<c:otherwise>
-				<td><a href="${ctx }/dept/assign.do?empNo=${emp.no }">부서배정</a></td>    
-				         
-            	</c:otherwise>
-            	</c:choose>
-            </tr>
+                <td>${ml.name }</td>
+                <td>${ml.address }</td>
+                <td>${ml.phone }</td>
+             </tr>
 	</c:forEach>
             </tbody>
         </table>
