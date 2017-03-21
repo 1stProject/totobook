@@ -7,6 +7,10 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+/**
+ * @author juhee Kim
+ * @version 1.0
+ */
 public class SqlSessionFactoryProvider {
 
 	private static final String resource = "blog/store/config.xml";

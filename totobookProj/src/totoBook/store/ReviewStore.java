@@ -6,6 +6,10 @@ import totoBook.domain.Member;
 import totoBook.domain.Product;
 import totoBook.domain.Review;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public interface ReviewStore {
 
 	void insertComment(Review review);

@@ -5,6 +5,10 @@ import java.util.List;
 import totoBook.domain.Photo;
 import totoBook.store.PhotoStore;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class PhotoStoreLogic implements PhotoStore {
 
 	@Override

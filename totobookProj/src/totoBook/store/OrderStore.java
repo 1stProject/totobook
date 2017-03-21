@@ -5,6 +5,10 @@ import java.util.List;
 
 import totoBook.domain.Order;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public interface OrderStore {
 	void insertOrder(Order order);
 	void updateOrder(Order order);

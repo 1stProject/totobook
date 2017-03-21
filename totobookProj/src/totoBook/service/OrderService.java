@@ -5,6 +5,11 @@ import java.util.List;
 
 import totoBook.domain.Order;
 
+/**
+ * @author
+ * @version 1.0
+ */
+
 public interface OrderService {
 	void registerOrder(Order order);
 	List<Order> findAllOrders();

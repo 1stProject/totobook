@@ -5,6 +5,11 @@ import java.util.List;
 import totoBook.domain.Option;
 import totoBook.domain.Product;
 
+/**
+ * @author
+ * @version 1.0
+ */
+
 public interface ProductStore {
 
 	List<Product> selectProductsByName(String name);
@@ -17,6 +22,6 @@ public interface ProductStore {
 	void insertOption(Option option);
 	void modifyOption(Option option);
 	void removeOption(Option option);
-	
+	Option findOption(String product_id);
 	
 }

@@ -4,6 +4,10 @@ import java.util.List;
 
 import totoBook.domain.Post;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public interface QuestionService {
 	void registerQuestion(Post post);
 	List<Post> findAllQuestion();

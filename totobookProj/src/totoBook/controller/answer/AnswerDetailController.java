@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AnswerDetailController
+ * @author
+ * @version 1.0
  */
 @WebServlet("/answer/detail.do")
 public class AnswerDetailController extends HttpServlet {

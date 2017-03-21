@@ -4,6 +4,10 @@ import java.util.List;
 
 import totoBook.domain.Book;
 
+/**
+ * @author juhee Kim
+ * @version 1.0
+ */
 public interface BookMapper {
 
 	void insertBook(Book book);

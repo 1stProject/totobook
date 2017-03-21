@@ -7,6 +7,10 @@ import totoBook.service.MemberService;
 import totoBook.store.MemberStore;
 import totoBook.store.logic.MemberStoreLogic;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class MemberServiceLogic implements MemberService {
 	
 	private MemberStore memberStore;

@@ -4,6 +4,10 @@ import java.util.List;
 
 import totoBook.domain.Member;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public interface MemberMapper {
 	void insertMember(Member member);
 	Member selectMemberById(String memberId);

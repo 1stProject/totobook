@@ -3,6 +3,10 @@ package totoBook.store.logic;
 import totoBook.domain.Print;
 import totoBook.store.PrintStore;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class PrintStoreLogic implements PrintStore {
 
 	@Override

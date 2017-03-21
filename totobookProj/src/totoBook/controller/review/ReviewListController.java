@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ReviewListController
+ * @author
+ * @version 1.0
  */
 @WebServlet("/review/list.do")
 public class ReviewListController extends HttpServlet {

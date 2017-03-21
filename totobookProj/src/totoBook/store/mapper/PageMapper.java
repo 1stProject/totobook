@@ -4,6 +4,11 @@ import java.util.List;
 
 import totoBook.domain.Page;
 
+/**
+ * @author juhee Kim
+ * @version 1.0
+ */ 
+
 public interface PageMapper {
 	
 	void insertPages(List<Page> pages);

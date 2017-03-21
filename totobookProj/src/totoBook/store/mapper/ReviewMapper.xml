@@ -2,6 +2,42 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="totoBook.store.mapper.ReviewMapper">
+
+	<insert id="insertComment" parameterType="Review">
+	INSERT INTO REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, IMAGE_EXT)
+	values(#{MEMBER_ID}, #{PRODUCT_ID}, #{CONTENT}, #{IMAGE_ADDRESS}, #{IMAGE_EXT})
+
+	</insert>
+
+	<update id="updateComment" parameterType="Review">
+	Update review_tb
+	set content = #{CONTENT}, image_address = #{IMAGE_ADDRESS}, IMAGE_EXT = #{IMAGE_EXT})
+	where MEMBER_ID = #{MEMBER_ID}, PRODUCT_ID = #{PRODUCT_ID}
+	</update>
+
+	<delete id="deleteCommentByMember" parameterType="Member">
+	DELETE review_tb
+	WHERE MEMBER_ID = #{MEMBER_ID}
+	<!--지금시스템 나의 관리에서 상품평 지우면 죄다 다 지워진다  -->
+	</delete>
+
+	<delete id="deleteCommentByProduct" parameterType="Product">
+	DELETE review_tb
+	WHERE MEMBER_ID = #{PRODUCT_ID}
+	</delete>
+
+	<select id="selectCommentsByProduct" parameterType="Product">
+	Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, IMAGE_EXT
+	FROM REVIEW_TB where PRODUCT_ID = #{PRODUCT_ID}
+	
+	</select>
+
+
+	<select id="selectCommentsByMember" parameterType="Member">
+	Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, IMAGE_EXT
+	FROM REVIEW_TB where MEMBER_ID = #{MEMBER_ID}
+</select>
+
 </mapper>

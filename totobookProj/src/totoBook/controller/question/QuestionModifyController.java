@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * @author
+ * @version 1.0
+ */
 @WebServlet("/question/modify.do")
 public class QuestionModifyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

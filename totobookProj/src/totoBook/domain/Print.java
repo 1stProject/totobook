@@ -2,6 +2,10 @@ package totoBook.domain;
 
 import java.util.List;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class Print {
 	private String printId;
 	private List<Photo> photos;

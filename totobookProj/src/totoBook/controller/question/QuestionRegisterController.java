@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class QuestionRegisterController
+ * @author
+ * @version 1.0
  */
 @WebServlet("/question/register.do")
 public class QuestionRegisterController extends HttpServlet {

@@ -3,6 +3,10 @@ package totoBook.domain;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * @author
+ * @version 1.0
+ */
 public class Order {
 	private String orderId;
 	private Date ordDate;
