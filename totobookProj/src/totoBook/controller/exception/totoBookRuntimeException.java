@@ -1,10 +1,10 @@
 package totoBook.controller.exception;
 
-public class YzRuntimeException extends RuntimeException{
+public class totoBookRuntimeException extends RuntimeException{
 	private static final long serialVersionUID = -6259362625181255085L;
 	private String redirectURL;
 	
-	public YzRuntimeException(String message) {
+	public totoBookRuntimeException(String message) {
 		super(message);
 	}
 	

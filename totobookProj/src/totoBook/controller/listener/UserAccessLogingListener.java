@@ -1,10 +1,10 @@
-package yorizori.web.listener;
+package totoBook.controller.listener;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
-import yorizori.domain.User;
+import totoBook.domain.Member;
 
 @WebListener
 public class UserAccessLogingListener implements HttpSessionAttributeListener {
@@ -13,15 +13,15 @@ public class UserAccessLogingListener implements HttpSessionAttributeListener {
 
     public void attributeAdded(HttpSessionBindingEvent se)  { 
     	if(SESSION_ATTRIBUTE_NAME.equals(se.getName())){
-    		User user = (User)se.getValue();
-    		System.out.println(user.getName() + " is login.");
+    		Member member = (Member)se.getValue();
+    		System.out.println(member.getName() + " is login.");
     	}
     }
 
     public void attributeRemoved(HttpSessionBindingEvent se)  { 
     	if(SESSION_ATTRIBUTE_NAME.equals(se.getName())){
-    		User user = (User)se.getValue();
-    		System.out.println(user.getName() + " is logout.");
+    		Member member = (Member)se.getValue();
+    		System.out.println(member.getName() + " is logout.");
     	}
     }
 
