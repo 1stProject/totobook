@@ -26,6 +26,7 @@ public class BookStoreLogic implements BookStore{
 			BookMapper mapper = session.getMapper(BookMapper.class);
 			
 			mapper.insertBook(book);
+			session.commit();
 		} finally {
 			session.close();
 		}
@@ -40,6 +41,7 @@ public class BookStoreLogic implements BookStore{
 			BookMapper mapper = session.getMapper(BookMapper.class);
 			
 			mapper.updateBook(book);
+			session.commit();
 		} finally {
 			session.close();
 		}
@@ -54,6 +56,7 @@ public class BookStoreLogic implements BookStore{
 			BookMapper mapper = session.getMapper(BookMapper.class);
 			
 			mapper.deleteBook(bookId);
+			session.commit();
 		} finally {
 			session.close();
 		}

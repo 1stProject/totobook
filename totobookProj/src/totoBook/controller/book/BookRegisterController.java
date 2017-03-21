@@ -53,7 +53,7 @@ public class BookRegisterController extends HttpServlet {
 		for(int i = 0; i < pageOption; i ++){
 			Page page = new Page();
 			page.setBook(book);
-			page.setImageAddress("/images/pageLayout/"+sizeOption+"_default_layout_"+layoutnum+".jpg");
+			page.setImageAddress("/images/pageLayout/"+sizeOption+"_blue_layout_"+layoutnum+".jpg");
 			
 			pages.add(page);
 			

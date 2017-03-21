@@ -22,7 +22,7 @@
   		where print_id = #{printId}
   	</delete>
   	<select id="selectPrintsByUserId" parameterType = "string" resultMap = "printMap">
-  		SELECT print_id, member_id, product_id, print_option
+  		SELECT print_id, member_id, print_option
   		FROM print_tb
   		WHERE member_id = #{memberId}
   	</select>

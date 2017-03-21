@@ -37,12 +37,12 @@ public class PrintStoreLogic implements PrintStore {
 	}
 	
 	@Override
-	public List<Print> selectPrintsByUserId(String userId) {
+	public List<Print> selectPrintsByMemberId(String memberId) {
 		SqlSession session = factory.openSession();
 		List<Print> prints = null;
 		try {
 			PrintMapper mapper = session.getMapper(PrintMapper.class);
-			prints = mapper.selectPrintsByUserId(userId);
+			prints = mapper.selectPrintsByUserId(memberId);
 		} finally {
 			session.close();
 		}
