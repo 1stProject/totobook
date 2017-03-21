@@ -17,11 +17,11 @@ public interface ProductStore {
 	void insertProduct(Product product);
 	void updateProduct(Product product);
 	void deleteProduct(Product product);
-	Product selectProductById(Product product);
+	Product selectProductById(String productId);
 	List<Product> selectProductsByCategory(String category);
 	void insertOption(Option option);
 	void modifyOption(Option option);
-	void removeOption(Option option);
-	Option findOption(String product_id);
+	void deleteOption(Option option);
+	List<Option> selectOptions(String product_id);
 	
 }
