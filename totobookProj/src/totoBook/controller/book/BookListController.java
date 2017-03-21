@@ -1,11 +1,18 @@
 package totoBook.controller.book;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import totoBook.domain.Book;
+import totoBook.service.BookService;
+import totoBook.service.logic.BookServiceLogic;
 
 /**
  * @author 김주희
@@ -16,8 +23,19 @@ public class BookListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		HttpSession session = request.getSession();
+		BookService service = new BookServiceLogic();
+		
+		String memberId = (String)session.getAttribute("memberId");		
+		
+		List<Book> books = service.findBooksByMemberId(memberId);
+		
+		request.setAttribute("books", books);
+		
+		request.getRequestDispatcher("/views/bookList.jsp").forward(request, response);
+		
+		
 	}
 
 }
