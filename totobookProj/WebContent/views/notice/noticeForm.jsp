@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<header>
+	</header>
+	
+	<footer>
+	</footer>
 </body>
 </html>
