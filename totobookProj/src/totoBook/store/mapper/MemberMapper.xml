@@ -4,6 +4,60 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="totoBook.store.mapper.MemberMapper">
+	
+	<resultMap type="Member" id="MemberMap">
+		<id column="member_id" property="id"/>
+		<result column="member_name" property="name"/>
+		<result column="member_password" property="password"/>
+		<result column="member_address" property="address"/>
+		<result column="member_phoneNumber" property="phoneNumber"/>
+		<result column="receiveEmail" property="receiveEmail"/>
+	
+	</resultMap>
+	
+	<insert id="insertMember" parameterType="Member">
+	INSERT INTO member_tb (member_id, member_name, member_password, member_address, member_phoneNumber,receiveEmail)
+	VALUES (#{id}, #{name}, #{password}, #{address}, #{phoneNumber}, #{receiveEmail})
+	</insert>
+	
+	
+	<select id="selectMemberById" parameterType="String" resultMap="MemberMap">
+	SELECT id, name, password, address, phoneNumber,receiveEmail
+	FROM member_tb
+	WHERE member_id = #{id}	
+	</select>
+	
+	<select id="selectMembersByTel" parameterType="String" resultMap="MemberMap">
+	SELECT id, name, password, address, phoneNumber,receiveEmail
+	FROM member_tb
+	WHERE member_phoneNumber = #{phoneNumber}
+	
+	</select>
+	<select id="selectMembersByName" parameterType="Member" resultMap="MemberMap">
+	SELECT id, name, password, address, phoneNumber,receiveEmail
+	FROM member_tb
+	ORDER BY id DESC	
+	</select>
+	
+	<select id="selectMember" parameterType="Member" resultMap="MemberMap">
+	SELECT id, name, password, address, phoneNumber, receiveEmail
+	FROM member_tb
+	WHERE member_id = #{id}
+	
+	</select>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE member_tb
+		SET member_id=#{id} ,member_address=#{address}, member_phoneNumber=#{phoneNumber},receiveEmail=#{receiveEmail}
+		WHERE member_id= #{id}
+	
+	</update>
+	
+	<delete id="deleteMember" parameterType="Member">
+		DELETE
+		FROM member_tb
+		WHERE member_tb = #{id}
+	</delete>
 
   
   </mapper>

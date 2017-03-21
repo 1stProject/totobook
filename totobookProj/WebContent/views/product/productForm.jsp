@@ -14,8 +14,8 @@
 				<tr>
 					<td>상품카테고리</td>
 					<td><select name="category">
-							<option value="print">사진</option>
 							<option value="book">포토북</option>
+							<option value="print">사진</option>
 					</select></td>
 				</tr>
 				<tr>
@@ -31,16 +31,25 @@
 					<td><input type="text" name="rpedf"></td>
 				</tr>
 				<tr>
-					<td>상품옵션</td>
-					<td>사이즈<select name="option"><option value="">---</option>
+					<td>사이즈옵션</td>
+					<td>크기<select name="optionName"><option value="">---</option>
+							<option value="15*15">15X15</option>
+							<option value="20*20">20X20</option>
+							<option value="35*35">35X35</option>
 							<option value="print">증명사진</option>
-							<option value="book">3X5</option>
-							<option value="book">4X6</option>
-					</select> 광택<select name="optionlight"><option value="unlight">---</option>
-							<option value="light">광택</option>
-							<option value="unlight">무광택</option>
+							<option value="3*5">3X5</option>
+							<option value="4*6">4X6</option>
 					</select>
 					</td>
+				<tr>
+					<td>그외</td>
+					<td><select name="optionDesp"><option value="unlight">---</option>
+							<option value="light">광택</option>
+							<option value="unlight">무광택</option>
+							<option value="20">20장</option>
+							<option value="30">30장</option>
+							<option value="40">40장</option>
+					</select></td>
 				</tr>
 				<tr>
 					<td>사진</td>

@@ -12,17 +12,17 @@ import totoBook.domain.Product;
 
 public interface ProductMapper {
 
-	List<Product> findProductsByName(String name);
-	List<Product> findAllProducts();
-	void registerProduct(Product product);
-	void modifyProduct(Product product);
-	Product findProductById(Product product);
-	List<Product> findProductsByCategory(String category);
-	void registerOption(Option option);
-	void modifyOption(Option option);
-	void removeOption(Option option);
-	Option findOption(String product_id);
+	List<Product> selectProductsByName(String name);
+	List<Product> selectAllProducts();
+	void insertProduct(Product product);
+	void updateProduct(Product product);
 	void deleteProduct(Product product);
+	Product selectProductById(String productId);
+	List<Product> selectProductsByCategory(String category);
+	void insertOption(Option option);
+	void modifyOption(Option option);
+	void deleteOption(Option option);
+	List<Option> selectOption(String product_id);
 
 	
 }
