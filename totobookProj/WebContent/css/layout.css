@@ -28,14 +28,35 @@ div.contentsContainer {
 }
 
 div.leftMenu {
-	width : 150px;
+	width : 200px;
 	height : 800px;
 	background-color : pink;
 	float:left;
 }
 div.contents {
-	width : 790px;
+	width : 740px;
 	height : 850px;
 	background-color : white;
 	float : left;
 }
+
+table.blueListTab {
+	margin : 0 auto;
+	margin-top : 20px;
+}
+
+table.blueListTab th{
+	height : 30px;
+	border-bottom: 1px solid #48E9FA;
+	background-color : #48E9FA;
+	color : white;
+	text-align: center;
+}
+
+table.blueListTab tr{
+	border-bottom: 1px solid black;
+}
+
+table.blueListTab tr:nth-child(even) {
+	background-color: #f2f2f2
+	}

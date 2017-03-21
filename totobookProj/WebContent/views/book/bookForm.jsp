@@ -16,6 +16,7 @@
 	</header>
 	
 	<div class="contents">
+			<h3>포토북 편집</h3>
 	<form action="${ctx }/book/edit.do" method="post">
 		<h3>포토북 편집</h3>
 		포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">

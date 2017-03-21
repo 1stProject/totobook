@@ -32,7 +32,7 @@ public class BookEditController extends HttpServlet {
 		
 		request.setAttribute("book", service.findBook(bookId));
 		
-		request.getRequestDispatcher("/views/bookForm.jsp");
+		request.getRequestDispatcher("/views/bookForm.jsp").forward(request, response);
 	}
 	
 

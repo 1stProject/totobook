@@ -25,6 +25,12 @@
 		WHERE BOOK_ID = #{bookId}
 	
 	</delete>
+	
+	<select id="selectPagesByBookId" parameterType="String" resultMap="pageMap">
+		SELECT PAGE_ID, BOOK_ID, IMAGE_ADDRESS
+		FROM PAGE_TB
+		WHERE BOOK_ID = #{bookId}
+	</select>
 
 </mapper>
   

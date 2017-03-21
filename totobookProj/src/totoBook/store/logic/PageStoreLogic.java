@@ -24,6 +24,7 @@ public class PageStoreLogic implements PageStore{
 			PageMapper mapper = session.getMapper(PageMapper.class);
 			
 			mapper.insertPages(pages);
+			session.commit();
 		} finally {
 			session.close();
 		}
@@ -38,6 +39,7 @@ public class PageStoreLogic implements PageStore{
 			PageMapper mapper = session.getMapper(PageMapper.class);
 			
 			mapper.deletePages(bookId);
+			session.commit();
 		} finally {
 			session.close();
 		}

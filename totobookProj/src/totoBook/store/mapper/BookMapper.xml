@@ -8,10 +8,11 @@
 	<resultMap type="Book" id="bookMap">
 		<id property="bookId" column="book_id" />
 		<result property="bookName" column="book_name" />
-		<association property="product" column="product_id"
+		<result property="saveDate" column="save_date" />
+<!-- 		<association property="product" column="product_id"
 			select="totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType="Product" jdbcType="NUMERIC" />
-<!-- 		<association property="member" column="member_id"
+		<association property="member" column="member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
 			javaType="Member" jdbcType="VARCHAR" /> -->
 		<collection property="pages" column="book_id" ofType="Page"
@@ -20,9 +21,8 @@
 	</resultMap>
 
 	<insert id="insertBook" parameterType="Book">
-		INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE,
-		BOOK_OPTION)
-		VALUES(BOOK_SEQ.NEXTVAL, #{book_name}, #{member.memberId}, #{saveDate}, #{option})
+		INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION, PRODUCT_ID)
+		VALUES(BOOK_SEQ.NEXTVAL, #{book_name}, #{member.memberId}, #{saveDate}, #{option}, #{product.productId})
 
 		<foreach collection=""></foreach>
 
@@ -38,13 +38,13 @@
 	</delete>
 
 	<select id="selectBook" parameterType="String" resultMap="bookMap">
-		SELECT BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION
+		SELECT BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION, PRODUCT_ID
 		FROM BOOK_TB
 		WHERE BOOK_ID = #{bookId}
 	</select>
 
 	<select id="selectBooksByMemberId" parameterType="String" resultMap="bookMap">
-		SELECT BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION
+		SELECT BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION, PRODUCT_ID
 		FROM BOOK_TB
 		WHERE MEMBER_ID = #{memberId}
 	</select>

@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +24,7 @@
 		<div class="contents">
 			<h3>나의 포토북 관리</h3>
 			
-			<table class="blueListTable">
+			<table class="blueListTab">
 				<colgroup>
 					<col width="20px">
 					<col width="60px"> 
@@ -39,13 +41,13 @@
 				</tr>
 				<c:forEach items="${books }" var="book" varStatus="sts">
 					<tr>
-						<td>sts.count</td>
+						<td>${sts.count}</td>
 						<td>${book.bookName }</td>
 						<td>${book.product.name}</td>
-						<td>${book.countPages }</td>
+						<td>${fn:length(book.pages)}</td>
 						<td>${book.product.price}</td>
-						<td><button type="button" >편집</button></td>
-						<td><button type="button" >삭제</button></td>
+						<td><button type="button" onclick="window.location.href='${ctx }/book/edit.do?bookId=${book.bookId}'">편집</button></td>
+						<td><button type="button" onclick="window.location.href='${ctx }/book/remove.do?bookId=${book.bookId}'">삭제</button></td>
 					</tr>
 				</c:forEach>
 				

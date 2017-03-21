@@ -1,6 +1,7 @@
 package totoBook.controller.book;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -32,10 +33,9 @@ public class BookListController extends HttpServlet {
 		
 		List<Book> books = service.findBooksByMemberId(memberId);
 		
-		
 		request.setAttribute("books", books);
 		
-		request.getRequestDispatcher("/views/bookList.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/book/bookList.jsp").forward(request, response);
 		
 		
 	}

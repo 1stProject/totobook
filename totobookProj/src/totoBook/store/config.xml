@@ -43,7 +43,6 @@
 		<mapper resource="totoBook/store/mapper/OptionMapper.xml"/>
 		<mapper resource="totoBook/store/mapper/OrderMapper.xml"/>
 		<mapper resource="totoBook/store/mapper/PageMapper.xml"/>
-		<mapper resource="totoBook/store/mapper/PostMapper.xml"/>
 		<mapper resource="totoBook/store/mapper/PhotoMapper.xml"/>
 		<mapper resource="totoBook/store/mapper/PrintMapper.xml"/>
 		<mapper resource="totoBook/store/mapper/ProductMapper.xml"/>
