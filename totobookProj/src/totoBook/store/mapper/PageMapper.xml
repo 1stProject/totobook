@@ -5,6 +5,27 @@
 
 <mapper namespace="totoBook.store.mapper.PageMapper">
 
+	<resultMap type="Page" id="pageMap">
+		<id property="pageId" column="page_id" />
+		<result property="imageAddress" column="image_Address" />
+		<association property="book" column="book_id"
+			select="totoBook.store.mapper.BookMapper.selectBook"
+			javaType="Book" jdbcType="NUMERIC" />
+	</resultMap>
+
+	<insert id="insertPages" parameterType="List">
+		<foreach collection="List" item="Page">
+			insert into Page_Tb(PAGE_ID, BOOK_ID, IMAGE_ADDRESS)
+			VALUES(PAGE_seq.nextval, #{Page.bookId}, #{Page.ImageAddress});
+		</foreach>
+	</insert>
+	
+	<delete id="deletePages" parameterType="String">
+		DELETE FROM PAGE_TB
+		WHERE BOOK_ID = #{bookId}
+	
+	</delete>
+
 </mapper>
   
   

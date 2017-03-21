@@ -1,5 +1,6 @@
 package totoBook.domain;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,6 +11,8 @@ public class Book {
 	
 	private String bookId;
 	private String bookName;
+	private Date saveDate;
+	private String option;
 	private List<Page> pages;
 	private Member member;
 	private Product product;
@@ -47,6 +50,23 @@ public class Book {
 	
 	public int countPages(){
 		return this.pages.size();
+	}
+	public Date getSaveDate() {
+		return saveDate;
+	}
+	public void setSaveDate(Date saveDate) {
+		this.saveDate = saveDate;
+	}
+	public String getOption() {
+		return option;
+	}
+	public void setOption(String option) {
+		this.option = option;
+	}
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", bookName=" + bookName + ", saveDate=" + saveDate + ", option=" + option
+				+ ", pages=" + pages + ", member=" + member + ", product=" + product + "]";
 	}
 	
 	

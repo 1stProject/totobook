@@ -24,8 +24,11 @@ public class BookEditController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("이양!!!");
+		
 		BookService service = new BookServiceLogic();
-		String bookId = request.getParameter("bookId");
+//		String bookId = request.getParameter("bookId");
+		String bookId = "2";
 		
 		request.setAttribute("book", service.findBook(bookId));
 		
@@ -35,12 +38,15 @@ public class BookEditController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("이야!");
 		BookService service = new BookServiceLogic();
 		
 		String bookId = request.getParameter("bookId");
 		
 		Book book = service.findBook(bookId);
 //		List<Page> pages = request.getParameter();
+		
+		book.setBookName(request.getParameter("bookName"));
 		
 		service.modifyBook(book);		
 		
