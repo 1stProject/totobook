@@ -7,10 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import totoBook.domain.Member;
+import totoBook.service.MemberService;
+import totoBook.service.logic.MemberServiceLogic;
+
+
 @WebServlet("/member/register.do")
 public class MemberRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,6 +19,31 @@ public class MemberRegisterController extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	String memberId = request.getParameter("memberId");
+	String name = request.getParameter("name");
+	String password = request.getParameter("password");
+	String address = request.getParameter("address");
+	String phoneNumber = request.getParameter("phoneNumber");
+	String receiveEmail = request.getParameter("receiveEmail");
+	Member member = new Member();
+	
+	member.setMemberId(memberId);
+	member.setName(name);
+	member.setPassword(password);
+	member.setAddress(address);
+	member.setPhoneNumber(phoneNumber);
+	member.setPhoneNumber(phoneNumber);
+	member.setReceiveEmail(receiveEmail);
+	
+	MemberService service = new MemberServiceLogic();
+	
+	service.registerMember(member);
+	
+	response.sendRedirect("list.do");
+	
+	
 	}
 
 }
+
