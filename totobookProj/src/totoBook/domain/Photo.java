@@ -9,6 +9,7 @@ public class Photo {
 	private String fileName;
 	private String contentType;
 	private int amount;
+	private String printId;
 	
 	public String getPhotoId() {
 		return photoId;
@@ -34,6 +35,13 @@ public class Photo {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	public String getPrintId() {
+		return printId;
+	}
+	public void setPrintId(String printId) {
+		this.printId = printId;
+	}
 	
 	
 }
+
