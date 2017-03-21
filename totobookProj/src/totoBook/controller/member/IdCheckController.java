@@ -19,7 +19,7 @@ public class IdCheckController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String id = request.getParameter("memberId");
 		
 		PrintWriter out = response.getWriter();
 		

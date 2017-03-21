@@ -5,6 +5,10 @@
 
 <mapper namespace="totoBook.store.mapper.BookMapper">
 
+ <insert id="">
+ 	<foreach collection=""></foreach>
+ 
+ </insert>
 </mapper>
   
   

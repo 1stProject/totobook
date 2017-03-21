@@ -13,7 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  */
 public class SqlSessionFactoryProvider {
 
-	private static final String resource = "blog/store/config.xml";
+	private static final String resource = "totoBook/store/config.xml";
 
 	private static SqlSessionFactory factory;
 
