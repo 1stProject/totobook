@@ -32,7 +32,7 @@
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
 			javaType = "Member" jdbcType = "VARCHAR"/>
 		<association property="product" column = "product_id"
-			select = "totoBook.store.mapper.ProductMapper.findProductById"
+			select = "totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType = "Product" jdbcType = "VARCHAR"/>
 	</resultMap>
 	
