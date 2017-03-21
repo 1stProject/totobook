@@ -13,14 +13,14 @@ import totoBook.store.logic.ProductStoreLogic;
 public class ProductServiceLogic implements ProductService {
 
 	
-	private ProductStore productstore;
-	private OptionStore optionstore;
+	private ProductStore productStore;
+	private OptionStore optionStore;
 	
 	
 	public ProductServiceLogic() {
 
-		productstore = new ProductStoreLogic();
-		optionstore = new OptionStoreLogic();
+		productStore = new ProductStoreLogic();
+		optionStore = new OptionStoreLogic();
 	
 	}
 
@@ -39,7 +39,7 @@ public class ProductServiceLogic implements ProductService {
 	@Override
 	public Product findProductById(String productId) {
 		// TODO Auto-generated method stub
-		return null;
+		return productStore.selectProductById(productId);
 	}
 
 	@Override
