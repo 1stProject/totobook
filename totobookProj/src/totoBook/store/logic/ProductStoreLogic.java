@@ -38,70 +38,12 @@ public class ProductStoreLogic implements ProductStore {
 	}
 
 	@Override
-	public List<Option> selectOptions(String productid) {
-		SqlSession session = factory.openSession();
-		Option option = new Option();
-		List<Option> list = new ArrayList<>();
-		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
-			list = mapper.selectOption(productid);
-			session.commit();
-
-		} finally {
-			session.close();
-		}
-		return list;
-	}
-
-	@Override
-	public void insertOption(Option option) {
-		SqlSession session = factory.openSession();
-
-		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
-			mapper.insertOption(option);
-			session.commit();
-		} finally {
-			session.close();
-		}
-	}
-
-	@Override
 	public void insertProduct(Product product) {
 		SqlSession session = factory.openSession();
 
 		try {
 			ProductMapper mapper = session.getMapper(ProductMapper.class);
 			mapper.insertProduct(product);
-			session.commit();
-		} finally {
-			session.close();
-		}
-
-	}
-
-	@Override
-	public void modifyOption(Option option) {
-		SqlSession session = factory.openSession();
-
-		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
-			mapper.modifyOption(option);
-			session.commit();
-		} finally {
-			session.close();
-		}
-
-	}
-
-	@Override
-	public void deleteOption(Option option) {
-		SqlSession session = factory.openSession();
-
-		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
-			mapper.deleteOption(option);
-			;
 			session.commit();
 		} finally {
 			session.close();
