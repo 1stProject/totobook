@@ -4,27 +4,40 @@ import java.util.List;
 
 import totoBook.domain.Member;
 import totoBook.service.MemberService;
+import totoBook.store.MemberStore;
+import totoBook.store.logic.MemberStoreLogic;
 
 public class MemberServiceLogic implements MemberService {
+	
+	private MemberStore memberStore;
+	
+	public MemberServiceLogic() {
+		
+		memberStore = new MemberStoreLogic();
+	}
 
 	@Override
 	public void registerMember(Member member) {
 		
+		memberStore.insertMember(member);
 	}
 
 	@Override
 	public Member findMemberById(String memberId) {
-		return null;
+		return memberStore.selectMemberById(memberId);
 	}
 
 	@Override
 	public void modifyMember(Member member) {
-		
+		memberStore.updateMember(member);
 	}
 
 	@Override
 	public void removeMember(String member) {
+
 		
+		
+		memberStore.deleteMember(member);
 	}
 
 	@Override
@@ -39,17 +52,17 @@ public class MemberServiceLogic implements MemberService {
 
 	@Override
 	public List<Member> findMembersByTel(String memberTel) {
-		return null;
+		return memberStore.selectMembersByTel(memberTel);
 	}
 
 	@Override
 	public List<Member> findMembersByName(String memberName) {
-		return null;
+		return memberStore.selectMembersByName(memberName);
 	}
 
 	@Override
 	public List<Member> findAllMembers() {
-		return null;
+		return memberStore.selectAllmembers();
 	}
 
 }

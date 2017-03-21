@@ -1,6 +1,8 @@
 package totoBook.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,16 @@ public class IdCheckController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String id = request.getParameter("id");
+		
+		PrintWriter out = response.getWriter();
+		
+		if(id.equals("")){
+			out.println("false");
+			
+		}else{
+			out.println("ok");
+		}
 	}
 
 }
