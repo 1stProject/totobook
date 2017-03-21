@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
+<title>totoBook</title>
 
 </head>
 <body>
@@ -16,7 +17,7 @@
 	
 	<div class="contents">
 	<form action="${ctx }/book/edit.do" method="post">
-		<h3></h3>
+		<h3>포토북 편집</h3>
 		포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
 		전체 페이지 수 : ${book.pageOption}" 장
 		선택한 상품명 : ${book.product.name}
