@@ -13,7 +13,7 @@
 		<header> </header>
 		<form action="${ctx }/question/register.do" method="post">
 			title : <input type="text" name="question_title"><br>
-			<br> <input type="text" name="content" style="height: 200px; width: 500px"><br>
+			<br> <input type="text" name="content" ><br>
 			<br> <input type="submit" value="등록">
 		</form>
 		<footer> </footer>

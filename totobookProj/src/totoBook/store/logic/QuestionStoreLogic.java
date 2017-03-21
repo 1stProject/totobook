@@ -1,7 +1,9 @@
 package totoBook.store.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.catalina.tribes.group.AbsoluteOrder.AbsoluteComparator;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -34,8 +36,19 @@ public class QuestionStoreLogic implements QuestionStore {
 
 	@Override
 	public List<Post> selectAllQuestion() {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = factory.openSession();
+		List<Post> list = new ArrayList<>();
+		System.out.println("done2");
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			list = mapper.selectAllQuestion();
+		} finally {
+			session.close();
+		}
+		for(Post post : list){
+			System.out.println(post.getTitle());
+		}
+		return list;
 	}
 
 	@Override

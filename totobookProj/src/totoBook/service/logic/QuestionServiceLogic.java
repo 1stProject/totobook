@@ -9,6 +9,9 @@ import totoBook.store.logic.QuestionStoreLogic;
 
 public class QuestionServiceLogic implements QuestionService{
 
+	public QuestionServiceLogic() {
+		
+	}
 	@Override
 	public void registerQuestion(Post post) {
 		QuestionStore store = new QuestionStoreLogic();
@@ -18,8 +21,9 @@ public class QuestionServiceLogic implements QuestionService{
 
 	@Override
 	public List<Post> findAllQuestion() {
-		// TODO Auto-generated method stub
-		return null;
+		QuestionStore store = new QuestionStoreLogic();
+		List<Post> list = store.selectAllQuestion();
+		return list;
 	}
 
 	@Override
