@@ -42,7 +42,7 @@ public class BookRegisterController extends HttpServlet {
 		int pageOption = (Integer)request.getAttribute("pageOption");
 		String sizeOption = (String)request.getAttribute("sizeOption");
 		
-		product.setProductid(productId);
+		product.setProductId(productId);
 		book.setBookName((String) request.getAttribute("productName"));
 		book.setMember(member);
 		book.setProduct(product);

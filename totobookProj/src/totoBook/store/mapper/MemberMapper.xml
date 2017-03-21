@@ -36,7 +36,7 @@
 	<select id="selectMembersByName" parameterType="Member" resultMap="MemberMap">
 	SELECT member_Id, name, password, address, phone,receive_Email
 	FROM member_tb
-	ORDER BY member_name = #{name}
+	WHERE name = #{name}
 	</select>
 	
 	<select id="selectMember" parameterType="Member" resultMap="MemberMap">

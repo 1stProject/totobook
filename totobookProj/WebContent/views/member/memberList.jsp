@@ -7,9 +7,19 @@
 <head>
     <meta charset="UTF-8">
     <title>회원목록</title>
+    
 </head>
 <body>
 <div class="contents-wrap">
+<form action="list.do" method="post">
+	<select name="fuck">
+		<option value="name" >이름</option>
+		<option value="address" >주소</option>
+		<option value="phone" >폰번</option>
+	</select>
+	<input type="text" name="search" value="" placeholder="입력ㄱ">
+	<input class="btn btn-xs btn-default" type="submit" value="검색">
+</form>
     <h2 class="page-title">회원목록</h2>
     <div class="contents">
         <table border="1">
@@ -19,6 +29,7 @@
                 <col width="*">
                 <col width="*">
             </colgroup>
+            
             <thead>
             <tr>
                 <th>이름</th>

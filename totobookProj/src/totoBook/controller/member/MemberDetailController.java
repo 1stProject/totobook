@@ -29,7 +29,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 	request.setAttribute("memberId", member);
 	
-	request.getRequestDispatcher("/member/myPage.jsp").forward(request, response);
+	request.getRequestDispatcher("/member/memberDetail.jsp").forward(request, response);
 }
 
 }
