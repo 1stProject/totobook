@@ -13,9 +13,53 @@
 		<%@include file="../head/header.jspf" %>
 	</header>
 	
-	<div class="contents">
-	
-		<h3>나의 포토북 관리</h3>
+	<div class="contentsContainer">
+		<div class="leftMenu">
+			1. 레프트 메뉴 1 <br>
+			2. 레프트 메뉴 2		
+		</div>
+
+		<div class="contents">
+			<h3>나의 포토북 관리</h3>
+			
+			<table class="blueListTable">
+				<colgroup>
+					<col width="20px">
+					<col width="60px"> 
+				
+				</colgroup>
+				<tr>
+					<th>NO</th>
+					<th>포토북 이름</th>
+					<th>상품상세</th>
+					<th>페이지 수</th>
+					<th>가격</th>
+					<th>편집</th>
+					<th>삭제</th>
+				</tr>
+				<c:forEach items="${books }" var="book" varStatus="sts">
+					<tr>
+						<td>sts.count</td>
+						<td>${book.bookName }</td>
+						<td>${book.product.name}</td>
+						<td>${book.countPages }</td>
+						<td>${book.product.price}</td>
+						<td><button type="button" >편집</button></td>
+						<td><button type="button" >삭제</button></td>
+					</tr>
+				</c:forEach>
+				
+					<tr>
+						<td>1</td>
+						<td>book.bookName</td>
+						<td>book.product.name</td>
+						<td>book.product.price</td>
+						<td><button type="button" >편집</button></td>
+						<td><button type="button" >삭제</button></td>
+					</tr>
+			</table>
+		
+		</div>
 	
 	</div>
 

@@ -20,9 +20,22 @@ div.footerDiv {
 	margin :0 auto;
 }
 
-div.contents {
+div.contentsContainer {
 	width : 940px;
 	height : 1000px;
 	margin :0 auto;
 	background-color : yellow;
+}
+
+div.leftMenu {
+	width : 150px;
+	height : 800px;
+	background-color : pink;
+	float:left;
+}
+div.contents {
+	width : 790px;
+	height : 850px;
+	background-color : white;
+	float : left;
 }

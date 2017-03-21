@@ -11,9 +11,9 @@
 		<association property="product" column="product_id"
 			select="totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType="Product" jdbcType="NUMERIC" />
-		<association property="member" column="member_id"
+<!-- 		<association property="member" column="member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
-			javaType="Member" jdbcType="VARCHAR" />
+			javaType="Member" jdbcType="VARCHAR" /> -->
 		<collection property="pages" column="book_id" ofType="Page"
 			select="totoBook.store.mapper.PageMapper.selectPagesByBookId"
 			javaType="ArrayList" jdbcType="NUMERIC"></collection>
@@ -43,8 +43,7 @@
 		WHERE BOOK_ID = #{bookId}
 	</select>
 
-	<select id="selectBooksByMemberId" parameterType="String"
-		resultMap="bookMap">
+	<select id="selectBooksByMemberId" parameterType="String" resultMap="bookMap">
 		SELECT BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION
 		FROM BOOK_TB
 		WHERE MEMBER_ID = #{memberId}

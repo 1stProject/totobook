@@ -27,9 +27,11 @@ public class BookListController extends HttpServlet {
 		HttpSession session = request.getSession();
 		BookService service = new BookServiceLogic();
 		
-		String memberId = (String)session.getAttribute("memberId");		
+/*		String memberId = (String)session.getAttribute("memberId");		*/
+		String memberId = "RURE1114";	
 		
 		List<Book> books = service.findBooksByMemberId(memberId);
+		
 		
 		request.setAttribute("books", books);
 		
