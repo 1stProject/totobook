@@ -23,73 +23,169 @@ public class ProductStoreLogic implements ProductStore {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
 
+	@Override
+	public void deleteProduct(Product product) {
+		SqlSession session = factory.openSession();
+		try {
 
-@Override
-public void deleteOption(Option option) {
-	// TODO Auto-generated method stub
-	
-}
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			mapper.deleteProduct(product);
+			session.commit();
+		} finally {
+			session.close();
+		}
 
-@Override
-public void deleteProduct(Product product) {
-	// TODO Auto-generated method stub
-	
-}
+	}
 
-@Override
-public void insertOption(Option option) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public List<Option> selectOptions(String productid) {
+		SqlSession session = factory.openSession();
+		Option option = new Option();
+		List<Option> list = new ArrayList<>();
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			list = mapper.selectOption(productid);
+			session.commit();
 
-@Override
-public void insertProduct(Product product) {
-	// TODO Auto-generated method stub
-	
-}
+		} finally {
+			session.close();
+		}
+		return list;
+	}
 
-@Override
-public void modifyOption(Option option) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public void insertOption(Option option) {
+		SqlSession session = factory.openSession();
 
-@Override
-public List<Product> selectAllProducts() {
-	// TODO Auto-generated method stub
-	return null;
-}
-@Override
-public List<Option> selectOptions(String product_id) {
-	// TODO Auto-generated method stub
-	return null;
-}
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			mapper.insertOption(option);
+			session.commit();
+		} finally {
+			session.close();
+		}
+	}
 
-@Override
-public Product selectProductById(String productId) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@Override
+	public void insertProduct(Product product) {
+		SqlSession session = factory.openSession();
 
-@Override
-public List<Product> selectProductsByCategory(String category) {
-	// TODO Auto-generated method stub
-	return null;
-}
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			mapper.insertProduct(product);
+			session.commit();
+		} finally {
+			session.close();
+		}
 
-@Override
-public List<Product> selectProductsByName(String name) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	}
 
-@Override
-public void updateProduct(Product product) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public void modifyOption(Option option) {
+		SqlSession session = factory.openSession();
 
-	
-	
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			mapper.modifyOption(option);
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+	}
+
+	@Override
+	public void deleteOption(Option option) {
+		SqlSession session = factory.openSession();
+
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			mapper.deleteOption(option);
+			;
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+	}
+
+	@Override
+	public List<Product> selectAllProducts() {
+		List<Product> list = new ArrayList<>();
+		SqlSession session = factory.openSession();
+
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			list = mapper.selectAllProducts();
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+		return list;
+	}
+
+	@Override
+	public Product selectProductById(String productid) {
+		SqlSession session = factory.openSession();
+		Product product = new Product();
+
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			product = mapper.selectProductById(productid);
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+		return product;
+	}
+
+	@Override
+	public List<Product> selectProductsByCategory(String category) {
+		SqlSession session = factory.openSession();
+		List<Product> list = new ArrayList<>();
+
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			list = mapper.selectProductsByCategory(category);
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+		return list;
+
+	}
+
+	@Override
+	public List<Product> selectProductsByName(String name) {
+		SqlSession session = factory.openSession();
+		List<Product> list = new ArrayList<>();
+
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			list = mapper.selectProductsByName(name);
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+		return list;
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		SqlSession session = factory.openSession();
+
+		try {
+			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			mapper.updateProduct(product);
+			session.commit();
+		} finally {
+			session.close();
+		}
+
+	}
 
 }

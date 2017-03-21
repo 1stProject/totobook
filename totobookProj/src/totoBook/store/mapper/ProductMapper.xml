@@ -21,13 +21,7 @@
 		#{IMAGE_EXT})
 	</insert>
 
-	<insert id="insertOption" parameterType="Option">
-		INSERT INTO
-		option_tb(option_id, option_name, value, option_price,
-		product_id)
-		values (option_seq.nextval, #{option_name}, #{option_name}, #{value},
-		#{option_price}, #{product_id})
-	</insert>
+
 
 	<update id="updateProduct" parameterType="Product">
 		UPDATE product_tb
@@ -40,13 +34,7 @@
 		where product_id = #{product_id}
 	</update>
 
-	<update id="modifyOption" parameterType="Option">
-		update Option_tb
-		set
-		option_name = #{option_name}, value = #{value},
-		option_price=#{option_price}
-		where product_id = #{product_id}
-	</update>
+
 
 	<delete id="deleteProduct">
 		DELETE product_tb
@@ -55,10 +43,7 @@
 	
 	</delete>
 
-	<delete id="deleteOption">
-		DELETE option_tb
-		WHERE option_id = #{option_id}
-	</delete>
+
 
 	<select id="selectAllProducts" parameterType="Product">
 		<include refid="selectpd" />
@@ -81,14 +66,7 @@
 		where PRODUCT_ID = #{PRODUCT_ID}
 	</select>
 
-	<select id="selectOptions" parameterType="Option">
 
-		SELECT FROM 
-		option_tb(option_id, option_name, value, option_price,
-		product_id)
-		where product_id = #{product_id} 	
-	
-	</select>
 
 
 </mapper>

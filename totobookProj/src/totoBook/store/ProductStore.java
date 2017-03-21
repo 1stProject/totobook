@@ -19,9 +19,5 @@ public interface ProductStore {
 	void deleteProduct(Product product);
 	Product selectProductById(String productId);
 	List<Product> selectProductsByCategory(String category);
-	void insertOption(Option option);
-	void modifyOption(Option option);
-	void deleteOption(Option option);
-	List<Option> selectOptions(String product_id);
 	
 }

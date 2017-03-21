@@ -2,4 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="totoBook.store.mapper.OptionMapper">
+
+	<insert id="insertOption" parameterType="Option">
+		INSERT INTO
+		option_tb(option_id, option_name, value, option_price,
+		product_id)
+		values (option_seq.nextval, #{option_name}, #{option_name}, #{value},
+		#{option_price}, #{product_id})
+	</insert>
+
+	<update id="modifyOption" parameterType="Option">
+		update Option_tb
+		set
+		option_name = #{option_name}, value = #{value},
+		option_price=#{option_price}
+		where product_id = #{product_id}
+	</update>
+
+	<delete id="deleteOption">
+		DELETE option_tb
+		WHERE option_id = #{option_id}
+	</delete>
+
+	<select id="selectOptions" parameterType="Option">
+
+		SELECT FROM
+		option_tb(option_id, option_name, value, option_price,
+		product_id)
+		where product_id = #{product_id}
+
+	</select>
+
 </mapper>
