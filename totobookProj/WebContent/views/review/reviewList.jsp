@@ -15,7 +15,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<h3>상품관리</h3>
+				<h3>나의 상품평</h3>
 				<table class="table table-hover table-condensed">
 					<colgroup>
 						<col width="80" align="center">
@@ -29,9 +29,8 @@
 						<tr>
 							<th>상품명</th>
 							<th>내용</th>
-							<th>작성일자</th>
-							<th>수정하기</th>
-							<th>삭제하기</th>
+							<th>수정</th>
+							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,7 +46,6 @@
 									<tr>
 										<td>${review.product.product_name }</td>
 										<td><a href="review/detail.do?id=${review.member.member_id }">${review.comment }</a></td>
-										<td>${product.price }</td>
 										<td><input type="hidden" id ="reviewserachbymember" value="${review.memebr.member_id }"><a href="product/modify.do?id=${review.product.product_id}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
 											<td><input type="hidden" id ="reviewserachbymember" value="${review.memebr.member_id }"><a href="product/remove.do?id=${review.product.product_id}"
@@ -58,8 +56,6 @@
 						</c:choose>
 					</tbody>
 				</table>
-					<a class="btn btn-sm btn-success" href="product/registerForm.jsp">상품추가</a>
-
 			</div>
 		</div>
 	</div>
