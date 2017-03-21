@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import totoBook.domain.Photo;
 import totoBook.domain.Product;
 import totoBook.store.logic.ProductStoreLogic;
 
@@ -39,7 +40,7 @@ public class ProductImageController extends HttpServlet {
 
 
 		Product product = service.selectProductById(productid);
-		ImageFilter photo = product.getPhoto();
+		Photo photo = product.getPhoto();
 
 		String fileName = null;
 		InputStream in = null;
@@ -50,7 +51,7 @@ public class ProductImageController extends HttpServlet {
 			ServletContext cxt = getServletContext();
 			String dir = cxt.getRealPath("/upload");
 			
-			fileName = dir + "/" + photo.getFilterInstance(photo);
+			fileName = dir + "/" + photo.getFileName();
 			
 			
 			in = new BufferedInputStream(new FileInputStream(fileName));

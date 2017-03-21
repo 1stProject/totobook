@@ -1,6 +1,5 @@
 package totoBook.domain;
 
-import java.awt.image.ImageFilter;
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ public class Product {
 
 	private String productid;
 	private String name;
-	private ImageFilter photo;
+	private Photo photo;
 	private int productprice;
 	private String category;
 	private String descript;
@@ -60,13 +59,12 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public ImageFilter getPhoto() {
+	public Photo getPhoto() {
 		return photo;
 	}
-	public void setPhoto(ImageFilter photo) {
+	public void setPhoto(Photo photo) {
 		this.photo = photo;
 	}
-	
 	
 	
 }

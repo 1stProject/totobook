@@ -1,5 +1,7 @@
 package totoBook.store.logic;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import totoBook.domain.Option;
@@ -17,10 +19,20 @@ public class OptionStoreLogic implements OptionStore{
 	public OptionStoreLogic(){
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
-	@Override
-	public Option selectOption(String product_id) {
-		return null;
+
+@Override
+	public void deleteOption(Option option) {
+		// TODO Auto-generated method stub
+		
 	}
+
+@Override
+public List<Option> selectOptions(String product_id) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+	
 	
 	
 	@Override
@@ -35,11 +47,6 @@ public class OptionStoreLogic implements OptionStore{
 		
 	}
 	
-	@Override
-	public void removeOption(Option option) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
 	
 }
