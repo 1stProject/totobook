@@ -40,6 +40,10 @@
   		INSERT INTO print_tb
   		VALUES (print_seq.NEXTVAL, #{member.memberId}, #{product.productId}, #{optionDesp})
   	</insert>
+  	<delete id="deletePrint" parameterType = "string">
+  		delete FROM print_tb
+  		where print_id = #{printId}
+  	</delete>
   	<select id="selectPrintsByUserId" parameterType = "string" resultMap = "printMap">
   		SELECT print_id, member_id, product_id, print_option
   		FROM print_tb
