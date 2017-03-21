@@ -12,7 +12,7 @@ public class Member {
 	private String name;
 	private String password;
 	private String address;
-	private String phoneNumber;
+	private String phone;
 	private String receiveEmail;
 	
 	public String getMemberId() {
@@ -39,11 +39,11 @@ public class Member {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhone() {
+		return phone;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getReceiveEmail() {
 		return receiveEmail;

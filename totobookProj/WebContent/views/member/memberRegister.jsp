@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="contents-wrap">
-    <h2 class="page-title">${member.name }신규직원등록</h2>
+    <h2 class="page-title">${member.name }신규회원등록</h2>
     <div class="contents">
 
         <form action="${ctx }/member/register.do" method="post">
@@ -34,7 +34,11 @@
             </div>
                         <div>
                 <label>휴대폰번호 : </label>
-                <input type="text" name="phoneNumber">
+                <input type="text" name="phone">
+            </div>
+                        <div>
+                <label>이메일체크 : </label>
+                <input type="text" name="receiveEmail">
             </div>
             <div class="alignRight">
                 <input type="reset" value="초기화">

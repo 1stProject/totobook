@@ -7,17 +7,17 @@
 	
 	<resultMap type="Member" id="MemberMap">
 		<id column="member_id" property="memberId"/>
-		<result column="member_name" property="name"/>
-		<result column="member_password" property="password"/>
-		<result column="member_address" property="address"/>
-		<result column="member_phoneNumber" property="phoneNumber"/>
-		<result column="receiveEmail" property="receiveEmail"/>
+		<result column="name" property="name"/>
+		<result column="password" property="password"/>
+		<result column="address" property="address"/>
+		<result column="phone" property="phone"/>
+		<result column="receive_Email" property="receiveEmail"/>
 	
 	</resultMap>
 	
 	<insert id="insertMember" parameterType="Member">
-	INSERT INTO member_tb (member_id, member_name, member_password, member_address, member_phoneNumber,receiveEmail)
-	VALUES (#{memberId}, #{name}, #{password}, #{address}, #{phoneNumber}, #{receiveEmail})
+	INSERT INTO member_tb (member_id, name, password, address, phone, receive_email)		
+	VALUES (#{memberId} ,#{name}, #{password}, #{address}, #{phone}, #{receiveEmail})
 	</insert>
 	
 	
