@@ -7,19 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import com.sun.xml.internal.txw2.Document;
+
+import totoBook.domain.Post;
+import totoBook.service.QuestionService;
+import totoBook.service.logic.QuestionServiceLogic;
+
+
 @WebServlet("/question/register.do")
 public class QuestionRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//request.getContextPath()+"/views/question/questionList.jsp"
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		Post post = new Post();
+		QuestionService service = new QuestionServiceLogic();
+		
+		post.setTitle(request.getParameter("question_title"));
+		post.setContent(request.getParameter("content"));
+		
+		service.registerQuestion(post);
+		
+		response.sendRedirect("/question/list.do");
+		
+		//request.getRequestDispatcher();
 	}
 
 }
