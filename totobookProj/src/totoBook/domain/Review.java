@@ -9,7 +9,7 @@ public class Review {
 	private Product product;
 	private Member member;
 	private String comment;
-	private Photo photo;
+	private String imageAddress;
 	
 	public Product getProduct() {
 		return product;
