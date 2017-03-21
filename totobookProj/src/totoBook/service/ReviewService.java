@@ -19,7 +19,6 @@ public interface ReviewService {
 	public List<Review> findCommentsByProduct(Product product);
 	public List<Review> findCommentsByMember(Member member);
 	
-	
 
 	
 	

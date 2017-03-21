@@ -20,7 +20,7 @@
 					width="128" height="123"></td>
 			</tr>
 			<tr>
-				<td>${review.comment}</td>
+				<td style="text-align:left; width:400px; height:200px;">${review.comment}</td>
 			</tr>
 		</table>
 

@@ -1,11 +1,18 @@
 package totoBook.controller.review;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import totoBook.domain.Member;
+import totoBook.domain.Review;
+import totoBook.service.ReviewService;
+import totoBook.service.logic.ReviewServiceLogic;
 
 /**
  * @author
@@ -16,11 +23,28 @@ public class ReviewListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ReviewService service = new ReviewServiceLogic();
+		
+		Member member = new Member();
+	
+		member.setMemberId("RURE1114");
+		
+		List<Review> list = service.findCommentsByMember(member);
+
+		
+		System.out.println(list);
+		
+		request.setAttribute("review", list);
+		request.getRequestDispatcher("/views/reviewList.jsp").forward(request, response);	
+		
+		
+
 	}
 
 }
