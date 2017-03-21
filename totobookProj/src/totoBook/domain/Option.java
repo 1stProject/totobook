@@ -7,32 +7,32 @@ package totoBook.domain;
 public class Option {
 
 	private String optionId;
-	private String optionName;
-	private String optionDesp;
-	private int optionPrice;
+	private String[] optionName;
+	private String[] optionDesp;
+	private int[] optionPrice;
 	public String getOptionId() {
 		return optionId;
 	}
 	public void setOptionId(String optionId) {
 		this.optionId = optionId;
 	}
-	public String getOptionName() {
+	public String[] getOptionName() {
 		return optionName;
 	}
-	public void setOptionName(String optionName) {
+	public void setOptionName(String[] optionName) {
 		this.optionName = optionName;
 	}
-	public String getOptionDesp() {
+	public String[] getOptionDesp() {
 		return optionDesp;
 	}
-	public void setOptionDesp(String optionDesp) {
+	public void setOptionDesp(String[] optionDesp) {
 		this.optionDesp = optionDesp;
 	}
-	public int getOptionPrice() {
+	public int[] getOptionPrice() {
 		return optionPrice;
 	}
-	public void setOptionPrice(int optionPrice) {
-		this.optionPrice = optionPrice;
+	public void setOptionPrice(int[] opprice) {
+		this.optionPrice = opprice;
 	}
 	
 	

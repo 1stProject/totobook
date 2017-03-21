@@ -16,12 +16,12 @@ public interface ProductService {
 	public void registerProduct(Product product);
 	public void modifyProduct(Product product);
 	public Product findProductById(String productId);
-	public void removeProduct(String productId);
+	public void removeProduct(Product product);
 	public List<Product> findProductsByCategory(String category);
 	public void registerOption(Option option);
 	public void modifyOption(Option option);
-	public void removeOption(Option option);
-	public Option findOption(String product_id);
+	public void removeOption(String productId);
+	public List<Option> findOption(String productId);
 
 	
 }
