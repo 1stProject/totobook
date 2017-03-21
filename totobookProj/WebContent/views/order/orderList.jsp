@@ -11,6 +11,7 @@
 <body>
 <c:forEach items = "${orders }" var = "order">
 ${order.orderId } || ${order.ordDate } || ${order.payment } || ${order.member.memberId }
+<a href = "${ctx }/order/detail.do?orderId=${order.orderId}">상세보기</a><br>
 </c:forEach>
 </body>
 </html>
