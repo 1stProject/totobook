@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import totoBook.domain.Option;
 import totoBook.store.OptionStore;
-import totoBook.store.mapper.ProductMapper;
+import totoBook.store.mapper.OptionMapper;
 
 /**
  * @author
@@ -19,21 +19,20 @@ public class OptionStoreLogic implements OptionStore{
 	
 	private SqlSessionFactory factory;
 	
+	
 	public OptionStoreLogic(){
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
+	
 	}
-
-	
-	
 	
 	@Override
-	public List<Option> selectOptions(String productid) {
+	public List<Option> selectOptions(String Optionid) {
 		SqlSession session = factory.openSession();
 		Option option = new Option();
 		List<Option> list = new ArrayList<>();
 		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
-			list = mapper.selectOption(productid);
+			OptionMapper mapper = session.getMapper(OptionMapper.class);
+			list = mapper.selectOptions(Optionid);
 			session.commit();
 
 		} finally {
@@ -47,7 +46,7 @@ public class OptionStoreLogic implements OptionStore{
 		SqlSession session = factory.openSession();
 
 		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			OptionMapper mapper = session.getMapper(OptionMapper.class);
 			mapper.insertOption(option);
 			session.commit();
 		} finally {
@@ -60,7 +59,7 @@ public class OptionStoreLogic implements OptionStore{
 		SqlSession session = factory.openSession();
 
 		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			OptionMapper mapper = session.getMapper(OptionMapper.class);
 			mapper.modifyOption(option);
 			session.commit();
 		} finally {
@@ -74,7 +73,7 @@ public class OptionStoreLogic implements OptionStore{
 		SqlSession session = factory.openSession();
 
 		try {
-			ProductMapper mapper = session.getMapper(ProductMapper.class);
+			OptionMapper mapper = session.getMapper(OptionMapper.class);
 			mapper.deleteOption(option);
 			;
 			session.commit();

@@ -16,14 +16,15 @@
 
 		<table class="section">
 			<tr>
-								<td>사진</td>
+				<td>사진</td>
 				<td><img src="/review/image.do?productId=${review.product_id}"
 					width="128" height="123"></td>
-<td><input type="file" name="file1"></td>
-			
+				<td><input type="file" name="file1"></td>
+
 			</tr>
 			<tr>
-				<td><input type="text" name="comment" value="${review.comment}"></td>
+				<td><input type="text" name="comment"
+					style="text-align: left; width: 400px; height: 200px;" value="">${review.comment}</td>
 			</tr>
 		</table>
 

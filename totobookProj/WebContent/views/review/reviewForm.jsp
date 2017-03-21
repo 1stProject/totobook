@@ -19,7 +19,7 @@
 
 				<tr>
 					<td>상품평</td>
-					<td><input type="text" name="rpetime" value=""></td>
+					<td><input type="text" name="comment" value="" style="text-align:left; width:400px; height:200px;"></td>
 				</tr>
 
 				<tr>
@@ -27,8 +27,10 @@
 					<td><input type="file" name="file1"></td>
 				</tr>
 
+
 			</table>
 		</form>
+					<button type="button" onclick="javascript:gotoMain();" class="btn">뒤로가기</button>
 	</div>
 
 </body>

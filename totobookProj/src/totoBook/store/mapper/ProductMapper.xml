@@ -63,7 +63,7 @@
 
 	<select id="selectProductById" parameterType="String">
 		<include refid="selectpd" />
-		where PRODUCT_ID = #{PRODUCT_ID}
+		where PRODUCT_ID = #{productId}
 	</select>
 
 
