@@ -11,5 +11,5 @@ import totoBook.domain.Print;
 public interface PrintStore {
 	void insertPrint(Print print);
 	void deletePrint(String printId);
-	List<Print> selectPrintsByUserId(String memberId);
+	List<Print> selectPrintsByMemberId(String memberId);
 }
