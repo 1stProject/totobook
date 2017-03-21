@@ -14,5 +14,6 @@ public interface PrintService {
 	void registerPrint(Print print);
 	void registerPhotos(List<Photo> photos);
 	void removePrint(String printId);
-	void removePhotos(List<Photo> photos);
+	void removePhotos(String printId);
+	List<Print> findPrintsByUserId(String userId);
 }
