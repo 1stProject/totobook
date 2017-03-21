@@ -4,12 +4,15 @@ import java.util.List;
 
 import totoBook.domain.Post;
 import totoBook.service.QuestionService;
+import totoBook.store.QuestionStore;
+import totoBook.store.logic.QuestionStoreLogic;
 
 public class QuestionServiceLogic implements QuestionService{
 
 	@Override
 	public void registerQuestion(Post post) {
-		// TODO Auto-generated method stub
+		QuestionStore store = new QuestionStoreLogic();
+		store.insertQuestion(post);
 		
 	}
 

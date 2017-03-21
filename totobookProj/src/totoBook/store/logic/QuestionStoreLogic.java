@@ -2,6 +2,8 @@ package totoBook.store.logic;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import totoBook.domain.Post;
 import totoBook.store.QuestionStore;
 
@@ -9,7 +11,7 @@ public class QuestionStoreLogic implements QuestionStore{
 
 	@Override
 	public void insertQuestion(Post post) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
