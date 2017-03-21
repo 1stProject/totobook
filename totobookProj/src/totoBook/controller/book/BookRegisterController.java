@@ -42,7 +42,7 @@ public class BookRegisterController extends HttpServlet {
 		int pageOption = (Integer)request.getAttribute("pageOption");
 		String sizeOption = (String)request.getAttribute("sizeOption");
 		
-		product.setProductid(productId);
+		product.setProductId(productId);
 		book.setBookName((String) request.getAttribute("productName"));
 		book.setMember(member);
 		book.setProduct(product);
@@ -52,11 +52,8 @@ public class BookRegisterController extends HttpServlet {
 		int layoutnum = 1;
 		for(int i = 0; i < pageOption; i ++){
 			Page page = new Page();
-			Photo photo = new Photo();
-			photo.setFileName("/images/pageLayout/"+sizeOption+"_default_layout_"+layoutnum+".jpg");
-			photo.setContentType(".jpg");
 			page.setBook(book);
-			page.setPhoto(photo);
+			page.setImageAddress("/images/pageLayout/"+sizeOption+"_default_layout_"+layoutnum+".jpg");
 			
 			pages.add(page);
 			

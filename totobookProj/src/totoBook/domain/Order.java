@@ -10,9 +10,10 @@ import java.util.List;
 public class Order {
 	private String orderId;
 	private Date ordDate;
-	private String ordWay;
+	private String payment;
 	private int ordPrice;
 	private Member member;
+	private String ordWay;
 	private List<Product> product;
 	
 	public String getOrderId() {
@@ -32,6 +33,13 @@ public class Order {
 	}
 	public void setOrdWay(String ordWay) {
 		this.ordWay = ordWay;
+	}
+	
+	public String getPayment() {
+		return payment;
+	}
+	public void setPayment(String payment) {
+		this.payment = payment;
 	}
 	public int getOrdPrice() {
 		return ordPrice;

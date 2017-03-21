@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Product {
 
-	private String productid;
+	private String productId;
 	private String name;
 	private Photo photo;
 	private int productprice;
@@ -17,11 +17,11 @@ public class Product {
 	private List<Option> options;
 	private int quantity;
 	
-	public String getProductid() {
-		return productid;
+	public String getProductId() {
+		return productId;
 	}
-	public void setProductid(String productid) {
-		this.productid = productid;
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
 	public String getName() {
 		return name;

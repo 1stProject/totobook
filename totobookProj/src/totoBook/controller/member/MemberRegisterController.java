@@ -1,6 +1,6 @@
 package totoBook.controller.member;
 
-import java.io.IOException;
+import java.io.IOException; 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +24,7 @@ public class MemberRegisterController extends HttpServlet {
 	String name = request.getParameter("name");
 	String password = request.getParameter("password");
 	String address = request.getParameter("address");
-	String phoneNumber = request.getParameter("phoneNumber");
+	String phone = request.getParameter("phone");
 	String receiveEmail = request.getParameter("receiveEmail");
 	Member member = new Member();
 	
@@ -32,8 +32,7 @@ public class MemberRegisterController extends HttpServlet {
 	member.setName(name);
 	member.setPassword(password);
 	member.setAddress(address);
-	member.setPhoneNumber(phoneNumber);
-	member.setPhoneNumber(phoneNumber);
+	member.setPhone(phone);
 	member.setReceiveEmail(receiveEmail);
 	
 	MemberService service = new MemberServiceLogic();

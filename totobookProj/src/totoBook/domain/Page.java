@@ -8,7 +8,7 @@ public class Page {
 	
 	private String pageId;
 	private Book book;
-	private Photo photo;
+	private String imageAddress;
 	
 	public String getPageId() {
 		return pageId;
@@ -22,12 +22,13 @@ public class Page {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	public Photo getPhoto() {
-		return photo;
+	public String getImageAddress() {
+		return imageAddress;
 	}
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setImageAddress(String imageAddress) {
+		this.imageAddress = imageAddress;
 	}
+
 
 	
 	

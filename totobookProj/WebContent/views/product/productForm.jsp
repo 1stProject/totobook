@@ -20,15 +20,15 @@
 				</tr>
 				<tr>
 					<td>상품명</td>
-					<td><input type="text" name="rpetime" value=""></td>
+					<td><input type="text" name="name" value=""></td>
 				</tr>
 				<tr>
 					<td>상품가격</td>
-					<td><input type="text" name="rpedf"></td>
+					<td><input type="text" name="productprice"></td>
 				</tr>
 				<tr>
 					<td>상품설명</td>
-					<td><input type="text" name="rpedf"></td>
+					<td><input type="text" name="descript" style="text-align:left; width:400px; height:200px;"></td>
 				</tr>
 				<tr>
 					<td>사이즈옵션</td>

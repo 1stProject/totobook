@@ -11,7 +11,7 @@ public class Print {
 	private List<Photo> photos;
 	private Member member;
 	private Product product;
-	private Option option;
+	private String optionDesp;
 	
 	public String getPrintId() {
 		return printId;
@@ -37,11 +37,12 @@ public class Print {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public Option getOption() {
-		return option;
+	public String getOptionDesp() {
+		return optionDesp;
 	}
-	public void setOption(Option option) {
-		this.option = option;
+	public void setOptionDesp(String optionDesp) {
+		this.optionDesp = optionDesp;
 	}
+	
 	
 }

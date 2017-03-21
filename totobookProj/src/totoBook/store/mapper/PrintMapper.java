@@ -1,5 +1,7 @@
 package totoBook.store.mapper;
 
+import java.util.List;
+
 import totoBook.domain.Print;
 
 /**
@@ -8,5 +10,6 @@ import totoBook.domain.Print;
  */
 public interface PrintMapper {
 	void insertPrint(Print print);
-	void deletePrint(Print print);
+	void deletePrint(String printId);
+	List<Print> selectPrintsByUserId(String memberId);
 }
