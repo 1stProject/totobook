@@ -9,6 +9,6 @@ import totoBook.domain.Photo;
  * @version 1.0
  */
 public interface PhotoMapper {
-	void insertPhotos(List<Photo> photos);
+	void insertPhoto(Photo photo);
 	void deletePhotos(String PrintId);
 }
