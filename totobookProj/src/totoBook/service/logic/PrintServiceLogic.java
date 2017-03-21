@@ -42,8 +42,8 @@ public class PrintServiceLogic implements PrintService {
 	}
 
 	@Override
-	public List<Print> findPrintsByUserId(String userId) {
-		return null;
+	public List<Print> findPrintsByUserId(String memberId) {
+		return printStore.selectPrintsByUserId(memberId);
 	}
 
 }

@@ -2,29 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="totoBook.store.mapper.PrintMapper">
-	<!-- <resultMap type="Print" id = "PrintMap">
-		<id column="id" property="id"/>
-		<result column="name" property="name"/>
-		<result column="artist_name" property="artist"/>
-		<result column="album_title" property="album"/>
-		<result column="image" property="image"/>
-		<result column="agent_name" property="agent"/>
-	</resultMap> -->
-	<!-- <resultMap type = "Blog" id = "blogMap">
-		<id property="id" column="blog_id"/>
-		<result property="title" column="title"/>
-		<association property="author" column = "author_id"
-			select="blog.store.mapper.AuthorMapper.findAuthor"
-			javaType="Author" jdbcType="VARCHAR"/>
-		<collection property="posts" column = "blog_id" ofType="Post"
-		select="blog.store.mapper.PostMapper.findPostsByBlogId"
-		javaType="ArrayList" jdbcType="NUMERIC"/>
-	</resultMap> -->
-	
-  	<!-- <sql id = "selectMusic">
-		SELECT id, name, artist_name, album_title, image, agent_name
-		FROM music_tb
-	</sql> -->
 	<resultMap type="Print" id = "printMap">
 		<id property = "printId" column = "print_id"/>
 		<result property = "optionDesp" column = "print_option"/>
@@ -40,6 +17,10 @@
   		INSERT INTO print_tb
   		VALUES (print_seq.NEXTVAL, #{member.memberId}, #{product.productId}, #{optionDesp})
   	</insert>
+  	<delete id="deletePrint" parameterType = "string">
+  		delete FROM print_tb
+  		where print_id = #{printId}
+  	</delete>
   	<select id="selectPrintsByUserId" parameterType = "string" resultMap = "printMap">
   		SELECT print_id, member_id, product_id, print_option
   		FROM print_tb
