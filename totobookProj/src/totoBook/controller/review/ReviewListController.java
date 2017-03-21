@@ -31,18 +31,16 @@ public class ReviewListController extends HttpServlet {
 
 		ReviewService service = new ReviewServiceLogic();
 		
-		Member member = new Member();
-	
-		member.setMemberId("RURE1114");
+		
+		request.getAttribute("member");
+
+		Member member = (Member) request.getAttribute("member");
+		member.setName("RURE1114");
 		
 		List<Review> list = service.findCommentsByMember(member);
-
-		
 		System.out.println(list);
-		
 		request.setAttribute("review", list);
 		request.getRequestDispatcher("/views/reviewList.jsp").forward(request, response);	
-		
 		
 
 	}
