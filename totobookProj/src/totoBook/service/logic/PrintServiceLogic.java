@@ -23,13 +23,13 @@ public class PrintServiceLogic implements PrintService {
 	}
 	@Override
 	public void registerPrint(Print print) {
-		printStore.insertPrint(print);
+		String printId = printStore.insertPrint(print);
+		for(Photo photo : print.getPhotos()){
+			photo.setPrintId(printId);
+		}
+		photoStore.insertPhotos(print.getPhotos());
 	}
 
-	@Override
-	public void registerPhotos(List<Photo> photos) {
-		photoStore.insertPhotos(photos);
-	}
 
 	@Override
 	public void removePrint(String printId) {
