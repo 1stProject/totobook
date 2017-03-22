@@ -1,5 +1,6 @@
 package totoBook.service.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import totoBook.domain.Option;
@@ -7,87 +8,95 @@ import totoBook.domain.Product;
 import totoBook.service.ProductService;
 import totoBook.store.OptionStore;
 import totoBook.store.ProductStore;
+import totoBook.store.ReviewStore;
 import totoBook.store.logic.OptionStoreLogic;
 import totoBook.store.logic.ProductStoreLogic;
+import totoBook.store.logic.ReviewStoreLogic;
 
 public class ProductServiceLogic implements ProductService {
 
-	
 	private ProductStore productStore;
 	private OptionStore optionStore;
-	
+	private ReviewStore reviewStore;
 	
 	public ProductServiceLogic() {
 
 		productStore = new ProductStoreLogic();
 		optionStore = new OptionStoreLogic();
-	
+		reviewStore = new ReviewStoreLogic();
 	}
 
 	@Override
 	public List<Product> findAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> list = new ArrayList<>();
+		return list = productStore.selectAllProducts();
+		//관리자 모든 상품보기
 	}
 
 	@Override
-	public Option findOption(String product_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Option> findOption(String productId) {
+		List<Option> list = new ArrayList<>();
+		return list = optionStore.selectOptions(productId);
+		//상품의 옵션들 찾기
 	}
 
 	@Override
 	public Product findProductById(String productId) {
-		// TODO Auto-generated method stub
-		return productStore.selectProductById(productId);
+		Product product = productStore.selectProductById(productId);
+		product.setOptions(optionStore.selectOptions(productId));
+		return product;
+		//상품상세보기 옵션들어가야함
 	}
 
 	@Override
 	public List<Product> findProductsByCategory(String category) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> list = new ArrayList<>();
+		return list = productStore.selectProductsByCategory(category);
+		//카페고리별로 상품보기
 	}
 
 	@Override
 	public List<Product> findProductsByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Product> list = new ArrayList<>();
+		return list = productStore.selectProductsByName(name);
+		//관리자 상품검색
+	
 	}
 
 	@Override
 	public void modifyOption(Option option) {
-		// TODO Auto-generated method stub
-
+		optionStore.updateOption(option);
+	//관리자 상품수정
+	
 	}
 
 	@Override
 	public void modifyProduct(Product product) {
-		// TODO Auto-generated method stub
-
+		productStore.updateProduct(product);
+		//관리자 상품수정
 	}
 
 	@Override
 	public void registerOption(Option option) {
-		// TODO Auto-generated method stub
-
+		optionStore.insertOption(option);
 	}
 
 	@Override
 	public void registerProduct(Product product) {
-		// TODO Auto-generated method stub
-
+		productStore.updateProduct(product);
 	}
 
 	@Override
-	public void removeOption(Option option) {
-		// TODO Auto-generated method stub
-
+	public void removeOption(String productId) {
+		optionStore.deleteOption(productId);
 	}
 
 	@Override
-	public void removeProduct(String productId) {
-		// TODO Auto-generated method stub
-
+	public void removeProduct(Product product) {
+		optionStore.deleteOption(product.getProductId());
+		reviewStore.deleteCommentByProduct(product);
+		productStore.deleteProduct(product);
+	//상품삭제시 옵션,상품평도 같이 삭제
 	}
 
 }

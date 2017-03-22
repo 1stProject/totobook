@@ -55,12 +55,12 @@ public class OptionStoreLogic implements OptionStore{
 	}
 	
 	@Override
-	public void modifyOption(Option option) {
+	public void updateOption(Option option) {
 		SqlSession session = factory.openSession();
 
 		try {
 			OptionMapper mapper = session.getMapper(OptionMapper.class);
-			mapper.modifyOption(option);
+			mapper.updateOption(option);
 			session.commit();
 		} finally {
 			session.close();
@@ -69,13 +69,12 @@ public class OptionStoreLogic implements OptionStore{
 	}
 	
 	@Override
-	public void deleteOption(Option option) {
+	public void deleteOption(String productId) {
 		SqlSession session = factory.openSession();
 
 		try {
 			OptionMapper mapper = session.getMapper(OptionMapper.class);
-			mapper.deleteOption(option);
-			;
+			mapper.deleteOption(productId);
 			session.commit();
 		} finally {
 			session.close();

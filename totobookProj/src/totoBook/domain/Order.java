@@ -59,4 +59,10 @@ public class Order {
 	public void setProduct(List<Product> product) {
 		this.product = product;
 	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", ordDate=" + ordDate + ", payment=" + payment + ", ordPrice=" + ordPrice
+				+ ", member=" + member + ", ordWay=" + ordWay + ", product=" + product + "]";
+	}
+	
 }

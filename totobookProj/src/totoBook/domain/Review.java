@@ -9,7 +9,7 @@ public class Review {
 	private Product product;
 	private Member member;
 	private String comment;
-	private Photo photo;
+	private String imageAddress;
 	
 	public Product getProduct() {
 		return product;
@@ -29,11 +29,11 @@ public class Review {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Photo getPhoto() {
-		return photo;
+	public String getImageAddress() {
+		return imageAddress;
 	}
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setImageAddress(String imageAddress) {
+		this.imageAddress = imageAddress;
 	}
 	
 	

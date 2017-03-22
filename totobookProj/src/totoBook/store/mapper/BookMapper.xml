@@ -21,8 +21,8 @@
 	</resultMap>
 
 	<insert id="insertBook" parameterType="Book">
-		INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, SAVE_DATE, BOOK_OPTION, PRODUCT_ID)
-		VALUES(BOOK_SEQ.NEXTVAL, #{book_name}, #{member.memberId}, #{saveDate}, #{option}, #{product.productId})
+		INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, BOOK_OPTION, PRODUCT_ID)
+		VALUES(BOOK_SEQ.NEXTVAL, #{book_name}, #{member.memberId}, #{option}, #{product.productId})
 
 		<foreach collection=""></foreach>
 

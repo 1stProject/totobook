@@ -7,21 +7,21 @@
 		INSERT INTO
 		option_tb(option_id, option_name, value, option_price,
 		product_id)
-		values (option_seq.nextval, #{option_name}, #{option_name}, #{value},
-		#{option_price}, #{product_id})
+		values (option_seq.nextval, #{option_name}, #{value},
+		#{option_price}, #{productId})
 	</insert>
 
-	<update id="modifyOption" parameterType="Option">
-		update Option_tb
-		set
+	<update id="updateOption" parameterType="Option">
+		update Option_tb set
 		option_name = #{option_name}, value = #{value},
 		option_price=#{option_price}
-		where product_id = #{product_id}
+		where product_id = #{productId}
 	</update>
+	<!--의미없음  -->
 
 	<delete id="deleteOption">
 		DELETE option_tb
-		WHERE option_id = #{option_id}
+		WHERE prodcut_id = #{productId}
 	</delete>
 
 	<select id="selectOptions" parameterType="Option">
@@ -29,7 +29,7 @@
 		SELECT FROM
 		option_tb(option_id, option_name, value, option_price,
 		product_id)
-		where product_id = #{product_id}
+		where product_id = #{productId}
 
 	</select>
 

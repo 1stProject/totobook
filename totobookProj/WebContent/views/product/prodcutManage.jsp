@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div class="content">
 	<div class="container-fluid">
 		<div class="row">
@@ -48,11 +47,11 @@
 									<tr>
 										<td>${status.count }</td>
 										<td>${product.product_id }</td>
-										<td><a href="product/detail.do?id=${product.product_id }">${product.product_name }</a></td>
+										<td><a href="product/detail.do?id=${product.productId }">${product.name }</a></td>
 										<td>${product.price }</td>
-										<td><a href="product/modify.do?id=${product.product_id}"
+										<td><a href="product/modify.do?id=${product.productId}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
-											<td><a href="product/remove.do?id=${product.product_id}"
+											<td><a href="product/remove.do?id=${product.productId}"
 												class="btn btn-xs btn-danger">삭제하기</a></td>
 									</tr>
 								</c:forEach>
