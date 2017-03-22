@@ -31,7 +31,7 @@
 		question_tb
 		(post_id,member_id,post_name,content,image_address,image_ext)
 		VALUES
-		(#{postId},#{member.memberId},#{title},#{content},#{imageAddressPath},#{image_ext})
+		(QUESTION_SEQ.NEXTVAL,#{member.memberId},#{title},#{content},#{imageAddressPath},#{image_ext})
 	</insert>
 
 	<delete id="deleteQuestion" parameterType="String">

@@ -28,7 +28,7 @@
 	<insert id="insertNotice" parameterType="Post">
 		INSERT INTO notice_tb
 		(post_id,member_id,post_name,content,image_address,image_ext)
-		VALUES(#{postId},#{member.meberId},#{title},#{content},#{imageAddressPath},#{image_ext})
+		VALUES(NOTICE_SEQ.NEXTVAL,#{member.meberId},#{title},#{content},#{imageAddressPath},#{image_ext})
 	</insert>
 	<delete id="deleteNotice" parameterType="String">
 		DELETE

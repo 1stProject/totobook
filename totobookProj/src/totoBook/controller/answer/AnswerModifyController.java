@@ -7,18 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import totoBook.service.AnswerService;
+import totoBook.service.logic.AnswerServiceLogic;
+
+
 @WebServlet("/answer/modify.do")
 public class AnswerModifyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		AnswerService service = new AnswerServiceLogic();
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
