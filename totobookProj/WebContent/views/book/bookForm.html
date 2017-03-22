@@ -30,8 +30,7 @@
 			</div>
             <div class="bookPaging1">페</div>
             <div class="bookPaging2">이</div>
-			<div id="bookPageRight">
-				뭐지
+			<div id="bookPageRight" ondrop="drop(event)" ondragover="allowDrop(event)">
 			</div>
         
 		  <img src="toRight.png" class="leftRightBtnImg" id="toNextPage">
@@ -69,35 +68,18 @@
 	</footer>
 </body>
 <script type="text/javascript">
-var pageCount=1;
+      
+    var uploadCount=0;
     
-    $(document).ready(function() {    
+    $(document).ready(function() {  
+    var pageCount=1;
     var selectedPage = 'R';
    	var pageCount=1;
     $(".bookPaging1").css("visibility","hidden");
     $("#bookPageLeft").css("visibility","hidden");
         
-        
-        
-/*        document.getElementById("BeforeBtnImg").style.display="none";
-        $(".layoutIcon2").css("display", "none"); 
-        */
-    });
-                      
-    var layoutImgs = [
-        "A3_blue_layout_1",
-        "A3_blue_layout_2",
-        "A3_blue_layout_3",
-        "A3_blue_layout_04",
-        "A3_blue_layout_05",
-        "A3_blue_layout_06",
-        "A3_blue_layout_07",
-        "A3_blue_layout_8",
-        "A3_blue_layout_9",
-        "A3_blue_layout_10"
-    ];
     
-    var beforeLayout = function(){  
+            var beforeLayout = function(){  
         $(".layoutIcon2").css("display", "none");         $(".layoutIcon1").css("display", "block");   
         $('#BeforeBtnImg').css("display", "none");     $('#NextBtnImg').css("display", "block");    
     }
@@ -123,34 +105,19 @@ var pageCount=1;
             $("#bookPageRight").css("background-image", 'url("'+src+'")');
         }        
     });
-    
-    var fileInfo =  function(f){
-    	var file = f.files; // files 를 사용하면 파일의 정보를 알 수 있음
 
-    	// 파일의 갯수만큼 반복
-    	for(var i=0; i<file.length; i++){
-
-    		var reader = new FileReader(); // FileReader 객체 사용
-    		reader.onload = function(rst){
-            
-    			$('#img_box').append('<img src="' + rst.target.result + '" class="uploadPhoto" >'); 
-                // append 메소드를 사용해서 이미지 추가
-    			// 이미지는 base64 문자열로 추가
-    			// 이 방법을 응용하면 선택한 이미지를 미리보기 할 수 있음    
-    		}
-    		reader.readAsDataURL(file[i]); // 파일을 읽는다
-
-    	}
-    }
     
     $("#toBeforePage").click(function(){
         console.log(pageCount);
         pageCount = parseInt(pageCount-1);
         if(pageCount == 1){
             $(this).css("visibility","hidden");
-            $("#bookPageLeft").css("background-image","");
-            $("#bookPageLeft").css("background-color","white");
+            $("#bookPageLeft").css("visibility","hidden");
             $(".bookPaging1").css("visibility","hidden");
+        }else if(pageCount == 4){
+            $("#bookPageRight").css("visibility","visible");
+            $(".bookPaging2").css("visibility","visible");
+            $("#toNextPage").css("visibility","visible");
         }
         
     });
@@ -166,9 +133,74 @@ var pageCount=1;
         }
         if(pageCount == 5){
             $(this).css("visibility", "hidden");
+            $("#bookPageRight").css("visibility","hidden");
+            $(".bookPaging2").css("visibility","hidden");         
         }
     });
+        
+/*        document.getElementById("BeforeBtnImg").style.display="none";
+        $(".layoutIcon2").css("display", "none"); 
+        */
+    });
+                      
+    var layoutImgs = [
+        "A3_blue_layout_1",
+        "A3_blue_layout_2",
+        "A3_blue_layout_3",
+        "A3_blue_layout_04",
+        "A3_blue_layout_05",
+        "A3_blue_layout_06",
+        "A3_blue_layout_07",
+        "A3_blue_layout_8",
+        "A3_blue_layout_9",
+        "A3_blue_layout_10"
+    ];
     
+    
+    var fileInfo =  function(f){
+    	var file = f.files; // files 를 사용하면 파일의 정보를 알 수 있음
+
+    	// 파일의 갯수만큼 반복
+    	for(var i=0; i<file.length; i++){
+            
+
+    		var reader = new FileReader(); // FileReader 객체 사용
+    		reader.onload = function(rst){
+            
+    			$('#img_box').append('<img id="uploadedImg'+uploadCount+'" src="' + rst.target.result + '" class="uploadPhoto" draggable="true" ondragstart="drag(event)">'); 
+                // append 메소드를 사용해서 이미지 추가
+    			// 이미지는 base64 문자열로 추가
+    			// 이 방법을 응용하면 선택한 이미지를 미리보기 할 수 있음   
+                
+            uploadCount++;
+    		}
+    		reader.readAsDataURL(file[i]); // 파일을 읽는다
+
+    	}
+    }
+    function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    $("#bookPageRight").empty();
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+/*    ev.target.appendChild(document.getElementById(data));*/
+    
+    var nodeCopy = document.getElementById(data).cloneNode(true);
+    nodeCopy.id = data+"newId";
+    nodeCopy.class = data+"newClass";
+    nodeCopy.draggale="false";
+    
+    
+    ev.target.appendChild(nodeCopy);
+    
+}
     </script>    
     
 </html>
