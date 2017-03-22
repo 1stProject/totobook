@@ -10,6 +10,10 @@ public class Option {
 	private String[] optionName;
 	private String[] optionDesp;
 	private int[] optionPrice;
+	private String productId;
+	
+	
+	
 	public String getOptionId() {
 		return optionId;
 	}
