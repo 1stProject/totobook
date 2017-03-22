@@ -6,6 +6,15 @@
 <mapper namespace="totoBook.store.mapper.ProductMapper">
 
 
+	<resultMap type="Product" id="productMap">
+		<id property="productId" column="product_id" />
+		<result property="name" column="product_name" />
+		<result property="productprice" column="price" />
+		<result property="category" column="category" />
+		<result property="descript" column="detail" />
+		<result property="imageAddress" column="image_address" />
+	</resultMap>
+
 	<sql id="selectpd">
 		select PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL,
 		IMAGE_ADDRESS, IMAGE_EXT
@@ -15,13 +24,11 @@
 	<insert id="insertProduct" parameterType="Product">
 		INSERT INTO
 		PRODUCT_TB(PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL,
-		IMAGE_ADDRESS, IMAGE_EXT)
+		IMAGE_ADDRESS)
 		VALUES(PRODUCT_SEQ.NEXTVAL, #{PRODUCT_NAME},
-		#{PRICE}, #{category}, #{DETAIL}, #{IMAGE_ADDRESS},
-		#{IMAGE_EXT})
+		#{PRICE},
+		#{category}, #{DETAIL}, #{IMAGE_ADDRESS})
 	</insert>
-
-
 
 	<update id="updateProduct" parameterType="Product">
 		UPDATE product_tb
@@ -34,34 +41,27 @@
 		where product_id = #{product_id}
 	</update>
 
-
-
 	<delete id="deleteProduct">
 		DELETE product_tb
-		WHERE product_id = #{product.product_id}
-	
-	
+		WHERE product_id =
+		#{productId}
 	</delete>
 
-
-
-	<select id="selectAllProducts" parameterType="Product">
+	<select id="selectAllProducts" parameterType="Product" resultMap="productMap">
 		<include refid="selectpd" />
 	</select>
 
-
-	<select id="selectProductsByCategory" parameterType="String">
+	<select id="selectProductsByCategory" parameterType="String" resultMap="productMap">
 		<include refid="selectpd" />
 		where category = #{category}
 	</select>
 
-	<select id="selectProductsByName" parameterType="String">
+	<select id="selectProductsByName" parameterType="String" resultMap="productMap">
 		<include refid="selectpd" />
-		where product_name like #{product_name%}
-		
+		where product_name like #{name%}
 	</select>
 
-	<select id="selectProductById" parameterType="String">
+	<select id="selectProductById" parameterType="String" resultMap="productMap">
 		<include refid="selectpd" />
 		where PRODUCT_ID = #{productId}
 	</select>
