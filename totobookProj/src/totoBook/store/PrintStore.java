@@ -12,4 +12,5 @@ public interface PrintStore {
 	void insertPrint(Print print);
 	void deletePrint(String printId);
 	List<Print> selectPrintsByMemberId(String memberId);
+	Print selectPrintByPrintId(String printId);
 }

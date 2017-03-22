@@ -11,5 +11,7 @@ import totoBook.domain.Print;
 public interface PrintMapper {
 	void insertPrint(Print print);
 	void deletePrint(String printId);
-	List<Print> selectPrintsByUserId(String memberId);
+	List<Print> selectPrintsByMemberId(String memberId);
+	Print selectPrintByPrintId(String printId);
 }
+

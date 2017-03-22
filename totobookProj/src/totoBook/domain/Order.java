@@ -14,7 +14,7 @@ public class Order {
 	private int ordPrice;
 	private Member member;
 	private String ordWay;
-	private List<Product> product;
+	private Product product;
 	
 	public String getOrderId() {
 		return orderId;
@@ -53,10 +53,10 @@ public class Order {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	public List<Product> getProduct() {
+	public Product getProduct() {
 		return product;
 	}
-	public void setProduct(List<Product> product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 	@Override

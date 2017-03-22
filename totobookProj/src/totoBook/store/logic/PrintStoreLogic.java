@@ -33,7 +33,13 @@ public class PrintStoreLogic implements PrintStore {
 
 	@Override
 	public void deletePrint(String printId) {
-		
+		SqlSession session = factory.openSession();
+		try {
+			PrintMapper mapper = session.getMapper(PrintMapper.class);
+			mapper.deletePrint(printId);
+		} finally {
+			session.close();
+		}
 	}
 	
 	@Override
@@ -42,11 +48,22 @@ public class PrintStoreLogic implements PrintStore {
 		List<Print> prints = null;
 		try {
 			PrintMapper mapper = session.getMapper(PrintMapper.class);
-			prints = mapper.selectPrintsByUserId(memberId);
+			prints = mapper.selectPrintsByMemberId(memberId);
 		} finally {
 			session.close();
 		}
 		return prints;
 	}
-
+	@Override
+	public Print selectPrintByPrintId(String printId) {
+		SqlSession session = factory.openSession();
+		Print print = null;
+		try{
+			PrintMapper mapper = session.getMapper(PrintMapper.class);
+			print = mapper.selectPrintByPrintId(printId);
+		} finally {
+			session.close();
+		}
+		return print;
+	}
 }

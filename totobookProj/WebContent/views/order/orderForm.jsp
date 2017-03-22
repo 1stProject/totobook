@@ -9,28 +9,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>배송지 수정</h1>
-<form action = "${ctx }/order/modify.do" method = "post">
-<table>
-	<tr>
-		<th>주문번호</th>
-		<td>${order.orderId }</td>
-	</tr>
-	<tr>
-		<th>회원 아이디</th>
-		<td>${order.member.memberId }</td>
-	</tr>
-	<tr>
-		<th>기존 주소</th>
-		<td>${order.ordWay}</td>
-	</tr>
-	<tr>
-		<th>수정 될 주소</th>
-		<td><input type = "text" name = "addr" placeholder = "사용자 정보에서 바뀌지 않습니다." size = 50></td>
-	</tr>	
-	<input type = "hidden" name = "orderId" value = "${order.orderId }">
-</table>
-<input type = "submit" value = "수정완료">
+<h1>주문 창</h1>
+<form method = "post" action = "${ctx }/order/register.do">
+회원 아이디 : ${order.member.memberId } <br>
+회원 이름 : ${order.member.name } <br>
+배송 주소 : ${order.member.address } <br>
+핸드폰번호 : ${order.member.phone } <br>
+카테고리 : 사진 <br>
+상품이름 : 봄봄봄<br>
+<input type = "radio" name = "payment" value = "신용카드"> 시뇽카드
+<input type = "radio" name = "payment" value = "무통장입금"> 무통장입금
+<input type = "radio" name = "payment" value = "현금"> 현금박치기<br>
+가격 : <input type = "text" name = "price" value = "35000" readonly>
+<input type = "hidden" value = "${order.member.memberId }" name = "memberId">
+<input type = "submit" value = "주문하기!">
 </form>
 </body>
 </html>
