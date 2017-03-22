@@ -16,7 +16,7 @@
 		<%@include file="../head/header.jspf" %>
 	</header>
 	
-	<div class="contents">
+	<div class="photoBookDiv">
 			<h3>포토북 편집</h3>
 	<form action="${ctx }/book/edit.do" method="post">
 		포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
@@ -24,7 +24,14 @@
 		선택한 상품명 : ${book.product.name}
 		선택된 옵션 : ${book.option }
 		
-		<button type="submit" >실행</button>
+			<div id="bookPageLeft">
+				음?
+			</div>
+			<div id="bookPageRight">
+				뭐지
+			</div>
+		
+		<button type="submit" >편집저장</button>
 		<button type="reset">취소</button>
 	</form>
 	</div>

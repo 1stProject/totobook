@@ -24,8 +24,6 @@ public class BookEditController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("이양!!!");
-		
 		BookService service = new BookServiceLogic();
 		String bookId = request.getParameter("bookId");
 		

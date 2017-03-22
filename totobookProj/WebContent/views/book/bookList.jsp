@@ -21,7 +21,7 @@
 			2. 레프트 메뉴 2		
 		</div>
 
-		<div class="contents">
+		<div class="contentsWithLeft">
 			<h3>나의 포토북 관리</h3>
 			
 			<table class="blueListTab">

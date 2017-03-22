@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./layout.css">
+<title>totoBook</title>
+
+</head>
+<body>
+	<header>
+	</header>
+	
+	<div class="photoBookDiv">
+			<h3>포토북 편집</h3>
+	<form action="${ctx }/book/edit.do" method="post">
+		포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
+		전체 페이지 수 : ${fn:length(book.pages)}" 장
+		선택한 상품명 : ${book.product.name}
+		선택된 옵션 : ${book.option }
+		
+			<div id="bookPageLeft">
+				음?
+			</div>
+			<div id="bookPageRight">
+				뭐지
+			</div>
+            <div id="layoutDiv">레이아웃선택<Br>
+                <img class="topDownBtnImg" src="toTop.png">
+                <img class="layoutIcon" src="A3_blue_layout_1.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_2.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_3.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_4.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_5.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_6.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_7.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_8.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_9.jpg">
+                <img class="layoutIcon" src="A3_blue_layout_10.jpg">
+                <img class="topDownBtnImg" src="toBottom.png">
+        </div>
+            <div id="photoListDiv">사진목록</div>
+
+        <div class="btnDiv">
+		<button type="submit" >편집저장</button>
+		<button type="reset">취소</button>
+        </div>
+	</form>
+	</div>
+
+	<footer>
+	</footer>
+</body>
+<script type="text/javascript">
+    var layoutImgs = [
+        "A3_blue_layout_1",
+        "A3_blue_layout_2",
+        "A3_blue_layout_3",
+        "A3_blue_layout_04",
+        "A3_blue_layout_05",
+        "A3_blue_layout_06",
+        "A3_blue_layout_07",
+        "A3_blue_layout_8",
+        "A3_blue_layout_9",
+        "A3_blue_layout_10"
+    ];
+    
+    
+    
+    </script>    
+    
+</html>
