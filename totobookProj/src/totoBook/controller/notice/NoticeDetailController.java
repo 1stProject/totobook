@@ -7,20 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import totoBook.domain.Post;
+import totoBook.service.NoticeService;
+import totoBook.service.logic.NoticeServiceLogic;
+
 @WebServlet("/notice/detail.do")
 public class NoticeDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Post post = new Post();
+		NoticeService service = new NoticeServiceLogic();
+		post = service.findNoticeById(request.getParameter("noticeId"));
+		
+		request.setAttribute("notice", post);
+		request.getRequestDispatcher("/views/notice/noticeDetail.jsp").forward(request, response);
 	}
 
 }

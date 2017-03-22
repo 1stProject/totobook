@@ -9,6 +9,11 @@
 		SELECT post_id,member_id,post_name,content,image_address,image_ext
 		FROM notice_tb
 	</select>
+	<select id="selectNoticeById" parameterType="String" resultType="Post">
+		SELECT post_id,member_id,post_name,content,image_address,image_ext
+		FROM notice_tb
+		WHERE post_id=#{noticeId}
+	</select>
 	<insert id="insertNotice" parameterType="Post">
 		INSERT INTO notice_tb
 		(post_id,member_id,post_name,content,image_address,image_ext)
@@ -19,6 +24,11 @@
 		FROM notice_tb
 		WHERE postId = #{noticeId}
 	</delete>
+	<update id="updateNotice" parameterType="Post">
+		UPDATE notice_tb
+		SET post_id=#{postId},member_id=#{member.meberId},post_name=#{title},content=#{content},image_address=#{imageAddressPath},image_ext=#{image_ext}
+		WHERE post_id=#{postId}
+	</update>
 </mapper>
   
   

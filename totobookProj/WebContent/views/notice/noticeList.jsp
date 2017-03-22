@@ -21,8 +21,8 @@
 			<c:forEach items="${NoticeList}" var="notice" varStatus="sts">
 				<tr>
 					<td class="ranking">${sts.count}</td>
-					<td>${notice.title }</td>
-					<td>${notice.member.name }</td>
+					<td><a class="modify_btn" href="${ctx }/notice/modify.do?noticeId=${notice.postId }">${notice.title }</a></td>
+					<td>${notice.member.memberId }</td>
 					<td><a class="remove_btn" href="${ctx }/notice/remove.do?noticeId=${notice.postId }">삭제</a></td>
 				</tr>
 			</c:forEach>

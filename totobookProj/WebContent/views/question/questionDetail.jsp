@@ -34,8 +34,8 @@
 		<tr>
 		<td>
 		
-			<input type="button" value="수정">
-			<input type="button" value="삭제">
+			<input type="button" value="수정"/>
+			<input type="button" value="삭제"/>
 			</td>
 		</tr>
 		

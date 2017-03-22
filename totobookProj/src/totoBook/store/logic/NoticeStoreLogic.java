@@ -11,38 +11,54 @@ import totoBook.store.NoticeStore;
 import totoBook.store.mapper.NoticeMapper;
 import totoBook.store.mapper.QuestionMapper;
 
-public class NoticeStoreLogic implements NoticeStore{
+public class NoticeStoreLogic implements NoticeStore {
 
 	private SqlSessionFactory factory;
-	
+
 	public NoticeStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
+
 	@Override
 	public List<Post> selectAllNotice() {
 		SqlSession session = factory.openSession();
 		List<Post> list = new ArrayList<>();
-		
-		try{
+
+		try {
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
-			list=mapper.selectAllNotice();
-		}finally{
+			list = mapper.selectAllNotice();
+		} finally {
 			session.close();
 		}
-		
+
 		return list;
 	}
 
 	@Override
 	public Post selectNoticeById(String noticeId) {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = factory.openSession();
+		Post post;
+
+		try {
+			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
+			post = mapper.selectNoticeById(noticeId);
+		} finally {
+			session.close();
+		}
+		return post;
 	}
 
 	@Override
 	public void updateNotice(Post post) {
-		// TODO Auto-generated method stub
-		
+		SqlSession session = factory.openSession();
+		try {
+			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
+			mapper.updateNotice(post);
+			session.commit();
+		} finally {
+			session.close();
+		}
+
 	}
 
 	@Override
@@ -52,11 +68,12 @@ public class NoticeStoreLogic implements NoticeStore{
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
 			mapper.deleteNotice(noticeId);
 			session.commit();
-		}finally{
+		} finally {
 			session.close();
 		}
-		
+
 	}
+
 	@Override
 	public void insertNotice(Post post) {
 		SqlSession session = factory.openSession();
@@ -64,7 +81,7 @@ public class NoticeStoreLogic implements NoticeStore{
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
 			mapper.insertNotice(post);
 			session.commit();
-		}finally{
+		} finally {
 			session.close();
 		}
 	}

@@ -18,13 +18,15 @@ public class NoticeServiceLogic implements NoticeService{
 
 	@Override
 	public Post findNoticeById(String noticeId) {
-		// TODO Auto-generated method stub
-		return null;
+		NoticeStore store = new NoticeStoreLogic();
+		Post post = store.selectNoticeById(noticeId);
+		return post;
 	}
 
 	@Override
 	public void modifyNotice(Post post) {
-		// TODO Auto-generated method stub
+		NoticeStore store = new NoticeStoreLogic();
+		store.updateNotice(post);
 		
 	}
 
