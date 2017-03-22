@@ -8,37 +8,55 @@
 </head>
 <body>
 	<header>
+        <script src="js/jquery-3.1.1.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	</header>
 	
-	<div class="photoBookDiv">
+	<div class="photoBookContainer">
 			<h3>포토북 편집</h3>
-	<form action="${ctx }/book/edit.do" method="post">
-		포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
-		전체 페이지 수 : ${fn:length(book.pages)}" 장
-		선택한 상품명 : ${book.product.name}
-		선택된 옵션 : ${book.option }
-		
-			<div id="bookPageLeft">
+	<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data">
+        <div class="photoBookContent">
+            <div id="photoBookDesciption">
+            포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
+            전체 페이지 수 : ${fn:length(book.pages)}" 장
+            선택한 상품명 : ${book.product.name}
+            선택된 옵션 : ${book.option }      
+        
+            </div>
+		  <img src="toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
+			 <div id="bookPageLeft">
 				음?
 			</div>
+            <div class="bookPaging1">페</div>
+            <div class="bookPaging2">이</div>
 			<div id="bookPageRight">
 				뭐지
 			</div>
-            <div id="layoutDiv">레이아웃선택<Br>
-                <img class="topDownBtnImg" src="toTop.png">
-                <img class="layoutIcon" src="A3_blue_layout_1.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_2.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_3.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_4.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_5.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_6.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_7.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_8.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_9.jpg">
-                <img class="layoutIcon" src="A3_blue_layout_10.jpg">
-                <img class="topDownBtnImg" src="toBottom.png">
-        </div>
-            <div id="photoListDiv">사진목록</div>
+        
+		  <img src="toRight.png" class="leftRightBtnImg" id="toNextPage">
+            <div id="layoutDiv">레이아웃선택
+                <img class="layoutIcon1" src="A3_layout_1.jpg">
+                <img class="layoutIcon1" src="A3_layout_2.jpg">
+                <img class="layoutIcon1" src="A3_layout_3.jpg">
+                
+                <!--
+                <img class="layoutIcon1" src="A3_layout_4.jpg"> 
+                <img class="layoutIcon1" src="A3_layout_5.jpg">
+                <img class="layoutIcon2" src="A3_layout_6.jpg" onclick="changeLayout(6)">
+                <img class="layoutIcon2" src="A3_blue_layout_7.jpg">
+                <img class="layoutIcon2" src="A3_blue_layout_8.jpg">
+                <img class="layoutIcon2" src="A3_blue_layout_9.jpg">
+                 <img id ="NextBtnImg" class="topDownBtnImg"  src="toRight.png" onclick="nextLayout()">
+                <img id ="BeforeBtnImg" class="topDownBtnImg" src="toLeft.png" onclick="beforeLayout()"> -->
+                </div>
+            </div>
+            <div id="photoListDiv">사진목록
+            	<input type="file" name="photofile" style="width:250px;" accept="image/*" multiple onchange="fileInfo(this)" >
+            	<div id="img_box"></div>
+                
+                
+                </div>
 
         <div class="btnDiv">
 		<button type="submit" >편집저장</button>
@@ -51,6 +69,21 @@
 	</footer>
 </body>
 <script type="text/javascript">
+var pageCount=1;
+    
+    $(document).ready(function() {    
+    var selectedPage = 'R';
+   	var pageCount=1;
+    $(".bookPaging1").css("visibility","hidden");
+    $("#bookPageLeft").css("visibility","hidden");
+        
+        
+        
+/*        document.getElementById("BeforeBtnImg").style.display="none";
+        $(".layoutIcon2").css("display", "none"); 
+        */
+    });
+                      
     var layoutImgs = [
         "A3_blue_layout_1",
         "A3_blue_layout_2",
@@ -64,7 +97,77 @@
         "A3_blue_layout_10"
     ];
     
+    var beforeLayout = function(){  
+        $(".layoutIcon2").css("display", "none");         $(".layoutIcon1").css("display", "block");   
+        $('#BeforeBtnImg').css("display", "none");     $('#NextBtnImg').css("display", "block");    
+    }
+    var nextLayout = function(){
+        $(".layoutIcon1").css("display", "none");         $(".layoutIcon2").css("display", "block");       $('#BeforeBtnImg').css("display", "block");     $('#NextBtnImg').css("display", "none"); 
+    }
     
+    $("#bookPageLeft").click(function(){
+        selectedPage = 'L';
+    });
+    $("#bookPageRight").click(function(){
+        selectedPage = 'R';
+    });  
+    
+    $(".layoutIcon1").click(function(){
+        if(selectedPage == 'L'){
+            var src = $(this).attr("src");
+            console.log(src);
+            $("#bookPageLeft").css("background-image", 'url("'+src+'")');
+        } else {
+            var src = $(this).attr("src");
+            console.log(src);
+            $("#bookPageRight").css("background-image", 'url("'+src+'")');
+        }        
+    });
+    
+    var fileInfo =  function(f){
+    	var file = f.files; // files 를 사용하면 파일의 정보를 알 수 있음
+
+    	// 파일의 갯수만큼 반복
+    	for(var i=0; i<file.length; i++){
+
+    		var reader = new FileReader(); // FileReader 객체 사용
+    		reader.onload = function(rst){
+            
+    			$('#img_box').append('<img src="' + rst.target.result + '" class="uploadPhoto" >'); 
+                // append 메소드를 사용해서 이미지 추가
+    			// 이미지는 base64 문자열로 추가
+    			// 이 방법을 응용하면 선택한 이미지를 미리보기 할 수 있음    
+    		}
+    		reader.readAsDataURL(file[i]); // 파일을 읽는다
+
+    	}
+    }
+    
+    $("#toBeforePage").click(function(){
+        console.log(pageCount);
+        pageCount = parseInt(pageCount-1);
+        if(pageCount == 1){
+            $(this).css("visibility","hidden");
+            $("#bookPageLeft").css("background-image","");
+            $("#bookPageLeft").css("background-color","white");
+            $(".bookPaging1").css("visibility","hidden");
+        }
+        
+    });
+    
+    $("#toNextPage").click(function(){
+        pageCount = parseInt(pageCount+1);
+        console.log(pageCount);
+        
+        $("#toBeforePage").css("visibility", "visible")
+        if(pageCount==2){
+            $("#bookPageLeft").css("visibility","visible");
+            $(".bookPaging1").css("visibility","visible");
+        }
+        if(pageCount == 5){
+            $(this).css("visibility", "hidden");
+        }
+    });
     
     </script>    
     
