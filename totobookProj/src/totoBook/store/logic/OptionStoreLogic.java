@@ -16,25 +16,21 @@ import totoBook.store.mapper.OptionMapper;
  */
 public class OptionStoreLogic implements OptionStore{
 
-	
 	private SqlSessionFactory factory;
-	
-	
-	public OptionStoreLogic(){
+
+	public OptionStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
-	
 	}
+
 	
 	@Override
-	public List<Option> selectOptions(String Optionid) {
+	public List<Option> selectOptions(String productId) {
 		SqlSession session = factory.openSession();
-		Option option = new Option();
 		List<Option> list = new ArrayList<>();
 		try {
 			OptionMapper mapper = session.getMapper(OptionMapper.class);
-			list = mapper.selectOptions(Optionid);
+			list = mapper.selectOptions(productId);
 			session.commit();
-
 		} finally {
 			session.close();
 		}
@@ -44,7 +40,6 @@ public class OptionStoreLogic implements OptionStore{
 	@Override
 	public void insertOption(Option option) {
 		SqlSession session = factory.openSession();
-
 		try {
 			OptionMapper mapper = session.getMapper(OptionMapper.class);
 			mapper.insertOption(option);

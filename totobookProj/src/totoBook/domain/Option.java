@@ -38,6 +38,12 @@ public class Option {
 	public void setOptionPrice(int[] opprice) {
 		this.optionPrice = opprice;
 	}
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
 	
 	
 	

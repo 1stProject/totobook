@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@
 		<input type="button" name="back" value="뒤로가기"
 			onClick="javascript:history.go(-1);" /> <input type="button"
 			name="modify" value="수정하기"
-			onclick="javascript:location.href='/review/modify.do?memebrid=${review.member_id }';"
+			onclick="javascript:location.href='${ctx }/review/modify.do?memebrid=${review.member_id }';"
 			value="수정하기">
 
 	</div>

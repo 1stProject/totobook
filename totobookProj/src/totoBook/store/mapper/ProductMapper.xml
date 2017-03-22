@@ -7,10 +7,10 @@
 
 
 	<resultMap type="Product" id="productMap">
-		<id property="productId" column="product_id" />
+		<id property="productId" column="product_id" jdbcType="VARCHAR"/>
 		<result property="name" column="product_name" />
-		<result property="productprice" column="price" />
-		<result property="category" column="category" />
+		<result property="productprice" column="price" jdbcType="INTEGER"/>
+		<result property="category" column="CATEGORY" />
 		<result property="descript" column="detail" />
 		<result property="imageAddress" column="image_address" />
 	</resultMap>

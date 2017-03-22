@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
 
 <!DOCTYPE html>
 <html>
@@ -45,11 +46,11 @@
 								<c:forEach items="${review}" var="review" varStatus="status">
 									<tr>
 										<td>${review.product.name }</td>
-										<td><a href="review/detail.do?id=${review.member.memberid }">${review.comment }</a></td>
+										<td><a href="${ctx }/review/detail.do?id=${review.member.memberid }">${review.comment }</a></td>
 										<td><input type="hidden" id ="modify" value="${review.memebr.memberid }">
-										<a href="product/modify.do?modifyid=${review.product.product_id}"
+										<a href="${ctx }/product/modify.do?modifyid=${review.product.product_id}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
-											<td><input type="hidden" id ="reviewserachbymember" value="${review.memebr.memberid }"><a href="product/remove.do?id=${review.product.product_id}"
+											<td><input type="hidden" id ="reviewserachbymember" value="${review.memebr.memberid }"><a href="${ctx }/product/remove.do?id=${review.product.product_id}"
 												class="btn btn-xs btn-danger">삭제하기</a></td>
 									</tr>
 								</c:forEach>

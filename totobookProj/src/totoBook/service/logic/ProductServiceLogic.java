@@ -18,7 +18,7 @@ public class ProductServiceLogic implements ProductService {
 	private ProductStore productStore;
 	private OptionStore optionStore;
 	private ReviewStore reviewStore;
-	
+
 	public ProductServiceLogic() {
 
 		productStore = new ProductStoreLogic();
@@ -30,14 +30,14 @@ public class ProductServiceLogic implements ProductService {
 	public List<Product> findAllProducts() {
 		List<Product> list = new ArrayList<>();
 		return list = productStore.selectAllProducts();
-		//관리자 모든 상품보기
+		// 관리자 모든 상품보기
 	}
 
 	@Override
 	public List<Option> findOption(String productId) {
 		List<Option> list = new ArrayList<>();
 		return list = optionStore.selectOptions(productId);
-		//상품의 옵션들 찾기
+		// 상품의 옵션들 찾기
 	}
 
 	@Override
@@ -45,35 +45,36 @@ public class ProductServiceLogic implements ProductService {
 		Product product = productStore.selectProductById(productId);
 		product.setOptions(optionStore.selectOptions(productId));
 		return product;
-		//상품상세보기 옵션들어가야함
+		// 상품상세보기 옵션들어가야함
 	}
 
 	@Override
 	public List<Product> findProductsByCategory(String category) {
 		List<Product> list = new ArrayList<>();
 		return list = productStore.selectProductsByCategory(category);
-		//카페고리별로 상품보기
+		// 카페고리별로 상품보기
 	}
 
 	@Override
 	public List<Product> findProductsByName(String name) {
 		List<Product> list = new ArrayList<>();
 		return list = productStore.selectProductsByName(name);
-		//관리자 상품검색
-	
+		// 관리자 상품검색
+
 	}
 
 	@Override
 	public void modifyOption(Option option) {
-		optionStore.updateOption(option);
-	//관리자 상품수정
-	
+		optionStore.deleteOption(option.getProductId());
+		optionStore.insertOption(option);
+		// 관리자 옵션 삭제 후 옵션 다시 등록
+
 	}
 
 	@Override
 	public void modifyProduct(Product product) {
 		productStore.updateProduct(product);
-		//관리자 상품수정
+		// 관리자 상품수정
 	}
 
 	@Override
@@ -96,7 +97,7 @@ public class ProductServiceLogic implements ProductService {
 		optionStore.deleteOption(product.getProductId());
 		reviewStore.deleteCommentByProduct(product);
 		productStore.deleteProduct(product);
-	//상품삭제시 옵션,상품평도 같이 삭제
+		// 상품삭제시 옵션,상품평도 같이 삭제
 	}
 
 }
