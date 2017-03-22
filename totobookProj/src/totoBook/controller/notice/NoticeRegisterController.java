@@ -7,18 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import totoBook.domain.Post;
+import totoBook.service.NoticeService;
+import totoBook.service.QuestionService;
+import totoBook.service.logic.NoticeServiceLogic;
+import totoBook.service.logic.QuestionServiceLogic;
+
+
 @WebServlet("/notice/register.do")
 public class NoticeRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Post post = new Post();
+		NoticeService service = new NoticeServiceLogic();
+
+		post.setTitle(request.getParameter("notice_title"));
+		post.setContent(request.getParameter("content"));
+		post.setImageAddressPath("");
+		post.setImage_ext("");
+		//post.setMember("");
+		service.registerNotice(post);
+
+		response.sendRedirect("/question/list.do");
+
 	}
 
 }

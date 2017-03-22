@@ -1,5 +1,7 @@
 package totoBook.service;
 
+import java.util.List;
+
 import totoBook.domain.Post;
 
 /**
@@ -11,4 +13,5 @@ public interface NoticeService {
 	Post findNoticeById(String noticeId);
 	void modifyNotice(Post post);
 	void removeNotice(String noticeId);
+	List<Post> findAllNotice();
 }

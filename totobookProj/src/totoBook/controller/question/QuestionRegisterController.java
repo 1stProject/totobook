@@ -23,12 +23,12 @@ public class QuestionRegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		Post post = new Post();
-		Photo photo = new Photo();
 		QuestionService service = new QuestionServiceLogic();
 		
 		post.setTitle(request.getParameter("question_title"));
 		post.setContent(request.getParameter("content"));
-		//photo경로,type(photo),작성자 id(session.get)
+		post.setImageAddressPath("");
+		post.setImage_ext("");
 		service.registerQuestion(post);
 		
 		response.sendRedirect("/question/list.do");

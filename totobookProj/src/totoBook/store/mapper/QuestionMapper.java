@@ -13,9 +13,8 @@ import totoBook.domain.Post;
  */
 
 public interface QuestionMapper {
-
-	void insertQuestion(Post post,@Param("memberId") String memberId,@Param("fileName") String filename
-			,@Param("contentType") String contentType);
+//,@Param("memberId") String memberId,@Param("fileName") String filename,@Param("contentType") String contentType
+	void insertQuestion(Post post);
 	List<Post>	selectAllQuestion();
 	Post selectQuestionById(String questionId);
 	void updateQuestion(Post post);

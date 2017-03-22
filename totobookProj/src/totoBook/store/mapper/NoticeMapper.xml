@@ -5,6 +5,20 @@
 
 <mapper namespace="totoBook.store.mapper.NoticeMapper">
 
+	<select id="selectAllNotice">
+		SELECT post_id,member_id,post_name,content,image_address,image_ext
+		FROM notice_tb
+	</select>
+	<insert id="insertNotice" parameterType="Post">
+		INSERT INTO notice_tb
+		(post_id,member_id,post_name,content,image_address,image_ext)
+		VALUES(#{postId},#{member.meberId},#{title},#{content},#{imageAddressPath},#{image_ext})
+	</insert>
+	<delete id="deleteNotice" parameterType="String">
+		DELETE
+		FROM notice_tb
+		WHERE postId = #{noticeId}
+	</delete>
 </mapper>
   
   

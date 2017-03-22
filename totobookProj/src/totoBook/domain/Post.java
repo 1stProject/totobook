@@ -9,7 +9,8 @@ public class Post {
 	private Member member;
 	private String title;
 	private String content;
-	private Photo photo;
+	private String imageAddressPath;
+	private String image_ext;
 	
 	public String getPostId() {
 		return postId;
@@ -36,10 +37,17 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Photo getPhoto() {
-		return photo;
+	public String getImageAddressPath() {
+		return imageAddressPath;
 	}
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setImageAddressPath(String imageAddressPath) {
+		this.imageAddressPath = imageAddressPath;
 	}
+	public String getImage_ext() {
+		return image_ext;
+	}
+	public void setImage_ext(String image_ext) {
+		this.image_ext = image_ext;
+	}
+
 }

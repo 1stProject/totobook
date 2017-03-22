@@ -15,4 +15,5 @@ public interface NoticeMapper {
 	Post selectNoticeById(String noticeId);
 	void updateNotice(Post post);
 	void deleteNotice(String noticeId);
+	void insertNotice(Post post);
 }

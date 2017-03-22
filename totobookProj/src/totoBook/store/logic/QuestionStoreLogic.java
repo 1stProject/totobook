@@ -45,7 +45,7 @@ public class QuestionStoreLogic implements QuestionStore {
 		} finally {
 			session.close();
 		}
-		for(Post post : list){
+		for (Post post : list) {
 			System.out.println(post.getTitle());
 		}
 		return list;
@@ -65,7 +65,14 @@ public class QuestionStoreLogic implements QuestionStore {
 
 	@Override
 	public void deleteQuestion(String questionId) {
-		// TODO Auto-generated method stub
+		SqlSession session = factory.openSession();
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			mapper.deleteQuestion(questionId);
+			session.commit();
+		} finally {
+			session.close();
+		}
 
 	}
 

@@ -7,18 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import totoBook.service.NoticeService;
+import totoBook.service.logic.NoticeServiceLogic;
+
+
 @WebServlet("/notice/remove.do")
 public class NoticeRemoveController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		NoticeService service = new NoticeServiceLogic();
+		
+		service.removeNotice(request.getParameter("noticeId"));
+		
+		response.sendRedirect("/views/notice/noticeList.jsp");
 	}
 
 	

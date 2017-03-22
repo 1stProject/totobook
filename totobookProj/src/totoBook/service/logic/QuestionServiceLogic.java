@@ -40,8 +40,8 @@ public class QuestionServiceLogic implements QuestionService{
 
 	@Override
 	public void removeQuestion(String questionId) {
-		// TODO Auto-generated method stub
-		
+		QuestionStore store = new QuestionStoreLogic();
+		store.deleteQuestion(questionId);
 	}
 
 }

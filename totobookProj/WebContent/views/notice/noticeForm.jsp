@@ -8,6 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div>
+		<header> </header>
+		<form action="${ctx }/notice/register.do" method="post">
+			title : <input type="text" name="notice_title"><br>
+			<br> <input type="text" name="content" ><br>
+			<br> <input type="submit" value="등록">
+		</form>
+		<footer> </footer>
+	</div>
 </body>
 </html>
