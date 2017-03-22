@@ -26,8 +26,6 @@ public class LoginController extends HttpServlet {
 		String Id = request.getParameter("memberId");
 		String passwd = request.getParameter("password");
 		
-		System.out.println(Id);
-		System.out.println(passwd);
 		 if("memberID".equals(Id) && "password".equals(passwd)) {
 			
 			HttpSession session = request.getSession();

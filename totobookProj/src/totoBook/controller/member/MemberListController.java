@@ -30,7 +30,6 @@ public class MemberListController extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService service = new MemberServiceLogic();
-		System.out.println(request.getParameter("fuck"));
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
@@ -38,17 +37,14 @@ public class MemberListController extends HttpServlet {
 			String name = request.getParameter("search");
 			List<Member> list = service.findMembersByName(name);
 			request.setAttribute("memberList", list);
-			System.out.println(name);
-		}else if(request.getParameter("fuck").equals("address")){
-			String address = request.getParameter("search");
-			List<Member> list = service.findMembersByTel(address);
-			request.setAttribute("memberList", list);	
-			System.out.println(address);
 		}else if(request.getParameter("fuck").equals("phone")){
+			String Tel = request.getParameter("search");
+			List<Member> list = service.findMembersByTel(Tel);
+			request.setAttribute("memberList", list);	
+		}else if(request.getParameter("fuck").equals("memberId")){
 			String Id = request.getParameter("search");
 			Member member=service.findMemberById(Id);
 			request.setAttribute("memberList", member);
-			System.out.println(Id);
 		}
 		
 		request.getRequestDispatcher("/views/member/memberList.jsp").forward(request, response);

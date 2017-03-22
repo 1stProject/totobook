@@ -11,10 +11,7 @@ import totoBook.domain.Member;
 import totoBook.store.MemberStore;
 import totoBook.store.mapper.MemberMapper;
 
-/**
- * @author
- * @version 1.0
- */
+
 public class MemberStoreLogic implements MemberStore{
 
 	private SqlSessionFactory factory;
@@ -43,7 +40,6 @@ public class MemberStoreLogic implements MemberStore{
 		try{
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
 			member = mapper.selectMemberById(memberId);
-			
 		}finally{
 			session.close();
 			
@@ -54,7 +50,15 @@ public class MemberStoreLogic implements MemberStore{
 
 	@Override
 	public Member selectMember(Member member) {
-		return null;
+		SqlSession session= factory.openSession();
+		member = new Member();
+		
+		try{
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+		}finally{
+			session.close();
+		}
+		return member;
 	}
 
 	@Override
@@ -63,6 +67,7 @@ public class MemberStoreLogic implements MemberStore{
 		try{
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
 			mapper.updateMember(member);
+			session.commit();
 		}finally{
 			session.close();
 		}
@@ -74,6 +79,7 @@ public class MemberStoreLogic implements MemberStore{
 		try{
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
 			mapper.deleteMember(member);
+			session.commit();
 		}finally{
 			session.close();
 		}

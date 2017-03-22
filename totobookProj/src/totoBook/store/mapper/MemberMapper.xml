@@ -27,7 +27,7 @@
 	WHERE member_id = #{memberId}	
 	</select>
 	
-	<select id="selectMembersByTel" parameterType="String" resultMap="MemberMap">
+	<select id="selectMembersByTel" parameterType="Member" resultMap="MemberMap">
 	SELECT member_Id, name, password, address, phone,receive_Email
 	FROM member_tb
 	WHERE phone = #{phone}
@@ -53,15 +53,16 @@
 	</select>
 	<update id="updateMember" parameterType="Member">
 		UPDATE member_tb
-		SET member_id=#{memberId} ,member_address=#{address}, member_phone=#{phone},receive_Email=#{receiveEmail}
-		WHERE member_id= #{memberId}
+		SET member_id = #{memberId}, password = #{password}, phone = #{phone}, address = #{address}, receive_Email = #{receiveEmail}
+		WHERE member_id = #{memberId}
 	
 	</update>
 	
 	<delete id="deleteMember" parameterType="Member">
 		DELETE
 		FROM member_tb
-		WHERE member_tb = #{memberId}
+		WHERE member_id = #{memberId}
+		
 	</delete>
 	
   
