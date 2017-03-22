@@ -24,7 +24,21 @@ div.contentsContainer {
 	width : 940px;
 	height : 1000px;
 	margin :0 auto;
+}
+
+div.photoBookDiv {
+	width : 1520x;
+	height : 1000px;
+	margin :0 auto;
 	background-color : yellow;
+}
+
+div #bookPageLeft {
+	width : 760px;
+}
+
+div #bookPageRight {
+	width : 760px;
 }
 
 div.leftMenu {
@@ -33,7 +47,7 @@ div.leftMenu {
 	background-color : pink;
 	float:left;
 }
-div.contents {
+div.contentsWithLeft {
 	width : 740px;
 	height : 850px;
 	background-color : white;
@@ -43,6 +57,8 @@ div.contents {
 table.blueListTab {
 	margin : 0 auto;
 	margin-top : 20px;
+	width : 700px;
+	text-align: center;
 }
 
 table.blueListTab th{

@@ -52,6 +52,7 @@ public class BookServiceLogic implements BookService{
 	@Override
 	public Book findBook(String bookId) {
 		Book book = bookStore.selectBook(bookId);
+		System.out.println(bookId);
 		book.setPages(pageStore.selectPagesByBookId(bookId));
 		
 		return book;

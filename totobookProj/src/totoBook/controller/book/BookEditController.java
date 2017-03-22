@@ -24,15 +24,12 @@ public class BookEditController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("이양!!!");
-		
 		BookService service = new BookServiceLogic();
-//		String bookId = request.getParameter("bookId");
-		String bookId = "2";
+		String bookId = request.getParameter("bookId");
 		
 		request.setAttribute("book", service.findBook(bookId));
 		
-		request.getRequestDispatcher("/views/bookForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/book/bookForm.jsp").forward(request, response);
 	}
 	
 
