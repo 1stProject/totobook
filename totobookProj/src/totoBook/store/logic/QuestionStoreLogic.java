@@ -38,28 +38,41 @@ public class QuestionStoreLogic implements QuestionStore {
 	public List<Post> selectAllQuestion() {
 		SqlSession session = factory.openSession();
 		List<Post> list = new ArrayList<>();
-		System.out.println("done2");
+
 		try {
 			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
 			list = mapper.selectAllQuestion();
 		} finally {
 			session.close();
 		}
-		for (Post post : list) {
-			System.out.println(post.getTitle());
-		}
+
 		return list;
 	}
 
 	@Override
 	public Post selectQuestionById(String questionId) {
-		// TODO Auto-generated method stub
-		return null;
+		SqlSession session = factory.openSession();
+		Post post;
+
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			post = mapper.selectQuestionById(questionId);
+		} finally {
+			session.close();
+		}
+		return post;
 	}
 
 	@Override
 	public void updateQuestion(Post post) {
-		// TODO Auto-generated method stub
+		SqlSession session = factory.openSession();
+		try{
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			mapper.updateQuestion(post);
+			session.commit();
+		}finally {
+			session.close();
+		}
 
 	}
 

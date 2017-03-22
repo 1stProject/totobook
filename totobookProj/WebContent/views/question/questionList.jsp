@@ -21,13 +21,16 @@
 			<c:forEach items="${questionList}" var="question" varStatus="sts">
 				<tr>
 					<td class="ranking">${sts.count}</td>
-					<td>${question.title }</td>
+					<td><a class="detail_btn"
+						href="${ctx }/question/detail.do?questionId=${question.postId }">${question.title }</a></td>
 					<td>${question.member.memberId }</td>
+					<td><a class="remove_btn"
+						href="${ctx }/question/remove.do?questionId=${question.postId }">삭제</a></td>
 				</tr>
 			</c:forEach>
+			<td><a class="register_btn" href="${ctx }/views/question/questionForm.jsp"/>글쓰기</td>
 		</tbody>
 	</table>
-	<form action="${ctx }/question/list.do" method="post">
-	<input type="submit"></form>
+
 </body>
 </html>

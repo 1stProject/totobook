@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Post;
+import totoBook.service.MemberService;
 import totoBook.service.NoticeService;
+import totoBook.service.logic.MemberServiceLogic;
 import totoBook.service.logic.NoticeServiceLogic;
 
 @WebServlet("/notice/modify.do")

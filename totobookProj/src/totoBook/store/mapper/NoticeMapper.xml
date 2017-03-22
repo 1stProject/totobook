@@ -5,11 +5,22 @@
 
 <mapper namespace="totoBook.store.mapper.NoticeMapper">
 
-	<select id="selectAllNotice">
-		SELECT post_id,member_id,post_name,content,image_address,image_ext
+	<resultMap type="Post" id="noticeMap">
+	<id column="post_id" property="postId" />
+		<result column="member_id" property="memberId" />
+		<result column="post_name" property="title" />
+		<result column="content" property="content" />
+		<result column="image_address" property="filename" />
+		<result column="image_ext" property="contentType" />
+	<association property="member" column="member_id"
+				javaType="Member" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="selectAllNotice" resultMap="noticeMap">
+		SELECT
+		post_id,member_id,post_name,content,image_address,image_ext
 		FROM notice_tb
 	</select>
-	<select id="selectNoticeById" parameterType="String" resultType="Post">
+	<select id="selectNoticeById" parameterType="String" resultMap="noticeMap">
 		SELECT post_id,member_id,post_name,content,image_address,image_ext
 		FROM notice_tb
 		WHERE post_id=#{noticeId}
@@ -22,11 +33,12 @@
 	<delete id="deleteNotice" parameterType="String">
 		DELETE
 		FROM notice_tb
-		WHERE postId = #{noticeId}
+		WHERE post_id = #{noticeId}
 	</delete>
 	<update id="updateNotice" parameterType="Post">
 		UPDATE notice_tb
-		SET post_id=#{postId},member_id=#{member.meberId},post_name=#{title},content=#{content},image_address=#{imageAddressPath},image_ext=#{image_ext}
+		SET
+		post_id=#{postId},member_id=#{member.meberId},post_name=#{title},content=#{content},image_address=#{imageAddressPath},image_ext=#{image_ext}
 		WHERE post_id=#{postId}
 	</update>
 </mapper>

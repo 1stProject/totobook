@@ -28,13 +28,15 @@ public class QuestionServiceLogic implements QuestionService{
 
 	@Override
 	public Post findQuestionById(String questionId) {
-		// TODO Auto-generated method stub
-		return null;
+		QuestionStore store = new QuestionStoreLogic();
+		Post post = store.selectQuestionById(questionId);
+		return post;
 	}
 
 	@Override
 	public void modifyQuestion(Post post) {
-		// TODO Auto-generated method stub
+		QuestionStore store = new QuestionStoreLogic();
+		store.updateQuestion(post);
 		
 	}
 

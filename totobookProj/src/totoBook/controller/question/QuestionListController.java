@@ -20,7 +20,7 @@ public class QuestionListController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		QuestionService service = new QuestionServiceLogic();
-		System.out.println("done");
+	
 		List<Post> list = service.findAllQuestion();
 
 		request.setAttribute("questionList", list);

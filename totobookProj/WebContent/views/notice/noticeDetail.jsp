@@ -29,9 +29,6 @@
 			<br>
 		</tr>
 		<tr>
-			<td>답글란</td>
-		</tr>
-		<tr>
 			<td><input type="button" value="수정"
 				onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
 				<input type="button" value="삭제"
