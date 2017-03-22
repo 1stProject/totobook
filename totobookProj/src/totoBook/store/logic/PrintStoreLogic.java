@@ -19,13 +19,14 @@ public class PrintStoreLogic implements PrintStore {
 	public PrintStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
+	
 	@Override
 	public String insertPrint(Print print) {
 		SqlSession session = factory.openSession();
-		String printId;
+		String printId = "3";
 		try {
 			PrintMapper mapper = session.getMapper(PrintMapper.class);
-			printId = mapper.insertPrint(print);
+			mapper.insertPrint(print);
 			session.commit();
 		} finally {
 			session.close();
