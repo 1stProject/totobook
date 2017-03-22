@@ -51,10 +51,11 @@
 	ORDER BY member_Id DESC
 	
 	</select>
-	<update id="updateMember" parameterType="Member">
+	<update id="updateMember" parameterType="Member" >
 		UPDATE member_tb
-		SET member_id = #{memberId}, password = #{password}, phone = #{phone}, address = #{address}, receive_Email = #{receiveEmail}
+		SET member_id = #{memberId}, phone = #{phone}, password = #{password}, address = #{address}, receive_Email = #{receiveEmail}
 		WHERE member_id = #{memberId}
+		
 	
 	</update>
 	
