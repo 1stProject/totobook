@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,25 +33,11 @@
 					<td><input type="text" name="descript" style="text-align:left; width:400px; height:200px;"></td>
 				</tr>
 				<tr>
-					<td>사이즈옵션</td>
-					<td>크기<select name="optionName"><option value="">---</option>
-							<option value="15*15">15X15</option>
-							<option value="20*20">20X20</option>
-							<option value="35*35">35X35</option>
-							<option value="print">증명사진</option>
-							<option value="3*5">3X5</option>
-							<option value="4*6">4X6</option>
-					</select>
+					<td>옵션</td>
+					<td>사이즈<input type="text" name="optionname">
+					설명<input type="text" name="optiondesp">
+					금액<input type="text" name="optionprice">
 					</td>
-				<tr>
-					<td>그외</td>
-					<td><select name="optionDesp"><option value="unlight">---</option>
-							<option value="light">광택</option>
-							<option value="unlight">무광택</option>
-							<option value="20">20장</option>
-							<option value="30">30장</option>
-							<option value="40">40장</option>
-					</select></td>
 				</tr>
 				<tr>
 					<td>사진</td>

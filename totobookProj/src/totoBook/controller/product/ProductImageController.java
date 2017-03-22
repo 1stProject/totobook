@@ -34,31 +34,20 @@ public class ProductImageController extends HttpServlet {
 
 		
 		ProductStoreLogic service = new ProductStoreLogic();
-		
-		
 		String productid = (request.getParameter("productid"));
-
-
 		Product product = service.selectProductById(productid);
 		
-		
-		
 		String imageAddress = product.getImageAddress();
-
 		String fileName = null;
 		InputStream in = null;
 
 		if (imageAddress != null) {
 			response.setContentType(imageAddress);
-			
 			ServletContext cxt = getServletContext();
 			String dir = cxt.getRealPath("/upload");
-			
 			fileName = dir + "/" + imageAddress;
 			
-			
 			in = new BufferedInputStream(new FileInputStream(fileName));
-
 		}
 
 		OutputStream out = response.getOutputStream();

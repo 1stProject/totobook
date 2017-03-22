@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +20,7 @@
 					width="128" height="123"></td>
 			</tr>
 			<tr>
-				<td><a href="/recipe/detail.do?rproductId=${product.product_id}">
+				<td><a href="/recipe/detail.do?productId=${product.product_id}">
 
 						${product.name}</a> <br> ${product.price }원</td>
 			</tr>

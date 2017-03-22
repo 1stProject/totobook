@@ -30,7 +30,7 @@ public class OrderModifyController extends HttpServlet {
 		List<Order> order = service.findOrdersByOrderId(orderId);
 		request.setAttribute("order", order.get(0));
 		
-		request.getRequestDispatcher("/views/order/orderForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/order/orderModify.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

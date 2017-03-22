@@ -11,7 +11,9 @@
 <body>
 <h1>나의 사진 관리</h1>
 <c:forEach items = "${list }" var = "print">
-${print.printId } || ${print.member.memberId } || ${print.optionDesp } <br>
+${print.printId } || ${print.member.memberId } || ${print.optionDesp } 
+<a href = "${ctx }/order/register.do?printId=${print.printId}">주문하기</a>
+<a href = "${ctx }/print/remove.do?printId=${print.printId }">삭제하기</a><br>
 </c:forEach>
 </body>
 </html>

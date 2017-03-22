@@ -11,8 +11,8 @@ import totoBook.domain.Option;
 public interface OptionStore {
 
 	void insertOption(Option option);
-	void modifyOption(Option option);
-	void deleteOption(Option option);
-	List<Option> selectOptions(String product_id);
+	void updateOption(Option option);
+	void deleteOption(String productId);
+	List<Option> selectOptions(String productId);
 
 }

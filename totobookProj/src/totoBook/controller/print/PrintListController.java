@@ -24,8 +24,6 @@ public class PrintListController extends HttpServlet {
 		List<Print> list = service.findPrintsByMemberId(memberId);
 		
 		request.setAttribute("list", list);
-		System.out.println(list.size());
-		System.out.println(list.get(0).getOptionDesp());
 		request.getRequestDispatcher("/views/print/printList.jsp").forward(request, response);
 	}
 }
