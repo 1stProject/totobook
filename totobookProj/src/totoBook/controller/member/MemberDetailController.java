@@ -23,13 +23,11 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	MemberService service = new MemberServiceLogic();
 	
 	String id = request.getParameter("memberId");
-	
 	Member member = new Member();
 	member = service.findMemberById(id);
+	request.setAttribute("memberList", member);
 	
-	request.setAttribute("memberId", member);
-	
-	request.getRequestDispatcher("/member/myPage.jsp").forward(request, response);
+	request.getRequestDispatcher("/views/member/memberDetail.jsp").forward(request, response);
 }
 
 }

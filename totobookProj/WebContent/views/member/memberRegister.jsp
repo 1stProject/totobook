@@ -4,21 +4,19 @@
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>직원등록</title>
-    <link rel="stylesheet" href="${ctx }/style/css/reset.css">
-    <link rel="stylesheet" href="${ctx }/style/css/style.css">
-</head>
+
 <body>
 <div class="contents-wrap">
-    <h2 class="page-title">${member.name }신규회원등록</h2>
-    <div class="contents">
+    <h2 class="page-title">신규회원등록</h2>
 
         <form action="${ctx }/member/register.do" method="post">
             <div>
                 <label>아이디: </label>
                 <input type="text" name="memberId">
+            </div>
+            <div>
+                <label>아이디체크: </label>
+                <input type="text" name="memberId2">
             </div>
             <div>
                 <label>이름 : </label>
@@ -37,8 +35,11 @@
                 <input type="text" name="phone">
             </div>
                         <div>
-                <label>이메일체크 : </label>
-                <input type="text" name="receiveEmail">
+                <label>스팸매일받을래? </label>
+                <div class = "radio">
+                <input type = "radio" name = "receiveEmail" value = "yes"> ㅇㅇ
+				<input type = "radio" name = "receiveEmail" value = "no"> ㄴㄴ
+				</div>
             </div>
             <div class="alignRight">
                 <input type="reset" value="초기화">
@@ -46,6 +47,5 @@
             </div>
         </form>
     </div>
-</div>
 </body>
 </html>

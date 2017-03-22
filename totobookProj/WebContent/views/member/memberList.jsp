@@ -7,9 +7,19 @@
 <head>
     <meta charset="UTF-8">
     <title>회원목록</title>
+    
 </head>
 <body>
 <div class="contents-wrap">
+<form action="list.do" method="post">
+	<select name="fuck">
+		<option value="name" >이름</option>
+		<option value="phone" >폰번</option>
+		<option value="memberId" >아이디</option>
+	</select>
+	<input type="text" name="search" placeholder="입력ㄱ">
+	<input class="btn btn-xs btn-default" type="submit" value="검색">
+</form>
     <h2 class="page-title">회원목록</h2>
     <div class="contents">
         <table border="1">
@@ -19,21 +29,24 @@
                 <col width="*">
                 <col width="*">
             </colgroup>
+            
             <thead>
             <tr>
                 <th>이름</th>
-                <th>주소</th>
-                <th>폰번호</th>
+                <th>폰번</th>
+                <th>아이디</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${memberList }" var ="ml">
+            
             <tr>
-                <td>${ml.name }</td>
-                <td>${ml.address }</td>
+				<td><a href="${ctx }/member/detail.do?memberId=${ml.memberId }">${ml.name }</a></td>
                 <td>${ml.phone }</td>
+                <td>${ml.memberId }</td>
              </tr>
 	</c:forEach>
+           
             </tbody>
         </table>
     </div>

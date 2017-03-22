@@ -12,24 +12,26 @@
 	</insert>
 
 	<update id="updateOption" parameterType="Option">
-		update Option_tb set
-		option_name = #{option_name}, value = #{value},
-		option_price=#{option_price}
-		where product_id = #{productId}
+		DELETE option_tb
+		WHERE prodcut_id = #{productId}
+		INSERT INTO
+		option_tb(option_id, option_name, value, option_price,
+		product_id)
+		values (option_seq.nextval, #{option_name}, #{value},
+		#{option_price}, #{productId})
 	</update>
-	<!--의미없음  -->
+	<!--의미없음 옵션 삭제후 product입력!?!  -->
 
 	<delete id="deleteOption">
 		DELETE option_tb
 		WHERE prodcut_id = #{productId}
 	</delete>
 
-	<select id="selectOptions" parameterType="Option">
+	<select id="selectOptions" parameterType="String" resultType="Option">
 
-		SELECT FROM
-		option_tb(option_id, option_name, value, option_price,
-		product_id)
-		where product_id = #{productId}
+		SELECT option_id, option_name, value, option_price, product_id
+		from option_tb
+		where PRODUCT_id = #{productId}
 
 	</select>
 

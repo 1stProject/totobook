@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Product {
 
+
 	private String productId;
 	private String name;
 	private String imageAddress;
@@ -66,6 +67,11 @@ public class Product {
 		this.imageAddress = imageAddress;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", name=" + name + ", imageAddress=" + imageAddress
+				+ ", productprice=" + productprice + ", category=" + category + ", descript=" + descript + ", options="
+				+ options + ", quantity=" + quantity + "]";
+	}	
 	
 }

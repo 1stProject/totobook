@@ -31,14 +31,20 @@ public class ProductListController extends HttpServlet {
 		
 		ProductService productService = new ProductServiceLogic();
 
-		String category = request.getParameter("category");
+		
+		
+//		String category = request.getParameter("category");
+
+		String category ="BOOK";
 		
 		List<Product> list = new ArrayList<>();
 		
 		list = productService.findProductsByCategory(category);
 		
-		request.setAttribute("review", list);
-		request.getRequestDispatcher("/views/productList.jsp").forward(request, response);	
+		System.out.println(list.size());
+		
+		request.setAttribute("product", list);
+		request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);	
 	
 	}
 

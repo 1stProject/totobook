@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
+
 
 <!DOCTYPE html>
 <html>
@@ -49,9 +51,9 @@
 										<td>${product.product_id }</td>
 										<td><a href="product/detail.do?id=${product.productId }">${product.name }</a></td>
 										<td>${product.price }</td>
-										<td><a href="product/modify.do?id=${product.productId}"
+										<td><a href="${ctx }/product/modify.do?id=${product.productId}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
-											<td><a href="product/remove.do?id=${product.productId}"
+											<td><a href="${ctx }/product/remove.do?id=${product.productId}"
 												class="btn btn-xs btn-danger">삭제하기</a></td>
 									</tr>
 								</c:forEach>

@@ -69,4 +69,10 @@ public class MemberServiceLogic implements MemberService {
 		return memberStore.selectAllmembers();
 	}
 
+	@Override
+	public boolean findMember(Member member) {
+
+		return false;
+	}
+
 }

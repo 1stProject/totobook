@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,19 +19,19 @@
 
 		<table class="section">
 			<tr>
-				<td><img src="/product/image.do?productId=${product.product_id}"
+				<td><img src="$image.do?productId=${product.productId}"
 					width="128" height="123"></td>
 			</tr>
 			<tr>
-				<td><a href="/recipe/detail.do?productId=${product.product_id}">
+				<td><a href="detail.do?productId=${product.productId}">
 
-						${product.name}</a> <br> ${product.price }원</td>
+						${product.name}</a> <br> ${product.productprice }원</td>
 			</tr>
 		</table>
 
 		</c:forEach>
 
-	
+	<input type="button" value="왕">
 	</div>
 
 

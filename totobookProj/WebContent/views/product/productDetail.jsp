@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="ctx" value="${pageContext.request.contextPath }" />
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,34 +13,29 @@
 </head>
 <body>
 	<div class="content">
-		<form action="/product/productForm.do" method="post"
-			enctype="multipart/form-data">
+		<c:if test="${product.category }.equals(PRINT) ">
+
 			<table border="1">
 				<tr>
-					<td>상품카테고리</td>
-					<td><select name="category">
-							<option value="book">포토북</option>
-							<option value="print">사진</option>
-					</select></td>
-				</tr>
-				<tr>
 					<td>상품명</td>
-					<td><input type="text" name="name" value="">#{product.name }</td>
+					<td>${product.name }</td>
 				</tr>
 				<tr>
 					<td>상품가격</td>
-					<td><input type="text" name="productprice"></td>
+					<td>${product.productprice}</td>
 				</tr>
 				<tr>
 					<td>상품설명</td>
-					<td><input type="text" name="descript" style="text-align:left; width:400px; height:200px;"></td>
+					<td>${product.descript }</td>
 				</tr>
 				<tr>
 					<td>옵션</td>
-					<td>사이즈<input type="text" name="optionname">
-					설명<input type="text" name="optiondesp">
-					금액<input type="text" name="optionprice">
-					</td>
+					<c:forEach items="${product.options }" var="option">
+						<td>${option.optionName}</td>
+							<td>${option.optionDesp}</td>
+							<td>${option.optionPrice}</td>
+					</c:forEach>
+
 				</tr>
 				<tr>
 					<td>사진</td>
@@ -53,8 +51,46 @@
 				</tr>
 			</table>
 			<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
-			<button type="submit" class="btn">등록</button>
-		</form>
+			<a class="btn btn-sm btn-success" href="${ctx }/print/register.do">주문하기</a>
+		</c:if>
+			<table border="1">
+				<tr>
+					<td>상품명</td>
+					<td>${product.name }</td>
+				</tr>
+				<tr>
+					<td>상품가격</td>
+					<td>${product.productprice}</td>
+				</tr>
+				<tr>
+					<td>상품설명</td>
+					<td>${product.descript }</td>
+				</tr>
+				<tr>
+					<td>옵션</td>
+					<c:forEach items="${product.options }" var="option">
+						<td></td>
+						<td>${option.optionName}</td>
+							<td>${option.optionDesp}</td>
+							<td>${option.optionPrice}</td>
+					</c:forEach>
+
+				</tr>
+				<tr>
+					<td>사진</td>
+					<td><input type="file" name="file1"></td>
+				</tr>
+				<tr>
+					<td>사진</td>
+					<td><input type="file" name="file1"></td>
+				</tr>
+				<tr>
+					<td>사진</td>
+					<td><input type="file" name="file1"></td>
+				</tr>
+			</table>
+			<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
+			<a class="btn btn-sm btn-success" href="${ctx }/book/register.do">주문하기</a>
 
 	</div>
 </body>
