@@ -17,8 +17,7 @@
 		VALUES (order_seq.NEXTVAL, SYSDATE, #{payment}, #{ordPrice}, #{member.address}, #{member.memberId}, #{product.productId})
 	</insert> -->
   	<insert id="insertPrint" parameterType = "Print">
-  		INSERT INTO print_tb (print_id, member_id, product_id, print_option)
-  		VALUES (print_seq.NEXTVAL, #{member.memberId}, #{product.productId}, #{optionDesp})
+  		insert INTO print_tb VALUES (print_seq.NEXTVAL, #{member.memberId}, #{product.productId}, #{optionDesp})
   		<selectKey keyProperty="printId" resultType = "string" order="AFTER">
   			select print_seq.currval FROM dual
   		</selectKey>
