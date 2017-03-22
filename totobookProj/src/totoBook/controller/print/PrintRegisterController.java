@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import totoBook.service.ProductService;
+import totoBook.service.logic.ProductServiceLogic;
 
 /**
  * @author
@@ -20,10 +21,11 @@ public class PrintRegisterController extends HttpServlet {
 	private ProductService productService;
 	
 	public PrintRegisterController() {
+		productService = new ProductServiceLogic();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		productId = request.getParameter("productId");
-		
+		String productId = request.getParameter("productId");
+		request.getRequestDispatcher("/views/print/printUpload.do");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
