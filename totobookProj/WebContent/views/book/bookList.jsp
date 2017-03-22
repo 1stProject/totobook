@@ -26,14 +26,19 @@
 			
 			<table class="blueListTab">
 				<colgroup>
-					<col width="20px">
-					<col width="60px"> 
+					<col width="50px">
+					<col width="220px"> 
+					<col width="150px">
+					<col width="80px">
+					<col width="100px">
+					<col width="50px">
+					<col width="50px">
 				
 				</colgroup>
 				<tr>
 					<th>NO</th>
 					<th>포토북 이름</th>
-					<th>상품상세</th>
+					<th>옵션</th>
 					<th>페이지 수</th>
 					<th>가격</th>
 					<th>편집</th>
@@ -50,15 +55,6 @@
 						<td><button type="button" onclick="window.location.href='${ctx }/book/remove.do?bookId=${book.bookId}'">삭제</button></td>
 					</tr>
 				</c:forEach>
-				
-					<tr>
-						<td>1</td>
-						<td>book.bookName</td>
-						<td>book.product.name</td>
-						<td>book.product.price</td>
-						<td><button type="button" >편집</button></td>
-						<td><button type="button" >삭제</button></td>
-					</tr>
 			</table>
 		
 		</div>
