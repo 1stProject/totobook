@@ -14,8 +14,11 @@
 	</resultMap>
 	
   	<insert id="insertPrint" parameterType = "Print">
+  		<selectKey keyProperty="print_id" resultType="string" order="BEFORE">
+  			select print_seq.nextval from dual
+  		</selectKey>
   		INSERT INTO print_tb
-  		VALUES (print_seq.NEXTVAL, #{member.memberId}, #{product.productId}, #{optionDesp})
+  		VALUES (#{print_id}, #{member.memberId}, #{product.productId}, #{optionDesp})
   	</insert>
   	<delete id="deletePrint" parameterType = "string">
   		delete FROM print_tb

@@ -38,7 +38,7 @@
 	<div id = "image">
 		
 	</div>
-
+<form action = "${ctx }/print/register.do" method = "post" enctype = "multipart/form-data">
 	<div id = "upload">
 		<input type = "file" name = "file1"><br>
 		<input type = "file" name = "file2"><br>
@@ -47,5 +47,6 @@
 		<input type = "file" name = "file5">
 	</div>
 	<input type = "submit" value = "저장!">
+</form>
 </body>
 </html>

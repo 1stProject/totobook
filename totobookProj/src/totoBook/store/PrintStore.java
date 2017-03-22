@@ -9,7 +9,7 @@ import totoBook.domain.Print;
  * @version 1.0
  */
 public interface PrintStore {
-	void insertPrint(Print print);
+	String insertPrint(Print print);
 	void deletePrint(String printId);
 	List<Print> selectPrintsByMemberId(String memberId);
 	Print selectPrintByPrintId(String printId);
