@@ -8,17 +8,25 @@
 		<id property="optionId" column="OPTION_id" jdbcType="VARCHAR"/>
 		<result property="optionName" column="OPTION_name" jdbcType="VARCHAR" />
 		<result property="optionDesp" column="value" jdbcType="VARCHAR" />
-		<result property="optionPrice" column="OPTION_PRICE" jdbcType="INTEGER"/>
-		<result property="productId" column="PRODUCT_ID" jdbcType="VARCHAR" />
+		<result property="optionPrice" column="OPTION_PRICE" jdbcType="NUMERIC"/>
+		<result property="productId" column="PRODUCT_ID" />
 	</resultMap>
-
-
+<!-- 
 	<insert id="insertOption" parameterType="Option">
 		INSERT INTO
 		option_tb(option_id, option_name, value, option_price,
 		product_id)
 		values (option_seq.nextval, #{optionName}, #{optionDesp},
 		#{optionPrice}, #{productId})
+	</insert>
+
+ -->
+	<insert id="insertOption" parameterType="Option">
+		INSERT INTO
+		option_tb(option_id, option_name, value, option_price,
+		product_id)
+		values (option_seq.nextval, #{optionName}, #{optionDesp},
+		#{optionPrice}, 36)
 	</insert>
 
 	<update id="updateOption" parameterType="Option">

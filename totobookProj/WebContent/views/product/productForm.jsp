@@ -37,19 +37,21 @@
 				</tr>
 				<tr>
 					<td>옵션</td>
-					<td>사이즈<input type="text" name="optionname">
-					설명<input type="text" name="optiondesp">
-					금액<input type="text" name="optionprice">
+					<td>사이즈<input type="text" name="optionname" value="">
+					설명<input type="text" name="optiondesp" value="">
+					금액<input type="text" name="optionprice" value="">
 					</td>
 				</tr>
+<!-- 
 				<tr>
-					<td>사진</td>
-					<td><input type="file" name="file1"></td>
+					<td>옵션1</td>
+					<td>사이즈1<input type="text" name="optionname" value="">
+					설명1<input type="text" name="optiondesp" value="">
+					금액1<input type="text" name="optionprice" value="">
+					</td>
 				</tr>
-				<tr>
-					<td>사진</td>
-					<td><input type="file" name="file1"></td>
-				</tr>
+ -->
+
 				<tr>
 					<td>사진</td>
 					<td><input type="file" name="file1"></td>
