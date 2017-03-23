@@ -26,6 +26,7 @@
         <script src="https://fengyuanchen.github.io/js/common.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
         <script src="js/cropper.js"></script>
+        <script type="text/javascript" src="js/html2canvas.js"></script>
 	</header>
 	
 	<div class="photoBookContainer">
@@ -75,20 +76,21 @@
 		<button type="submit" >편집저장</button>
 		<button type="reset">취소</button>
         </div>
+
+        
+        
 	</form>
 	</div>
-    
- <!--   <div class="container">
-    <h1>Cropper with full crop box</h1>
-    <div>
-      <img id="image" src="../docs/images/picture.jpg" alt="Picture">
-    </div>
-  </div>-->
 
+        
+        <div id ="canvasDiv" >
+        <image id="theimage"></image>
+        
+        </div>
   <script src="js/cropper.js"></script>
-
+<!--
 	<footer>
-	</footer>
+	</footer>-->
 </body>   
     
 <script type="text/javascript">
@@ -152,6 +154,7 @@
             $("#bookPageLeft").css("visibility","hidden");
             $(".bookPaging1").css("visibility","hidden");
         }else if(pageCount == 4){
+            console.log("호");
             $("#bookPageRight").css("visibility","visible");
             $(".bookPaging2").css("visibility","visible");
             $("#toNextPage").css("visibility","visible");
@@ -169,12 +172,48 @@
             $(".bookPaging1").css("visibility","visible");
         }
         if(pageCount == 5){
+            console.log("마지막");
             $(this).css("visibility", "hidden");
             $("#bookPageRight").css("visibility","hidden");
             $(".bookPaging2").css("visibility","hidden");         
         }
-    });
         
+/*        function  html2img(){
+    var canvas ="";
+            html2canvas($("#bookPageRight"), {
+                onrendered: function(canvas) {
+  // canvas is the final rendered <canvas> element
+   document.getElementById("theimage").src = canvas.toDataURL();
+     Canvas2Image.saveAsPNG(canvas);
+  }
+  });
+  //alert(document.getElementById("SavePart").innerHTML);
+}
+
+     
+        html2canvas($("#bookPageRight")).then(function(canvas){
+             
+            document.getElementById("canvasDiv").appendChild(canvas);
+            });
+        
+        
+html2canvas($("#bookPageRight"), {
+  onrendered: function(canvas) {
+
+    var img = canvas.toDataURL();
+    console.log(img);
+    
+    // img 데이터 : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAALnCAYAAACncBEoAAAgAElEQ…GgcaASBzQgt/fw3lcJZgPTONA40DjQOLALONCXYfjy/w8Gd/MrFODziAAAAABJRU5ErkJggg==" 
+
+    $("#canvasDiv").html('<img src=' + img + '>');    // section2 영역에 section1 을 이미지 capture 내용이 보여짐
+    
+    window.open(img);   // 이미지를 윈도우 팝업으로..
+
+  }
+});*/
+        
+        
+        });
         
     });
                       
@@ -232,37 +271,20 @@ function drop(ev) {
     nodeCopy.setAttribute('draggable', false);
     
     var id =ev.target.id;
-    console.log("처음"+id);
+     var classN = ev.target.className;
     
-    if(ev.target.nodeName == "IMG"){
-        var parent = document.getElementById(id).parentElement;
-        $("#"+id).remove();
+    if(ev.target.nodeName == "SPAN"){
+        var parent = ev.target.parentElement.parentElement.parentElement;
+        console.log(parent.id);
+        while(parent.hasChildNodes()){
+            parent.removeChild(parent.firstChild);
+        }
         parent.appendChild(nodeCopy);
         imgCutting(parent);
-        console.log("나중"+parent.id)
     }else{
         ev.target.appendChild(nodeCopy);
 
         imgCutting(ev.target);
-  /*          console.log("흠1");
-
-    window.addEventListener('DOMContentLoaded', function () {
-        console.log("흠");
-      var image = document.querySelector('#image');
-      var cropper = new Cropper(image, {
-        viewMode: 3,
-        dragMode: 'move',
-        autoCropArea: 1,
-        restore: false,
-        modal: false,
-        guides: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
-      });
-    });console.log("흠22");*/
-
         
     } //else 끝
     
@@ -285,7 +307,7 @@ function drop(ev) {
         toggleDragModeOnDblclick: false,
       }));
       }
-    
+
 }
     
 var imgCutting = function(targetDiv){
