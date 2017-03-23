@@ -9,17 +9,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>totoBook</title>
 </head>
+<body>
 	<header>
-		<%@include file="../head/header.jspf" %>
+	<%@ include file = "/views/head/header.jspf" %>
 	</header>
 	
 	<div class="contentsContainer">
-		<div class="leftMenu">
-			1. 레프트 메뉴 1 <br>
-			2. 레프트 메뉴 2		
-		</div>
+	<nav>
+		<%@ include file = "/views/left/leftMyPage.jsp" %>
+	</nav>
 
 		<div class="contentsWithLeft">
 			<h3>나의 포토북 관리</h3>
@@ -64,7 +67,6 @@
 	<footer>
 		<%@include file="../foot/footer.jspf" %>
 	</footer>
-<body>
 
 </body>
 </html>
