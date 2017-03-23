@@ -42,7 +42,7 @@
 	<select id="selectMember" parameterType="Member" resultMap="MemberMap">
 	SELECT member_Id, name, password, address, phone, receive_Email
 	FROM member_tb
-	WHERE member_id = #{memberId}
+	WHERE member_id = #{memberId} and password = #{password}
 	
 	</select>
 	<select id="selectAllmembers" parameterType="Member" resultMap="MemberMap">

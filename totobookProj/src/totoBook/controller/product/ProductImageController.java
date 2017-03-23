@@ -37,30 +37,30 @@ public class ProductImageController extends HttpServlet {
 		String productid = (request.getParameter("productid"));
 		Product product = service.selectProductById(productid);
 		
-		String imageAddress = product.getImageAddress();
-		String fileName = null;
-		InputStream in = null;
-
-		if (imageAddress != null) {
-			response.setContentType(imageAddress);
-			ServletContext cxt = getServletContext();
-			String dir = cxt.getRealPath("/upload");
-			fileName = dir + "/" + imageAddress;
-			
-			in = new BufferedInputStream(new FileInputStream(fileName));
-		}
-
-		OutputStream out = response.getOutputStream();
-
-		byte[] buf = new byte[8096];
-		int readByte = 0;
-		while ((readByte = in.read(buf)) > -1) {
-			out.write(buf, 0, readByte);
-		}
-
-		in.close();
-		out.close();
-
+//		String imageAddress = product.getImageAddress();
+//		String fileName = null;
+//		InputStream in = null;
+//
+//		if (imageAddress != null) {
+//			response.setContentType(imageAddress);
+//			ServletContext cxt = getServletContext();
+//			String dir = cxt.getRealPath("/upload");
+//			fileName = dir + "/" + imageAddress;
+//			
+//			in = new BufferedInputStream(new FileInputStream(fileName));
+//		}
+//
+//		OutputStream out = response.getOutputStream();
+//
+//		byte[] buf = new byte[8096];
+//		int readByte = 0;
+//		while ((readByte = in.read(buf)) > -1) {
+//			out.write(buf, 0, readByte);
+//		}
+//
+//		in.close();
+//		out.close();
+//
 	}
 
 }

@@ -10,13 +10,27 @@
 </script>
 <script>
 	$(function(){
+		for(var s = 1;s <= 10; s++){
+			$("<option value = '"+s+"'>"+s+"</option>").appendTo("#amount1");
+		}
 		var i=1;
 		$(":file").on('change', function(){
 			fileinfo(this);
 		});
 		$("#add").click(function(){
 			i++;
-			$("<input type = 'file' name = 'file'" + i + "' accept=image/*><br>").appendTo("#upload");
+			var selectname = "amount"+i;
+			var filename = "file"+i;
+			$("<input type = 'file' name = '"+filename+"' accept=image/*>").appendTo("#upload");
+			$("<select name = '"+selectname+"' id = '"+selectname+"'></select><br>").appendTo("#upload");
+			var sel = "#amount" + i;
+			console.log(sel);
+			for(var s = 1;s <= 10; s++){
+				$("<option value = '"+s+"'>"+s+"</option>").appendTo(sel);
+			}
+			$(":file").on('change', function(){
+				fileinfo(this);
+			});
 		});
 	});
 	function fileinfo(input){
@@ -45,7 +59,10 @@
 	</div>
 <form action = "${ctx }/print/register.do" method = "post" enctype = "multipart/form-data">
 	<div id = "upload">
-		<input type = "file" name = "file1" accept="image/*"><br>
+		<input type = "file" name = "file1" accept="image/*">
+		<select name = "amount1" id = "amount1">
+		</select>
+		<br>
 	</div>
 	<input type = "button" id = "add" value = "사진 추가!">
 	<input type = "submit" value = "저장!">

@@ -6,12 +6,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 <h1>배송지 수정</h1>
 <form action = "${ctx }/order/modify.do" method = "post">
-<table>
+<div class="table-responsive col-sm-5 col-lg-5">
+<table class = "table table-striped table-bordered table-hover">
 	<tr>
 		<th>주문번호</th>
 		<td>${order.orderId }</td>
@@ -26,11 +34,13 @@
 	</tr>
 	<tr>
 		<th>수정 될 주소</th>
-		<td><input type = "text" name = "addr" placeholder = "사용자 정보에서 바뀌지 않습니다." size = 50></td>
-	</tr>	
+		<td><input type = "text" name = "addr" placeholder = "사용자 정보에서 바뀌지 않습니다." size = 50 class = "form-control"></td>
+	</tr>
 	<input type = "hidden" name = "orderId" value = "${order.orderId }">
 </table>
-<input type = "submit" value = "수정완료">
+</div>
+<br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;
+<input type = "submit" value = "수정완료" class = "btn btn-success">
 </form>
 </body>
 </html>

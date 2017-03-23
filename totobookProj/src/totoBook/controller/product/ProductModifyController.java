@@ -49,7 +49,7 @@ public class ProductModifyController extends HttpServlet {
 		product.setCategory(request.getParameter("productId"));
 		product.setName(request.getParameter("productId"));
 		product.setProductprice(Integer.parseInt(request.getParameter("productId")));
-		product.setImageAddress(request.getParameter("productId"));
+//		product.setImageAddress(request.getParameter("productId"));
 		List<Option> list = new ArrayList<>();
 		list = productService.findOption(request.getParameter("productId"));
 		

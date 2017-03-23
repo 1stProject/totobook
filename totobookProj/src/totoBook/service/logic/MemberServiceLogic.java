@@ -46,12 +46,26 @@ public class MemberServiceLogic implements MemberService {
 
 	@Override
 	public boolean checkId(String memberId) {
+		
+		Member result= memberStore.selectMemberById(memberId);
+		if(result != null){
+			return true;
+		}else{
+		
 		return false;
+		}
 	}
 
 	@Override
 	public boolean checkPw(Member member) {
+		
+		Member result= memberStore.selectMember(member);
+		if(result != null){
+			return true;
+		}else{
+		
 		return false;
+		}
 	}
 
 	@Override
@@ -71,8 +85,9 @@ public class MemberServiceLogic implements MemberService {
 
 	@Override
 	public boolean findMember(Member member) {
-
-		return false;
+			Member member1 = new Member();
+			member1 = memberStore.selectMember(member1);
+		return true;
 	}
 
 }
