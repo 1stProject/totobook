@@ -6,8 +6,8 @@
 <mapper namespace="totoBook.store.mapper.ReviewMapper">
 
  	<resultMap type="Review" id="ReviewMap">
-		<result column="content" property="content" />
-		<association property="Member" column="member_id"
+		<result property="comment" column="content"  />
+		<association property="member" column="member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
 			javaType="Member" jdbcType="VARCHAR" />
 		<association property="product" column="product_id"
@@ -18,7 +18,8 @@
  -->
 	</resultMap>
 
-	<select id="selectMember" resultType="String">
+<!-- 
+	<select id="selectMember" resultMap="String">
 		SELECT member_Id from
 		member_tb WHERE member_id = #{memberId}
 	</select>
@@ -31,7 +32,7 @@
 		Select image_address
 		image_ext from photo_tb where image_address =#{image_address}
 	</select>
-
+ -->
 
 
 	<insert id="insertComment" parameterType="Review">
@@ -62,8 +63,7 @@
 		WHERE MEMBER_ID = #{PRODUCT_ID}
 	</delete>
 
-	<select id="selectCommentsByProduct" parameterType="String"
-		resultMap="ReviewMap">>
+	<select id="selectCommentsByProduct" parameterType="String"	resultMap="ReviewMap">>
 		Select
 		MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS,
 		IMAGE_EXT
@@ -74,12 +74,11 @@
 	</select>
 
 
-	<select id="selectCommentsByMember" parameterType="String"
-		resultMap="ReviewMap">
+	<select id="selectCommentsByMember" parameterType="String" resultMap="ReviewMap">
 		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS,
 		IMAGE_EXT
 		FROM
-		REVIEW_TB where MEMBER_ID = #{MEMBER_ID}
+		REVIEW_TB where MEMBER_ID = #{memberId}
 	</select>
 
 </mapper>

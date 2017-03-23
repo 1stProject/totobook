@@ -42,7 +42,6 @@
 					금액<input type="text" name="optionprice" value="">
 					</td>
 				</tr>
-<!-- 
 				<tr>
 					<td>옵션1</td>
 					<td>사이즈1<input type="text" name="optionname" value="">
@@ -50,7 +49,6 @@
 					금액1<input type="text" name="optionprice" value="">
 					</td>
 				</tr>
- -->
 
 				<tr>
 					<td>사진</td>

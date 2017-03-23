@@ -30,11 +30,16 @@ public class ProductRemoveController extends HttpServlet {
 		ProductService productService = new ProductServiceLogic();
 
 		Product product= new Product();
-		product = productService.findProductById(request.getParameter("id"));
+		product = productService.findProductById(request.getParameter("productId"));
+		
+		String productId = product.getProductId();
 		
 		productService.removeProduct(product);
 		
-		response.sendRedirect("views/productManage.jsp");
+//상품평 삭제
+//옵션 삭제
+		
+		response.sendRedirect("list.do");
 	
 	
 	}

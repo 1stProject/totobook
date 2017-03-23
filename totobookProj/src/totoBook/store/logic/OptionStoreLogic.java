@@ -21,7 +21,6 @@ public class OptionStoreLogic implements OptionStore{
 	public OptionStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
-
 	
 	@Override
 	public List<Option> selectOptions(String productId) {

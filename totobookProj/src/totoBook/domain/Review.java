@@ -10,7 +10,17 @@ public class Review {
 	private Member member;
 	private String comment;
 	private String imageAddress;
+	private Order order;
 	
+
+	
+	
+	public Order getOrder() {
+		return order;
+	}
+	public void setOrder(Order order) {
+		this.order = order;
+	}
 	public Product getProduct() {
 		return product;
 	}

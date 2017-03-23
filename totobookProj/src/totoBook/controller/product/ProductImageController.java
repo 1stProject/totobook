@@ -36,31 +36,36 @@ public class ProductImageController extends HttpServlet {
 		ProductStoreLogic service = new ProductStoreLogic();
 		String productid = (request.getParameter("productid"));
 		Product product = service.selectProductById(productid);
+
+		Photo phto = product.getPhoto();
 		
-//		String imageAddress = product.getImageAddress();
-//		String fileName = null;
-//		InputStream in = null;
-//
-//		if (imageAddress != null) {
-//			response.setContentType(imageAddress);
-//			ServletContext cxt = getServletContext();
-//			String dir = cxt.getRealPath("/upload");
-//			fileName = dir + "/" + imageAddress;
-//			
-//			in = new BufferedInputStream(new FileInputStream(fileName));
-//		}
-//
-//		OutputStream out = response.getOutputStream();
-//
-//		byte[] buf = new byte[8096];
-//		int readByte = 0;
-//		while ((readByte = in.read(buf)) > -1) {
-//			out.write(buf, 0, readByte);
-//		}
-//
-//		in.close();
-//		out.close();
-//
+		
+		
+		String imagead = product.getImageAddress();
+		
+		String imageAddress = null;
+		InputStream in = null;
+
+		if (phto != null) {
+			response.setContentType(imageAddress);
+			ServletContext cxt = getServletContext();
+			String dir = cxt.getRealPath("/upload/product/");
+			imageAddress = dir + "/"  + imagead ;
+			
+			in = new BufferedInputStream(new FileInputStream(imageAddress));
+		}
+
+		OutputStream out = response.getOutputStream();
+
+		byte[] buf = new byte[8096];
+		int readByte = 0;
+		while ((readByte = in.read(buf)) > -1) {
+			out.write(buf, 0, readByte);
+		}
+
+		in.close();
+		out.close();
+
 	}
 
 }
