@@ -21,13 +21,12 @@ public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		NoticeService service = new NoticeServiceLogic();
 
 		List<Post> list = service.findAllNotice();
 		request.setAttribute("NoticeList", list);
-	
 		request.getRequestDispatcher("/views/notice/noticeList.jsp").forward(request, response);
 	}
 

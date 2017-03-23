@@ -5,9 +5,7 @@
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>회원목록</title>
-    
+<%@ include file="header.jspf" %>
 </head>
 <body>
 <div class="contents-wrap">

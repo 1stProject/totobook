@@ -9,7 +9,7 @@
 	<resultMap type="Product" id="productMap">
 		<id property="productId" column="product_id" jdbcType="VARCHAR"/>
 		<result property="name" column="product_name" />
-		<result property="productprice" column="price" jdbcType="INTEGER"/>
+		<result property="productprice" column="price" jdbcType="NUMERIC"/>
 		<result property="category" column="CATEGORY" />
 		<result property="descript" column="detail" />
 		<result property="imageAddress" column="image_address" />
@@ -25,20 +25,19 @@
 		INSERT INTO
 		PRODUCT_TB(PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL,
 		IMAGE_ADDRESS)
-		VALUES(PRODUCT_SEQ.NEXTVAL, #{PRODUCT_NAME},
-		#{PRICE},
-		#{category}, #{DETAIL}, #{IMAGE_ADDRESS})
+		VALUES(PRODUCT_SEQ.NEXTVAL, #{name},
+		#{productprice},
+		#{category}, #{descript}, #{imageAddress})
 	</insert>
 
 	<update id="updateProduct" parameterType="Product">
 		UPDATE product_tb
 		SET
-		PRODUCT_NAME = #{PRODUCT_NAME}, PRICE = #{PRICE},
+		PRODUCT_NAME = #{name}, PRICE = #{productprice},
 		category =
-		#{category}, DETAIL=#{DETAIL},
-		IMAGE_ADDRESS = #{IMAGE_ADDRESS},
-		IMAGE_EXT= #{IMAGE_EXT}
-		where product_id = #{product_id}
+		#{category}, DETAIL=#{descript},
+		IMAGE_ADDRESS = #{imageAddress},
+		where product_id = #{productId}
 	</update>
 
 	<delete id="deleteProduct">

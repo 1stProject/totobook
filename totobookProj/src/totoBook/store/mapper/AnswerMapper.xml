@@ -5,6 +5,35 @@
 
 <mapper namespace="totoBook.store.mapper.AnswerMapper">
 
+	<resultMap type="Answer" id="answerMap">
+	<id column="post_id" property="postId"/>
+	<result column="post_id" property="postId"/>
+	<association property="post" column="post_id"
+		javaType="Post" jdbcType="VARCHAR"></association>
+	</resultMap>
+	<delete id="deleteAnswer" parameterType="String">
+		DELETE FROM answer_tb
+		WHERE post_id = #{postId}
+	</delete>
+	<select id="selectAnswerById" parameterType="String" resultMap="answerMap">
+		SELECT content,post_id
+		FROM answer_tb
+		WHERE post_id = #{postId}
+	</select>
+	<insert id="insertAnswer" parameterType="Answer">
+		INSERT INTO
+		answer_tb
+		(answer_id,content,post_id)
+		VALUES
+		(ANSWER_SEQ.NEXTVAL,#{content},#{post.postId})
+	</insert>
+	<update id="updateAnswer" parameterType="Answer">
+		UPDATE answer_tb
+		SET
+		answer_id=#{answerId},content=#{content},post_id=#{post.postId}
+		WHERE post_id=#{post.postId}
+		
+	</update>
 </mapper>
   
   

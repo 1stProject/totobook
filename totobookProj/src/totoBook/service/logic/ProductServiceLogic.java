@@ -84,7 +84,7 @@ public class ProductServiceLogic implements ProductService {
 
 	@Override
 	public void registerProduct(Product product) {
-		productStore.updateProduct(product);
+		productStore.insertProduct(product);
 	}
 
 	@Override

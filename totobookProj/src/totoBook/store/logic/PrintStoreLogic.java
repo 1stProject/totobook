@@ -23,10 +23,11 @@ public class PrintStoreLogic implements PrintStore {
 	@Override
 	public String insertPrint(Print print) {
 		SqlSession session = factory.openSession();
-		String printId;
+		String printId = "";
 		try {
 			PrintMapper mapper = session.getMapper(PrintMapper.class);
-			printId = mapper.insertPrint(print);
+			mapper.insertPrint(print);
+			printId = print.getPrintId();
 			session.commit();
 		} finally {
 			session.close();
@@ -40,6 +41,7 @@ public class PrintStoreLogic implements PrintStore {
 		try {
 			PrintMapper mapper = session.getMapper(PrintMapper.class);
 			mapper.deletePrint(printId);
+			session.commit();
 		} finally {
 			session.close();
 		}

@@ -11,7 +11,10 @@ public class Product {
 
 	private String productId;
 	private String name;
+	
 	private String imageAddress;
+	private Photo photo;
+
 	private int productprice;
 	private String category;
 	private String descript;
@@ -66,12 +69,15 @@ public class Product {
 	public void setImageAddress(String imageAddress) {
 		this.imageAddress = imageAddress;
 	}
-
-	@Override
-	public String toString() {
-		return "Product [productId=" + productId + ", name=" + name + ", imageAddress=" + imageAddress
-				+ ", productprice=" + productprice + ", category=" + category + ", descript=" + descript + ", options="
-				+ options + ", quantity=" + quantity + "]";
-	}	
+	public Photo getPhoto() {
+		return photo;
+	}
+	public void setPhoto(Photo photo) {
+		this.photo = photo;
+	}
+	
+	
+	
+	
 	
 }

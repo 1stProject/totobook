@@ -26,8 +26,6 @@ public class PhotoStoreLogic implements PhotoStore {
 		try {
 			PhotoMapper mapper = session.getMapper(PhotoMapper.class);
 			for(Photo photo : photos){
-				String fileName = photo.getFileName() + "/" + photo.getContentType();
-				photo.setFileName(fileName);
 				mapper.insertPhoto(photo);
 			}
 			session.commit();
@@ -37,8 +35,15 @@ public class PhotoStoreLogic implements PhotoStore {
 	}
 
 	@Override
-	public void deletePhotos(String PrintId) {
-		
+	public void deletePhotos(String printId) {
+		SqlSession session = factory.openSession();
+		try {
+			PhotoMapper mapper = session.getMapper(PhotoMapper.class);
+			mapper.deletePhotos(printId);
+			session.commit();
+		} finally {
+			session.close();
+		}
 	}
 
 }

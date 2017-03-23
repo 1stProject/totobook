@@ -6,9 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.xml.internal.txw2.Document;
 
+import totoBook.domain.Member;
 import totoBook.domain.Photo;
 import totoBook.domain.Post;
 import totoBook.service.QuestionService;
@@ -23,17 +25,19 @@ public class QuestionRegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		Post post = new Post();
+		Member member = new Member();
 		QuestionService service = new QuestionServiceLogic();
-		
+		HttpSession session = request.getSession();
 		post.setTitle(request.getParameter("question_title"));
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
+		member.setMemberId("");
+		post.setMember(member);
 		service.registerQuestion(post);
 		
-		response.sendRedirect("/question/list.do");
+		response.sendRedirect(request.getContextPath()+"/question/list.do");
 		
-		//request.getRequestDispatcher();
 	}
 
 }

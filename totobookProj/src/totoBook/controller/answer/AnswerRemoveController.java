@@ -7,17 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author
- * @version 1.0
- */
+import totoBook.domain.Answer;
+import totoBook.service.AnswerService;
+import totoBook.service.logic.AnswerServiceLogic;
+import totoBook.store.AnswerStore;
+
 @WebServlet("/answer/remove.do")
 public class AnswerRemoveController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		AnswerService service = new AnswerServiceLogic();
+		service.removeAnswer(request.getParameter("answerId"));
+		
+		response.sendRedirect("/views/question/questionDetail.jsp");
 	}
 
 }

@@ -27,6 +27,7 @@ import totoBook.service.logic.ProductServiceLogic;
  * @author
  * @version 1.0
  */
+
 @WebServlet("/print/register.do")
 public class PrintRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,18 +46,23 @@ public class PrintRegisterController extends HttpServlet {
 		int maxSize = 1024*1024*10;
 		ServletContext ctx = getServletContext();
 		String dir = ctx.getRealPath("/upload");
+		int i = 0;
 		System.out.println("getrealPath : " + ctx.getRealPath("/"));
 		MultipartRequest multi = new MultipartRequest(request, dir, maxSize, "UTF-8");
 		List<Photo> photos = new ArrayList<>();
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){
 			String element = (String)params.nextElement();
+			System.out.println(element);
 			String fileName = multi.getFilesystemName(element);
 			if(fileName == null){
 				continue;
 			} else {
+				i++;
+				String selectname = "amount" + i;
+				System.out.println(selectname + " : " + multi.getParameter(selectname));
 				Photo photo = new Photo();
-				photo.setAmount(2);
+				photo.setAmount(Integer.parseInt(multi.getParameter(selectname)));
 				photo.setContentType(multi.getContentType(element));
 				photo.setFileName(fileName);
 				photos.add(photo);
@@ -73,7 +79,6 @@ public class PrintRegisterController extends HttpServlet {
 		print.setProduct(product);
 		print.setPhotos(photos);
 		printService.registerPrint(print);
-		
 		response.sendRedirect(request.getContextPath() + "/print/list.do");
 	}
 
