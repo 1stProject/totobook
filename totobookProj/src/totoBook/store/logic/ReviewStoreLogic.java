@@ -80,7 +80,7 @@ public class ReviewStoreLogic implements ReviewStore {
 		SqlSession session = factory.openSession();
 		try {
 			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-			mapper.selectCommentsByMember(memberId);
+			list = mapper.selectCommentsByMember(memberId);
 			session.commit();
 		} finally {
 			session.close();
@@ -91,10 +91,11 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Override
 	public List<Review> selectCommentsByProduct(String productId) {
 		List<Review> list = new ArrayList<>();
+		System.out.println(productId);
 		SqlSession session = factory.openSession();
 		try {
 			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-			mapper.selectCommentsByProduct(productId);
+			list = mapper.selectCommentsByProduct(productId);
 			session.commit();
 		} finally {
 			session.close();

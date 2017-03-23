@@ -47,6 +47,22 @@
 						<td>${option.optionPrice}</td>
 					</tr>
 				</c:forEach>
+				<c:choose>
+					<c:when test="${review eq null || empty review }">
+						<tr>
+							<td>
+							<td colspan="2" align="center">상품평이 없습니다.</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${review }" var="review">
+							<tr>
+								<td colspan="2" align="center">${review.comment }</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+
 
 			</table>
 			<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
@@ -77,20 +93,37 @@
 				<td colspan="2">옵션</td>
 				<c:forEach items="${product.options }" var="option">
 					<tr>
-						<td>사이즈</td><td>${option.optionName}</td>
-					</tr>	
-					<tr>
-						<td>설정값</td><td>${option.optionDesp}</td>
+						<td>사이즈</td>
+						<td>${option.optionName}</td>
 					</tr>
 					<tr>
-						<td>가격</td><td>${option.optionPrice}</td>
+						<td>설정값</td>
+						<td>${option.optionDesp}</td>
+					</tr>
+					<tr>
+						<td>가격</td>
+						<td>${option.optionPrice}</td>
 					</tr>
 				</c:forEach>
+				<c:choose>
+					<c:when test="${review eq null || empty review }">
+						<tr>
+							<td>
+							<td colspan="2" align="center">상품평이 없습니다.</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${review }" var="review">
+							<tr>
+								<td colspan="2" align="center">${review.comment }</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 		</table>
 		<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
 		<a class="btn btn-sm btn-success"
 			href="${ctx }/book/register.do?productId=${product.productId}">주문하기</a>
-
 	</div>
 </body>
 </html>

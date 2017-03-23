@@ -7,16 +7,19 @@
 
  	<resultMap type="Review" id="ReviewMap">
 		<result property="comment" column="content"  />
+		<result property="imageAddress" column="IMAGE_ADDRESS"/>
 		<association property="member" column="member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
 			javaType="Member" jdbcType="VARCHAR" />
-		<association property="product" column="product_id"
-			select="totoBook.store.mapper.ProductMapper.selectProductById"
-			javaType="Product" jdbcType="VARCHAR" />
-
+		<association property="product" column ="product_id"
+			select = "totoBook.store.mapper.ProductMapper.selectProductById"
+			javaType = "Product" jdbcType = "VARCHAR"/>
+ 		</resultMap>
+ 		
+ 		
  		<!-- <result column="image_address" property="imageAddress"/>
  -->
-	</resultMap>
+
 
 <!-- 
 	<select id="selectMember" resultMap="String">
@@ -39,7 +42,7 @@
 		INSERT INTO
 		REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS,
 		IMAGE_EXT)
-		values(#{memberid}, #{productid}, #{content}, #{IMAGE_ADDRESS},
+		values(#{memberId}, #{productId}, #{content}, #{IMAGE_ADDRESS},
 		#{IMAGE_EXT})
 
 	</insert>
@@ -65,20 +68,18 @@
 
 	<select id="selectCommentsByProduct" parameterType="String"	resultMap="ReviewMap">>
 		Select
-		MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS,
-		IMAGE_EXT
+		MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS
 		FROM
 		REVIEW_TB
-		where PRODUCT_ID = #{PRODUCT_ID}
+		where PRODUCT_ID = (1)
 
 	</select>
 
 
 	<select id="selectCommentsByMember" parameterType="String" resultMap="ReviewMap">
-		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS,
-		IMAGE_EXT
+		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS
 		FROM
-		REVIEW_TB where MEMBER_ID = #{memberId}
+		REVIEW_TB where MEMBER_ID = #{member.memberId}
 	</select>
 
 </mapper>

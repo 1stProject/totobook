@@ -32,7 +32,7 @@ public class ReviewServiceLogic implements ReviewService {
 	@Override
 	public List<Review> findCommentsByMember(String memberId) {
 //		String memberid = member.getMemberId();
-		List<Review> list = reviewStore.selectCommentsByMember("RURE1114");
+		List<Review> list = reviewStore.selectCommentsByMember(memberId);
 		return list;
 	}
 

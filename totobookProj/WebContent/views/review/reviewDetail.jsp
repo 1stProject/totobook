@@ -25,9 +25,8 @@
 			</tr>
 		</table>
 
-		<input type="button" name="back" value="뒤로가기"
-			onClick="javascript:history.go(-1);" /> <input type="button"
-			name="modify" value="수정하기"
+		<input type="button" name="back" value="뒤로가기" onClick="javascript:history.go(-1);" /> 
+		<input type="button" name="modify" value="수정하기"
 			onclick="javascript:location.href='${ctx }/review/modify.do?memebrid=${review.member_id }';"
 			value="수정하기">
 

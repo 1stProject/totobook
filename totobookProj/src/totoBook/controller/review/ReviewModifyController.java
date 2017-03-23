@@ -29,8 +29,9 @@ public class ReviewModifyController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Member member = (Member) request.getAttribute("member");
-		service.findCommentsByMember(member);
+		String memberId = request.getParameter("memberId");
+		
+		service.findCommentsByMember(memberId);
 
 		request.getRequestDispatcher("/views/reviewModify.jsp").forward(request, response);	
 		

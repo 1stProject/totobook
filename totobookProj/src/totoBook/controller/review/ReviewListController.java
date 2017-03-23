@@ -33,25 +33,18 @@ public class ReviewListController extends HttpServlet {
 
 		ReviewService service = new ReviewServiceLogic();
 		MemberService service1 = new MemberServiceLogic();
-		
-		
-		
-//		request.getAttribute("member");
+
+		request.getAttribute("member");
+		// userId를 받아온다 세션에 있나?
 
 		Member member = service1.findMemberById("RURE1114");
-
-		System.out.println(member.getMemberId());
-		
 		String memberId = member.getMemberId();
-		
+
 		List<Review> list = service.findCommentsByMember(memberId);
 
-		System.out.println(list.size());
 		request.setAttribute("review", list);
-		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);	
-		
-		
-		
+		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);
+
 	}
 
 }
