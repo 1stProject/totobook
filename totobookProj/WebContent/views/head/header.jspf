@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<body>
-	<div class="headerDiv">
-		<h3>Header 영역</h3>
-	</div>
-</body>
-</html>
+<h1>
+	<a href = "main.jsp">토토북</a>
+</h1>
+<ul class="login-info">
+        <li class="logout-btn"><a href="${ctx }/logout.do">로그아웃</a></li>
+    </ul>
