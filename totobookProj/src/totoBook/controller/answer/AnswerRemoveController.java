@@ -20,8 +20,9 @@ public class AnswerRemoveController extends HttpServlet {
 			throws ServletException, IOException {
 		AnswerService service = new AnswerServiceLogic();
 		service.removeAnswer(request.getParameter("answerId"));
-		
-		response.sendRedirect("/views/question/questionDetail.jsp");
+		Answer answer = service.findAnswerById(request.getParameter("answerId"));
+		request.setAttribute("answer", answer);
+		request.getRequestDispatcher("/views/question/questionDetail.jsp").forward(request, response);;
 	}
 
 }

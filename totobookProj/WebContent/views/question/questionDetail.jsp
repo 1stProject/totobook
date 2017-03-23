@@ -7,14 +7,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 	$(document).ready(function() {/*프로그램 실행시 시행(js의 load와 같음) */
-		var postId = $("#postId").val();
+		var postId = $("#postId").val();/*detail.do로 (처음 답글부분 호출위해) */
 
 		$.ajax({
 			type : 'get',
 			url : 'answer/detail.do',
-			data : postId
+			data : postId,
+			success : function(Answer){
+				
+			}
 		});
 	});
 </script>
@@ -45,10 +48,7 @@
 				<table>
 					<c:choose>
 						<c:when test="${empty answer || answer eq null  }">
-							<form action="${ctx }/answer/register.do" method="post">
-								<input type="text" name=answer_content> <input
-									type="hidden" name="${question.postId }"> <input
-									type="submit" value="답글달기">
+								<input type="button" value="답글달기"	onclick="location.href='${ctx }/answer/register.do?answerId=${question.postId }'">
 							</form>
 						</c:when>
 						<c:otherwise>
