@@ -10,8 +10,13 @@
 </script>
 <script>
 	$(function(){
+		var i=1;
 		$(":file").on('change', function(){
 			fileinfo(this);
+		});
+		$("#add").click(function(){
+			i++;
+			$("<input type = 'file' name = 'file'" + i + "' accept=image/*><br>").appendTo("#upload");
 		});
 	});
 	function fileinfo(input){
@@ -40,12 +45,9 @@
 	</div>
 <form action = "${ctx }/print/register.do" method = "post" enctype = "multipart/form-data">
 	<div id = "upload">
-		<input type = "file" name = "file1"><br>
-		<input type = "file" name = "file2"><br>
-		<input type = "file" name = "file3"><br>
-		<input type = "file" name = "file4"><br>
-		<input type = "file" name = "file5">
+		<input type = "file" name = "file1" accept="image/*"><br>
 	</div>
+	<input type = "button" id = "add" value = "사진 추가!">
 	<input type = "submit" value = "저장!">
 </form>
 </body>

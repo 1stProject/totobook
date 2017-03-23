@@ -10,5 +10,5 @@ import totoBook.domain.Photo;
  */
 public interface PhotoStore {
 	void insertPhotos(List<Photo> photos);
-	void deletePhotos(String PrintId);
+	void deletePhotos(String printId);
 }

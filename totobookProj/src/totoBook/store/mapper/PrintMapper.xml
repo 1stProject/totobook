@@ -15,7 +15,7 @@
 
   	<insert id="insertPrint" parameterType = "Print" useGeneratedKeys="true">
 	  	<selectKey keyProperty="printId" resultType="string" order="BEFORE">
-	  		SELECT PRINT_SEQ.NEXTVAL FROM DUAL
+	  		SELECT print_seq.nextval FROM DUAL
 	  	</selectKey>
 	  	INSERT INTO print_tb
 	  	VALUES (#{printId}, #{member.memberId}, #{product.productId}, #{optionDesp})
