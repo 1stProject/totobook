@@ -13,10 +13,18 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
 <title></title>
 </head>
 <body>
-<h1>나의 사진 관리</h1>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<nav>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+</nav>
+<div class = "contents-wrap">
+<h2 class="page-title">나의 사진 목록</h2>
 <div class="table-responsive col-sm-10 col-lg-10">
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
@@ -41,13 +49,14 @@
 		<tr>
 			<td>${print.printId }</td>
 			<td>${print.optionDesp }</td>
-			<td>아름다웠던 봄</td>
+			<td>${print.product.name }</td>
 			<td class="text-center"><a class = "btn btn-primary" href = "${ctx }/order/register.do?printId=${print.printId}">주문하기</a></td>
 			<td class="text-center"><a class = "btn btn-default" href = "${ctx }/print/remove.do?printId=${print.printId }">삭제하기</a></td>
 		</tr>
 	</c:forEach>
 	</tbody>
 </table>
+</div>
 </div>
 </body>
 </html>

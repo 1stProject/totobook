@@ -39,6 +39,8 @@ public class PrintRegisterController extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String productId = request.getParameter("productId");
+		Product product = productService.findProductById(productId);
+		request.setAttribute("product", product);
 		request.getRequestDispatcher("/views/print/printUpload.do");
 	}
 
