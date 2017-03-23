@@ -12,14 +12,17 @@
 			select = "totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType = "Product" jdbcType = "VARCHAR"/>
 	</resultMap>
-	
+	<!-- <insert id = "insertOrder" parameterType = "Order">
+		INSERT INTO order_tb (order_id, order_date, payment, total_price, address, member_id, product_id)
+		VALUES (order_seq.NEXTVAL, SYSDATE, #{payment}, #{ordPrice}, #{member.address}, #{member.memberId}, #{product.productId})
+	</insert> -->
   	<insert id="insertPrint" parameterType = "Print">
-  		<selectKey keyProperty="print_id" resultType="string" order="BEFORE">
-  			select print_seq.nextval from dual
+  		insert INTO print_tb VALUES (print_seq.NEXTVAL, #{member.memberId}, #{product.productId}, #{optionDesp})
+  		<selectKey keyProperty="printId" resultType = "string" order="AFTER">
+  			select print_seq.currval FROM dual
   		</selectKey>
-  		INSERT INTO print_tb
-  		VALUES (#{print_id}, #{member.memberId}, #{product.productId}, #{optionDesp})
   	</insert>
+  	
   	<delete id="deletePrint" parameterType = "string">
   		delete FROM print_tb
   		where print_id = #{printId}

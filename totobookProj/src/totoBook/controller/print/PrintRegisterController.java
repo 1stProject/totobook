@@ -73,6 +73,8 @@ public class PrintRegisterController extends HttpServlet {
 		print.setProduct(product);
 		print.setPhotos(photos);
 		printService.registerPrint(print);
+		
+		response.sendRedirect(request.getContextPath() + "/print/list.do");
 	}
 
 }
