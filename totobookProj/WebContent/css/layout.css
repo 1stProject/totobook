@@ -3,14 +3,6 @@
 header {
 	background-color: #f8f8f8;
 	border-color : e7e7e7;
-	width: 100%;
-    height: 45px;
-    background: #2c3e50;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    /*overflow: hidden;*/
 	
 }
 div.headerDiv {
@@ -34,19 +26,128 @@ div.contentsContainer {
 	margin :0 auto;
 }
 
-div.photoBookDiv {
-	width : 1520x;
+div.photoBookContainer {
+	width : 1200px;
 	height : 1000px;
 	margin :0 auto;
-	background-color : yellow;
+    align-content: center;
+}
+
+div.photoBookContent {
+	height : 700px;
+    border: 1px solid antiquewhite;
+    background-color: antiquewhite;
 }
 
 div #bookPageLeft {
-	width : 760px;
+	width : 445px;
+    height: 665px;
+    float: left;
+    margin-left: 15px;
+    border-left: 1px solid antiquewhite;
+    border-top: 1px solid antiquewhite;
+    border-bottom: 1px solid antiquewhite;
+    background-image: url("A3_layout_0.jpg");
+    overflow: hidden;
 }
 
 div #bookPageRight {
-	width : 760px;
+    
+	width : 445px;
+    height: 665px;
+    float:left;
+    margin-right: 10px;
+    border-right: 1px solid antiquewhite;
+    border-top: 1px solid antiquewhite;
+    border-bottom: 1px solid antiquewhite;
+    background-image: url("A3_layout_0.jpg");
+    overflow: hidden;
+}
+
+div #bookPageRight img, div #bookPageLeft img {
+    max-height: 665px;
+}
+
+div.bookPaging1 {
+    width : 14px;
+    height: 665px;
+    background-color: darkblue;
+    float:left;
+}
+div .bookPaging2 {
+    width : 14px;
+    height: 665px;
+    background-color: darkblue;
+    float:left;
+}
+
+div #layoutDiv {
+	width : 140px;
+    margin-left: 10px;
+    height: 665px;
+    float: left;
+    border: 1px solid aqua;
+}
+
+div.container{
+    background-color:beige;
+    width: 100%;
+    height: 100%;
+    margin:auto; 
+}
+
+div.photoLayoutMedium{
+    background-color:beige;
+    width: 95%;
+    height: 40%;
+    margin:auto; 
+}
+
+img.leftRightBtnImg {
+    width : 50px;
+    display:inline;
+    vertical-align: middle;
+    float:left; 
+    
+    margin-top: 314px;
+}
+img.topDownBtnImg {
+    width : 35px;
+    height: 23px;
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+img.layoutIcon1, img.layoutIcon2 {
+    width : 100px;
+    height: 133px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+div #photoListDiv {
+	width : 1000px;
+    height: 150px;
+    background-color: azure;
+    margin : 20px 100px 20px 100px;
+    float: left;
+    display: block;
+    overflow: scroll;
+}
+
+img.uploadPhoto {
+    width: auto; height: auto;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 5px 15px;
+}
+
+div.btnDiv {
+    width : 500px;
+    height: 300px;
+    margin:0 auto;
+    display: block;
 }
 
 div.leftMenu {
@@ -84,7 +185,10 @@ table.blueListTab tr{
 table.blueListTab tr:nth-child(even) {
 	background-color: #f2f2f2
 	}
-/* 문제생기면 이 아래꺼 지우세영 */
+
+	
+	
+/* 문제생기면 이 아래꺼 지우세영 이승건 */
 body {
     font-family: "Malgun gothic", dotum, "Helvetica Neue", Helvetica, sans-serif, arial;
 }
