@@ -45,7 +45,6 @@ public class NoticeStoreLogic implements NoticeStore {
 		} finally {
 			session.close();
 		}
-		System.out.println(post.getMember().getMemberId());
 		return post;
 	}
 

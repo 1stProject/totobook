@@ -46,9 +46,9 @@
 					<c:choose>
 						<c:when test="${empty answer || answer eq null  }">
 							<form action="${ctx }/answer/register.do" method="post">
-								<input type="text" name=answer_content> 
-								<input type="hidden" name="${question.postId }"> 
-								<input type="submit" value="답글달기">
+								<input type="text" name=answer_content> <input
+									type="hidden" name="${question.postId }"> <input
+									type="submit" value="답글달기">
 							</form>
 						</c:when>
 						<c:otherwise>
@@ -69,10 +69,10 @@
 		</tr>
 		<tr>
 			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'" />
+				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
 				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'" />
-			</td>
+				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
+		
 		</tr>
 
 	</table>

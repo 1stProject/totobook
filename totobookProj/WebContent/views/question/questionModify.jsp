@@ -12,11 +12,33 @@
 	<table border="1">
 		<form action="${ctx }/question/modify.do" method="post">
 
-			title : <input type="text" name="question_title"><br> <br>
-			<input type="text" name="content"><br> <br> <input
-				type="submit" value="수정완료">
+			<tr>
+				<td><input type="text" name="question_title"
+					value="${question.title }"></td>
+				<br>
+				<input type="hidden" name="postId" value="${question.postId }">
+			</tr>
+			<tr>
+				<td><input type="text" name="content"
+					value="${question.content }"></td>
+				<br>
+			</tr>
+			<tr>
 
+				<td><img src=""></td>
+				<br>
+			</tr>
+
+			<tr>
+				<td>${question.member.memberId }</td>
+				<br>
+			</tr>
+			<tr>
+
+				<td><input type="submit" value="수정완료">
 		</form>
+		</tr>
+
 	</table>
 </body>
 </html>

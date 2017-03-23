@@ -31,14 +31,12 @@
 							<td><a class="detail_btn"
 								href="${ctx }/question/detail.do?questionId=${question.postId }">${question.title }</a></td>
 							<td>${question.member.memberId }</td>
-							<td><a class="remove_btn"
-								href="${ctx }/question/remove.do?questionId=${question.postId }">삭제</a></td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 			<td><a class="register_btn"
-				href="${ctx }/views/question/questionForm.jsp" />글쓰기</td>
+				href="${ctx }/views/question/questionForm.jsp" />문의글쓰기</td>
 		</tbody>
 	</table>
 
