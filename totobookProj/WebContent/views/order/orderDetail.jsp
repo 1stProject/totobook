@@ -6,12 +6,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
 <h1>주문 상세</h1>
+<div class="table-responsive col-sm-7 col-lg-7">
 <c:forEach items = "${orders }" var = "order">
-<table>
+<table class = "table table-striped table-bordered table-hover">
+	<colgroup>
+		<col width = "30%"/>
+		<col width = "*"/>
+	</colgroup>
 	<tr>
 		<th>주문번호</th>
 		<td>${order.orderId }</td>
@@ -52,12 +64,9 @@
 		<th>주문날짜</th>
 		<td>${order.ordDate }</td>
 	</tr>
-	<tr>
-		<td><a href = "${ctx }/order/modify.do?orderId=${order.orderId}">배송지 수정</a></td>
-	</tr>
 </table>
-
+<a href = "${ctx }/order/modify.do?orderId=${order.orderId}" class = "btn btn-default">배송지 수정</a>
 </c:forEach>
-
+</div>
 </body>
 </html>
