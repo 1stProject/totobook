@@ -19,6 +19,7 @@ public class PrintStoreLogic implements PrintStore {
 	public PrintStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
+	
 	@Override
 	public String insertPrint(Print print) {
 		SqlSession session = factory.openSession();
