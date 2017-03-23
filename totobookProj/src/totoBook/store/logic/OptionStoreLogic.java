@@ -21,7 +21,6 @@ public class OptionStoreLogic implements OptionStore{
 	public OptionStoreLogic() {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
-
 	
 	@Override
 	public List<Option> selectOptions(String productId) {
@@ -29,7 +28,7 @@ public class OptionStoreLogic implements OptionStore{
 		List<Option> list = new ArrayList<>();
 		try {
 			OptionMapper mapper = session.getMapper(OptionMapper.class);
-			list = mapper.selectOptions(productId);
+			list = mapper.selectOptions("1");
 			session.commit();
 		} finally {
 			session.close();

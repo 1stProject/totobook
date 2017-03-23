@@ -36,18 +36,26 @@ public class ProductDetailController extends HttpServlet {
 		Product product = new Product();
 		product = productService.findProductById(productId);
 		
+		System.out.println(product);
+		
+
+		
 		
 		List<Option> list = new ArrayList<>();
-		List<Option> lis1 = new ArrayList<>();
+		List<Option> list1 = new ArrayList<>();
+		
+		
+		list1 = productService.findOption(productId);
 
+		
+		System.out.println("알수없음");
+		System.out.println(list1.size());
+		
 		list = productService.findOption(productId);
-		
-		
-		product.setOptions(productService.findOption(productId));
+		product.setOptions(list);
 
 		
-		System.out.println(product.getOptions().get(0).getOptionName());
-
+		
 		request.setAttribute("product", product);
 		request.getRequestDispatcher("/views/product/productDetail.jsp").forward(request, response);
 

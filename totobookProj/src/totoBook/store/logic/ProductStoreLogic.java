@@ -38,17 +38,20 @@ public class ProductStoreLogic implements ProductStore {
 	}
 
 	@Override
-	public void insertProduct(Product product) {
+	public String insertProduct(Product product) {
 		SqlSession session = factory.openSession();
-
+		String productId;
 		try {
 			ProductMapper mapper = session.getMapper(ProductMapper.class);
 			mapper.insertProduct(product);
+			 productId = product.getProductId();
 			session.commit();
 		} finally {
 			session.close();
 		}
 
+		return productId;
+		
 	}
 
 	@Override

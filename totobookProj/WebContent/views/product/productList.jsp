@@ -30,8 +30,6 @@
 		</table>
 
 		</c:forEach>
-
-	<input type="button" value="왕">
 	</div>
 
 

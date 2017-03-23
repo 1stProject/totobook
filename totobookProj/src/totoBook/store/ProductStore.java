@@ -14,7 +14,7 @@ public interface ProductStore {
 
 	List<Product> selectProductsByName(String name);
 	List<Product> selectAllProducts();
-	void insertProduct(Product product);
+	String insertProduct(Product product);
 	void updateProduct(Product product);
 	void deleteProduct(Product product);
 	Product selectProductById(String productId);

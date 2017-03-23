@@ -17,7 +17,7 @@ public interface ReviewMapper {
 	void updateComment(Review review);
 	void deleteCommentByMember(Member member);
 	void deleteCommentByProduct(Product product);
-	List<Review> selectCommentsByProduct(String productid);
-	List<Review> selectCommentsByMember(String memberid);
+	List<Review> selectCommentsByProduct(Product product);
+	List<Review> selectCommentsByMember(Member member);
 	
 }

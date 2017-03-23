@@ -48,7 +48,7 @@
 										<td>${review.product.name }</td>
 										<td><a href="${ctx }/review/detail.do?id=${review.member.memberid }">${review.comment }</a></td>
 										<td><input type="hidden" id ="modify" value="${review.memebr.memberid }">
-										<a href="${ctx }/product/modify.do?modifyid=${review.product.product_id}"
+										<a href="${ctx }/product/modify.do?modifyid=${review.product.productId}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
 											<td><input type="hidden" id ="reviewserachbymember" value="${review.memebr.memberid }"><a href="${ctx }/product/remove.do?id=${review.product.product_id}"
 												class="btn btn-xs btn-danger">삭제하기</a></td>

@@ -6,8 +6,8 @@
 <mapper namespace="totoBook.store.mapper.ReviewMapper">
 
  	<resultMap type="Review" id="ReviewMap">
-		<result column="content" property="content" />
-		<association property="Member" column="member_id"
+		<result property="comment" column="content"  />
+		<association property="member" column="member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
 			javaType="Member" jdbcType="VARCHAR" />
 		<association property="product" column="product_id"

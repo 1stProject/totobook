@@ -43,7 +43,6 @@ public class ProductServiceLogic implements ProductService {
 	@Override
 	public Product findProductById(String productId) {
 		Product product = productStore.selectProductById(productId);
-		product.setOptions(optionStore.selectOptions(productId));
 		return product;
 		// 상품상세보기 옵션들어가야함
 	}
@@ -65,7 +64,7 @@ public class ProductServiceLogic implements ProductService {
 
 	@Override
 	public void modifyOption(Option option) {
-		optionStore.deleteOption(option.getProductId());
+		optionStore.deleteOption(option.getProduct().getProductId());
 		optionStore.insertOption(option);
 		// 관리자 옵션 삭제 후 옵션 다시 등록
 
@@ -94,10 +93,16 @@ public class ProductServiceLogic implements ProductService {
 
 	@Override
 	public void removeProduct(Product product) {
-		optionStore.deleteOption(product.getProductId());
-		reviewStore.deleteCommentByProduct(product);
+		
+		
+//		optionStore.deleteOption(product.getProductId());
+//		reviewStore.deleteCommentByProduct(product);
+		
 		productStore.deleteProduct(product);
+		
 		// 상품삭제시 옵션,상품평도 같이 삭제
+	
+	
 	}
 
 }
