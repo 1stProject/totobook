@@ -38,7 +38,7 @@
 		UPDATE notice_tb
 		SET
 		post_name=#{title},content=#{content},image_address=#{imageAddressPath},image_ext=#{image_ext}
-		WHERE post_id=#{postId};
+		WHERE post_id=#{postId}
 	</update>
 </mapper>
   

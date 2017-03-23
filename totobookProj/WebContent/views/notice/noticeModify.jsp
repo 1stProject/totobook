@@ -15,6 +15,7 @@
 		<tr>
 			<td><input type="text" name="notice_title" value="${notice.title }"></td>
 			<br>
+			<input type="hidden" name="postId" value="${notice.postId }">
 		</tr>
 		<tr>
 			<td><input type="text" name="content" value="${notice.content }" ></td>

@@ -35,13 +35,14 @@ public class NoticeModifyController extends HttpServlet {
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
+		post.setPostId(request.getParameter("postId"));
 		member.setMemberId("admin");
 		post.setMember(member);
 
 		service.modifyNotice(post);
 
-		request.setAttribute("noticeId", post.getPostId());
-		request.getRequestDispatcher("NoticeDetail.do").forward(request, response);
+		request.setAttribute("notice", post);
+		request.getRequestDispatcher("/views/notice/noticeDetail.jsp").forward(request, response);
 	}
 
 }
