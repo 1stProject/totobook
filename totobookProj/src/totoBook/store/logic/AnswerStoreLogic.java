@@ -43,7 +43,14 @@ public class AnswerStoreLogic implements AnswerStore {
 
 	@Override
 	public void updateAnswer(Answer answer) {
-		// TODO Auto-generated method stub
+		SqlSession session = factory.openSession();
+		try{
+			AnswerMapper mapper = session.getMapper(AnswerMapper.class);
+			mapper.updateAnswer(answer);
+			session.commit();
+		}finally {
+			session.close();
+		}
 
 	}
 

@@ -23,7 +23,8 @@ public class AnswerServiceLogic implements AnswerService{
 
 	@Override
 	public void modifyAnswer(Answer answer) {
-		// TODO Auto-generated method stub
+		AnswerStore store = new AnswerStoreLogic();
+		store.updateAnswer(answer);
 		
 	}
 

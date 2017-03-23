@@ -26,8 +26,14 @@
 		(answer_id,content,post_id)
 		VALUES
 		(ANSWER_SEQ.NEXTVAL,#{content},#{post.postId})
-		
 	</insert>
+	<update id="updateAnswer" parameterType="Answer">
+		UPDATE answer_tb
+		SET
+		answer_id=#{answerId},content=#{content},post_id=#{post.postId}
+		WHERE post_id=#{post.postId}
+		
+	</update>
 </mapper>
   
   
