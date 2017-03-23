@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="content">
-		<form action="/product/productForm.do" method="post"
+		<form action="${ctx }/product/register.do" method="post"
 			enctype="multipart/form-data">
 			<table border="1">
 				<tr>

@@ -27,6 +27,7 @@ import totoBook.service.logic.ProductServiceLogic;
  * @author
  * @version 1.0
  */
+
 @WebServlet("/print/register.do")
 public class PrintRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

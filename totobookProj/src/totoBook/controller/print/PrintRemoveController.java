@@ -24,12 +24,8 @@ public class PrintRemoveController extends HttpServlet {
 		PrintService service = new PrintServiceLogic();
 		
 		String printId = request.getParameter("printId");
-		HttpSession session = request.getSession();
-		String memberId = (String)session.getAttribute("memberId");
 		service.removePhotos(printId);
 		service.removePrint(printId);
-		
-		request.setAttribute("memberId", memberId);
-		response.sendRedirect("/views/print/printList.jsp");
+		response.sendRedirect(request.getContextPath()+ "/print/list.do");
 	}
 }

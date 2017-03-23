@@ -10,5 +10,5 @@ import totoBook.domain.Photo;
  */
 public interface PhotoMapper {
 	void insertPhoto(Photo photo);
-	void deletePhotos(String PrintId);
+	void deletePhotos(String printId);
 }

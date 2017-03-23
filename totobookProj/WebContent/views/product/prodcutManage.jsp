@@ -48,9 +48,9 @@
 								<c:forEach items="${product}" var="product" varStatus="status">
 									<tr>
 										<td>${status.count }</td>
-										<td>${product.product_id }</td>
 										<td><a href="product/detail.do?id=${product.productId }">${product.name }</a></td>
-										<td>${product.price }</td>
+										<td>${product.productprice }</td>
+										<td>${product.category }</td>
 										<td><a href="${ctx }/product/modify.do?id=${product.productId}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
 											<td><a href="${ctx }/product/remove.do?id=${product.productId}"
@@ -61,7 +61,7 @@
 						</c:choose>
 					</tbody>
 				</table>
-					<a class="btn btn-sm btn-success" href="product/registerForm.jsp">상품추가</a>
+					<a class="btn btn-sm btn-success" href="${ctx }/views/product/productForm.jsp">상품추가</a>
 
 			</div>
 		</div>
