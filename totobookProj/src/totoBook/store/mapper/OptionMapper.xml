@@ -3,12 +3,22 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="totoBook.store.mapper.OptionMapper">
 
+
+	<resultMap type="Option" id="optionMap">
+		<id property="optionId" column="OPTION_id" jdbcType="VARCHAR"/>
+		<result property="optionName" column="OPTION_name" jdbcType="VARCHAR" />
+		<result property="optionDesp" column="value" jdbcType="VARCHAR" />
+		<result property="optionPrice" column="OPTION_PRICE" jdbcType="INTEGER"/>
+		<result property="productId" column="PRODUCT_ID" jdbcType="VARCHAR" />
+	</resultMap>
+
+
 	<insert id="insertOption" parameterType="Option">
 		INSERT INTO
 		option_tb(option_id, option_name, value, option_price,
 		product_id)
-		values (option_seq.nextval, #{option_name}, #{value},
-		#{option_price}, #{productId})
+		values (option_seq.nextval, #{optionName}, #{optionDesp},
+		#{optionPrice}, #{productId})
 	</insert>
 
 	<update id="updateOption" parameterType="Option">
@@ -27,7 +37,7 @@
 		WHERE prodcut_id = #{productId}
 	</delete>
 
-	<select id="selectOptions" parameterType="String" resultType="Option">
+	<select id="selectOptions" parameterType="String" resultMap="optionMap">
 
 		SELECT option_id, option_name, value, option_price, product_id
 		from option_tb

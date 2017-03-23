@@ -31,21 +31,28 @@ public class ProductListController extends HttpServlet {
 		
 		ProductService productService = new ProductServiceLogic();
 
-		
+		//유저일경우
 		
 //		String category = request.getParameter("category");
+//		List<Product> list = new ArrayList<>();
+//		list = productService.findProductsByCategory(category);
+//		request.setAttribute("product", list);
+//		request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);	
 
-		String category ="BOOK";
 		
-		List<Product> list = new ArrayList<>();
 		
-		list = productService.findProductsByCategory(category);
-		
-		System.out.println(list.size());
-		
-		request.setAttribute("product", list);
-		request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);	
+//관리자일 경우		
 	
+
+		List<Product> list = new ArrayList<>();
+		list = productService.findAllProducts();
+		request.setAttribute("product", list);
+		request.getRequestDispatcher("/views/product/prodcutManage.jsp").forward(request, response);	
+		
+		
+		
+		
+		
 	}
 
 }
