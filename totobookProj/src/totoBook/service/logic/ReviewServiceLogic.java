@@ -30,16 +30,15 @@ public class ReviewServiceLogic implements ReviewService {
 	}
 
 	@Override
-	public List<Review> findCommentsByMember(Member member) {
+	public List<Review> findCommentsByMember(String memberId) {
 //		String memberid = member.getMemberId();
-		List<Review> list = reviewStore.selectCommentsByMember(member);
+		List<Review> list = reviewStore.selectCommentsByMember("RURE1114");
 		return list;
 	}
 
 	@Override
-	public List<Review> findCommentsByProduct(Product product) {
-		String productid = product.getProductId();
-		List<Review> list = reviewStore.selectCommentsByProduct(product);
+	public List<Review> findCommentsByProduct(String productId) {
+		List<Review> list = reviewStore.selectCommentsByProduct(productId);
 		return list;
 	}
 

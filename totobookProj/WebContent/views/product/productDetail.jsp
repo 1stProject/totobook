@@ -37,22 +37,14 @@
 						<td>${product.descript }</td>
 					</tr>
 					<td>옵션</td>
-					<c:forEach items="${product.options }" var="option">
+					<tr>
 						<td>${option.optionName}</td>
+					</tr>
+					<tr>
 						<td>${option.optionDesp}</td>
+					</tr>
+					<tr>
 						<td>${option.optionPrice}</td>
-					</c:forEach>
-					<tr>
-						<td>사진</td>
-						<td><input type="file" name="file1"></td>
-					</tr>
-					<tr>
-						<td>사진</td>
-						<td><input type="file" name="file1"></td>
-					</tr>
-					<tr>
-						<td>사진</td>
-						<td><input type="file" name="file1"></td>
 					</tr>
 				</c:forEach>
 
@@ -82,25 +74,18 @@
 				<td>${product.descript }</td>
 			</tr>
 			<tr>
-				<td>옵션</td>
+				<td colspan="2">옵션</td>
 				<c:forEach items="${product.options }" var="option">
-					<td>${option.optionName}</td>
-					<td>${option.optionDesp}</td>
-					<td>${option.optionPrice}</td>
+					<tr>
+						<td>사이즈</td><td>${option.optionName}</td>
+					</tr>	
+					<tr>
+						<td>설정값</td><td>${option.optionDesp}</td>
+					</tr>
+					<tr>
+						<td>가격</td><td>${option.optionPrice}</td>
+					</tr>
 				</c:forEach>
-			</tr>
-			<tr>
-				<td>사진</td>
-				<td><input type="file" name="file1"></td>
-			</tr>
-			<tr>
-				<td>사진</td>
-				<td><input type="file" name="file1"></td>
-			</tr>
-			<tr>
-				<td>사진</td>
-				<td><input type="file" name="file1"></td>
-			</tr>
 		</table>
 		<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
 		<a class="btn btn-sm btn-success"

@@ -39,13 +39,16 @@ public class ProductModifyController extends HttpServlet {
 		String productId = request.getParameter("productId");
 
 		Product product = productService.findProductById(productId);
-
+		System.out.println(product.toString());
 		List<Option> list = new ArrayList<>();
 		list = productService.findOption(productId);
 		product.setOptions(productService.findOption(productId));		
 		
+		System.out.println("doget");
+		System.out.println(productId);
 		
 		request.setAttribute("product", product);
+		request.setAttribute("productId", productId);
 		request.getRequestDispatcher("/views/product/productModify.jsp").forward(request, response);
 
 	}
@@ -60,6 +63,12 @@ public class ProductModifyController extends HttpServlet {
 		String dir = cxt.getRealPath("/upload/product");
 		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
 
+		
+		String productId = multi.getParameter("productId");
+		System.out.println(productId);
+		
+		System.out.println(multi.getParameter("category"));
+		
 		Photo photo = new Photo();
 
 		photo.setContentType(multi.getContentType("file1"));
@@ -74,6 +83,9 @@ public class ProductModifyController extends HttpServlet {
 		product.setProductprice(Integer.parseInt(multi.getParameter("productprice")));
 		product.setPhoto(photo);
 		product.setImageAddress(imageAddress);
+		product.setProductId(productService.findProductById(productId).getProductId());
+
+		
 		productService.modifyProduct(product);
 
 		String[] optionname = multi.getParameterValues("optionname");

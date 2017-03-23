@@ -34,6 +34,17 @@
 	</insert>
 
 	<update id="updateProduct" parameterType="Product">
+
+		UPDATE product_tb
+		SET
+		PRODUCT_NAME = #{name}, PRICE = #{productprice},
+		category =
+		#{category}, DETAIL=#{descript},
+		IMAGE_ADDRESS = #{imageAddress}
+		where product_id = #{productId}
+
+
+<!-- 
 		UPDATE product_tb
 		SET
 		PRODUCT_NAME = #{name}, PRICE = #{productprice},
@@ -41,6 +52,8 @@
 		#{category}, DETAIL=#{descript},
 		IMAGE_ADDRESS = #{imageAddress},
 		where product_id = #{productId}
+ -->
+
 	</update>
 
 	<delete id="deleteProduct" parameterType="String">

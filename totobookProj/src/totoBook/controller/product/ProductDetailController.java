@@ -36,7 +36,8 @@ public class ProductDetailController extends HttpServlet {
 		Product product = new Product();
 		product = productService.findProductById(productId);
 		
-		System.out.println(product);
+		System.out.println("넌 뭐니");
+		System.out.println(productId);
 		
 
 		

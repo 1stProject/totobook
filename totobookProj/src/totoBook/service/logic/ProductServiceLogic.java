@@ -95,7 +95,7 @@ public class ProductServiceLogic implements ProductService {
 	public void removeProduct(Product product) {
 		
 		
-//		optionStore.deleteOption(product.getProductId());
+		optionStore.deleteOption(product.getProductId());
 //		reviewStore.deleteCommentByProduct(product);
 		
 		productStore.deleteProduct(product);

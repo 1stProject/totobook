@@ -13,8 +13,10 @@
 </head>
 <body>
 	<div class="content">
-		<form action="/product/productForm.do" method="post"
+		<form action="${ctx }/product/modify.do" method="post"
 			enctype="multipart/form-data">
+
+			<input type="hidden" value="${product.productId}" name="productId">
 			<table border="1">
 				<tr>
 					<td>상품카테고리</td>
@@ -25,23 +27,29 @@
 				</tr>
 				<tr>
 					<td>상품명</td>
-					<td><input type="text" name="name" value="">${product.name }</td>
+					<td><input type="text" name="name" value="${product.name }"></td>
 				</tr>
 				<tr>
 					<td>상품가격</td>
-					<td><input type="text" name="productprice">${product.productprice}</td>
+					<td><input type="text" name="productprice" value="${product.productprice}"></td>
 				</tr>
 				<tr>
 					<td>상품설명</td>
-					<td><input type="text" name="descript" style="text-align:left; width:400px; height:200px;">${product.descript}</td>
+					<td><input type="text" name="descript" style="text-align:left; width:400px; height:200px;" value="${product.descript}"></td>
 				</tr>
 				<tr>
 					<td>옵션</td>
-				<c:forEach items="${product.options }" var="option">
-					<td>${option.optionName}</td>
-					<td>${option.optionDesp}</td>
-					<td>${option.optionPrice}</td>
-				</c:forEach>
+					<td>사이즈<input type="text" name="optionname" value="">
+					설명<input type="text" name="optiondesp" value="">
+					금액<input type="text" name="optionprice" value="">
+					</td>
+				</tr>
+				<tr>
+					<td>옵션1</td>
+					<td>사이즈1<input type="text" name="optionname" value="">
+					설명1<input type="text" name="optiondesp" value="">
+					금액1<input type="text" name="optionprice" value="">
+					</td>
 				</tr>
 				<tr>
 					<td>사진</td>

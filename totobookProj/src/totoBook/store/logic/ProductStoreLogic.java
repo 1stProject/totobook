@@ -44,7 +44,7 @@ public class ProductStoreLogic implements ProductStore {
 		try {
 			ProductMapper mapper = session.getMapper(ProductMapper.class);
 			mapper.insertProduct(product);
-			 productId = product.getProductId();
+			productId = product.getProductId();
 			session.commit();
 		} finally {
 			session.close();
@@ -121,6 +121,7 @@ public class ProductStoreLogic implements ProductStore {
 
 	@Override
 	public void updateProduct(Product product) {
+		
 		SqlSession session = factory.openSession();
 
 		try {

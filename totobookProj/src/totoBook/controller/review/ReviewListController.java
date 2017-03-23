@@ -42,10 +42,11 @@ public class ReviewListController extends HttpServlet {
 
 		System.out.println(member.getMemberId());
 		
+		String memberId = member.getMemberId();
 		
-		List<Review> list = service.findCommentsByMember(member);
+		List<Review> list = service.findCommentsByMember(memberId);
 
-		
+		System.out.println(list.size());
 		request.setAttribute("review", list);
 		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);	
 		

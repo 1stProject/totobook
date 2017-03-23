@@ -28,7 +28,7 @@ public class OptionStoreLogic implements OptionStore{
 		List<Option> list = new ArrayList<>();
 		try {
 			OptionMapper mapper = session.getMapper(OptionMapper.class);
-			list = mapper.selectOptions("1");
+			list = mapper.selectOptions(productId);
 			session.commit();
 		} finally {
 			session.close();
