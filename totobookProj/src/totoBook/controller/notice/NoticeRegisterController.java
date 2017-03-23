@@ -13,7 +13,6 @@ import totoBook.service.QuestionService;
 import totoBook.service.logic.NoticeServiceLogic;
 import totoBook.service.logic.QuestionServiceLogic;
 
-
 @WebServlet("/notice/register.do")
 public class NoticeRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,16 +20,18 @@ public class NoticeRegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Post post = new Post();
+		totoBook.domain.Member member = new totoBook.domain.Member();
 		NoticeService service = new NoticeServiceLogic();
 
 		post.setTitle(request.getParameter("notice_title"));
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
-		//post.setMember("");
+		member.setMemberId("admin");
+		post.setMember(member);
 		service.registerNotice(post);
 
-		response.sendRedirect("/question/list.do");
+		response.sendRedirect(request.getContextPath()+"/notice/list.do");
 
 	}
 

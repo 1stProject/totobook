@@ -29,12 +29,14 @@ public class NoticeModifyController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Post post = new Post();
+		totoBook.domain.Member member = new totoBook.domain.Member();
 		NoticeService service = new NoticeServiceLogic();
 		post.setTitle(request.getParameter("notice_title"));
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
-		// post.setMember("");
+		member.setMemberId("admin");
+		post.setMember(member);
 
 		service.modifyNotice(post);
 

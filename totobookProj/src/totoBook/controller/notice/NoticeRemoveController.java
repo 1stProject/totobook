@@ -21,7 +21,7 @@ public class NoticeRemoveController extends HttpServlet {
 		
 		service.removeNotice(request.getParameter("noticeId"));
 		
-		response.sendRedirect("/views/notice/noticeList.jsp");
+		response.sendRedirect(request.getContextPath()+"/notice/list.do");
 	}
 
 	

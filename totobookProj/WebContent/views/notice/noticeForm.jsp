@@ -6,6 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script>
+
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -14,6 +19,7 @@
 		<form action="${ctx }/notice/register.do" method="post">
 			title : <input type="text" name="notice_title"><br>
 			<br> <input type="text" name="content" ><br>
+			
 			<br> <input type="submit" value="등록">
 		</form>
 		<footer> </footer>

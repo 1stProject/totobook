@@ -12,11 +12,30 @@
 	<table border="1">
 		<form action="${ctx }/notice/modify.do" method="post">
 
-			title : <input type="text" name="notice_title"><br> <br>
-			<input type="text" name="content"><br> <br> 
-			<input type="submit" value="수정완료">
+		<tr>
+			<td><input type="text" name="notice_title" value="${notice.title }"></td>
+			<br>
+		</tr>
+		<tr>
+			<td><input type="text" name="content" value="${notice.content }" ></td>
+			<br>
+		</tr>
+		<tr>
 
-		</form>
+			<td><img src=""></td>
+			<br>
+		</tr>
+
+		<tr>
+			<td>${notice.member.memberId }</td>
+			<br>
+		</tr>
+		<tr>
+			
+			<td><input type="submit" value="수정완료">
+			</form>
+		</tr>
+		
 	</table>
 </body>
 </html>
