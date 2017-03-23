@@ -5,40 +5,45 @@
 
 
 	<resultMap type="Option" id="optionMap">
-		<id property="optionId" column="OPTION_id" jdbcType="VARCHAR"/>
+		<id property="optionId" column="OPTION_id" jdbcType="VARCHAR" />
 		<result property="optionName" column="OPTION_name" jdbcType="VARCHAR" />
 		<result property="optionDesp" column="value" jdbcType="VARCHAR" />
-		<result property="optionPrice" column="OPTION_PRICE" jdbcType="NUMERIC"/>
-		<result property="productId" column="PRODUCT_ID" />
+		<result property="optionPrice" column="OPTION_PRICE" jdbcType="NUMERIC" />
+
+		<!-- <association property="product" column = "product_id" select = "totoBook.store.mapper.ProductMapper.selectProductById" 
+			javaType = "Product" jdbcType = "VARCHAR"/> -->
+		<association property="productId" column="product_id"
+			jdbcType="NUMERIC" />
 	</resultMap>
-<!-- 
-	<insert id="insertOption" parameterType="Option">
-		INSERT INTO
-		option_tb(option_id, option_name, value, option_price,
-		product_id)
-		values (option_seq.nextval, #{optionName}, #{optionDesp},
-		#{optionPrice}, #{productId})
+
+
+	<!-- <insert id="insertOption" parameterType="Option"> INSERT INTO option_tb(option_id, 
+		option_name, value, option_price, product_id) values (option_seq.nextval, 
+		#{optionName}, #{optionDesp}, #{optionPrice}, #{productId} ) </insert> -->
+
+	<insert id="insertOption" parameterType="Option" useGeneratedKeys="true">
+		<selectKey keyProperty="productId" resultType="string" order="BEFORE"> 
+		SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO option_tb(option_id,
+		option_name, value, option_price, product_id) values (option_seq.nextval,
+		#{optionName}, #{optionDesp}, #{optionPrice}, #{productId}  )
 	</insert>
 
- -->
-	<insert id="insertOption" parameterType="Option">
-		INSERT INTO
-		option_tb(option_id, option_name, value, option_price,
-		product_id)
-		values (option_seq.nextval, #{optionName}, #{optionDesp},
-		#{optionPrice}, 36)
-	</insert>
 
 	<update id="updateOption" parameterType="Option">
 		DELETE option_tb
-		WHERE prodcut_id = #{productId}
+		WHERE
+		prodcut_id = #{productId}
 		INSERT INTO
-		option_tb(option_id, option_name, value, option_price,
+		option_tb(option_id, option_name,
+		value, option_price,
 		product_id)
-		values (option_seq.nextval, #{option_name}, #{value},
+		values (option_seq.nextval,
+		#{option_name}, #{value},
 		#{option_price}, #{productId})
 	</update>
-	<!--의미없음 옵션 삭제후 product입력!?!  -->
+	<!--의미없음 옵션 삭제후 product입력!?! -->
 
 	<delete id="deleteOption">
 		DELETE option_tb
@@ -48,7 +53,8 @@
 	<select id="selectOptions" parameterType="String" resultMap="optionMap">
 
 		SELECT option_id, option_name, value, option_price, product_id
-		from option_tb
+		from
+		option_tb
 		where PRODUCT_id = #{productId}
 
 	</select>

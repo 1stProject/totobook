@@ -40,71 +40,45 @@ public class ProductRegisterController extends HttpServlet {
 		String dir = cxt.getRealPath("/upload/product");
 		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
 
-//		Photo photo = new Photo();
-//
-//		photo.setContentType(multi.getContentType("file1"));
-//		photo.setFileName(multi.getFilesystemName("file1"));
-//
-//		String imageAddress = photo.getFileName();
-//
-//		Product product = new Product();
-//		product.setCategory(multi.getParameter("category"));
-//		product.setName(multi.getParameter("name"));
-//		product.setDescript(multi.getParameter("descript"));
-//		product.setProductprice(Integer.parseInt(multi.getParameter("productprice")));
-//		product.setPhoto(photo);
-//		product.setImageAddress(imageAddress);
-//		productService.registerProduct(product);
+		Photo photo = new Photo();
 
-		
-		
-		
-//		 String[] optionname = multi.getParameterValues("optionname");
-//		 String[] optiondesp = multi.getParameterValues("optiondesp");
-//		 String[] optionprice = multi.getParameterValues("optionprice");
-	
-		 String optionname = multi.getParameter("optionname");
-		 String optiondesp = multi.getParameter("optiondesp");
-		 int optionprice = Integer.parseInt(multi.getParameter("optionprice"));
+		photo.setContentType(multi.getContentType("file1"));
+		photo.setFileName(multi.getFilesystemName("file1"));
 
-		 
-		 System.out.println(optionname);
-		 
-		 
+		String imageAddress = photo.getFileName();
 
-		 
-//		 int[] opprice = new int[optionprice.length];
-//		 for (int i = 0; i < optionprice.length; i++) {
-//		 opprice[i] = Integer.parseInt(optionprice[i]);
-//		 }
-		
-		 String productId = "36";
-		 
-		 System.out.println(productId);
+		Product product = new Product();
+		product.setCategory(multi.getParameter("category"));
+		product.setName(multi.getParameter("name"));
+		product.setDescript(multi.getParameter("descript"));
+		product.setProductprice(Integer.parseInt(multi.getParameter("productprice")));
+		product.setPhoto(photo);
+		product.setImageAddress(imageAddress);
+		productService.registerProduct(product);
 
-			 Option p = new Option();	
-		 p.setOptionId(productId);
-		 p.setOptionName(optionname);
-		 p.setOptionPrice(optionprice);
-		 p.setOptionDesp(optiondesp);
-		 productService.registerOption(p);
-				 
-		 
-		 
-//		 List<Option> list = new ArrayList<>();
-//		for (int b = 0; b < optionname.length; b++) {
-//			 Option p = new Option();
-//		 p.setOptionId(productId);
-//		 p.setOptionName(optionname[b]);
-//		 p.setOptionPrice(opprice[b]);
-//		 p.setOptionDesp(optiondesp[b]);
-//		 productService.registerOption(p);
-//		 list.add(p);
-//		 }
-		
-		
-//		 product.setOptions(list);
+		String[] optionname = multi.getParameterValues("optionname");
+		String[] optiondesp = multi.getParameterValues("optiondesp");
+		String[] optionprice = multi.getParameterValues("optionprice");
 
+		String productId = product.getProductId();
+
+		int[] opprice = new int[optionprice.length];
+		for (int i = 0; i < optionprice.length; i++) {
+			opprice[i] = Integer.parseInt(optionprice[i]);
+		}
+
+		List<Option> list = new ArrayList<>();
+		for (int b = 0; b < optionname.length; b++) {
+			Option p = new Option();
+			p.setOptionName(optionname[b]);
+			p.setOptionPrice(opprice[b]);
+			p.setOptionDesp(optiondesp[b]);
+			p.setProductId(productId);
+			productService.registerOption(p);
+			list.add(p);
+		}
+
+		product.setOptions(list);
 
 		response.sendRedirect("list.do");
 
