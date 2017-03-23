@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import totoBook.domain.Member;
+import totoBook.service.MemberService;
+import totoBook.service.logic.MemberServiceLogic;
+
 /**
  * @author
  * @version 1.0
@@ -15,28 +19,28 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/member/login.do")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
-
+	
+	private MemberServiceLogic service;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String Id = request.getParameter("memberId");
-		String passwd = request.getParameter("password");
+		MemberService service = new MemberServiceLogic();
 		
-		 if("memberID".equals(Id) && "password".equals(passwd)) {
+		String memberId = request.getParameter("memberId");
+		String passwd = request.getParameter("password");
+		boolean member1;
+		member1 = service.findMember(member);
+		
+		 if("id".equals(member) && "password".equals(passwd)) {
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("memberId", Id);
+			session.setAttribute("memberId", member);
 
-			response.sendRedirect(request.getContextPath() + "/views/index.jsp");
+			response.sendRedirect( "/views/member/memberList.jsp");
 			
 			
 		}else{
 
-			response.sendRedirect(request.getContextPath() +"/views/member/memberList.jsp");
+			response.sendRedirect("/views/member/login.jsp");
 			
 		}
 	}
