@@ -172,34 +172,46 @@ var drop = function(ev) {
 			}
 			parent.appendChild(nodeCopy);
 			imgCutting(parent);
-		} else {
+		} if(ev.target.nodeName == "IMG") {
+			var parent = ev.target.parentElement;
+			console.log(parent.id);
+			while (parent.hasChildNodes()) {	
+				parent.removeChild(parent.firstChild);
+			}
+			parent.appendChild(nodeCopy);
+			imgCutting(parent);
+		} if (ev.target.nodeName == "DIV"){
 			ev.target.appendChild(nodeCopy);
 
 			imgCutting(ev.target);
-
-		} // else 끝
-
+		}
+		// else 끝
 	}
+	$("#"+nodeCopy.id).removeClass("image");
+	
+	  
+		  var images = document.querySelectorAll('#'+nodeCopy.id);
+	      var length = images.length;
+	      var croppers = [];
+	      var i;
+	  	for (i = 0; i < length; i++) {
+			croppers.push(new Cropper(images[i], {
+				viewMode : 3,
+				dragMode : 'move',
+				autoCropArea : 1,
+				restore : false,
+				modal : false,
+				guides : true,
+				highlight : false,
+				cropBoxMovable : false,
+				cropBoxResizable : false,
+				toggleDragModeOnDblclick : false,
+			}));
 
-	var images = document.querySelectorAll('.image');
-	var length = images.length;
-	var croppers = [];
-	var i;
-
-	for (i = 0; i < length; i++) {
-		croppers.push(new Cropper(images[i], {
-			viewMode : 3,
-			dragMode : 'move',
-			autoCropArea : 1,
-			restore : false,
-			modal : false,
-			guides : false,
-			highlight : false,
-			cropBoxMovable : false,
-			cropBoxResizable : false,
-			toggleDragModeOnDblclick : false,
-		}));
-	}
+			console.log("크로퍼 생성 완료"+i);
+		}
+	  
+	
 
 }
 

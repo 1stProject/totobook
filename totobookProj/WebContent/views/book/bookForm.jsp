@@ -8,16 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/cropper.css">
 <title>totoBook</title>
-
-       <script src="${ctx }/views/book/js/jquery-3.1.1.js"></script>
+		<script src="${ctx }/views/book/js/cropper.js"></script>
+      	<script src="${ctx }/views/book/js/jquery-3.1.1.js"></script>
+  		<script src="${ctx }/views/book/js/bookEdit.js"></script>
+        <script src="${ctx }/views/book/js/html2canvas.js"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://fengyuanchen.github.io/js/common.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-		<script src="${ctx }/views/book/js/cropper.js"></script>
-  		<script src="${ctx }/views/book/js/bookEdit.js"></script>
-        <script src="${ctx }/views/book/js/html2canvas.js"></script>
 </head>
 <body>
 	<header>
@@ -77,6 +77,12 @@
 	</div>
 	<div id="previewImage">
 	</div>
+
+  <script src="${ctx }/views/book/cropper/dist/cropper.js"></script>
+  <script>
+
+  </script>
+	
 	<footer>
 		<%@include file="../foot/footer.jspf" %>
 	</footer>
