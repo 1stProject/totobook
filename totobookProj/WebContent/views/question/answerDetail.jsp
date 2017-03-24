@@ -7,8 +7,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+	</header>
 	<input type="button" value="이전페이지"
 		onclick="location.href='${ctx }/question/detail.do?questionId=${answer.post.postId }'">
 	<table border="1">
@@ -26,6 +33,8 @@
 		</tr>
 
 	</table>
-
+<footer>
+		<%@include file="../foot/footer.jspf" %>
+	</footer>
 </body>
 </html>
