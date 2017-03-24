@@ -24,5 +24,6 @@ public class LogoutController extends HttpServlet {
 		response.sendRedirect(request.getContextPath()+"/views/member/login.jsp");
 	
 	}
-
+	
+	
 }
