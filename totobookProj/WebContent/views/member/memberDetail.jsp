@@ -5,10 +5,9 @@
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>회원목록</title>
-    
+<%@ include file="header.jspf" %>
 </head>
+<title>회원 정보</title>
 <body>
 <div class="contents-wrap">
 
@@ -34,7 +33,7 @@
                 <td>${memberList.phone }</td>
                 <td>${memberList.receiveEmail }</td>
                	<td><a href="${ctx }/member/modify.do?memberId=${memberList.memberId }" class="btn btn-xs btn-warning">UPDATE</a></td>
-				<td><a href="${ctx }/member/remove.do?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">DELETE</a></td>
+				<td><a href="${ctx }/views/member/pwCheck.jsp?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">DELETE</a></td>
 							
              </tr>
            

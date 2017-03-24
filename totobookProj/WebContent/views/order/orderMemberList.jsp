@@ -25,13 +25,14 @@
 </nav>
 <div class = "contents-wrap">
 <h1>주문 목록</h1>
-<div class="table-responsive col-sm-6 col-lg-6">
+<div class="table-responsive col-sm-9 col-lg-9">
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width="100"/>
 		<col width="200"/>
 		<col width="200"/>
 		<col width="*"/>
+		<col width="200"/>
 	</colgroup>
 	<thead>
 		<tr>
@@ -39,6 +40,7 @@
 			<th>주문 날짜</th>
 			<th>결제 수단</th>
 			<th>배송 주소</th>
+			<th>상품평 쓰러가기 </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -49,10 +51,15 @@
 			<td>${order.ordDate }</td>
 			<td>${order.payment }</td>
 			<td>${order.ordWay }</td>
+			<td><a href = "${ctx }/review/register.do?orderId=${order.orderId}">상품평 쓰러가기</a></td>
 		</tr>
 </c:forEach>
 	</tbody>
 </table>
+총 ${arraysize}건<br>
+<c:forEach begin="1" end="${maxBorder }" step="1" varStatus="status">
+	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
+</c:forEach>
 </div>
 </div>
 </body>

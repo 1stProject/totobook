@@ -14,9 +14,10 @@ public interface ReviewStore {
 
 	void insertComment(Review review);
 	void updateComment(Review review);
-	void deleteCommentByMember(Member member);
 	void deleteCommentByProduct(Product product);
 	List<Review> selectCommentsByProduct(String productId);
 	List<Review> selectCommentsByMember(String memberId);
+	List<Review> selectCommentByOrder(String orderId);
+	void deleteCommentByMember(String orderId);
 	
 }
