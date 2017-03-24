@@ -4,20 +4,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
 <title>Insert title here</title>
 </head>
 <body>
 <table border="1">
 		<tr>
-			<td>${notice.title }</td>
+			<td>${answer.content }</td>
+			<td>관리자</td>
 			<br>
 		</tr>
 		
 		<tr>
 			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
+				onclick="location.href='${ctx }/answer/modify.do?answerId=${answer.post.postId }'">
 				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/notice/remove.do?noticeId=${notice.postId }'"></td>
+				onclick="location.href='${ctx }/answer/remove.do?answerId=${answer.post.postId }'"></td>
 		</tr>
 
 	</table>

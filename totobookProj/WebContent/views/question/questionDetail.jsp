@@ -53,13 +53,7 @@
 						</c:when>
 						<c:otherwise>
 							<tr>
-								<td>${answer.content }</td>
-								<td>관리자</td>
-								<td><input type="button" value="수정"
-									onclick="location.href='${ctx }/answer/modify.do?answerId=${question.postId }'" />
-									<input type="button" value="삭제"
-									onclick="location.href='${ctx }/answer/remove.do?answerId=${question.postId }'" />
-								</td>
+								<input type="button" value="답글보기"	onclick="location.href='${ctx }/answer/detail.do?answerId=${question.postId }'">
 							</tr>
 						</c:otherwise>
 					</c:choose>

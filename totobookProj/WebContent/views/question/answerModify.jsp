@@ -11,44 +11,18 @@
 <body>
 
 	<table border="1">
+		<form action="${ctx }/answer/modify.do" method="post">
 		<tr>
-			<td>${question.title }</td>
-			<br>
-		</tr>
-		<tr>
-			<td>${question.content }</td>
-			<br>
-		</tr>
-		<tr>
-
-			<td><img src=""></td>
+			<td><input type="text" name="content" value="${answer.content }"></td>
+			<input type="hidden" name="postId" value="${answer.post.postId }">
+			<td>관리자</td>
 			<br>
 		</tr>
 
 		<tr>
-			<td>${question.member.memberId }</td>
-			<br>
+			<td><input type="submit" value="수정완료"></td>
 		</tr>
-		<tr>
-			<td><input type="hidden" id="postId" value="${question.postId }">
-				<table>
-					<form action="${ctx }/answer/register.do" method="post">
-						<input type="text" name=answer_content value="${answer.content }"> 
-						<input type="hidden" name="${question.postId }"> 
-						<input type="submit" value="수정완료">
-					</form>
-				</table></td>
-
-
-		</tr>
-		<tr>
-			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'" />
-				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'" />
-			</td>
-		</tr>
-
+		</form>
 	</table>
 
 

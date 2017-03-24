@@ -24,10 +24,10 @@ public class AnswerRegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 
-		String postId = req.getParameter("answerId");
-		
-		req.setAttribute("answerId", postId);
-		req.getRequestDispatcher("/views/question/answerForm.jsp");
+		String answer = req.getParameter("answerId");
+	
+		req.setAttribute("answerId", answer);
+		req.getRequestDispatcher("/views/question/answerForm.jsp").forward(req, resp);;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -35,8 +35,8 @@ public class AnswerRegisterController extends HttpServlet {
 		Answer answer = new Answer();
 		AnswerService answer_service = new AnswerServiceLogic();
 		QuestionService question_service = new QuestionServiceLogic();
-		Post post = question_service.findQuestionById(request.getParameter("answerId"));
-		answer.setContent(request.getParameter("answer_content"));
+		Post post = question_service.findQuestionById(request.getParameter("postId"));
+		answer.setContent(request.getParameter("content"));
 		answer.setPost(post);
 		answer_service.registerAnswer(answer);
 
