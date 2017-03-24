@@ -18,20 +18,19 @@
 			i++;
 			var selectname = "amount"+i;
 			var filename = "file"+i;
-			$("<input type = 'file' name = '"+filename+"' id = '"+filename+"' accept=image/* onchange='fileinfo(this)'><br>").appendTo("#upload");
+			$("<input type = 'file' name = '"+filename+"' id = '"+filename+"' accept=image/* onchange='fileinfo(this)'>").appendTo("#upload");
 			$("<select name = '"+selectname+"' id = '"+selectname+"'></select><br>").appendTo("#upload");
 			var sel = "#amount" + i;
 			for(var s = 1;s <= 10; s++){
 				$("<option value = '"+s+"'>"+s+"</option>").appendTo(sel);
 			}
-			
 		});
 	});
 	function fileinfo(input){
 		if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                    $("#image").append('<img src="' + e.target.result + '" style="width:200px; height: 200px;" id = "'+imgId+'">');
+                    $("#image").append('<img src="' + e.target.result + '" style="width:200px; height: 200px;">');
                 }
             reader.readAsDataURL(input.files[0]);
             }

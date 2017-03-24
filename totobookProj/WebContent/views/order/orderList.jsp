@@ -13,9 +13,17 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
 <title>Insert title here</title>
 </head>
 <body>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<nav>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+</nav>
+<div class = "contents-wrap">
 <h1>주문 목록</h1>
 <div class="table-responsive col-sm-7 col-lg-7">
 <table class = "table table-striped table-bordered table-hover">
@@ -48,6 +56,7 @@
 </c:forEach>
 	</tbody>
 </table>
+</div>
 </div>
 </body>
 </html>
