@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import totoBook.domain.Member;
 import totoBook.service.MemberService;
 import totoBook.service.logic.MemberServiceLogic;
 
@@ -22,26 +24,23 @@ public class PwCheckController extends HttpServlet {
 
 	private MemberServiceLogic service;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
 		MemberService service = new MemberServiceLogic();
-
-		String password = request.getParameter("password");
-		boolean result;
-		result = service.checkId(password);
-
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		//Member member = service.findMemberById(memberId);
+		
 		PrintWriter out = response.getWriter();
-
-		if (result == true) {
-
-			out.print("no");
-
-		} else {
+		if (member.getPassword().equals(request.getParameter("password"))) {
 			out.print("yes");
+		} else {
+			out.print("no");
 		}
 
 	}
-	}
-
-
+}

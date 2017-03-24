@@ -32,7 +32,6 @@ public class LoginController extends HttpServlet {
 		MemberService service = new MemberServiceLogic();
 		Member member = new Member();
 		member =service.findMemberById(request.getParameter("memberId"));
-		System.out.println(member);
 		if(member != null){
 			HttpSession session = request.getSession();
 			session.setAttribute("member", member);

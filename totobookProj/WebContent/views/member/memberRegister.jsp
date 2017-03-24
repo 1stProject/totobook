@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
-
 <body>
 	<div class="contents-wrap">
 		<h2 class="page-title">신규회원등록</h2>

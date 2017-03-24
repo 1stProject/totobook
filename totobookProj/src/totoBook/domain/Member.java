@@ -51,6 +51,11 @@ public class Member {
 	public void setReceiveEmail(String receiveEmail) {
 		this.receiveEmail = receiveEmail;
 	}
+	@Override
+	public String toString() {
+		return "Member [memberId=" + memberId + ", name=" + name + ", password=" + password + ", address=" + address
+				+ ", phone=" + phone + ", receiveEmail=" + receiveEmail + "]";
+	}
 	
 	
 	

@@ -5,6 +5,7 @@
 	<h1>
 	</h1>
 		<b>${member.name}</b>님 환영합니다.<a href = "${ctx }/member/logout.do">로그아웃</a>
+		<a href="${ctx }/member/detail.do?memberId=${member.memberId }">마이페이지</a>
 	</header>
 
 
