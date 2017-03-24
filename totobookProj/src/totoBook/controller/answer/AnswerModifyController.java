@@ -23,7 +23,7 @@ public class AnswerModifyController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AnswerService service = new AnswerServiceLogic();
-		Answer answer = service.findAnswerById("answerId");
+		Answer answer = service.findAnswerById(request.getParameter("answerId"));
 		
 		request.setAttribute("answer", answer);
 		request.getRequestDispatcher("/views/question/answerModify.jsp").forward(request, response);
@@ -36,12 +36,12 @@ public class AnswerModifyController extends HttpServlet {
 		AnswerService answer_service = new AnswerServiceLogic();
 		QuestionService question_service = new QuestionServiceLogic();
 		Post post = question_service.findQuestionById(request.getParameter("postId"));//? parameter 맞나?
-		answer.setContent(request.getParameter("answer_content"));
+		answer.setContent(request.getParameter("content"));
 		answer.setPost(post);
+		System.out.println(post.getPostId());
 		answer_service.modifyAnswer(answer);
 		
-		request.setAttribute("questionId", post.getPostId());
-		request.getRequestDispatcher("question/detail.do").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/question/detail.do?questionId="+post.getPostId());
 	}
 
 }
