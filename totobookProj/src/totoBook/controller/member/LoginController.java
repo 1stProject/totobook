@@ -40,7 +40,11 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("member", member);
 			response.sendRedirect("list.do");
 		}else{
+<<<<<<< HEAD
+			response.sendRedirect(request.getContextPath()+"/views/main.jsp");
+=======
 			response.sendRedirect(request.getContextPath()+ "/views/main.jsp");
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook
 			
 		
 			
