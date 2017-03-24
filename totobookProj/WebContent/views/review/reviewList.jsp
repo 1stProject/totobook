@@ -63,8 +63,8 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
+					<a class="btn btn-sm btn-success" href="${ctx }/views/review/reviewForm.jsp">상품추가</a>
 
 </body>
 </html>

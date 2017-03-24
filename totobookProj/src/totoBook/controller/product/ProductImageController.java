@@ -1,6 +1,5 @@
 package totoBook.controller.product;
 
-import java.awt.image.ImageFilter;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.io.OutputStream;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,23 +32,23 @@ public class ProductImageController extends HttpServlet {
 
 		
 		ProductStoreLogic service = new ProductStoreLogic();
+	
+		
 		String productid = (request.getParameter("productid"));
 		Product product = service.selectProductById(productid);
-
-		Photo phto = product.getPhoto();
-		
-		
+		Photo phto = new Photo();
 		
 		String imagead = product.getImageAddress();
-		
+		phto.setContentType(imagead);
+
 		String imageAddress = null;
 		InputStream in = null;
 
-		if (phto != null) {
-			response.setContentType(imageAddress);
+		if (imagead != null) {
+			response.setContentType(phto.getContentType());
 			ServletContext cxt = getServletContext();
 			String dir = cxt.getRealPath("/upload/product/");
-			imageAddress = dir + "/"  + imagead ;
+			imageAddress = dir + "/"  + phto.getContentType() ;
 			
 			in = new BufferedInputStream(new FileInputStream(imageAddress));
 		}
