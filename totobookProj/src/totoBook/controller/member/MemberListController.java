@@ -31,15 +31,15 @@ public class MemberListController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService service = new MemberServiceLogic();
 
-		if(request.getParameter("fuck").equals("name") ){
+		if(request.getParameter("slist").equals("name") ){
 			String name = request.getParameter("search");
 			List<Member> list = service.findMembersByName(name);
 			request.setAttribute("memberList", list);
-		}else if(request.getParameter("fuck").equals("phone")){
+		}else if(request.getParameter("slist").equals("phone")){
 			String Tel = request.getParameter("search");
 			List<Member> list = service.findMembersByTel(Tel);
 			request.setAttribute("memberList", list);	
-		}else if(request.getParameter("fuck").equals("memberId")){
+		}else if(request.getParameter("slist").equals("memberId")){
 			String Id = request.getParameter("search");
 			Member member=service.findMemberById(Id);
 			request.setAttribute("memberList", member);

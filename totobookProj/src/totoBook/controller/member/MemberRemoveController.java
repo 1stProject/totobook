@@ -28,9 +28,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	HttpSession session = request.getSession();
 	
 	Member member = (Member)session.getAttribute("member");
-	System.out.println(member.toString());
+	String memberId = member.getMemberId();
+	System.out.println(memberId);
+	service.removeMember(memberId);
 	
-	request.getRequestDispatcher("login.do").forward(request, response);
+	request.getRequestDispatcher("/views/member/login.jsp").forward(request, response);
 	
 
 	}

@@ -7,10 +7,13 @@
 <head>
 <%@ include file="header.jspf" %>
 </head>
+<nav>
+	<%@ include file = "/views/left/leftManagePage.jsp" %>
+</nav>
 <body>
 <div class="contents-wrap">
 <form action="list.do" method="post">
-	<select name="fuck">
+	<select name="slist">
 		<option value="name" >이름</option>
 		<option value="phone" >폰번</option>
 		<option value="memberId" >아이디</option>

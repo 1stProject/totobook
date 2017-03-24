@@ -21,7 +21,7 @@ public class QuestionRemoveController extends HttpServlet {
 		
 		service.removeQuestion(request.getParameter("questionId"));
 		
-		response.sendRedirect("question/remove.do");
+		response.sendRedirect(request.getContextPath()+"/question/list.do");
 	}
 
 }

@@ -20,7 +20,7 @@ public class PrintListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintService service = new PrintServiceLogic();
 		
-		String memberId = "RURE1114";
+		String memberId = "Lee@Lee.com";
 		List<Print> list = service.findPrintsByMemberId(memberId);
 		
 		request.setAttribute("list", list);

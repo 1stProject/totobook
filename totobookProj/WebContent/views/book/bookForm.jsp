@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
 <html>
@@ -10,10 +11,10 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/cropper.css">
 <title>totoBook</title>
-		<script src="${ctx }/views/book/js/cropper.js"></script>
-      	<script src="${ctx }/views/book/js/jquery-3.1.1.js"></script>
-  		<script src="${ctx }/views/book/js/bookEdit.js"></script>
-        <script src="${ctx }/views/book/js/html2canvas.js"></script>
+		<script src="${ctx }/js/cropper.js"></script>
+      	<script src="${ctx }/js/jquery-3.1.1.js"></script>
+  		<script src="${ctx }/js/bookEdit.js"></script>
+        <script src="${ctx }/js/html2canvas.js"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://fengyuanchen.github.io/js/common.js"></script>
@@ -26,7 +27,7 @@
 	
 	<div class="photoBookContainer">
 		<h3>포토북 편집</h3>
-		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data">
+		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data" id="photoForm">
         	<div id="photoBookDesciption">
 				포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
 				전체 페이지 수 : ${fn:length(book.pages)}" 장
@@ -36,11 +37,23 @@
 			</div>
 
 			<div class="photoBookContent" style="display:block">           
-			  <img src="${ctx }/views/book/toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
-				<div id="bookPageLeft" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			  	<img src="${ctx }/views/book/toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
+				
+			 	<c:forEach items="${book.pages }" var="page" varStatus="sts">
+			 		<c:if test="${(sts.count mod 2) eq 0 }">
+			 			<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
+						<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
+			 		</c:if>
+				</c:forEach>
+				
 				<div class="bookPaging1"></div>
 				<div class="bookPaging2"></div>
-				<div id="bookPageRight" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		 		<c:forEach items="${book.pages }" var="page" varStatus="sts">
+					<c:if test="${(sts.count mod 2) != 0 }">
+						<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
+						<div id="bookPage${sts.count }" class="RightPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
+					</c:if>
+				</c:forEach>
 
 			  <img src="${ctx }/views/book/toRight.png" class="leftRightBtnImg" id="toNextPage">
 				<div id="layoutDiv">레이아웃선택
@@ -70,18 +83,18 @@
 			</div>
 
 			<div class="btnDiv">
-				<button type="submit" >편집저장</button>
+				<button type="submit" id="saveBook">편집저장</button>
 				<button type="reset">취소</button>
 			</div>
+			
+			<input type="hidden" name="imgSrc" id="imgSrc" >
+			<input type="hidden" name="bookId" value="${book.bookId}" name="bookId" >
+			<input type="hidden" id="pageCount" value="${fn:length(book.pages)}">
 		</form>
 	</div>
 	<div id="previewImage">
 	</div>
-
-  <script src="${ctx }/views/book/cropper/dist/cropper.js"></script>
-  <script>
-
-  </script>
+  
 	
 	<footer>
 		<%@include file="../foot/footer.jspf" %>

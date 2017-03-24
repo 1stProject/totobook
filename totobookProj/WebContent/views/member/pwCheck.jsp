@@ -28,11 +28,13 @@
 							$("#result").html(data);
 							if ($.trim(data) == 'yes') {
 								console.log("확인 성공");
-								$(this).submit;
+								$('#password').submit;
+								return true;
 							} else {
 								
 								console.log("확인 실패");
-
+								$('#password').val("");
+								return false;
 							}
 
 						}
@@ -47,7 +49,7 @@
 			</div>
 			<div class="alignRight">
 				<button type="reset" >취소</button>
-				<button type="submit" id="pwCheck">탈퇴</button>
+				<button type="submit" id="pwCheck" onsubmit="return loginValidate();">탈퇴</button>
 			</div>
 		</form>
 	</div>

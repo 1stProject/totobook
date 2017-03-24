@@ -22,7 +22,7 @@ public class QuestionDetailController extends HttpServlet {
 		Post post = new Post();
 		QuestionService service = new QuestionServiceLogic();
 		post = service.findQuestionById(request.getParameter("questionId"));
-	
+		System.out.println(post.getPostId());
 		request.setAttribute("question", post);
 		request.getRequestDispatcher("/views/question/questionDetail.jsp").forward(request, response);
 	

@@ -39,7 +39,7 @@ div.photoBookContent {
     background-color: antiquewhite;
 }
 
-div #bookPageLeft {
+div .LeftPageDiv {
 	width : 445px;
     height: 665px;
     float: left;
@@ -51,7 +51,7 @@ div #bookPageLeft {
     overflow: hidden;
 }
 
-div #bookPageRight {
+div .RightPageDiv {
     
 	width : 445px;
     height: 665px;
@@ -191,6 +191,7 @@ table.blueListTab tr:nth-child(even) {
 	
 	
 /* 문제생기면 이 아래꺼 지우세영 이승건 */
+/* 
 body {
     font-family: "Malgun gothic", dotum, "Helvetica Neue", Helvetica, sans-serif, arial;
 }
@@ -639,4 +640,4 @@ footer {
 
 .screen_out a {
     color: #fff;
-}
+}*/
