@@ -32,15 +32,19 @@ public class LoginController extends HttpServlet {
 		MemberService service = new MemberServiceLogic();
 		Member member = new Member();
 		member =service.findMemberById(request.getParameter("memberId"));
-		if(member != null){
+		String memberId = member.getMemberId();
+		
+		System.out.println(member.toString());
+		if(memberId.equals("admin")){
 			HttpSession session = request.getSession();
 			session.setAttribute("member", member);
 			response.sendRedirect("list.do");
 		}else{
-			response.sendRedirect("/views/member/login.jsp");
+			request.getRequestDispatcher("/views/main.jsp").forward(request, response);
+			
 		
 			
-		}
+		}			
 	}
 }
 

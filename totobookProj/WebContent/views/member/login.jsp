@@ -1,21 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @zbvld
- Sign out
- Watch 1
-  Star 0
- Fork 0 1stProject/totobook
- Code  Issues 0  Pull requests 1  Projects 0  Wiki  Pulse  Graphs
-Tree: 46bed546c6 Find file Copy pathtotobook/totobookProj/WebContent/views/member/login.jsp
-46bed54  2 hours ago
- kosta 대현 로그인,비밀번호체크
-0 contributors
-RawBlameHistory     
-56 lines (54 sloc)  1.81 KB
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -48,9 +31,11 @@ RawBlameHistory
 							$("#result").html(data);
 							if ($.trim(data) == 'yes') {
 								console.log("로그인 성공");
-								$(this).submit;
-							} else {
+								alert("★☆★☆★☆환영합니다☆★☆★☆★")
+								return true;
+							} else if($.trim(data) =='no'){
 								console.log("로그인 실패");
+								alert("로그인에 실패하였습니다.")
 								return false;
 							}
 						}
@@ -58,14 +43,14 @@ RawBlameHistory
 				});
 			});
 		</script>
-    <form action="${ctx }/member/login.do" method="post">
+    <form action="${ctx }/member/login.do" method="post" onsubmit="return loginValidate();">
         <label>아이디</label>
         <input type="text" id="memberId" name="memberId" placeholder="아이디를 입력하세요.">
         <label>비밀번호</label>
         <input type="password" id= "password" name="password" placeholder="패스워드를 입력하세요.">
         <div class="login-btn">
             <button type="button" onclick="location.href='${ctx }/member/list.do'">취소</button>
-            <button type="submit" id="loginCheck">로그인</button>
+            <button type="submit" id="loginCheck" onsubmit="return loginValidate();">로그인</button>
             <button type="button" onclick="location.href='memberRegister.jsp'">회원가입</button>
         </div>
     </form>

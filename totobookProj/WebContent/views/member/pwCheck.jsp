@@ -29,6 +29,7 @@
 							if ($.trim(data) == 'yes') {
 								console.log("확인 성공");
 								$('#password').submit;
+								return true;
 							} else {
 								
 								console.log("확인 실패");
@@ -42,13 +43,13 @@
 				});
 			});
 		</script>
-		<form action="${ctx }/member/remove.do" method="post" onsubmit="return loginValidate();">
+		<form action="${ctx }/member/remove.do" method="post">
 			<div>
 				<label>비밀번호 </label> <input id="password" type="password" name="password">
 			</div>
 			<div class="alignRight">
 				<button type="reset" >취소</button>
-				<button type="submit" id="pwCheck">탈퇴</button>
+				<button type="submit" id="pwCheck" onsubmit="return loginValidate();">탈퇴</button>
 			</div>
 		</form>
 	</div>
