@@ -1,6 +1,8 @@
 package totoBook.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,17 +29,17 @@ public class LoginController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		MemberService service = new MemberServiceLogic();
-		
-		String memberId= request.getParameter("memberId");
-		HttpSession session = request.getSession();
-		session.setAttribute("memberId", memberId);
-		response.sendRedirect("list.do");
-		
-
-		
+		Member member = new Member();
+		member =service.findMemberById(request.getParameter("memberId"));
+		System.out.println(member);
+		if(member != null){
+			HttpSession session = request.getSession();
+			session.setAttribute("member", member);
+			response.sendRedirect("list.do");
+		}else{
+			response.sendRedirect("/views/member/login.jsp");
+		}
 	}
-	}
-	
+}
 
