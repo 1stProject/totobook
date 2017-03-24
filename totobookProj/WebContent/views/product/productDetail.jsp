@@ -16,29 +16,31 @@
 		<c:if test="${product.category }.equals(PRINT) ">
 
 			<table border="1">
+				<tr>
+					<td>제품사진</td>
+					<td><img
+						src="${ctx }/product/image.do?productId=${product.productId}"
+						width="128" height="123"></td>
+				</tr>
+				<tr>
+					<td>상품명</td>
+					<td>${product.name }</td>
+				</tr>
+				<tr>
+					<td>상품가격</td>
+					<td>${product.productprice}</td>
+				</tr>
+				<tr>
+					<td>상품설명</td>
+					<td>${product.descript }</td>
+				</tr>
 				<c:forEach items="${product.options }" var="option">
-
+					<td colspan="2">옵션</td>
 					<tr>
-						<td>제품사진</td>
-						<td><img
-							src="${ctx }/product/image.do?productId=${product.imageAddress}"
-							width="128" height="123"></td>
-					</tr>
-					<tr>
-						<td>상품명</td>
-						<td>${product.name }</td>
-					</tr>
-					<tr>
-						<td>상품가격</td>
-						<td>${product.productprice}</td>
-					</tr>
-					<tr>
-						<td>상품설명</td>
-						<td>${product.descript }</td>
-					</tr>
-					<td>옵션</td>
-					<tr>
-						<td>${option.optionName}</td>
+					<td>이름</td>
+					
+					
+					<td>${option.optionName}</td>
 					</tr>
 					<tr>
 						<td>${option.optionDesp}</td>
@@ -77,7 +79,7 @@
 			<tr>
 				<td>제품사진</td>
 				<td><img
-					src="${ctx }/product/image.do?productId=${product.imageAddress}"
+					src="${ctx }/product/image.do?productId=${product.productId}"
 					width="128" height="123"></td>
 			</tr>
 
