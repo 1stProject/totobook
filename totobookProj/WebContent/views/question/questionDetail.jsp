@@ -16,7 +16,12 @@
 			url : 'answer/detail.do',
 			data : postId,
 			success : function(Answer){
-				
+				if(Answer == null){
+					 newWin= window.open();
+					 newWin.document.write(data);
+				}else{
+					
+				}
 			}
 		});
 	});

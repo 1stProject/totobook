@@ -30,7 +30,7 @@
 	<update id="updateAnswer" parameterType="Answer">
 		UPDATE answer_tb
 		SET
-		answer_id=#{answerId},content=#{content},post_id=#{post.postId}
+		content=#{content}
 		WHERE
 		post_id=#{post.postId}
 
