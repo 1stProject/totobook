@@ -77,6 +77,7 @@ public class NoticeStoreLogic implements NoticeStore {
 	@Override
 	public void insertNotice(Post post) {
 		SqlSession session = factory.openSession();
+
 		try {
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
 			mapper.insertNotice(post);
