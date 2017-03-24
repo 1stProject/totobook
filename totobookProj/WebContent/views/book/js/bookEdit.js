@@ -167,7 +167,7 @@ var drop = function(ev) {
 		if (ev.target.nodeName == "SPAN") {
 			var parent = ev.target.parentElement.parentElement.parentElement;
 			console.log(parent.id);
-			while (parent.hasChildNodes()) {
+			while (parent.hasChildNodes()) {	
 				parent.removeChild(parent.firstChild);
 			}
 			parent.appendChild(nodeCopy);
