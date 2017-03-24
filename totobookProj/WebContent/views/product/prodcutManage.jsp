@@ -9,10 +9,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script src="https://ajax.gooㅣㄷㄽgleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<title>상품관리창</title>
 </head>
 <body>
-	<div class="content">
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<nav>
+	<%@ include file = "/views/left/leftManagePage.jsp" %>
+</nav>
+<div class = "contents-wrap">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -66,8 +78,7 @@
 			</div>
 		</div>
 	</div>
-	
-	</div>
+</div>	
 
 </body>
 </html>

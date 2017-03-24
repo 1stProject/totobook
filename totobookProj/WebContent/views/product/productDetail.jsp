@@ -1,17 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<title>제품상세</title>
 </head>
 <body>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<div class = "contents-wrap">
 	<div class="content">
 		<c:if test="${product.category }.equals(PRINT) ">
 			<table border="1">
@@ -36,8 +45,8 @@
 				<c:forEach items="${product.options }" var="option">
 					<td colspan="2">옵션</td>
 					<tr>
-					<td>이름</td>
-					<td>${option.optionName}</td>
+						<td>이름</td>
+						<td>${option.optionName}</td>
 					</tr>
 					<tr>
 						<td>${option.optionDesp}</td>
@@ -56,6 +65,14 @@
 					<c:otherwise>
 						<c:forEach items="${review }" var="review">
 							<tr>
+								<td colspan="2" align="center"><img
+									src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
+									width="128" height="123"></td>
+
+							</tr>
+
+
+							<tr>
 								<td colspan="2" align="center">${review.comment }</td>
 							</tr>
 						</c:forEach>
@@ -64,7 +81,8 @@
 
 
 			</table>
-			<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
+			<button type="button" onclick="javascript:history.back(-1);"
+				class="btn">목록</button>
 			<a class="btn btn-sm btn-success"
 				href="${ctx }/print/register.do?productId=${product.productId}">주문하기</a>
 		</c:if>
@@ -114,11 +132,12 @@
 					<c:otherwise>
 						<c:forEach items="${review }" var="review">
 							<tr>
-								<td><img src="/review/image.do?productId=${review.productId}"
-					width="128" height="123"></td>
-								
+								<td colspan="2" align="center"><img
+									src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
+									width="128" height="123"></td>
+
 							</tr>
-							
+
 							<tr>
 								<td colspan="2" align="center">${review.comment }</td>
 							</tr>
@@ -126,9 +145,11 @@
 					</c:otherwise>
 				</c:choose>
 		</table>
-		<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
+		<button type="button" onclick="javascript:history.back(-1);"
+			class="btn">목록</button>
 		<a class="btn btn-sm btn-success"
 			href="${ctx }/book/register.do?productId=${product.productId}">주문하기</a>
 	</div>
+</div>
 </body>
 </html>

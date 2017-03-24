@@ -35,7 +35,6 @@ public class ProductImageController extends HttpServlet {
 	
 		String productid = request.getParameter("productId");
 		System.out.println(productid);
-		System.out.println("이미지");
 		Product product = new Product(); 
 		product =	service.selectProductById(productid);
 
@@ -46,7 +45,6 @@ public class ProductImageController extends HttpServlet {
 		product.setPhoto(phto);
 		String fileName = null;
 		InputStream in = null;
-		System.out.println("오류는?");
 		if (phto != null) {
 //			response.setContentType(phto.getContentType());
 			ServletContext cxt = getServletContext();

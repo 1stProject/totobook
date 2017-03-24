@@ -46,7 +46,6 @@ public class ProductDetailController extends HttpServlet {
 		product.setPhoto(phto);
 		
 		
-		System.out.println(product.toString());
 		
 		List<Option> list = new ArrayList<>();
 		list = productService.findOption(productId);

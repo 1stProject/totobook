@@ -8,10 +8,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<title>나의 상품평</title>
 </head>
 <body>
-	<div class="content">
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<nav>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+</nav>
+<div class = "contents-wrap">
+
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -51,7 +64,7 @@
 												href="${ctx }/review/detail.do?orderId=${review.member.memberId }">${review.comment }</a></td>
 											<td><a
 												href="${ctx }/review/modify.do?orderId=${review.order.orderId}"
-												class="btn btn-xs btn-warning">수정하기</a></td>
+												class="btn btn-xs btn-warning">${review.order.orderId}수정하기</a></td>
 											<td><a
 												href="${ctx }/review/remove.do?orderId=${review.order.orderId}"
 												class="btn btn-xs btn-danger">삭제하기</a></td>

@@ -1,18 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
 
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<title>상품등록</title>
 </head>
 <body>
-	<div class="content">
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<nav>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+</nav>
+<div class = "contents-wrap">
 		<form action="${ctx }/product/register.do" method="post"
 			enctype="multipart/form-data">
 			<table border="1">
@@ -55,7 +66,7 @@
 					<td><input type="file" name="file1"></td>
 				</tr>
 			</table>
-			<button type="button" onclick="javascript:gotoMain();" class="btn">목록</button>
+			<button type="button" onclick="javascript:history.back(-1);" class="btn">목록</button>
 			<button type="submit" class="btn">등록</button>
 		</form>
 
