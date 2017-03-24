@@ -3,10 +3,17 @@ var dragCount = 0;
 
 $(document).ready(
 		function() {
-			var pageCount = 1;
-			var selectedPage = '#bookPageRight';
+			var pageCount = 0;
+			var maxPage = ($("#pageCount").val())/2;
+			console.log("maxPage"+maxPage);
+			var selectedPage = '#bookPage1';
+			var currentLeftPage = '#bookPage0';
+			var currentRightPage = selectedPage
 			$(".bookPaging1").css("visibility", "hidden");
-			$("#bookPageLeft").css("visibility", "hidden");
+			$("#bookPage2").css("visibility", "hidden");
+			$("#bookPage2").css("display", "inline");
+			$("#bookPage1").css("visibility", "visible");
+			$("#bookPage1").css("display", "inline");
 
 			var beforeLayout = function() {
 				$(".layoutIcon2").css("display", "none");
@@ -21,12 +28,12 @@ $(document).ready(
 				$('#NextBtnImg').css("display", "none");
 			}
 
-			$("#bookPageLeft").click(function() {
-				selectedPage = '#bookPageLeft';
+			$(".LeftPageDiv").click(function() {
+				selectedPage = currentLeftPage;
 				console.log("L");
 			});
-			$("#bookPageRight").click(function() {
-				selectedPage = '#bookPageRight';
+			$(".RightPageDiv").click(function() {
+				selectedPage = currentRightPage;
 				console.log("R");
 			});
 
@@ -60,34 +67,86 @@ $(document).ready(
 			$("#toBeforePage").click(function() {
 				console.log(pageCount);
 				pageCount = parseInt(pageCount - 1);
-				if (pageCount == 1) {
+				
+				currentLeftPage.css("display", "none");
+				currentLeftPage= '#bookLeftPage'+((pageCount*2)-1);
+				
+				if (pageCount == 0) {
 					$(this).css("visibility", "hidden");
-					$("#bookPageLeft").css("visibility", "hidden");
+					$("#bookPage2").css("visibility", "hidden");
+					$("#bookPage2").css("display", "inline");
 					$(".bookPaging1").css("visibility", "hidden");
-				} else if (pageCount == 4) {
+				} else if (pageCount == (maxPage-1)) {
 					console.log("호");
-					$("#bookPageRight").css("visibility", "visible");
+					$("#bookPage5").css("visibility", "visible");
 					$(".bookPaging2").css("visibility", "visible");
 					$("#toNextPage").css("visibility", "visible");
 				}
-
+				if(pageCount !=1 && pageCount != (maxPage-1)){
+					console.log(pageCount);
+					console.log(currentLeftPage);
+					console.log(currentRightPage);
+					
+					currentRightPage = '#bookPage'+((pageCount*2)-1);
+					currentLeftPage = '#bookPage'+((pageCount*2)-2);
+				}
 			});
 
 			$("#toNextPage").click(function() {
 				pageCount = parseInt(pageCount + 1);
 				console.log(pageCount);
-
+				
+				//기존에 보여준 페이지를 hidden으로 바꾼다.
+				$(currentRightPage).css("display", "none");
+				$(currentRightPage).css("visibility","hidden");
+				$(currentLeftPage).css("display","none");
+				$(currentLeftPage).css("visibility","hidden");
+				//뒤로 가는 버튼 보여주기
 				$("#toBeforePage").css("visibility", "visible")
-				if (pageCount == 2) {
-					$("#bookPageLeft").css("visibility", "visible");
-					$(".bookPaging1").css("visibility", "visible");
-				}
-				if (pageCount == 5) {
+				
+				
+				//1번째면 paging1 보여주기
+				if (pageCount == 1) {
+					$(".bookPaging1").css("visibility", "visible");					
+				}				
+				
+				//마지막이면 paging2와 버튼 없애기
+				if (pageCount == maxPage) {
 					console.log("마지막");
 					$(this).css("visibility", "hidden");
-					$("#bookPageRight").css("visibility", "hidden");
-					$(".bookPaging2").css("visibility", "hidden");
+					$(".bookPaging2").css("visibility", "hidden");	
+					$(currentRightPage).css("display","inline");		
 				}
+				
+				//currentPage update
+				console.log(pageCount);
+				console.log("과거"+currentLeftPage);
+				console.log(currentRightPage);
+				currentLeftPage = '#bookPage'+(pageCount*2);
+				currentRightPage = '#bookPage'+((pageCount*2)+1);
+				console.log("현재?"+currentLeftPage);
+				console.log(currentRightPage);			
+
+				
+				//currentPage를 visibility로 변경
+				$(currentLeftPage).css("visibility", "visible");
+				$(currentRightPage).css("visibility", "visible");
+				$(currentLeftPage).css("display", "inline");
+				$(currentRightPage).css("display", "inline");
+				
+
+			/*	
+			 * 
+			 * 				
+					$("#bookPage"+((maxPage*2)-1)).css("visibility", "hidden");
+					$(".bookPaging2").css("visibility", "hidden");
+				if(pageCount !=1 && pageCount != maxPage){
+					$(currentRightPage).css("display", "none");
+					$(currentRightPage).css("visibility","hidden");
+					$(currentLeftPage).css("display","none");
+					$(currentLeftPage).css("visibility","hidden");
+				}*/
+
 
 			});
 

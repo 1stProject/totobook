@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %> --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <c:set var = "ctx"	value="${pageContext.request.contextPath }"/>
 <html>
@@ -39,24 +39,21 @@
 			<div class="photoBookContent" style="display:block">           
 			  	<img src="${ctx }/views/book/toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
 				
-				<c:forEach items="${book.pages }" var="page" varStatus="sts">
-					<c:when test="${(sts.count%2)==0 }">
-						<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
-						<div id="bookPageLeft${sts.count }" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
-					</c:when>
+			 	<c:forEach items="${book.pages }" var="page" varStatus="sts">
+			 		<c:if test="${(sts.count mod 2) eq 0 }">
+			 			<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
+						<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
+			 		</c:if>
 				</c:forEach>
 				
-				<div id="bookPageLeft" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 				<div class="bookPaging1"></div>
 				<div class="bookPaging2"></div>
-				<c:forEach items="${book.pages }" var="page" varStatus="sts">
-					<c:when test="${(sts.count%2)==0 }">
+		 		<c:forEach items="${book.pages }" var="page" varStatus="sts">
+					<c:if test="${(sts.count mod 2) != 0 }">
 						<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
-						<div id="bookPageRight${sts.count }" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
-					</c:when>
+						<div id="bookPage${sts.count }" class="RightPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
+					</c:if>
 				</c:forEach>
-				<div id="bookPageRight" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-	
 
 			  <img src="${ctx }/views/book/toRight.png" class="leftRightBtnImg" id="toNextPage">
 				<div id="layoutDiv">레이아웃선택
@@ -92,7 +89,7 @@
 			
 			<input type="hidden" name="imgSrc" id="imgSrc" >
 			<input type="hidden" name="bookId" value="${book.bookId}" name="bookId" >
-
+			<input type="hidden" id="pageCount" value="${fn:length(book.pages)}">
 		</form>
 	</div>
 	<div id="previewImage">
