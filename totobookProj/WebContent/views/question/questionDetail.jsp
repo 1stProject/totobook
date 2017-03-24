@@ -12,22 +12,39 @@
 	$(document).ready(function() {
 		/*document.write('<input type="submit" value="클릭하면 대화상자" onclick="alert(s);" />');  */
 		var postId = $('#postId').val();
-		$.ajax({
-			dataType : "json",
-			url : "http://localhost:8080/totobookProj/answer/detail.do",
+		/* $.ajax({
+			dataType : 'json',
+			data: 'json',
+			url : "http://localhost:8080/totobookProj/answer/detail.do?postId="+postId,
 			type : "GET",
 			async : false,
-			data : {
-				postId : postId
-			},
-			success : function(json) {
-				alert("dd");
+			success : function(data) {
+	              
 			},
 			error:function(request,status,error){
 		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		       }
+		    }
 
 		});
+		 */
+		$.ajax({
+			async: false,
+			url:'http://localhost:8080/totobookProj/answer/detail.do?postId='+postId,
+			dataType:"json",
+			type:"GET",
+			success:function(data){
+				var test = document.getElementById("contents");	
+				test.innerHtml="<input type='button'>";
+			},
+			error:function(data)
+			{
+				alert("error");
+				
+			}
+		});
+
+
+
 	});
 </script>
 </head>
@@ -54,21 +71,20 @@
 		</tr>
 		<tr>
 			<!--${question.postId }  -->
-			<td><input type="hidden" id="postId" value="82">
+			<td><input type="hidden" id="postId" value="${question.postId }">
 				<table>
-					<c:choose>
+					<%-- <c:choose>
 						<c:when test="${empty answer || answer eq null  }">
 							<input type="button" value="답글달기"
 								onclick="location.href='${ctx }/answer/register.do?answerId=${question.postId }'">
 							</form>
 						</c:when>
 						<c:otherwise>
-							<tr>
-								<input type="button" value="답글보기"
-									onclick="location.href='${ctx }/answer/detail.do?answerId=${question.postId }'">
-							</tr>
-						</c:otherwise>
-					</c:choose>
+							<tr> --%>
+								<input type="text" id="contents" name="contents">
+						<!-- 	</tr> -->
+					<%-- 	</c:otherwise>
+					</c:choose>	 --%>
 				</table></td>
 
 

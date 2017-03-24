@@ -19,7 +19,7 @@
 		<form action="${ctx }/notice/register.do" method="post">
 			title : <input type="text" name="notice_title"><br>
 			<br> <input type="text" name="content" ><br>
-			<!-- <td><input type="file" name="file1"></td> -->
+			<td><input type="file" name="file1"></td>
 			
 			<br> <input type="submit" value="등록">
 		</form>
