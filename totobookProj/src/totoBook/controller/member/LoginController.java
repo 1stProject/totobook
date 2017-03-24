@@ -38,6 +38,8 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("list.do");
 		}else{
 			response.sendRedirect("/views/member/login.jsp");
+		
+			
 		}
 	}
 }
