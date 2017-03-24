@@ -10,10 +10,10 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/cropper.css">
 <title>totoBook</title>
-		<script src="${ctx }/views/book/js/cropper.js"></script>
-      	<script src="${ctx }/views/book/js/jquery-3.1.1.js"></script>
-  		<script src="${ctx }/views/book/js/bookEdit.js"></script>
-        <script src="${ctx }/views/book/js/html2canvas.js"></script>
+		<script src="${ctx }/js/cropper.js"></script>
+      	<script src="${ctx }/js/jquery-3.1.1.js"></script>
+  		<script src="${ctx }/js/bookEdit.js"></script>
+        <script src="${ctx }/js/html2canvas.js"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://fengyuanchen.github.io/js/common.js"></script>
@@ -26,7 +26,7 @@
 	
 	<div class="photoBookContainer">
 		<h3>포토북 편집</h3>
-		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data">
+		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data" id="photoForm">
         	<div id="photoBookDesciption">
 				포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
 				전체 페이지 수 : ${fn:length(book.pages)}" 장
@@ -70,18 +70,20 @@
 			</div>
 
 			<div class="btnDiv">
-				<button type="submit" >편집저장</button>
+				<button type="submit" id="saveBook">편집저장</button>
 				<button type="reset">취소</button>
 			</div>
+			
+			<input type="hidden" name="imgSrc" id="imgSrc" >
+			<input type="hidden" name="bookId" value="${book.bookId}" name="bookId" >
+			<c:forEach items="${book.pages }" var="page" varStatus="sts">
+				<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
+			</c:forEach>
 		</form>
 	</div>
 	<div id="previewImage">
 	</div>
-
-  <script src="${ctx }/views/book/cropper/dist/cropper.js"></script>
-  <script>
-
-  </script>
+  
 	
 	<footer>
 		<%@include file="../foot/footer.jspf" %>

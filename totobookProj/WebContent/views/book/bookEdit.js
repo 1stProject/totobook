@@ -91,18 +91,99 @@ $(document).ready(
 
 			});
 
-			var element = $("#bookPageRight"); // global variable
-			var getCanvas; // global variable
-
-			$("#btn-Preview-Image").on('click', function() {
+			var element = $("#bookPageRight");
+			var getCanvas;
+			$("#saveBook").on('click', function() {
 				html2canvas(element, {
 					onrendered : function(canvas) {
-						$("#previewImage").append(canvas);
-						getCanvas = canvas;
+						
+						$("#imgSrc").val(canvas.toDataURL("image/png"));
+						var params = $("#photoForm").serialize();
+						var whar = 'whar';
+	                
+						console.log(whar);
+	                    $.ajax({
+	                        type: "post",
+	                        data : {
+	                        	whar : whar,
+	                        	hello : "hello"
+	                        },
+	                        url: "${ctx }/book/pageUpload.do",
+	                        error: function(a, b, c){        
+	                            alert("fail!!");
+	                        },
+	                        success: function (data) {
+	                            try{
+	                                
+	                            }catch(e){                
+	                                alert('server Error!!');
+	                            }
+	                        }
+	                    });
+	           
+						
+						
+/*						if(typeof FlashCanvas != "undefined"){
+							FlashCanvas.initElement(canvas);
+						}
+
+						var formData = new FormData();
+						formData.append('file', canvas.toDataURL("image/png"));
+
+						$.ajax({
+						url : 'pageUpload.do' ,
+						type : "POST",
+						dataType : "json",
+						data : formData,
+						processData : false,
+						contentType : false,
+						success : function(data) {
+							if(data == 'ok'){
+								return true;
+							}else {
+								return false;
+							}
+
+						},
+						error : function(request, status, error) {
+						console.log(request, status, error);
+						}
+						});*/
 					}
 				});
 			});
+			
+			
+			/*
+			var upload = function(){
+				var imageData = getCanvas.toDataURL("image/png");
+				var formData = new FormData();
+				formData.append('file', imageData);
 
+				$.ajax({
+				url : "${ctx}/pageUpload.do" ,
+				type : "POST",
+				dataType : "json",
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(data) {
+					if(data == 'ok'){
+						return true;
+					}else {
+						return false;
+					}
+
+				},
+				error : function(request, status, error) {
+				console.log(request, status, error);
+				}
+				});
+
+			}
+			
+			
+*/
 			$("#btn-Convert-Html2Image").on(
 					'click',
 					function() {
