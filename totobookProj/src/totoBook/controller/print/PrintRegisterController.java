@@ -49,8 +49,7 @@ public class PrintRegisterController extends HttpServlet {
 		ServletContext ctx = getServletContext();
 		String dir = ctx.getRealPath("/upload");
 		int i = 0;
-		System.out.println("getrealPath : " + ctx.getRealPath("/"));
-		MultipartRequest multi = new MultipartRequest(request, dir, maxSize, "UTF-8");
+		MultipartRequest multi = new MultipartRequest(request,"c:/totobook/images" , maxSize, "UTF-8");
 		List<Photo> photos = new ArrayList<>();
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){
