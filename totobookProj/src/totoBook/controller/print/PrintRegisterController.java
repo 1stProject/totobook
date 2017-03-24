@@ -72,7 +72,7 @@ public class PrintRegisterController extends HttpServlet {
 		}
 		Print print = new Print();
 		Member member = new Member();
-		member.setMemberId("RURE1114");
+		member.setMemberId("Lee@Lee.com");
 		Product product = new Product();
 		product.setProductId("2");
 		print.setMember(member);
