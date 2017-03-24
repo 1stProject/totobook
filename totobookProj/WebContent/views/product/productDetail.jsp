@@ -14,7 +14,6 @@
 <body>
 	<div class="content">
 		<c:if test="${product.category }.equals(PRINT) ">
-
 			<table border="1">
 				<tr>
 					<td>제품사진</td>
@@ -38,8 +37,6 @@
 					<td colspan="2">옵션</td>
 					<tr>
 					<td>이름</td>
-					
-					
 					<td>${option.optionName}</td>
 					</tr>
 					<tr>
@@ -116,6 +113,12 @@
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${review }" var="review">
+							<tr>
+								<td><img src="/review/image.do?productId=${review.productId}"
+					width="128" height="123"></td>
+								
+							</tr>
+							
 							<tr>
 								<td colspan="2" align="center">${review.comment }</td>
 							</tr>

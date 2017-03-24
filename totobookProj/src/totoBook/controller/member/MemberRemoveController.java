@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import totoBook.domain.Member;
 import totoBook.service.MemberService;
 import totoBook.service.logic.MemberServiceLogic;
 
@@ -20,14 +22,15 @@ public class MemberRemoveController extends HttpServlet {
 	
 	
 	
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	MemberService service = new MemberServiceLogic();
 	
-	String id = request.getParameter("memberId");
+	HttpSession session = request.getSession();
 	
-	service.removeMember(id);
+	Member member = (Member)session.getAttribute("member");
+	System.out.println(member.toString());
 	
-	request.getRequestDispatcher("list.do").forward(request, response);
+	request.getRequestDispatcher("login.do").forward(request, response);
 	
 
 	}

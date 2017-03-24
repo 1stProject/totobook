@@ -30,9 +30,7 @@ public class MemberListController extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService service = new MemberServiceLogic();
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
-		
+
 		if(request.getParameter("fuck").equals("name") ){
 			String name = request.getParameter("search");
 			List<Member> list = service.findMembersByName(name);

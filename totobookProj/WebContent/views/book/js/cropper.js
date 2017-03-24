@@ -852,6 +852,7 @@ function getOrientation(arrayBuffer) {
   }
 
   if (ifdStart) {
+	  console.log("왓더1");
     length = dataView.getUint16(ifdStart, littleEndian);
 
     for (i = 0; i < length; i++) {
@@ -928,6 +929,8 @@ var render$1 = {
     var cropper = self.cropper;
     var hidden = 'cropper-hidden';
     var containerData = void 0;
+    
+    console.log("왓더");
 
     addClass(cropper, hidden);
     removeClass(element, hidden);
@@ -3120,7 +3123,8 @@ var REGEXP_DATA_URL_JPEG = /^data:image\/jpeg;base64,/;
 
 var AnotherCropper = void 0;
 
-var Cropper = function () {
+	var Cropper = function () {
+	console.log("왓더어어어");
   function Cropper(element, options) {
     classCallCheck(this, Cropper);
 
@@ -3144,6 +3148,8 @@ var Cropper = function () {
     self.previews = null;
     self.pointers = {};
     self.init();
+    
+    	console.log("여기");
   }
 
   createClass(Cropper, [{
@@ -3404,6 +3410,7 @@ var Cropper = function () {
       var template = createElement('div');
       template.innerHTML = TEMPLATE;
 
+      	console.log("음");
       // Create cropper elements
       self.container = container = element.parentNode;
       self.cropper = cropper = getByClass(template, 'cropper-container')[0];

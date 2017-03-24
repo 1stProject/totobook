@@ -1,5 +1,7 @@
 package totoBook.domain;
 
+import java.util.List;
+
 /**
  * @author
  * @version 1.0
@@ -11,10 +13,16 @@ public class Review {
 	private String comment;
 	private String imageAddress;
 	private Order order;
-	
+	private Photo photo;
+
 
 	
-	
+	public Photo getPhoto() {
+		return photo;
+	}
+	public void setPhoto(Photo photo) {
+		this.photo = photo;
+	}
 	public Order getOrder() {
 		return order;
 	}
