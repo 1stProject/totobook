@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- 부가적인 테마 -->
@@ -23,7 +25,7 @@
 <nav>
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 </nav>
-<div class = "contents-wrap">
+
 <h2 class="page-title">나의 사진 목록</h2>
 <div class="table-responsive col-sm-10 col-lg-10">
 <table class = "table table-striped table-bordered table-hover">
