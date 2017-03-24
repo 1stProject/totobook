@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <c:set var = "ctx" value = "${pageContext.request.contextPath }"/>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,7 +26,7 @@
 </nav>
 <div class = "contents-wrap">
 <h1>주문 목록</h1>
-<div class="table-responsive col-sm-7 col-lg-7">
+<div class="text-center col-sm-7 col-lg-7">
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width="100"/>
@@ -46,7 +45,6 @@
 		</tr>
 	</thead>
 	<tbody>
-	<!-- count, pageSize, currentPage, pageCount -->
 <c:forEach items = "${orders }" var = "order">
 		<tr>
 			<td>${order.orderId }</td>
@@ -58,6 +56,10 @@
 </c:forEach>
 	</tbody>
 </table>
+총 ${arraysize}건<br>
+<c:forEach begin="1" end="${maxBorder }" step="1" varStatus="status">
+	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
+</c:forEach>
 </div>
 </div>
 </body>

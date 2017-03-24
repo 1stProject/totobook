@@ -39,7 +39,7 @@ public class MemberRegisterController extends HttpServlet {
 	
 	service.registerMember(member);
 	
-	response.sendRedirect("list.do");
+	response.sendRedirect(request.getContextPath() +"/views/member/login.jsp");
 	
 	
 	}
