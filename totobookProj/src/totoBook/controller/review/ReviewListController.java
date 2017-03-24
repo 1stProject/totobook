@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Member;
 import totoBook.domain.Review;
+import totoBook.service.MemberService;
 import totoBook.service.ReviewService;
+import totoBook.service.logic.MemberServiceLogic;
 import totoBook.service.logic.ReviewServiceLogic;
 
 /**
@@ -30,18 +32,18 @@ public class ReviewListController extends HttpServlet {
 			throws ServletException, IOException {
 
 		ReviewService service = new ReviewServiceLogic();
-		
-		
-		request.getAttribute("member");
+		MemberService service1 = new MemberServiceLogic();
 
-		Member member = (Member) request.getAttribute("member");
-		member.setName("RURE1114");
-		
-		List<Review> list = service.findCommentsByMember(member);
-		System.out.println(list);
+		request.getAttribute("member");
+		// userId를 받아온다 세션에 있나?
+
+		Member member = service1.findMemberById("RURE1114");
+		String memberId = member.getMemberId();
+
+		List<Review> list = service.findCommentsByMember(memberId);
+
 		request.setAttribute("review", list);
-		request.getRequestDispatcher("/views/reviewList.jsp").forward(request, response);	
-		
+		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);
 
 	}
 

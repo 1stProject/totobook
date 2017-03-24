@@ -21,16 +21,30 @@
 		from product_TB
 	</sql>
 
-	<insert id="insertProduct" parameterType="Product">
+	<insert id="insertProduct" parameterType="Product" useGeneratedKeys="true">
+		<selectKey keyProperty="productId" resultType="string" order="BEFORE"> 
+		SELECT product_seq.NEXTVAL FROM DUAL
+		</selectKey>
 		INSERT INTO
 		PRODUCT_TB(PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL,
 		IMAGE_ADDRESS)
-		VALUES(PRODUCT_SEQ.NEXTVAL, #{name},
+		VALUES(#{productId}, #{name},
 		#{productprice},
 		#{category}, #{descript}, #{imageAddress})
 	</insert>
 
 	<update id="updateProduct" parameterType="Product">
+
+		UPDATE product_tb
+		SET
+		PRODUCT_NAME = #{name}, PRICE = #{productprice},
+		category =
+		#{category}, DETAIL=#{descript},
+		IMAGE_ADDRESS = #{imageAddress}
+		where product_id = #{productId}
+
+
+<!-- 
 		UPDATE product_tb
 		SET
 		PRODUCT_NAME = #{name}, PRICE = #{productprice},
@@ -38,9 +52,11 @@
 		#{category}, DETAIL=#{descript},
 		IMAGE_ADDRESS = #{imageAddress},
 		where product_id = #{productId}
+ -->
+
 	</update>
 
-	<delete id="deleteProduct">
+	<delete id="deleteProduct" parameterType="String">
 		DELETE product_tb
 		WHERE product_id =
 		#{productId}

@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Option;
 import totoBook.domain.Product;
+import totoBook.domain.Review;
 import totoBook.service.ProductService;
+import totoBook.service.ReviewService;
 import totoBook.service.logic.ProductServiceLogic;
+import totoBook.service.logic.ReviewServiceLogic;
 
 /**
  * Servlet implementation class ProductDetailController
@@ -30,24 +33,32 @@ public class ProductDetailController extends HttpServlet {
 			throws ServletException, IOException {
 
 		ProductService productService = new ProductServiceLogic();
-
+		ReviewService reviewService = new ReviewServiceLogic();
+		
+		
 		String productId = request.getParameter("productId");
 
 		Product product = new Product();
 		product = productService.findProductById(productId);
 		
+		System.out.println("넌 뭐니");
+		System.out.println(productId);
 		
 		List<Option> list = new ArrayList<>();
-		List<Option> lis1 = new ArrayList<>();
-
 		list = productService.findOption(productId);
-		
-		
-		product.setOptions(productService.findOption(productId));
+		product.setOptions(list);
 
 		
-		System.out.println(product.getOptions().get(0).getOptionName());
-
+		
+		
+//		List<Review> list3 = new ArrayList<>();
+//		list3 = reviewService.findCommentsByProduct(productId);
+//		
+//		System.out.println(list3.size());
+//		request.setAttribute("review", list3);
+		
+		
+		
 		request.setAttribute("product", product);
 		request.getRequestDispatcher("/views/product/productDetail.jsp").forward(request, response);
 

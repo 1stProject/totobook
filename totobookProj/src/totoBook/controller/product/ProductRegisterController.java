@@ -20,6 +20,7 @@ import totoBook.domain.Photo;
 import totoBook.domain.Product;
 import totoBook.service.ProductService;
 import totoBook.service.logic.ProductServiceLogic;
+import totoBook.store.ProductStore;
 
 /**
  * @author
@@ -56,12 +57,13 @@ public class ProductRegisterController extends HttpServlet {
 		product.setImageAddress(imageAddress);
 		productService.registerProduct(product);
 
+		
+		
 		String[] optionname = multi.getParameterValues("optionname");
 		String[] optiondesp = multi.getParameterValues("optiondesp");
 		String[] optionprice = multi.getParameterValues("optionprice");
 
-		String productId = product.getProductId();
-
+		
 		int[] opprice = new int[optionprice.length];
 		for (int i = 0; i < optionprice.length; i++) {
 			opprice[i] = Integer.parseInt(optionprice[i]);
@@ -73,7 +75,7 @@ public class ProductRegisterController extends HttpServlet {
 			p.setOptionName(optionname[b]);
 			p.setOptionPrice(opprice[b]);
 			p.setOptionDesp(optiondesp[b]);
-			p.setProductId(productId);
+			p.setProduct(product);
 			productService.registerOption(p);
 			list.add(p);
 		}
