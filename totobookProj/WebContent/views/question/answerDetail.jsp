@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,13 +9,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border="1">
+	<input type="button" value="이전페이지"
+		onclick="location.href='${ctx }/question/detail.do?questionId=${answer.post.postId }'">
+	<table border="1">
 		<tr>
 			<td>${answer.content }</td>
 			<td>관리자</td>
 			<br>
 		</tr>
-		
+
 		<tr>
 			<td><input type="button" value="수정"
 				onclick="location.href='${ctx }/answer/modify.do?answerId=${answer.post.postId }'">

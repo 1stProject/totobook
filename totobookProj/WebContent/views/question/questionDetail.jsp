@@ -7,22 +7,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-	$(document).ready(function() {/*프로그램 실행시 시행(js의 load와 같음) */
-		var postId = $("#postId").val();/*detail.do로 (처음 답글부분 호출위해) */
-
+<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script>
+	$(document).ready(function() {
+		/*document.write('<input type="submit" value="클릭하면 대화상자" onclick="alert(s);" />');  */
+		var postId = $('#postId').val();
 		$.ajax({
-			type : 'get',
-			url : 'answer/detail.do',
-			data : postId,
-			success : function(Answer){
-				if(Answer == null){
-					 newWin= window.open();
-					 newWin.document.write(data);
-				}else{
-					
-				}
-			}
+			dataType : "json",
+			url : "http://localhost:8080/totobookProj/answer/detail.do",
+			type : "GET",
+			async : false,
+			data : {
+				postId : postId
+			},
+			success : function(json) {
+				alert("dd");
+			},
+			error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       }
+
 		});
 	});
 </script>
@@ -49,16 +53,19 @@
 			<br>
 		</tr>
 		<tr>
-			<td><input type="hidden" id="postId" value="${question.postId }">
+			<!--${question.postId }  -->
+			<td><input type="hidden" id="postId" value="82">
 				<table>
 					<c:choose>
 						<c:when test="${empty answer || answer eq null  }">
-								<input type="button" value="답글달기"	onclick="location.href='${ctx }/answer/register.do?answerId=${question.postId }'">
+							<input type="button" value="답글달기"
+								onclick="location.href='${ctx }/answer/register.do?answerId=${question.postId }'">
 							</form>
 						</c:when>
 						<c:otherwise>
 							<tr>
-								<input type="button" value="답글보기"	onclick="location.href='${ctx }/answer/detail.do?answerId=${question.postId }'">
+								<input type="button" value="답글보기"
+									onclick="location.href='${ctx }/answer/detail.do?answerId=${question.postId }'">
 							</tr>
 						</c:otherwise>
 					</c:choose>
@@ -71,7 +78,7 @@
 				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
 				<input type="button" value="삭제"
 				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
-		
+
 		</tr>
 
 	</table>
