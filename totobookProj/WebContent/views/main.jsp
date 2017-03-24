@@ -22,8 +22,51 @@
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
 <!-- First Container -->
-<div class="container-fluid bg-1 text-center">
-  <img src="${ctx }/views/main.jpg" class="img-responsive" style="display:inline" alt="main1" width="1200" height="500">
+<div class="container-fluid bg-1 text-center col-sm-8 col-md-offset-2" style="border: 1px solid red;padding:20px;">    
+  <h3>Where To Find Me?</h3><br>
+  <div class="row">
+    <div class="col-sm-6" style="border: 1px solid gold;">
+      <p>최고의 사진들.</p>
+    </div>
+    <div class="col-sm-6" style="border: 1px solid gold;"> 
+      <p>최고의 포토북들.</p>
+    </div>
+    
+  </div>
 </div>
+<div class="container-fluid bg-2 text-center col col-sm-8 col-md-offset-2" style="padding:20px;">
+  <img src="${ctx }/views/main.jpg" class="img-responsive" style="display:inline" alt="main1" width="100%">
+</div>
+<div class="container-fluid bg-3 text-center col col-sm-8 col-md-offset-2" style="padding:20px;">
+  <img src="${ctx }/views/main.jpg" class="img-responsive" style="display:inline" alt="main1" width="100%">
+</div>
+<div class="container-fluid bg-4 text-center col col-sm-8 col-md-offset-2" style="padding:20px;">
+  <h1>최고의 사진 사이트를 만들기 위해...</h1>
+  <p>오늘도 열심히 노력을 하며 한땀한땀 장인의 손길로 포토북 만들고 있습니다.
+  	항상 열심히 하는 토토북이 되겠습니다.
+  	고객님들 감사합니다.</p>
+</div>
+<div class="container-fluid bg-5 col-sm-8 col-md-offset-2" style="padding:20px;">
+	<div class="col-sm-6">
+      <h1><a href = "#" class = "a">공지 게시판</a></h1>
+       <ul>
+      		<li><a href = "#">공지사항 첫번째 글~!!</a>
+      		<li><a href = "#">공지사항 두번째 글~~!!</a>
+      	</ul>
+      	
+    </div>
+    <div class="col-sm-6"> 
+      <h1><a href = "#" class = "a">문의 게시판</a></h1>
+      	<ul>
+      		<li><a href = "#">문의 게시판 첫번째 글~!!</a>
+      		<li><a href = "#">문의 게시판 두번째 글~~!!</a>
+      	</ul>
+    </div>
+</div>
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Since 2017.03.24</p>
+      </div>
+    </footer>
 </body>
 </html>
