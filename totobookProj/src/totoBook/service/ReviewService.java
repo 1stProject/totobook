@@ -14,11 +14,11 @@ public interface ReviewService {
 
 	public void registerComment(Review review);
 	public void modifyComment(Review review);
-	public void deleteCommentByMember(Member member);
 	public void deleteCommentByProduct(Product product);
 	public List<Review> findCommentsByProduct(String productId);
 	public List<Review> findCommentsByMember(String memberId);
-	
+	public List<Review> findCommentByOrder(String orderId);
+	public void deleteCommentByMember(String orderId); 
 
 	
 	

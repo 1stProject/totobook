@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div class="content">
 		<div class="container-fluid">
 			<div class="row">
@@ -27,6 +26,7 @@
 							<col width="100">
 						</colgroup>
 						<thead>
+						
 							<tr>
 								<th>상품명</th>
 								<th>내용</th>
@@ -44,15 +44,16 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach items="${review }" var="review" varStatus="status">
+										<input type="hidden" name="memberId" value="${review.member.memberId }">
 										<tr>
 											<td>${review.product.name }</td>
 											<td><a
-												href="${ctx }/review/detail.do?id=${review.member.memberId }">${review.comment }</a></td>
+												href="${ctx }/review/detail.do?orderId=${review.member.memberId }">${review.comment }</a></td>
 											<td><a
-												href="${ctx }/review/modify.do?productId=${review.product.productId}"
+												href="${ctx }/review/modify.do?orderId=${review.order.orderId}"
 												class="btn btn-xs btn-warning">수정하기</a></td>
 											<td><a
-												href="${ctx }/review/remove.do?productId=${review.product.productId}"
+												href="${ctx }/review/remove.do?orderId=${review.order.orderId}"
 												class="btn btn-xs btn-danger">삭제하기</a></td>
 										</tr>
 									</c:forEach>
@@ -64,7 +65,8 @@
 			</div>
 		</div>
 	</div>
-					<a class="btn btn-sm btn-success" href="${ctx }/views/review/reviewForm.jsp">상품추가</a>
+	<a class="btn btn-sm btn-success"
+		href="${ctx }/views/review/reviewForm.jsp">상품추가</a>
 
 </body>
 </html>

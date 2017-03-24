@@ -1,5 +1,6 @@
 package totoBook.service.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import totoBook.domain.Member;
@@ -17,9 +18,20 @@ public class ReviewServiceLogic implements ReviewService {
 		reviewStore = new ReviewStoreLogic();
 	}
 
+	
+	
 	@Override
-	public void deleteCommentByMember(Member member) {
-		reviewStore.deleteCommentByMember(member);
+	public List<Review> findCommentByOrder(String orderId) {
+
+		List<Review> list = new ArrayList<>();
+		
+		list = reviewStore.selectCommentByOrder(orderId);
+		return list;
+	}
+
+	@Override
+	public void deleteCommentByMember(String orderId) {
+		reviewStore.deleteCommentByMember(orderId);
 
 	}
 
@@ -31,7 +43,7 @@ public class ReviewServiceLogic implements ReviewService {
 
 	@Override
 	public List<Review> findCommentsByMember(String memberId) {
-//		String memberid = member.getMemberId();
+		// String memberid = member.getMemberId();
 		List<Review> list = reviewStore.selectCommentsByMember(memberId);
 		return list;
 	}
