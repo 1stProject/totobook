@@ -13,19 +13,31 @@
 			$(document).ready(function() {
 				//아이디  중복 확인 버튼 클릭
 				$("#loginCheck").click(function() {
-					   
-				    function loginValidate(){
-				    	var loginId = document.getElementById("id").value;
-				    	if(loginId == ""){
-				    		alert("아이디를입력하세요");
-				    		document.getElementById("id").focus();
-				    		return false;
-				    	}
-				    }
-				}
-				    	
-				    	
-			);
+					var id = $("#memberId").val();
+					var password = $("#password").val();
+					console.log(password);
+					
+					$.ajax({
+						type : 'POST',
+						url : "${ctx }/member/loginCheck.do",
+						data : {
+							id : id,
+							password : password
+						},
+						success : function(data) {
+							console.log(data);
+							$("#result").html(data);
+							if ($.trim(data) == 'yes') {
+								console.log("로그인 성공");
+							} else {
+								console.log("로그인 실패");
+								
+							}
+
+						}
+
+					});
+				});
 			});
 		</script>
 </head>
@@ -34,13 +46,13 @@
     <h3>로그인</h3>
     <form action="${ctx }/member/login.do" method="post" onsubmit="return loginValidate();">
         <label>아이디</label>
-        <input type="text" id="id" name="memberId" placeholder="아이디를 입력하세요.">
+        <input type="text" id="memberId" name="memberId" placeholder="아이디를 입력하세요.">
         <label>비밀번호</label>
         <input type="password" id= "password" name="password" placeholder="패스워드를 입력하세요.">
         <div class="login-btn">
             <button type="button" onclick="location.href='${ctx }/member/list.do'">취소</button>
-            <input type="submit" id="loginCheck" value="로그인">
-            <button type="button" onclick="location.href='${ctx }/member/register.do'">회원가입</button>
+            <input type="button" id="loginCheck" value="로그인">
+            <button type="button" onclick="location.href='memberRegister.jsp'">회원가입</button>
         </div>
     </form>
 </div>

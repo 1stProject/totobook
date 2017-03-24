@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Option;
+import totoBook.domain.Photo;
 import totoBook.domain.Product;
 import totoBook.domain.Review;
 import totoBook.service.ProductService;
@@ -35,30 +36,24 @@ public class ProductDetailController extends HttpServlet {
 		ProductService productService = new ProductServiceLogic();
 		ReviewService reviewService = new ReviewServiceLogic();
 		
-		
 		String productId = request.getParameter("productId");
-
 		Product product = new Product();
 		product = productService.findProductById(productId);
+		Photo phto = new Photo();
+		String imagead = product.getImageAddress();
+		phto.setContentType(imagead);
 		
-		System.out.println("넌 뭐니");
-		System.out.println(productId);
+		product.setPhoto(phto);
+		
+		
+		System.out.println(product.toString());
 		
 		List<Option> list = new ArrayList<>();
 		list = productService.findOption(productId);
 		product.setOptions(list);
-
-		
-		
-		
-//		List<Review> list3 = new ArrayList<>();
-//		list3 = reviewService.findCommentsByProduct(productId);
-//		
-//		System.out.println(list3.size());
-//		request.setAttribute("review", list3);
-		
-		
-		
+		List<Review> list3 = new ArrayList<>();
+		list3 = reviewService.findCommentsByProduct(productId);
+		request.setAttribute("review", list3);
 		request.setAttribute("product", product);
 		request.getRequestDispatcher("/views/product/productDetail.jsp").forward(request, response);
 

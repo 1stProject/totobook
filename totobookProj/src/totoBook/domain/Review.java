@@ -36,12 +36,16 @@ public class Review {
 	public String getComment() {
 		return comment;
 	}
+	
+	
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
 	public String getImageAddress() {
 		return imageAddress;
 	}
+	
+	
 	public void setImageAddress(String imageAddress) {
 		this.imageAddress = imageAddress;
 	}
