@@ -1,6 +1,5 @@
 package totoBook.controller.product;
 
-import java.awt.image.ImageFilter;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.io.OutputStream;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,25 +32,40 @@ public class ProductImageController extends HttpServlet {
 
 		
 		ProductStoreLogic service = new ProductStoreLogic();
-		String productid = (request.getParameter("productid"));
-		Product product = service.selectProductById(productid);
-
-		Photo phto = product.getPhoto();
+	
 		
+		
+		
+		String productid = request.getParameter("productId");
+		System.out.println(productid);
+		System.out.println("이미지");
+		Product product = new Product(); 
+		product =	service.selectProductById(productid);
+
+		
+
+				
+		
+		Photo phto = new Photo();
 		
 		
 		String imagead = product.getImageAddress();
+		phto.setContentType(imagead);
 		
-		String imageAddress = null;
+		product.setPhoto(phto);
+		String fileName = null;
 		InputStream in = null;
+		
+		
+		System.out.println("오류는?");
 
 		if (phto != null) {
-			response.setContentType(imageAddress);
+//			response.setContentType(phto.getContentType());
 			ServletContext cxt = getServletContext();
 			String dir = cxt.getRealPath("/upload/product/");
-			imageAddress = dir + "/"  + imagead ;
-			
-			in = new BufferedInputStream(new FileInputStream(imageAddress));
+			fileName = dir + "/"  + product.getImageAddress();
+			System.out.println(fileName);
+			in = new BufferedInputStream(new FileInputStream(fileName));
 		}
 
 		OutputStream out = response.getOutputStream();
@@ -65,7 +78,6 @@ public class ProductImageController extends HttpServlet {
 
 		in.close();
 		out.close();
-
 	}
 
 }

@@ -13,12 +13,15 @@ import com.oreilly.servlet.MultipartRequest;
 
 import totoBook.domain.Member;
 import totoBook.domain.Photo;
+import totoBook.domain.Product;
 import totoBook.domain.Review;
 import totoBook.service.MemberService;
 import totoBook.service.OrderService;
+import totoBook.service.ProductService;
 import totoBook.service.ReviewService;
 import totoBook.service.logic.MemberServiceLogic;
 import totoBook.service.logic.OrderServiceLogic;
+import totoBook.service.logic.ProductServiceLogic;
 import totoBook.service.logic.ReviewServiceLogic;
 
 /**
@@ -33,10 +36,9 @@ public class ReviewRegister extends HttpServlet {
 			throws ServletException, IOException {
 
 		ReviewService reviewService = new ReviewServiceLogic();
-		
-		
 		MemberService memberService = new MemberServiceLogic();
 		OrderService orderService = new OrderServiceLogic();
+		ProductService productService = new ProductServiceLogic();
 		
 		
 		System.out.println("등록");
@@ -53,20 +55,23 @@ public class ReviewRegister extends HttpServlet {
 
 		String imageAddress = photo.getFileName();
 
+		Member member = new Member();
+		member = memberService.findMemberById("RURE1114");
+		
+		
+		Product product = new Product();
+		product = productService.findProductById("1");
+		
+		
 		Review review = new Review();
 		review.setComment(multi.getParameter("comment"));
 		review.setImageAddress(imageAddress);
+		review.setMember(member);
+		review.setProduct(product);
 		
+		reviewService.registerComment(review);
 		
-		Member member = new Member();
-		member.setName("RURE1114");
-		
-		
-		review.setMember(memberService.findMemberById("RURE1114"));
 
-//		review.setOrder(orderService.findOrdersByMemberId(memberId));
-//				findOrdersByOrderId("RURE1114"));
-//		review.setProduct(product);
 
 		
 		response.sendRedirect("list.do");

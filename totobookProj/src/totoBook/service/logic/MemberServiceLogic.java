@@ -2,6 +2,8 @@ package totoBook.service.logic;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import totoBook.domain.Member;
 import totoBook.service.MemberService;
 import totoBook.store.MemberStore;
@@ -85,9 +87,13 @@ public class MemberServiceLogic implements MemberService {
 
 	@Override
 	public boolean findMember(Member member) {
-			Member member1 = new Member();
-			member1 = memberStore.selectMember(member1);
-		return true;
+		Member searchedMember = new Member();
+		searchedMember = memberStore.selectMember(member);
+			 if(searchedMember!=null && searchedMember.getPassword().equals(member.getPassword())) {
+		
+				 return true;
+				}else{
+		return false;
 	}
-
+	}
 }

@@ -51,14 +51,15 @@ public class MemberStoreLogic implements MemberStore{
 	@Override
 	public Member selectMember(Member member) {
 		SqlSession session= factory.openSession();
-		member = new Member();
-		
+		Member searchedMember = null;
 		try{
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			
+			searchedMember = mapper.selectMemberById(member.getMemberId());
 		}finally{
 			session.close();
 		}
-		return member;
+		return searchedMember;
 	}
 
 	@Override
