@@ -28,11 +28,12 @@
 							$("#result").html(data);
 							if ($.trim(data) == 'yes') {
 								console.log("확인 성공");
-								$(this).submit;
+								$('#password').submit;
 							} else {
 								
 								console.log("확인 실패");
-
+								$('#password').val("");
+								return false;
 							}
 
 						}
@@ -41,7 +42,7 @@
 				});
 			});
 		</script>
-		<form action="${ctx }/member/remove.do" method="post">
+		<form action="${ctx }/member/remove.do" method="post" onsubmit="return loginValidate();">
 			<div>
 				<label>비밀번호 </label> <input id="password" type="password" name="password">
 			</div>

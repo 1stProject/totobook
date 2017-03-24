@@ -55,9 +55,7 @@ public class ProductRegisterController extends HttpServlet {
 		product.setProductprice(Integer.parseInt(multi.getParameter("productprice")));
 		product.setPhoto(photo);
 		product.setImageAddress(imageAddress);
-		productService.registerProduct(product);
-
-		
+		productService.registerProduct(product);		
 		
 		String[] optionname = multi.getParameterValues("optionname");
 		String[] optiondesp = multi.getParameterValues("optiondesp");
