@@ -119,84 +119,10 @@ $(document).ready(
 	                            }
 	                        }
 	                    });
-						
-/*						 $("#imgSrc").val(canvas.toDataURL("image/png"));
-		                    
-		                    $.ajax({
-		                        type:     "post",
-		                        data : $("form").serialize(),
-		                        url:     "pageUpload.do",
-		                        error: function(a, b, c){        
-		                            alert("fail!!");
-		                        },
-		                        success: function (data) {
-		                            try{
-		                                
-		                            }catch(e){                
-		                                alert('server Error!!');
-		                            }
-		                        }
-		                    });*/
-						
-/*						if(typeof FlashCanvas != "undefined"){
-							FlashCanvas.initElement(canvas);
-						}
-
-						var formData = new FormData();
-						formData.append('file', canvas.toDataURL("image/png"));
-
-						$.ajax({
-						url : '${ctx }/book/pageUpload.do' ,
-						type : "POST",
-						dataType : "json",
-						data : formData,
-						processData : false,
-						contentType : false,
-						success : function(data) {
-							if(data == 'ok'){
-								return true;
-							}else {
-								return false;
-							}
-
-						},
-						error : function(request, status, error) {
-						console.log(request, status, error);
-						}
-						});*/
 					}
 				});
 			});
-			/*
-			var upload = function(){
-				var imageData = getCanvas.toDataURL("image/png");
-				var formData = new FormData();
-				formData.append('file', imageData);
-
-				$.ajax({
-				url : "${ctx}/pageUpload.do" ,
-				type : "POST",
-				dataType : "json",
-				data : formData,
-				processData : false,
-				contentType : false,
-				success : function(data) {
-					if(data == 'ok'){
-						return true;
-					}else {
-						return false;
-					}
-
-				},
-				error : function(request, status, error) {
-				console.log(request, status, error);
-				}
-				});
-
-			}
 			
-			
-*/
 			$("#btn-Convert-Html2Image").on(
 					'click',
 					function() {
@@ -249,7 +175,7 @@ var drop = function(ev) {
 	var data = ev.dataTransfer.getData("text");
 	var id = ev.target.id;
 	var classN = ev.target.className;
-	console.log(id);
+
 	if ((id != 'bookPageRight') && (id != 'bookPageLeft')) {
 		var nodeCopy = document.getElementById(data).cloneNode(true);
 		// nodeCopy.id = data+"_"+dragCount++;

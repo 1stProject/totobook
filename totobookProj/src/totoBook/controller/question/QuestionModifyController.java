@@ -27,16 +27,19 @@ public class QuestionModifyController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Post post = new Post();
+		totoBook.domain.Member member = new totoBook.domain.Member();
 		QuestionService service = new QuestionServiceLogic();
 		post.setTitle(request.getParameter("question_title"));
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
-
+		post.setPostId(request.getParameter("postId"));
+		member.setMemberId("");
+		post.setMember(member);
 		service.modifyQuestion(post);
 
-		request.setAttribute("questionId", post.getPostId());
-		request.getRequestDispatcher("QuestionDetail.do").forward(request, response);
+		request.setAttribute("question", post);
+		request.getRequestDispatcher("/views/question/questionDetail.jsp").forward(request, response);
 	}
 
 }

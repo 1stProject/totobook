@@ -6,17 +6,17 @@
 <mapper namespace="totoBook.store.mapper.AnswerMapper">
 
 	<resultMap type="Answer" id="answerMap">
-	<id column="post_id" property="postId"/>
-	<result column="post_id" property="postId"/>
-	<association property="post" column="post_id"
-		javaType="Post" jdbcType="VARCHAR"></association>
+		<id column="answer_id" property="answerId" />
+		<association property="post" column="post_id" javaType="Post"
+			jdbcType="VARCHAR" select="totoBook.store.mapper.QuestionMapper.selectQuestionById">
+		</association>
 	</resultMap>
 	<delete id="deleteAnswer" parameterType="String">
 		DELETE FROM answer_tb
 		WHERE post_id = #{postId}
 	</delete>
 	<select id="selectAnswerById" parameterType="String" resultMap="answerMap">
-		SELECT content,post_id
+		SELECT answer_id,content,post_id
 		FROM answer_tb
 		WHERE post_id = #{postId}
 	</select>
@@ -30,9 +30,10 @@
 	<update id="updateAnswer" parameterType="Answer">
 		UPDATE answer_tb
 		SET
-		answer_id=#{answerId},content=#{content},post_id=#{post.postId}
-		WHERE post_id=#{post.postId}
-		
+		content=#{content}
+		WHERE
+		post_id=#{post.postId}
+
 	</update>
 </mapper>
   

@@ -11,8 +11,9 @@
 		<result column="content" property="content" />
 		<result column="image_address" property="imageAddressPath" />
 		<result column="image_ext" property="image_ext" />
-			<association property="member" column="member_id" select="totoBook.store.mapper.MemberMapper.selectMemberById"
-				javaType="Member" jdbcType="VARCHAR"/>
+		<association property="member" column="member_id"
+			select="totoBook.store.mapper.MemberMapper.selectMemberById"
+			javaType="Member" jdbcType="VARCHAR" />
 	</resultMap>
 	<select id="selectAllQuestion" resultMap="questionMap">
 		SELECT
@@ -20,7 +21,7 @@
 		FROM
 		question_tb
 	</select>
-	<select id="selectNoticeById" parameterType="String" resultType="Post">
+	<select id="selectQuestionById" parameterType="String" resultMap="questionMap">
 		SELECT post_id,member_id,post_name,content,image_address,image_ext
 		FROM question_tb
 		WHERE post_id=#{questionId}
@@ -41,7 +42,7 @@
 	<update id="updateQuestion" parameterType="Post">
 		UPDATE question_tb
 		SET
-		post_id=#{postId},member_id=#{member.meberId},post_name=#{title},content=#{content},image_address=#{imageAddressPath},image_ext=#{image_ext}
+		post_name=#{title},content=#{content},image_address=#{imageAddressPath},image_ext=#{image_ext}
 		WHERE post_id=#{postId}
 	</update>
 </mapper>

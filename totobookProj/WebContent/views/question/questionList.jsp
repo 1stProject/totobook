@@ -6,9 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+	</header>
+
 	<table>
 		<thead>
 			<tr>
@@ -31,16 +39,17 @@
 							<td><a class="detail_btn"
 								href="${ctx }/question/detail.do?questionId=${question.postId }">${question.title }</a></td>
 							<td>${question.member.memberId }</td>
-							<td><a class="remove_btn"
-								href="${ctx }/question/remove.do?questionId=${question.postId }">삭제</a></td>
 						</tr>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 			<td><a class="register_btn"
-				href="${ctx }/views/question/questionForm.jsp" />글쓰기</td>
+				href="${ctx }/views/question/questionForm.jsp" />문의글쓰기</td>
 		</tbody>
 	</table>
 
+<footer>
+		<%@include file="../foot/footer.jspf" %>
+	</footer>
 </body>
 </html>
