@@ -47,7 +47,7 @@ div #bookPageLeft {
     border-left: 1px solid antiquewhite;
     border-top: 1px solid antiquewhite;
     border-bottom: 1px solid antiquewhite;
-    background-image: url("A3_layout_0.jpg");
+    background-image: url("../views/book/A3_layout_0.jpg");
     overflow: hidden;
 }
 
@@ -60,7 +60,7 @@ div #bookPageRight {
     border-right: 1px solid antiquewhite;
     border-top: 1px solid antiquewhite;
     border-bottom: 1px solid antiquewhite;
-    background-image: url("A3_layout_0.jpg");
+    background-image: url("../views/book/A3_layout_0.jpg");
     overflow: hidden;
 }
 
@@ -155,12 +155,14 @@ div.leftMenu {
 	height : 800px;
 	background-color : pink;
 	float:left;
+	display : inline;
 }
 div.contentsWithLeft {
-	width : 740px;
+	width : 710px;
 	height : 850px;
 	background-color : white;
 	float : left;
+	margin-left : 10px;
 }
 
 table.blueListTab {
@@ -243,14 +245,18 @@ header h1 a:hover {
     padding: 0 15px;
 }
 
+img.image cropper-hidden {
+	display:none;
+} 
+
 nav {
     width: 220px;
     height: 100%;
-    position: fixed;
     background: #f7f7f7;
     border-right: 1px solid #d6d6d6;
     padding: 0;
     z-index: 99;
+    float : left;
 }
 
 nav li {
@@ -468,12 +474,12 @@ button:hover {
 
 footer {
     width: 100%;
-    position: absolute;
     bottom: 0;
     left: 0;
     background: #eeeeee;
     text-align: center;
     padding: 10px 0;
+    display : block;
 }
 
 /*  login*/

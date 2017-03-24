@@ -14,26 +14,27 @@
 		<association property="product" column ="product_id"
 			select = "totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType = "Product" jdbcType = "VARCHAR"/>
+		<association property="order" column ="order_id"
+			select = "totoBook.store.mapper.OrderMapper.selectOrdersByOrderId"
+			javaType = "Order" jdbcType = "NUMERIC"/>
  		</resultMap>
  		
-	<insert id="insertComment" parameterType="Review">
+	<insert id="insertComment" parameterType="string">
 		INSERT INTO
-		REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS)
-		values(#{member.memberId}, #{product.productId}, #{comment}, #{imageAddress})
+		REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, order_Id)
+		values(#{member.memberId}, #{product.productId}, #{comment}, #{imageAddress}, #{order.orderId})
 	</insert>
 
 	<update id="updateComment" parameterType="Review">
 		Update review_tb
 		set
-		content = #{CONTENT}, image_address = #{IMAGE_ADDRESS}, IMAGE_EXT =
-		#{IMAGE_EXT})
-		where MEMBER_ID = #{MEMBER_ID}, PRODUCT_ID =
-		#{PRODUCT_ID}
+		content = #{comment}, image_address = #{imageAddress}
+		where order_id = #{order.orderId}
 	</update>
 
 	<delete id="deleteCommentByMember">
 		DELETE review_tb
-		WHERE MEMBER_ID = #{member.memberId}
+		WHERE ORDER_ID = #{order.orderId}
 	</delete>
 
 	<delete id="deleteCommentByProduct">
@@ -42,13 +43,22 @@
 	</delete>
 
 	<select id="selectCommentsByProduct" parameterType="string"	resultMap="reviewMap">
-		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS FROM REVIEW_TB where PRODUCT_ID = #{product.productId}
+		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, ORDER_ID FROM REVIEW_TB where PRODUCT_ID = #{product.productId}
 	</select>
 
 	<select id="selectCommentsByMember" parameterType="String" resultMap="reviewMap">
-		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS
+		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, ORDER_ID
 		FROM
 		REVIEW_TB where MEMBER_ID = #{member.memberId}
 	</select>
+
+<select id="selectCommentByOrder" parameterType="String" resultMap="reviewMap">
+		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, ORDER_ID
+		FROM
+		REVIEW_TB where ORDER_ID = #{order.orderId}		
+
+</select>
+	
+
 
 </mapper>

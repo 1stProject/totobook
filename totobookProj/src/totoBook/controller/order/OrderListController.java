@@ -23,10 +23,18 @@ public class OrderListController extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderService service = new OrderServiceLogic();
+		List<Order> list = null;
 		
-		List<Order> list = service.findAllOrders();
-		request.setAttribute("orders", list);
-		request.getRequestDispatcher("/views/order/orderList.jsp").forward(request, response);
+		String memberId = "admin";
+		if(memberId != "admin"){
+			list = service.findOrdersByMemberId(memberId);
+			request.setAttribute("orders", list);
+			request.getRequestDispatcher("/views/order/orderMemberList.jsp").forward(request, response);
+		}
+		else{
+			list = service.findAllOrders();
+			request.setAttribute("orders", list);
+			request.getRequestDispatcher("/views/order/orderList.jsp").forward(request, response);
+		}
 	}
-
 }

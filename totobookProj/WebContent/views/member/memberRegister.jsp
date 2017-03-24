@@ -12,6 +12,19 @@
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
+			      $("#btn").click(function () {
+			            var ps1 = $("ps1").val();
+			            var ps2 = $("ps2").val();
+			            if (ps1 == ps2) {
+			            	$('#spnText').html("일치합니다");
+			            	
+			            }
+			            else {
+			                $("#spnText").html("비밀번호가 동일하지 않습니다.");
+			            }
+			        });
+			    
+					 
 				//아이디  중복 확인 버튼 클릭
 				$("#idCheck").click(function() {
 					var id = $("#id").val();
@@ -36,6 +49,7 @@
 					});
 				});
 			});
+		
 		</script>
 		<form action="${ctx }/member/register.do" method="post">
 			<div>
@@ -47,7 +61,12 @@
 				<label>이름 : </label> <input type="text" name="name">
 			</div>
 			<div>
-				<label>비밀번호 : </label> <input type="password" name="password">
+				<label>비밀번호 : </label> <input type="password" name="password" id = "ps1">
+			</div>
+			<div>
+				<label>비밀번호확인 : </label> <input type="password" name="password" id= "ps2">
+				<button type="button" id="btn">비밀번호확인</button>
+				<div id="spnText"></div>
 			</div>
 			<div>
 				<label>주소 : </label> <input type="text" name="address">

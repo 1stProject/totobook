@@ -16,319 +16,76 @@
       max-width: 100%;
     }
   </style>
-
-</head>
-<body>
-	<header>
         <script src="js/jquery-3.1.1.js"></script>
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://fengyuanchen.github.io/js/common.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-        <script src="js/cropper.js"></script>
+		<script src="js/cropper.js"></script>
+  		<script src="js/bookEdit.js"></script>
         <script type="text/javascript" src="js/html2canvas.js"></script>
+</head>
+<body>
+	<header>
+		<%@include file="../head/header.jspf" %>
 	</header>
 	
 	<div class="photoBookContainer">
-			<h3>포토북 편집</h3>
-	<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data">
-        <div id="photoBookDesciption">
-            포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
-            전체 페이지 수 : ${fn:length(book.pages)}" 장
-            선택한 상품명 : ${book.product.name}
-            선택된 옵션 : ${book.option }      
-        
-        </div>
-        
-        <div class="photoBookContent" style="display:block">           
-		  <img src="toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
-			<div id="bookPageLeft" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div class="bookPaging1"></div>
-            <div class="bookPaging2"></div>
-			<div id="bookPageRight" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        
-		  <img src="toRight.png" class="leftRightBtnImg" id="toNextPage">
-            <div id="layoutDiv">레이아웃선택
-                <img class="layoutIcon1" src="A3_layout_1.jpg" draggable="false">
-                <img class="layoutIcon1" src="A3_layout_2.jpg" draggable="false">
-                <img class="layoutIcon1" src="A3_layout_3.jpg" draggable="false">
-                
-                        <div class="btn-group">
-          <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
-              <span class="fa fa-rotate-left">좌로 회전</span>
-            </span>
-          </button>
-          <button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
-              <span class="fa fa-rotate-right">우로 회전</span>
-            </span>
-          </button>
-        </div>
-            </div>
-        </div>
-            <div id="photoListDiv">사진목록
-            	<input type="file" name="photofile" style="width:250px;" accept="image/*" multiple onchange="fileInfo(this)" >
-            	<div id="img_box"></div>
-           </div>
+		<h3>포토북 편집</h3>
+		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data">
+        	<div id="photoBookDesciption">
+				포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
+				전체 페이지 수 : ${fn:length(book.pages)}" 장
+				선택한 상품명 : ${book.product.name}
+				선택된 옵션 : ${book.option }      
 
-        <div class="btnDiv">
-		<button type="submit" >편집저장</button>
-		<button type="reset">취소</button>
-        </div>
+			</div>
 
-        
-        
-	</form>
+			<div class="photoBookContent" style="display:block">           
+			  <img src="toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
+				<div id="bookPageLeft" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div class="bookPaging1"></div>
+				<div class="bookPaging2"></div>
+				<div id="bookPageRight" class="pageDiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+			  <img src="toRight.png" class="leftRightBtnImg" id="toNextPage">
+				<div id="layoutDiv">레이아웃선택
+					<img class="layoutIcon1" src="A3_layout_1.jpg" draggable="false">
+					<img class="layoutIcon1" src="A3_layout_2.jpg" draggable="false">
+					<img class="layoutIcon1" src="A3_layout_3.jpg" draggable="false">
+
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
+								<span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
+									<span class="fa fa-rotate-left">좌로 회전</span>
+								</span>
+							</button>
+							<button type="button" class="btn btn-primary" data-method="rotate" data-option="45" title="Rotate Right">
+								<span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
+									<span class="fa fa-rotate-right">우로 회전</span>
+								</span>
+							</button>
+							    <input id="btn-Preview-Image" type="button" value="Preview"/>
+								<a id="btn-Convert-Html2Image" href="#">Download</a>
+						</div>
+				</div>
+			</div>
+			<div id="photoListDiv">사진목록
+				<input type="file" name="photofile" style="width:250px;" accept="image/*" multiple onchange="fileInfo(this)" >
+				<div id="img_box"></div>
+			</div>
+
+			<div class="btnDiv">
+				<button type="submit" >편집저장</button>
+				<button type="reset">취소</button>
+			</div>
+		</form>
 	</div>
-
-        
-        <div id ="canvasDiv" >
-        <image id="theimage"></image>
-        
-        </div>
-  <script src="js/cropper.js"></script>
+	<div id="previewImage">
+	</div>
 <!--
 	<footer>
-	</footer>-->
-</body>   
-    
-<script type="text/javascript">
-      
-    var uploadCount=0;
-    var dragCount = 0;
-    
-    $(document).ready(function() {  
-    var pageCount=1;
-    var selectedPage = '#bookPageRight';
-   	var pageCount=1;
-    $(".bookPaging1").css("visibility","hidden");
-    $("#bookPageLeft").css("visibility","hidden");
-        
-    var beforeLayout = function(){  
-        $(".layoutIcon2").css("display", "none");         $(".layoutIcon1").css("display", "block");   
-        $('#BeforeBtnImg').css("display", "none");     $('#NextBtnImg').css("display", "block");    
-    }
-    var nextLayout = function(){
-        $(".layoutIcon1").css("display", "none");         $(".layoutIcon2").css("display", "block");       $('#BeforeBtnImg').css("display", "block");     $('#NextBtnImg').css("display", "none"); 
-    }
-    
-    $("#bookPageLeft").click(function(){
-        selectedPage = '#bookPageLeft';
-        console.log("L");
-    });
-    $("#bookPageRight").click(function(){
-        selectedPage = '#bookPageRight';
-        console.log("R");
-    });  
-    
-    $(".layoutIcon1").click(function(){
-        var src = $(this).attr("src");
-        $(selectedPage).empty();
-        
-        var node1 = document.createElement("div");
-        node1.id = "photoLayoutDiv1";
-        if(src=="A3_layout_1.jpg"){
-            node1.className = "container";
-            $(selectedPage).append(node1);
-        } if(src=="A3_layout_2.jpg"){
-            node1.className = "photoLayoutMedium";
-            node1.setAttribute("style", "margin-top:45%")
-            $(selectedPage).append(node1);
-        }if(src=="A3_layout_3.jpg"){
-            node1.className = "photoLayoutMedium";
-            node1.setAttribute("style","margin : 10% auto" );
-            var node2 = node1.cloneNode(true);
-            node2.id = "photoLayoutDiv2";
-            $(selectedPage).append(node1);
-            $(selectedPage).append(node2);
-        }
-    });
-
-    
-    $("#toBeforePage").click(function(){
-        console.log(pageCount);
-        pageCount = parseInt(pageCount-1);
-        if(pageCount == 1){
-            $(this).css("visibility","hidden");
-            $("#bookPageLeft").css("visibility","hidden");
-            $(".bookPaging1").css("visibility","hidden");
-        }else if(pageCount == 4){
-            console.log("호");
-            $("#bookPageRight").css("visibility","visible");
-            $(".bookPaging2").css("visibility","visible");
-            $("#toNextPage").css("visibility","visible");
-        }
-        
-    });
-    
-    $("#toNextPage").click(function(){
-        pageCount = parseInt(pageCount+1);
-        console.log(pageCount);
-        
-        $("#toBeforePage").css("visibility", "visible")
-        if(pageCount==2){
-            $("#bookPageLeft").css("visibility","visible");
-            $(".bookPaging1").css("visibility","visible");
-        }
-        if(pageCount == 5){
-            console.log("마지막");
-            $(this).css("visibility", "hidden");
-            $("#bookPageRight").css("visibility","hidden");
-            $(".bookPaging2").css("visibility","hidden");         
-        }
-        
-/*        function  html2img(){
-    var canvas ="";
-            html2canvas($("#bookPageRight"), {
-                onrendered: function(canvas) {
-  // canvas is the final rendered <canvas> element
-   document.getElementById("theimage").src = canvas.toDataURL();
-     Canvas2Image.saveAsPNG(canvas);
-  }
-  });
-  //alert(document.getElementById("SavePart").innerHTML);
-}
-
-     
-        html2canvas($("#bookPageRight")).then(function(canvas){
-             
-            document.getElementById("canvasDiv").appendChild(canvas);
-            });
-        
-        
-html2canvas($("#bookPageRight"), {
-  onrendered: function(canvas) {
-
-    var img = canvas.toDataURL();
-    console.log(img);
-    
-    // img 데이터 : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAALnCAYAAACncBEoAAAgAElEQ…GgcaASBzQgt/fw3lcJZgPTONA40DjQOLALONCXYfjy/w8Gd/MrFODziAAAAABJRU5ErkJggg==" 
-
-    $("#canvasDiv").html('<img src=' + img + '>');    // section2 영역에 section1 을 이미지 capture 내용이 보여짐
-    
-    window.open(img);   // 이미지를 윈도우 팝업으로..
-
-  }
-});*/
-        
-        
-        });
-        
-    });
-                      
-    var layoutImgs = [
-        "A3_blue_layout_1",
-        "A3_blue_layout_2",
-        "A3_blue_layout_3",
-        "A3_blue_layout_04",
-        "A3_blue_layout_05",
-        "A3_blue_layout_06",
-        "A3_blue_layout_07",
-        "A3_blue_layout_8",
-        "A3_blue_layout_9",
-        "A3_blue_layout_10"
-    ];
-    
-    
-    var fileInfo =  function(f){
-    	var file = f.files; // files 를 사용하면 파일의 정보를 알 수 있음
-
-    	// 파일의 갯수만큼 반복
-    	for(var i=0; i<file.length; i++){
-            
-
-    		var reader = new FileReader(); // FileReader 객체 사용
-    		reader.onload = function(rst){
-            
-    			$('#img_box').append('<img id="uploadedImg'+uploadCount+'" src="' + rst.target.result + '" class="uploadPhoto" draggable="true" ondragstart="drag(event)">');   
-                
-            uploadCount++;
-    		}
-    		reader.readAsDataURL(file[i]); // 파일을 읽는다
-
-    	}
-    }
-    function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-//drag 시 발생
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-    
-//drop 시 발생
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    
-    var nodeCopy = document.getElementById(data).cloneNode(true);
-//    nodeCopy.id = data+"_"+dragCount++;
-    
-    nodeCopy.id = data.id+"image"+dragCount;
-    nodeCopy.className= 'image';
-    nodeCopy.setAttribute('draggable', false);
-    
-    var id =ev.target.id;
-     var classN = ev.target.className;
-    
-    if(ev.target.nodeName == "SPAN"){
-        var parent = ev.target.parentElement.parentElement.parentElement;
-        console.log(parent.id);
-        while(parent.hasChildNodes()){
-            parent.removeChild(parent.firstChild);
-        }
-        parent.appendChild(nodeCopy);
-        imgCutting(parent);
-    }else{
-        ev.target.appendChild(nodeCopy);
-
-        imgCutting(ev.target);
-        
-    } //else 끝
-    
-    var images = document.querySelectorAll('.image');
-      var length = images.length;
-      var croppers = [];
-      var i;
-
-      for (i = 0; i < length; i++) {
-        croppers.push(new Cropper(images[i],{
-        viewMode: 3,
-        dragMode: 'move',
-        autoCropArea: 1,
-        restore: false,
-        modal: false,
-        guides: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
-      }));
-      }
-
-}
-    
-var imgCutting = function(targetDiv){
-    
-    var divAspect = targetDiv.offsetHeight / targetDiv.offsetWidth;
-    targetDiv.style.overflow = 'hidden';
-        
-        var img = targetDiv.querySelector('img');
-        var imgAspect = img.height/img.width;
-        
-        if(imgAspect <= divAspect){
-            console.log("납작잼");
-            var imgWidthActual = targetDiv.offsetHeight / imgAspect;
-            var imgWidthToBe = targetDiv.offsetHeight / divAspect;
-            var margin = -Math.round((imgWidthActual-imgWidthToBe)/2);
-            img.style.cssText = 'width: auto; height: 100%; margin-left:'+ margin + ';';
-        } else {
-            img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
-        }
-}
-
-    </script>    
+		<%@include file="../foot/footer.jspf" %>
+	</footer>-->  
     
 </html>

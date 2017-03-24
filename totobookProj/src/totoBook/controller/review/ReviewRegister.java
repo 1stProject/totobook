@@ -1,6 +1,8 @@
 package totoBook.controller.review;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,16 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 
 import totoBook.domain.Member;
+import totoBook.domain.Order;
 import totoBook.domain.Photo;
-import totoBook.domain.Product;
 import totoBook.domain.Review;
 import totoBook.service.MemberService;
 import totoBook.service.OrderService;
-import totoBook.service.ProductService;
 import totoBook.service.ReviewService;
 import totoBook.service.logic.MemberServiceLogic;
 import totoBook.service.logic.OrderServiceLogic;
-import totoBook.service.logic.ProductServiceLogic;
 import totoBook.service.logic.ReviewServiceLogic;
 
 /**
@@ -36,16 +36,18 @@ public class ReviewRegister extends HttpServlet {
 			throws ServletException, IOException {
 
 		ReviewService reviewService = new ReviewServiceLogic();
-		MemberService memberService = new MemberServiceLogic();
 		OrderService orderService = new OrderServiceLogic();
-		ProductService productService = new ProductServiceLogic();
+		MemberService memberService = new MemberServiceLogic();
 		
-		
-		System.out.println("등록");
+		String orderId= request.getParameter("orderId");
+		List<Order> list = new ArrayList<>();
+		list = orderService.findOrdersByOrderId(orderId);
+		Order order = list.get(0);
+		Member member = memberService.findMemberById("RURE1114");
 		int maxPostSize = 10 * 1024 * 1024;
 		response.setContentType("text/html; charset=UTF-8");
 		ServletContext cxt = getServletContext();
-		String dir = cxt.getRealPath("/upload/product");
+		String dir = cxt.getRealPath("/upload/review");
 		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
 
 		Photo photo = new Photo();
@@ -55,19 +57,11 @@ public class ReviewRegister extends HttpServlet {
 
 		String imageAddress = photo.getFileName();
 
-		Member member = new Member();
-		member = memberService.findMemberById("RURE1114");
-		
-		
-		Product product = new Product();
-		product = productService.findProductById("1");
-		
-		
 		Review review = new Review();
 		review.setComment(multi.getParameter("comment"));
 		review.setImageAddress(imageAddress);
-		review.setMember(member);
-		review.setProduct(product);
+		review.setOrder(order);
+		
 		
 		reviewService.registerComment(review);
 		
@@ -75,7 +69,9 @@ public class ReviewRegister extends HttpServlet {
 
 		
 		response.sendRedirect("list.do");
-
+		
+		
+		
 	}
 
 }
