@@ -40,7 +40,11 @@ public class QuestionRegisterController extends HttpServlet {
 		HttpSession session = request.getSession();
 		post.setTitle(multi.getParameter("question_title"));
 		post.setContent(multi.getParameter("content"));
-		post.setImageAddressPath(imageAddress);
+		if (imageAddress == null) {
+			post.setImageAddressPath("");
+		} else {
+			post.setImageAddressPath(imageAddress);
+		}
 		post.setImage_ext("");
 		Member member = (Member) session.getAttribute("member");
 		String memberId = member.getMemberId();

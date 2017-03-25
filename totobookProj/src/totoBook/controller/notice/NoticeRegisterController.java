@@ -46,7 +46,11 @@ public class NoticeRegisterController extends HttpServlet {
 
 		post.setTitle(multi.getParameter("notice_title"));
 		post.setContent(multi.getParameter("content"));
-		post.setImageAddressPath(imageAddress);
+		if(imageAddress==null){
+			post.setImageAddressPath("");
+		}else{
+			post.setImageAddressPath(imageAddress);
+		}
 		post.setImage_ext("");
 		Member member1 = m_service.findMemberById(memberId);
 		post.setMember(member1);

@@ -23,7 +23,7 @@
 	</header>
 	<input type="button" value="이전페이지"
 		onclick="location.href='${ctx }/question/detail.do?questionId=${answer.post.postId }'">
-	<table border="1">
+	<table  class="table table-boardered">
 		<tr>
 			<td>답글 내용 : ${answer.content }</td>
 			<td>관리자</td>
