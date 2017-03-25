@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <title>totoBook</title>
 </head>
 <body>
@@ -53,7 +54,7 @@
 						<td>${book.bookName }</td>
 						<td>${book.product.name}</td>
 						<td>${fn:length(book.pages)}</td>
-						<td>${book.product.price}</td>
+						<td>${book.product.productprice}</td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/edit.do?bookId=${book.bookId}'">편집</button></td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/remove.do?bookId=${book.bookId}'">삭제</button></td>
 					</tr>

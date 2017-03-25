@@ -9,12 +9,12 @@
 		<id property="bookId" column="book_id" />
 		<result property="bookName" column="book_name" />
 		<result property="saveDate" column="save_date" />
-<!-- 	<association property="product" column="product_id"
+	<association property="product" column="product_id"
 			select="totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType="Product" jdbcType="NUMERIC" />
 		<association property="member" column="member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
-			javaType="Member" jdbcType="VARCHAR" /> -->
+			javaType="Member" jdbcType="VARCHAR" />
 		<collection property="pages" column="book_id" ofType="Page"
 			select="totoBook.store.mapper.PageMapper.selectPagesByBookId"
 			javaType="ArrayList" jdbcType="NUMERIC"></collection>

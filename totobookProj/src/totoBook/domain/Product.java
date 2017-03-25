@@ -11,10 +11,8 @@ public class Product {
 
 	private String productId;
 	private String name;
-	
 	private String imageAddress;
 	private Photo photo;
-
 	private int productprice;
 	private String category;
 	private String descript;
