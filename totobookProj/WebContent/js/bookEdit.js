@@ -5,10 +5,10 @@ $(document).ready(
 		function() {
 			var pageCount = 0;
 			var maxPage = ($("#pageCount").val())/2;
-			console.log("maxPage"+maxPage);
 			var selectedPage = '#bookPage1';
 			var currentLeftPage = '#bookPage0';
-			var currentRightPage = selectedPage
+			var currentRightPage = selectedPage;
+			$("#currentRightPage").html(1);
 			$(".bookPaging1").css("visibility", "hidden");
 			$("#bookPage2").css("visibility", "hidden");
 			$("#bookPage2").css("display", "inline");
@@ -30,11 +30,9 @@ $(document).ready(
 
 			$(".LeftPageDiv").click(function() {
 				selectedPage = currentLeftPage;
-				console.log("L");
 			});
 			$(".RightPageDiv").click(function() {
 				selectedPage = currentRightPage;
-				console.log("R");
 			});
 
 			$(".layoutIcon1").click(function() {
@@ -43,9 +41,7 @@ $(document).ready(
 
 				var node1 = document.createElement("div");
 				node1.id = "photoLayoutDiv1";
-				console.log("뭐여1");
 				if (src == "/totobookProj/views/book/A3_layout_1.jpg") {
-					console.log("뭐여");
 					node1.className = "container";
 					$(selectedPage).append(node1);
 				}
@@ -65,36 +61,48 @@ $(document).ready(
 			});
 
 			$("#toBeforePage").click(function() {
-				console.log(pageCount);
 				pageCount = parseInt(pageCount - 1);
+				$("#currentRightPage").html(pageCount*2);
 				
-				currentLeftPage.css("display", "none");
-				currentLeftPage= '#bookLeftPage'+((pageCount*2)-1);
+				//기존에 보여준 페이지를 hidden으로 바꾼다.
+				$(currentRightPage).css("display", "none");
+				$(currentRightPage).css("visibility","hidden");
+				$(currentLeftPage).css("display","none");
+				$(currentLeftPage).css("visibility","hidden");
+				//앞으로 가는 버튼 보여주기
+				$("#toNextPage").css("visibility", "visible")
+				
+				//0번째면 자기자신 hidden page2 히든.
+				//4번째면 paging2 보여주기
 				
 				if (pageCount == 0) {
 					$(this).css("visibility", "hidden");
-					$("#bookPage2").css("visibility", "hidden");
-					$("#bookPage2").css("display", "inline");
-					$(".bookPaging1").css("visibility", "hidden");
-				} else if (pageCount == (maxPage-1)) {
-					console.log("호");
-					$("#bookPage5").css("visibility", "visible");
-					$(".bookPaging2").css("visibility", "visible");
-					$("#toNextPage").css("visibility", "visible");
+					$(".bookPaging1").css("visibility", "hidden");	
+					$(currentLeftPage).css("display","inline");
+					$("#currentRightPage").html(1);
+				}if (pageCount == (maxPage-1)) {
+					$(".bookPaging2").css("visibility", "visible");	
 				}
-				if(pageCount !=1 && pageCount != (maxPage-1)){
-					console.log(pageCount);
-					console.log(currentLeftPage);
-					console.log(currentRightPage);
-					
-					currentRightPage = '#bookPage'+((pageCount*2)-1);
-					currentLeftPage = '#bookPage'+((pageCount*2)-2);
-				}
+
+				//currentPage update
+				console.log("과거"+currentLeftPage+"&&"+currentRightPage);
+				currentLeftPage = '#bookPage'+(pageCount*2);
+				currentRightPage = '#bookPage'+((pageCount*2)+1);
+				console.log("현재"+currentLeftPage+"&&"+currentRightPage);			
+				
+				
+				//currentPage를 visibility로 변경
+				$(currentLeftPage).css("visibility", "visible");
+				$(currentRightPage).css("visibility", "visible");
+				$(currentLeftPage).css("display", "inline");
+				$(currentRightPage).css("display", "inline");
+				
+				
 			});
 
 			$("#toNextPage").click(function() {
 				pageCount = parseInt(pageCount + 1);
-				console.log(pageCount);
+				$("#currentRightPage").html(pageCount*2);
 				
 				//기존에 보여준 페이지를 hidden으로 바꾼다.
 				$(currentRightPage).css("display", "none");
@@ -112,40 +120,23 @@ $(document).ready(
 				
 				//마지막이면 paging2와 버튼 없애기
 				if (pageCount == maxPage) {
-					console.log("마지막");
 					$(this).css("visibility", "hidden");
 					$(".bookPaging2").css("visibility", "hidden");	
-					$(currentRightPage).css("display","inline");		
+					$(currentRightPage).css("display","inline");
+					$("#currentRightPage").html(maxPage*2);		
 				}
 				
 				//currentPage update
-				console.log(pageCount);
-				console.log("과거"+currentLeftPage);
-				console.log(currentRightPage);
+				console.log("과거"+currentLeftPage+"&&"+currentRightPage);
 				currentLeftPage = '#bookPage'+(pageCount*2);
 				currentRightPage = '#bookPage'+((pageCount*2)+1);
-				console.log("현재?"+currentLeftPage);
-				console.log(currentRightPage);			
-
+				console.log("현재?"+currentLeftPage+"&&"+currentRightPage);
 				
 				//currentPage를 visibility로 변경
 				$(currentLeftPage).css("visibility", "visible");
 				$(currentRightPage).css("visibility", "visible");
 				$(currentLeftPage).css("display", "inline");
 				$(currentRightPage).css("display", "inline");
-				
-
-			/*	
-			 * 
-			 * 				
-					$("#bookPage"+((maxPage*2)-1)).css("visibility", "hidden");
-					$(".bookPaging2").css("visibility", "hidden");
-				if(pageCount !=1 && pageCount != maxPage){
-					$(currentRightPage).css("display", "none");
-					$(currentRightPage).css("visibility","hidden");
-					$(currentLeftPage).css("display","none");
-					$(currentLeftPage).css("visibility","hidden");
-				}*/
 
 
 			});
@@ -155,13 +146,10 @@ $(document).ready(
 			$("#saveBook").on('click', function() {
 				html2canvas(element, {
 					onrendered : function(canvas) {
-						console.log("뭐야wwzzw이거");
 						
 						$("#imgSrc").val(canvas.toDataURL("image/png"));
 						var params = $("#photoForm").serialize();
-						var whar = 'whar';
 	                
-						console.log(whar);
 	                    $.ajax({
 	                        type: "post",
 	                        data : $("form").serialize(),
@@ -245,7 +233,6 @@ var drop = function(ev) {
 
 		if (ev.target.nodeName == "SPAN") {
 			var parent = ev.target.parentElement.parentElement.parentElement;
-			console.log(parent.id);
 			while (parent.hasChildNodes()) {	
 				parent.removeChild(parent.firstChild);
 			}
@@ -253,7 +240,6 @@ var drop = function(ev) {
 			imgCutting(parent);
 		} if(ev.target.nodeName == "IMG") {
 			var parent = ev.target.parentElement;
-			console.log(parent.id);
 			while (parent.hasChildNodes()) {	
 				parent.removeChild(parent.firstChild);
 			}
@@ -287,7 +273,6 @@ var drop = function(ev) {
 				toggleDragModeOnDblclick : false,
 			}));
 
-			console.log("크로퍼 생성"+i);
 		}
 	  
 	
@@ -303,7 +288,6 @@ var imgCutting = function(targetDiv) {
 	var imgAspect = img.height / img.width;
 
 	if (imgAspect <= divAspect) {
-		console.log("납작잼");
 		var imgWidthActual = targetDiv.offsetHeight / imgAspect;
 		var imgWidthToBe = targetDiv.offsetHeight / divAspect;
 		var margin = -Math.round((imgWidthActual - imgWidthToBe) / 2);

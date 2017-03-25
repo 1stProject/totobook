@@ -41,7 +41,7 @@ public class MemberModifyController extends HttpServlet {
 		member.setReceiveEmail(email);
 		service.modifyMember(member);
 		
-		response.sendRedirect("list.do");
+		response.sendRedirect(request.getContextPath()+"/views/main.jsp");
 	}
 
 }

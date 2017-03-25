@@ -30,7 +30,7 @@
 		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data" id="photoForm">
         	<div id="photoBookDesciption">
 				포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
-				전체 페이지 수 : ${fn:length(book.pages)}" 장
+				전체 페이지 수 : ${fn:length(book.pages)} 장
 				선택한 상품명 : ${book.product.name}
 				선택된 옵션 : ${book.option }      
 
@@ -72,8 +72,8 @@
 									<span class="fa fa-rotate-right">우로 회전</span>
 								</span>
 							</button>
-							    <input id="btn-Preview-Image" type="button" value="Preview"/>
-								<a id="btn-Convert-Html2Image" href="#">Download</a>
+							<h4>현재 페이지</h4>
+							    <span id="currentRightPage"></span>/${fn:length(book.pages)}
 						</div>
 				</div>
 			</div>

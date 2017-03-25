@@ -13,12 +13,18 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>배송지 수정</h1>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+
 <form action = "${ctx }/order/modify.do" method = "post">
-<div class="table-responsive col-sm-5 col-lg-5">
+<div class="table-responsive col-sm-5 col-lg-5 col-md-offset-2">
+<h1>배송지 수정</h1>
 <table class = "table table-striped table-bordered table-hover">
 	<tr>
 		<th>주문번호</th>

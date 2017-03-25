@@ -6,29 +6,35 @@ header {
 	
 }
 div.headerDiv {
-	width : 940px;
+	width : 1200px;
 	margin :0 auto;
 }
 
 footer {
 	background-color : #eee;
 	border-color : e7e7e7;
+	display : block;
+	max-height : 200px;
+	width : 100%;
+	float : left;
+	
 }
 
 div.footerDiv {
-	width : 940px;
+	width : 1200px;
 	margin :0 auto;
 }
 
 div.contentsContainer {
-	width : 940px;
-	height : 1000px;
+	width : 1200x;
+	height : auto;
 	margin :0 auto;
+	display : block;
 }
 
 div.photoBookContainer {
 	width : 1200px;
-	height : 1000px;
+	height : auto;
 	margin :0 auto;
     align-content: center;
 }

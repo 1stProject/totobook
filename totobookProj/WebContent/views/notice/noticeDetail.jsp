@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 
@@ -22,22 +22,33 @@
 	</header>
 	<table border="1">
 		<tr>
+<<<<<<< HEAD
 			<td>제목 : ${notice.title }</td>
 			<br>
+=======
+			<td>${notice.title }</td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
+<<<<<<< HEAD
 			<td>내용 : ${notice.content }</td>
 			<br>
+=======
+			<td>${notice.content }</td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
 
 			<td><img src=""></td>
-			<br>
 		</tr>
 
 		<tr>
+<<<<<<< HEAD
 			<td>작성자 : ${notice.member.memberId }</td>
 			<br>
+=======
+			<td>${notice.member.memberId }</td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
 			<c:if test="${notice.member.memberId eq 'admin' }">

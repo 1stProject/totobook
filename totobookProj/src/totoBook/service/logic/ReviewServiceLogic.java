@@ -19,12 +19,9 @@ public class ReviewServiceLogic implements ReviewService {
 	}
 
 	
-	
 	@Override
 	public List<Review> findCommentByOrder(String orderId) {
-
 		List<Review> list = new ArrayList<>();
-		
 		list = reviewStore.selectCommentByOrder(orderId);
 		return list;
 	}
@@ -32,18 +29,15 @@ public class ReviewServiceLogic implements ReviewService {
 	@Override
 	public void deleteCommentByMember(String orderId) {
 		reviewStore.deleteCommentByMember(orderId);
-
 	}
 
 	@Override
 	public void deleteCommentByProduct(Product product) {
 		reviewStore.deleteCommentByProduct(product);
-
 	}
 
 	@Override
 	public List<Review> findCommentsByMember(String memberId) {
-		// String memberid = member.getMemberId();
 		List<Review> list = reviewStore.selectCommentsByMember(memberId);
 		return list;
 	}
@@ -65,4 +59,11 @@ public class ReviewServiceLogic implements ReviewService {
 
 	}
 
+@Override
+	public List<Review> findAllComents() {
+	List<Review> list = reviewStore.selectAllComents();
+	return list;
+	}	
+	
+	
 }

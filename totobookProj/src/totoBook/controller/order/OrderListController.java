@@ -32,7 +32,7 @@ public class OrderListController extends HttpServlet {
 		} else {
 			borderId = Integer.parseInt(request.getParameter("borderId"));
 		}
-		String memberId = "Lee@Lee.com";
+		String memberId = "admin";
 		if(memberId != "admin"){
 			temp = service.findOrdersByMemberId(memberId);
 			for(int i=pageSize*borderId-pageSize;i<pageSize*borderId;i++){

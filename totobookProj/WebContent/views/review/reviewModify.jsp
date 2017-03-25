@@ -8,45 +8,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+	
+</script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${ctx }/css/layout.css">
+<title>나의 상품평</title>
 </head>
 <body>
+	<header>
+		<%@ include file="/views/head/header.jspf"%>
+	</header>
+	<nav>
+		<%@ include file="/views/left/leftMyPage.jsp"%>
+	</nav>
+	<div class="col-md-offset-2">
 
-	<div class="content">
-		<form action="${ctx }/review/modify.do" method="post"
-			enctype="multipart/form-data">
-			<table border="1">
-				<c:forEach items="${review }" var="review">
-					<tr>
-						<td>사진</td>
-						<td><img
-							src="${ctx }/review/image.do?orderId=${review.order.orderId}"
-							width="128" height="123"></td>
-					</tr>
-					<tr>
-						<td>상품평</td>
-						<td><input type="text" name="comment"
-							value="${review.comment}"></td>
-					</tr>
-					<tr>
-						<td><input type="file" name="file1"></td>
-					</tr>
-				</c:forEach>
+		<div class="content">
+			<form action="${ctx }/review/modify.do" method="post"
+				enctype="multipart/form-data">
+				<table border="1">
+					<c:forEach items="${review }" var="review">
+						<input type="hidden" value="${review.order.orderId }"
+							name="orderId" id="orderId">
+
+						<tr>
+							<td>사진</td>
+							<td><img
+								src="${ctx }/review/image.do?orderId=${review.order.orderId}"
+								width="128" height="123"></td>
+						</tr>
+						<tr>
+							<td>상품평</td>
+							<td><input type="text" name="comment"
+								value="${review.comment}"></td>
+						</tr>
+						<tr>
+							<td><input type="file" name="file1"></td>
+						</tr>
+					</c:forEach>
 
 
-			</table>
-			<input type="button" name="back" value="뒤로가기"
-				onClick="javascript:history.go(-1);" />
-			<input type="hidden" value="3" name="orderId" >
-				
-				
-			<button type="submit" class="btn">수정</button>
+				</table>
+				<input type="button" name="back" value="뒤로가기"
+					onClick="javascript:history.go(-1);" />
 
-		</form>
+
+
+				<button type="submit" class="btn">수정</button>
+
+			</form>
+		</div>
 	</div>
-
-
-
-
 </body>
+<footer>
+	<%@ include file="/views/foot/footer.jspf"%>
+
+</footer>
+
+
 </html>

@@ -6,8 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+
 </script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <script>
 	$(function(){
 		for(var s = 1;s <= 10; s++){
@@ -36,11 +46,14 @@
             }
 		}
 </script>
+
 <title>Insert title here</title>
-<style>
-</style>
 </head>
 <body>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
+<div class=" col-md-offset-2">
 <h1>사진 업로드</h1>
 <h3>${product.name }</h3>
 	<div id = "image">
@@ -55,5 +68,6 @@
 	<input type = "button" id = "add" value = "사진 추가!">
 	<input type = "submit" value = "저장!">
 </form>
+</div>
 </body>
 </html>

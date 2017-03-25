@@ -20,5 +20,5 @@ public interface ReviewMapper {
 	List<Review> selectCommentsByProduct(String productId);
 	List<Review> selectCommentsByMember(String memberId);
 	List<Review> selectCommentByOrder(String orderId);
-	
+	List<Review> selectAllComents();	
 }
