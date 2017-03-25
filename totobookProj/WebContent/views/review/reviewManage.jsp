@@ -26,16 +26,21 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-<nav>
-	<%@ include file = "/views/left/leftManagePage.jsp" %>
-</nav>
-<div class = "contents-wrap">
-	<div class="col-md-offset-2">
-
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>상품평관리</h3>
+<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
+		</ul>
+	</div>
+	<nav>
+		<%@ include file="/views/left/leftManagePage.jsp"%>
+	</nav>	
+		<div class = "contentsWithLeft">
+					<h3>상품평 관리</h3>
 					<table class="table table-hover table-condensed">
 						<colgroup>
 							<col width="80" align="center">

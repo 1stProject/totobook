@@ -20,13 +20,21 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-<nav>
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
-</nav>
-
 <div class="contentsContainer">
-<div class="table-responsive col-sm-8 col-lg-8 col-md-offset-2">
-<h1>나의 사진 목록</h1>
+	
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	<nav>
+		<%@ include file="/views/left/leftMyPage.jsp"%>
+	</nav>	
+		<div class = "contentsWithLeft">
+<h3>나의 사진 목록</h3>
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width = "20%"/>

@@ -23,7 +23,9 @@
 <header>
 		<%@ include file="../head/header.jspf"%>
 </header>
-			<div class="mypageTitle">
+<div class="contentsContainer">
+	
+	<div class="mypageTitle">
 		<div class="title_left">마이페이지</div>
 		<ul class="title_ul">
 			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
@@ -31,10 +33,10 @@
 			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
 		</ul>
 	</div>
-<nav>
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
-	</nav>
-	
+	<nav>
+		<%@ include file="/views/left/leftMyPage.jsp"%>
+	</nav>	
+		<div class = "contentsWithLeft">
 	<h3>회원탈퇴</h3>
 	<p>탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.<p>
 	<p>회원정보 및 메일,주소록 등 개인형 서비스 이용기록은 모두 삭제되며,삭제된 데이터는 복구되지 않습니다.</p>
@@ -81,6 +83,8 @@
 				<button type="reset" >취소</button>
 				<button type="button" id="pwCheck" onsubmit="return loginValidate();">탈퇴</button>
 		</form>
+		</div>
+		</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>

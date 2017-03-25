@@ -20,11 +20,16 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-	<div class="mypageTitle">
+	<!-- <div class="mypageTitle">
 		<div class="title_left">공지사항</div>
 		
-	</div>
+	</div> -->
 	<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">공지사항</div>
+	</div>
+		<div class = "contentsWithLeft">
 		<table  class="table table-boardered">
 			<thead>
 				<tr>
@@ -58,11 +63,12 @@
 				<c:if test="${member.memberId eq 'admin'}">
 					<tr>
 						<td><a class="register_btn"
-							href="${ctx }/views/notice/noticeForm.jsp" />글쓰기</td>
+							href="${ctx }/views/notice/noticeForm.jsp">글쓰기</a></td>
 					</tr>
 				</c:if>
 			</tbody>
 		</table>
+	</div>
 	</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>

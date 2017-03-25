@@ -53,21 +53,25 @@
 	<select id = "selectAllOrders" resultMap = "orderMap">
 		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
+		Order by order_id
 	</select>
 	<select id = "selectOrdersByMemberId" parameterType = "string" resultMap = "orderMap">
 		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
 		WHERE member_id = #{memberId}
+		Order by order_id
 	</select>
 	<select id = "selectOrdersByDates" parameterType = "date" resultMap = "orderMap">
 		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
 		WHERE order_date between #{startDate} and #{endDate}
+		Order by order_id
 	</select>
 	<select id = "selectOrdersByOrderId" parameterType = "string" resultMap = "orderMap">
 		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
 		WHERE order_id = #{orderId}
+		Order by order_id
 	</select>
 </mapper>
 <!--void insertOrder(Order order);

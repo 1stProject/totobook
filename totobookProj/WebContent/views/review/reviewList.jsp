@@ -26,16 +26,22 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
+	<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
 	<nav>
 		<%@ include file="/views/left/leftMyPage.jsp"%>
-	</nav>
-	<div class="contents-wrap">
-		<div class="col-md-offset-2">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<h3>나의 상품평</h3>
-<table class = "table table-striped table-bordered table-hover">
+	</nav>	
+		<div class = "contentsWithLeft">
+		<h3>나의 상품평</h3>
+	<table class = "table table-striped table-bordered table-hover">
 							<colgroup>
 								<col width="20%">
 								<col width="*">
@@ -56,7 +62,7 @@
 									<c:when test="${review eq null || empty review }">
 										<tr>
 											<td>
-											<td colspan="6" align="center">등록하신 상품평이 없습니다.</td>
+											<td colspan="4" align="center">등록하신 상품평이 없습니다.</td>
 										</tr>
 									</c:when>
 									<c:otherwise>
@@ -81,9 +87,6 @@
 						</table>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
 
 </body>
 

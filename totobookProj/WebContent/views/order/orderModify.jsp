@@ -21,12 +21,23 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-<nav>
+<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
+		</ul>
+	</div>
+	<nav>
 		<%@ include file="/views/left/leftManagePage.jsp"%>
-	</nav>
+	</nav>	
+		<div class = "contentsWithLeft">
 <form action = "${ctx }/order/modify.do" method = "post">
-<div class="table-responsive col-sm-5 col-lg-5 col-md-offset-2">
-<h1>배송지 수정</h1>
+<h3>배송지 수정</h3>
+<div style = "display:block;">
 <table class = "table table-striped table-bordered table-hover">
 	<tr>
 		<th>주문번호</th>
@@ -47,10 +58,12 @@
 	<input type = "hidden" name = "orderId" value = "${order.orderId }">
 </table>
 </div>
-<br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;
-<input type = "submit" value = "수정완료" class = "btn btn-success">
-
+<input type = "submit" value = "수정완료" class = "btn btn-success" style="float:right;">
 </form>
+</div>
+
+
+</div>
 <footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>

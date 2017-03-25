@@ -23,11 +23,22 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
+	<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
+		</ul>
+	</div>
 	<nav>
 		<%@ include file="/views/left/leftManagePage.jsp"%>
-	</nav>
-	<div class="contentsContainer">
-	<h1>주문 상세</h1>
+	</nav>	
+		<!-- <div class="col-sm-7 col-lg-7 col-md-offset-2"> -->
+		<div class = "contentsWithLeft">
+	<h3>주문 상세</h3>
 		<div class="table-responsive col-sm-7 col-lg-7">
 			<c:forEach items="${orders }" var="order">
 				<table class="table table-striped table-bordered table-hover">
@@ -80,6 +91,7 @@
 					class="btn btn-default">배송지 수정</a>
 			</c:forEach>
 		</div>
+	</div>
 	</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>

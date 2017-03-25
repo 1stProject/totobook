@@ -24,9 +24,23 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-
 	<div class="contentsContainer">
-		<h1>주문 창</h1>
+	
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	
+	<nav>
+		<%@ include file = "/views/left/leftMyPage.jsp" %>
+	</nav>
+
+		<div class="contentsWithLeft">
+		<h3>주문 창</h3>
 		<form method="post" action="${ctx }/order/register.do">
 		<div style="display:block;">
 			<div class="table-responsive col-sm-9 col-lg-9">
@@ -84,7 +98,7 @@
 				class="btn btn-success">
 		</form>
 	</div>
-
+</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>
