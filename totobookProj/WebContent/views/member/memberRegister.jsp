@@ -30,9 +30,7 @@
 				<li class="title_li"><a href="${ctx }/views/member/memberRegister.jsp">회원가입</a></li>
 			</ul>
 		</div>
-		<nav>
-			<%@ include file="/views/left/leftManagePage.jsp"%>
-		</nav>
+
 		<div class="col-md-offset-2 col-sm-6 col-lg-6">
 			<h2 class="page-title">신규회원등록</h2>
 			<script
