@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath} </c:set>
 <html>
-
+<head>
+<%@ include file="header.jspf" %>
+</head>
 <body>
     <h3>로그인</h3>
 <div class="login-wrap">
