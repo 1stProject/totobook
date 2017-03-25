@@ -23,10 +23,8 @@ CREATE TABLE order_tb (
 ALTER TABLE order_tb
 ADD CONSTRAINT order_tb_fk FOREIGN KEY (member_id)
 REFERENCES member_tb (member_id);
-ALTER TABLE order_tb
-ADD CONSTRAINT order_tb_fk2 FOREIGN KEY (product_id)
-REFERENCES product_tb (product_id);
-insert into order_tb (order_id, member_id, order_date, payment, total_price, address, bookPhoto_id, category) 
+
+insert into order_tb (order_id, member_id, order_date, payment, total_price, bookphoto_id, category) 
 values (order_seq.NEXTVAL,'Lee@Lee.com','2017-3-20','신용카드', '150000', '1', '사진');
 
 CREATE TABLE print_tb (
@@ -40,9 +38,10 @@ CREATE TABLE print_tb (
 ALTER TABLE print_tb
 ADD CONSTRAINT print_tb_fk1 FOREIGN KEY (member_id)
 REFERENCES member_tb (member_id);
-ALTER TABLE print_tb
-ADD CONSTRAINT print_tb_fk2 FOREIGN KEY (product_id)
-REFERENCES product_tb (product_id);
+alter table order_tb add(category VARCHAR2(50));
+ALTER table order_tb rename column product_id to bookphoto_id;
+select * from order_tb;
+select * from book_tb;
 
 insert into print_tb (print_id, member_id, product_id, print_option) 
 values (print_seq.NEXTVAL,'Lee@Lee.com', 2,'8*8');
