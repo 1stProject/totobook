@@ -58,9 +58,11 @@ public class PrintRegisterController extends HttpServlet {
 		int i = 0;
 		MultipartRequest multi = new MultipartRequest(request, dir , maxSize, "UTF-8");
 		List<Photo> photos = new ArrayList<>();
+		List<Integer> temp = new ArrayList<>();
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){
 			String element = (String)params.nextElement();
+			System.out.println("element : " + element);
 			String fileName = multi.getFilesystemName(element);
 			if(fileName == null){
 				continue;
@@ -68,12 +70,17 @@ public class PrintRegisterController extends HttpServlet {
 				i++;
 				String selectname = "amount" + i;
 				Photo photo = new Photo();
-				photo.setAmount(Integer.parseInt(multi.getParameter(selectname)));
+				temp.add(Integer.parseInt(multi.getParameter(selectname)));
 				photo.setContentType(multi.getContentType(element));
 				photo.setFileName(fileName);
 				photos.add(photo);
 			}
 		}
+		
+		for(int k=0;k<temp.size();k++){
+			photos.get(k).setAmount(temp.get(temp.size()-1-k));
+		}
+		
 		Print print = new Print();
 		HttpSession session = request.getSession();
 		

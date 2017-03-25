@@ -29,11 +29,13 @@
   		SELECT print_id, member_id, product_id, print_option 
   		FROM print_tb
   		WHERE member_id = #{memberId}
+  		order by print_id
   	</select>
   	<select id="selectPrintByPrintId" parameterType = "string" resultMap = "printMap">
   		SELECT print_id, member_id, product_id, print_option
   		FROM print_tb
   		WHERE print_id = #{printId}
+  		order by print_id
   	</select>
 </mapper>
 

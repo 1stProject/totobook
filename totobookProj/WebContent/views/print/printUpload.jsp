@@ -26,7 +26,7 @@
 			var selectname = "amount"+i;
 			var filename = "file"+i;
 			$("<input type = 'file' name = '"+filename+"' id = '"+filename+"' accept=image/* onchange='fileinfo(this)'>").appendTo("#upload");
-			$("<select name = '"+selectname+"' id = '"+selectname+"'></select><br>").appendTo("#upload");
+			$("<select name = '"+selectname+"' id = '"+selectname+"'></select> 개 구매<br>").appendTo("#upload");
 			var sel = "#amount" + i;
 			for(var s = 1;s <= 10; s++){
 				$("<option value = '"+s+"'>"+s+"</option>").appendTo(sel);
@@ -59,7 +59,7 @@
 <form action = "${ctx }/print/register.do" method = "post" enctype = "multipart/form-data">
 	<div id = "upload">
 		<input type = "file" name = "file1" id = "file1" onchange="fileinfo(this)" accept="image/*">
-		<select name = "amount1" id = "amount1"></select>
+		<select name = "amount1" id = "amount1"></select> 개 구매
 		<br>
 	</div>
 	<input type = "hidden" name = "optionDesp" value = ${optionDesp }">
