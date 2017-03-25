@@ -7,10 +7,10 @@
 		<a href = "${ctx }/member/list.do">회원 검색</a>
 	</li>
 	<li>
-		<a href = "${ctx }/product/list.do">상품 관리</a>
+		<a href = "${ctx }/product/adminlist.do">상품 관리</a>
 	</li>
 	<li>
-		<a href = "${ctx }/comment/list.do">상품평 관리</a>
+		<a href = "${ctx }/review/adminlist.do">상품평 관리</a>
 	</li>
 	<li>
 		<a href = "${ctx }/order/list.do">주문 목록/관리</a>

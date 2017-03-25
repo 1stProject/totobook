@@ -22,7 +22,7 @@ public class MemberModifyController extends HttpServlet {
 		String id = request.getParameter("memberId");
 		Member member = service.findMemberById(id);
 		request.setAttribute("member", member);
-		request.getRequestDispatcher("/views/member/modify.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/member/memberModify.jsp").forward(request, response);
 	}	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

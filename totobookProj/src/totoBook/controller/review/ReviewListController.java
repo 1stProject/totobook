@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import totoBook.domain.Member;
 import totoBook.domain.Review;
@@ -33,25 +34,22 @@ public class ReviewListController extends HttpServlet {
 		ReviewService reviewService = new ReviewServiceLogic();
 		MemberService MemberService = new MemberServiceLogic();
 
-		
-		
-		
-		//유저일경우
-		request.getAttribute("member");
-		// userId를 받아온다 세션에 있나?
-		Member member = MemberService.findMemberById("RURE1114");
+		HttpSession session = request.getSession();
+		Member member = (Member) request.getSession();
 		String memberId = member.getMemberId();
 		List<Review> list = reviewService.findCommentsByMember(memberId);
 		request.setAttribute("review", list);
 		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);
 
+		
+		
+		// request.getAttribute("member");
+		// userId를 받아온다 세션에 있나?
+		// Member member = MemberService.findMemberById("RURE1114");
+		// String memberId = member.getMemberId();
 
-//		//관리자일경우
-//		List<Review> list = reviewService.findAllComents();
-//		request.setAttribute("review", list);
-//		request.getRequestDispatcher("/views/review/reviewManage.jsp").forward(request, response);
-		
-		
+		// //관리자일경우
+
 	}
 
 }

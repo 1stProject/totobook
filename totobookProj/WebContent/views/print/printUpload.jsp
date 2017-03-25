@@ -53,6 +53,7 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
+<div class=" col-md-offset-2">
 <h1>사진 업로드</h1>
 <h3>${product.name }</h3>
 	<div id = "image">
@@ -67,5 +68,6 @@
 	<input type = "button" id = "add" value = "사진 추가!">
 	<input type = "submit" value = "저장!">
 </form>
+</div>
 </body>
 </html>
