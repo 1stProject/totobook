@@ -27,6 +27,7 @@ public class NoticeServiceLogic implements NoticeService {
 	@Override
 	public void modifyNotice(Post post) {
 		NoticeStore store = new NoticeStoreLogic();
+		System.out.println("일로 와야지");
 		store.updateNotice(post);
 
 	}

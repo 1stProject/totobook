@@ -36,6 +36,7 @@ public class NoticeModifyController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
+		System.out.println("modify.do");
 		Member member = (Member) session.getAttribute("member");
 		String memberId = member.getMemberId();
 		System.out.println(memberId);
@@ -54,6 +55,7 @@ public class NoticeModifyController extends HttpServlet {
 		post.setContent(multi.getParameter("content"));
 
 		post.setPostId(multi.getParameter("postId"));
+		System.out.println(multi.getParameter("postId"));
 		if (imageAddress == null) {
 			post.setImageAddressPath("");
 		} else {
@@ -64,7 +66,7 @@ public class NoticeModifyController extends HttpServlet {
 		post.setMember(member1);
 
 		service.modifyNotice(post);
-		response.sendRedirect(request.getContextPath() + "/notice/detail.do");
+		response.sendRedirect(request.getContextPath() + "/notice/detail.do?noticeId=" + post.getPostId());
 
 	}
 

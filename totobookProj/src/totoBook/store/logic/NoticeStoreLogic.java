@@ -50,6 +50,7 @@ public class NoticeStoreLogic implements NoticeStore {
 
 	@Override
 	public void updateNotice(Post post) {
+		System.out.println("다음은 여기");
 		SqlSession session = factory.openSession();
 		try {
 			System.out.println("thie is " + post.getMember().getMemberId());
