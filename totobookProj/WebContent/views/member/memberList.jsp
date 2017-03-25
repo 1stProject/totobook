@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <head>
 <%@ include file="header.jspf" %>
 </head>
@@ -11,7 +14,7 @@
 	<%@ include file = "/views/left/leftManagePage.jsp" %>
 </nav>
 <body>
-<div class="contents-wrap">
+<div class="col-md-offset-2">
 <form action="list.do" method="post">
 	<select name="slist">
 		<option value="name" >이름</option>
@@ -52,7 +55,6 @@
         </table>
     </div>
 </div>
-
 </body>
 </html>
 

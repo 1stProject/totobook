@@ -28,6 +28,7 @@
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
 	<div class="contents-wrap">
+	<div class="col-md-offset-2">
 
 
 		<c:forEach items="${product }" var="product">
@@ -47,10 +48,12 @@
 
 		</c:forEach>
 	</div>
-
-
-
-
-
+	</div>
 </body>
+
+<footer>
+	<%@ include file = "/views/foot/footer.jspf" %>
+</footer>
+
+
 </html>

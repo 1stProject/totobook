@@ -9,6 +9,7 @@ CREATE TABLE book_tb (
   book_id varchar2(50),
   book_name varchar2(50) default '포토북 이름',
   member_id varchar2(50) not null,
+  product_id varchar2(50) not null,
   save_date date default sysdate,
   book_option varchar2(50),
  PRIMARY KEY (book_id)
@@ -18,8 +19,12 @@ ALTER TABLE BOOK_TB
 ADD CONSTRAINT BOOK_TB FOREIGN KEY(MEMBER_ID)
 REFERENCES MEMBER_TB(MEMBER_ID);
 
-INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, BOOK_OPTION)
-VALUES(BOOK_SEQ.NEXTVAL, '주희의 책', 'RURE1114', '사이즈 : 8*10 , 커버 : 하드 ');
+ALTER TABLE BOOK_TB
+ADD CONSTRAINT BOOK_TB_PRO FOREIGN KEY(PRODUCT_ID)
+REFERENCES PRODUCT_TB(PRODUCT_ID);
+
+INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, BOOK_OPTION, PRODUCT_ID)
+VALUES(BOOK_SEQ.NEXTVAL, '주희의 책', 'RURE1114', '사이즈 : 8*10 , 커버 : 하드 ', '1');
 
 DROP TABLE PAGE_TB;
 

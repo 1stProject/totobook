@@ -59,6 +59,11 @@
 
 </select>
 	
+	
+	<select id="selectAllComents" parameterType="String" resultMap="reviewMap">
+		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, ORDER_ID
+		FROM REVIEW_TB	
+	</select>
 
 
 </mapper>

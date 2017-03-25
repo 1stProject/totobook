@@ -27,7 +27,7 @@
 <div class = "contents-wrap">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-offset-2">
 				<h3>상품관리</h3>
 				<table class="table table-hover table-condensed">
 					<colgroup>
@@ -79,6 +79,13 @@
 		</div>
 	</div>
 </div>	
-
 </body>
+
+<footer>
+	<%@ include file = "/views/foot/footer.jspf" %>
+
+</footer>
+
+
+
 </html>

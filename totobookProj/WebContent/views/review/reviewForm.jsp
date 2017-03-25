@@ -25,6 +25,7 @@
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 </nav>
 <div class = "contents-wrap">
+	<div class="col-md-offset-2">
 
 		<form action="${ctx }/review/register.do" method="post"
 			enctype="multipart/form-data">
@@ -45,7 +46,13 @@
 			
 			<button type="submit" class="btn">등록</button>
 		</form>
-
+</div>
 	</div>
 </body>
+
+<footer>
+	<%@ include file = "/views/foot/footer.jspf" %>
+</footer>
+
+
 </html>
