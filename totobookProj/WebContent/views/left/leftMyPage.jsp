@@ -4,14 +4,18 @@
 <!-- Sidebar -->
 <div id = "sidebar-wrapper">
 <ul class = "sidebar-nav">
+
 	<li>
-		<a href = "${ctx }/order/list.do">주문조회</a>
+		<a href = "${ctx }/order/list.do">주문내역 보기</a>
 	</li>
 	<li>
-		<a href = "${ctx }/review/list.do">상품평 조회</a>
+		<a href = "${ctx }/review/list.do">내 상품평 보기</a>
 	</li>
 	<li>
-		<a href = "${ctx }/views/member/memberModify.jsp?memberId=${member.memberId }">개인정보 수정</a>
+		<a href = "${ctx }/member/detail.do?memberId=${member.memberId}">내 정보 보기</a>
+	</li>
+	<li>
+		<a href = "${ctx }/member/modify.do?memberId=${member.memberId }">개인정보 수정</a>
 	</li>
 	<li>
 		<a href = "${ctx }/book/list.do">나의 포토북 관리</a>
