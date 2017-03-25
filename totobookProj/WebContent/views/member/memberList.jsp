@@ -44,7 +44,7 @@
 					<thead>
 						<tr>
 							<th>이름</th>
-							<th>폰번</th>
+							<th>휴대폰번호</th>
 							<th>아이디</th>
 						</tr>
 					</thead>
@@ -52,8 +52,7 @@
 						<c:forEach items="${memberList }" var="ml">
 
 							<tr>
-								<td><a
-									href="${ctx }/member/detail.do?memberId=${ml.memberId }">${ml.name }</a></td>
+								<td><a href="${ctx }/member/detail.do?memberId=${ml.memberId }">${ml.name }</a></td>
 								<td>${ml.phone }</td>
 								<td>${ml.memberId }</td>
 							</tr>
@@ -65,7 +64,7 @@
 				<div class = "col-sm-3 col-lg-3">
 				<select name="slist" class = "form-control">
 					<option value="name">이름</option>
-					<option value="phone">폰번</option>
+					<option value="phone">핸드폰번호</option>
 					<option value="memberId">아이디</option>
 				</select> 
 				</div>

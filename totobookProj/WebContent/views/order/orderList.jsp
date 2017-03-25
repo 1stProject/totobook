@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${ctx }/css/layout.css">
+<link rel="stylesheet" href="${ctx }/css/sidebarheader.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -17,19 +19,18 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="${ctx }/css/sidebarheader.css">
+
 <title>Insert title here</title>
 </head>
 <body>
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-
+	<nav>
+		<%@ include file="/views/left/leftManagePage.jsp"%>
+	</nav>
 	<div class="contentsContainer">
-		<nav>
-			<%@ include file="/views/left/leftManagePage.jsp"%>
-		</nav>
+		
 		<div class="col-sm-7 col-lg-7 col-md-offset-2">
 			<h1>주문 목록</h1>
 

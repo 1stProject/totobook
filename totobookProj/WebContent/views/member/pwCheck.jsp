@@ -11,18 +11,22 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="${ctx }/css/sidebarheader.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${ctx }/css/layout.css">
+<link rel="stylesheet" href="${ctx }/css/sidebarheader.css">
 </head>
-<body>	
+<title>회원 정보</title>
+<body>
 <header>
 		<%@ include file="../head/header.jspf"%>
-	</header>
-
-	<div class="contentsContainer">
-	<div class="contents-wrap">
+</header>
+<nav>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+	</nav>
+	
 		<h2 class="page-title">비밀번호 체크</h2>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -66,7 +70,6 @@
 				<button type="submit" id="pwCheck" onsubmit="return loginValidate();">탈퇴</button>
 			</div>
 		</form>
-	</div>	</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>

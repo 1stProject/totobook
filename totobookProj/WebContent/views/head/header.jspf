@@ -12,7 +12,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand"
-					href="../index.jsp">토토북</a>
+					href="${ctx }/main/main.do">토토북</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">
@@ -21,6 +21,12 @@
 						<c:when test="${member.memberId eq null || member.memberId eq ''}">
 							<li><a href="${ctx }/views/member/login.jsp">로그인</a></li>
 							<li><a href="${ctx }/views/member/memberRegister.jsp">회원가입</a></li>
+						</c:when>
+						<c:when test="${member.memberId eq 'admin' }">
+							<li><a href="#">관리자님 환영합니다.</a></li>
+							<li><a href="${ctx }/member/logout.do">로그아웃</a></li>
+							<li><a
+								href="${ctx }/member/list.do?memberId=${member.memberId }">관리자 페이지</a></li>
 						</c:when>
 						<c:otherwise>
 							<li><a href="#"><b>${member.name}</b>님 환영합니다.</a></li>
@@ -36,17 +42,17 @@
 	</div>
 	<hr>
 	<div class="widMargin textCenter">
-		<a href="http://localhost:8080/totobookProj/views/main.jsp"><img class="logo" src="${ctx }/images/logo.png" alt="totobookLogo"></a>
+		<a href="${ctx }/main/main.do"><img class="logo" src="${ctx }/images/logo.png" alt="totobookLogo"></a>
 	</div>
 	<hr>
 	<div class="widMargin textCenter topBoard">
 		<div class="row">
 			<div class="col-sm-6">
-				<a href="${ctx }/product/list.do?category=print"><img
+				<a href="${ctx }/product/list.do?category=PRINT"><img
 					src="${ctx }/images/mainImage/btn/printBtn.png" alt="최고의 사진들"></a>
 			</div>
 			<div class="col-sm-6">
-				<a href="${ctx }/product/list.do?category=book"> <img
+				<a href="${ctx }/product/list.do?category=BOOK"> <img
 					src="${ctx }/images/mainImage/btn/bookBtn.png" alt="최고의 포토북">
 				</a>
 			</div>

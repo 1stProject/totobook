@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Post;
 import totoBook.service.NoticeService;
+import totoBook.service.QuestionService;
 import totoBook.service.logic.NoticeServiceLogic;
+import totoBook.service.logic.QuestionServiceLogic;
 
 @WebServlet("/main/main.do")
 public class MainViewController extends HttpServlet {
@@ -20,6 +22,7 @@ public class MainViewController extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NoticeService noticeService = new NoticeServiceLogic();
+		QuestionService questionService = new QuestionServiceLogic();
 		
 		List<Post> tempList = noticeService.findAllNotice();
 		List<Post> noticeList = new ArrayList<>();
@@ -32,7 +35,13 @@ public class MainViewController extends HttpServlet {
 		System.out.println("noticeList size : " + noticeList.size());
 		request.setAttribute("noticeList", noticeList);
 		
+		tempList = questionService.findAllQuestion();
 		List<Post> qnaList = new ArrayList<>();
+		if(tempList.size() < 4){
+			for(Post post : tempList)
+				qnaList.add(post);
+		}
+		request.setAttribute("qnaList", qnaList);
 		request.getRequestDispatcher("/views/main.jsp").forward(request, response);
 	}
 }
