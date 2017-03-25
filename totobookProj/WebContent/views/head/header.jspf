@@ -3,36 +3,53 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- Navbar -->
 <nav class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#myNavbar">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand"
-				href="http://localhost:8080/totobookProj/views/main.jsp">토토북</a>
-		</div>
-	
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav navbar-right">	
+	<div class="headerContainer">
+		<div class="widMargin">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand"
+					href="http://localhost:8080/totobookProj/views/main.jsp">토토북</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
 					<c:choose>
 						<c:when test="${member.memberId eq null || member.memberId eq ''}">
-						<li><a href="${ctx }/views/member/login.jsp">로그인</a></li>
-						<li><a href="${ctx }/views/member/memberRegister.jsp">회원가입</a></li>
+							<li><a href="${ctx }/views/member/login.jsp">로그인</a></li>
+							<li><a href="${ctx }/views/member/memberRegister.jsp">회원가입</a></li>
 						</c:when>
 						<c:otherwise>
-						<li><a href="#"><b>${member.name}</b>님 환영합니다.</a></li>
-						<li><a href="${ctx }/member/logout.do">로그아웃</a></li>
-						<li><a href="${ctx }/member/detail.do?memberId=${member.memberId }">마이페이지</a></li>
+							<li><a href="#"><b>${member.name}</b>님 환영합니다.</a></li>
+							<li><a href="${ctx }/member/logout.do">로그아웃</a></li>
+							<li><a
+								href="${ctx }/member/detail.do?memberId=${member.memberId }">마이페이지</a></li>
 						</c:otherwise>
 					</c:choose>
-						<li><a href="${ctx }/notice/list.do">공지사항</a></li>
-					</ul>
-				</div>
-		<c:if test="">
-
-		</c:if>
-
+					<li><a href="${ctx }/notice/list.do">공지사항</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="widMargin textCenter">
+		<img class="logo" src="${ctx }/images/logo.png" alt="totobookLogo">
+	</div>
+	<hr>
+	<div class="widMargin textCenter topBoard">
+		<div class="row">
+			<div class="col-sm-6">
+				<a href="${ctx }/product/list.do?category=print"><img
+					src="${ctx }/images/mainImage/btn/printBtn.png" alt="최고의 사진들"></a>
+			</div>
+			<div class="col-sm-6">
+				<a href="${ctx }/product/list.do?category=book"> <img
+					src="${ctx }/images/mainImage/btn/bookBtn.png" alt="최고의 포토북">
+				</a>
+			</div>
+		</div>
 	</div>
 </nav>
