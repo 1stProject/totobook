@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import totoBook.domain.Member;
 import totoBook.domain.Order;
 import totoBook.service.OrderService;
 import totoBook.service.logic.OrderServiceLogic;
@@ -32,8 +34,11 @@ public class OrderListController extends HttpServlet {
 		} else {
 			borderId = Integer.parseInt(request.getParameter("borderId"));
 		}
-		String memberId = "admin";
-		if(memberId != "admin"){
+		HttpSession session = request.getSession();
+		
+		Member member = (Member)session.getAttribute("member");
+		String memberId = member.getMemberId();
+		if(!memberId.equals("admin")){
 			temp = service.findOrdersByMemberId(memberId);
 			for(int i=pageSize*borderId-pageSize;i<pageSize*borderId;i++){
 				if(i >= temp.size()){
@@ -51,6 +56,7 @@ public class OrderListController extends HttpServlet {
 			request.setAttribute("maxBorder", maxBorder);
 			request.setAttribute("size", temp.size());
 			request.getRequestDispatcher("/views/order/orderMemberList.jsp").forward(request, response);
+			
 		}
 		else{
 			temp = service.findAllOrders();
