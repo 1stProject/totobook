@@ -22,7 +22,7 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
+
 <!-- First Container -->
 
 <div class = "col-md-offset-2"></div>
