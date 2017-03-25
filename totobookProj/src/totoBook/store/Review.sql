@@ -3,7 +3,7 @@ CREATE TABLE review_tb (
   member_id varchar2(20) NOT NULL,
   product_id varchar2(20) NOT NULL,
   CONTENT varchar2(400) NOT NULL,
-  IMAGE_ADDRESS varchar2(20),
+  IMAGE_ADDRESS varchar2(20) DEFAULT null,
   order_id varchar2(20),
   CONSTRAINT PK_REVIEW_TB PRIMARY KEY(ORDER_ID)
 );
