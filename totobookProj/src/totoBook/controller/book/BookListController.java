@@ -1,7 +1,6 @@
 package totoBook.controller.book;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import totoBook.domain.Book;
+import totoBook.domain.Member;
 import totoBook.service.BookService;
 import totoBook.service.logic.BookServiceLogic;
 
@@ -28,7 +28,7 @@ public class BookListController extends HttpServlet {
 		HttpSession session = request.getSession();
 		BookService service = new BookServiceLogic();
 		
-		String memberId = (String)session.getAttribute("memberId");
+		String memberId = ((Member)session.getAttribute("member")).getMemberId();
 		
 		List<Book> books = service.findBooksByMemberId(memberId);
 		
