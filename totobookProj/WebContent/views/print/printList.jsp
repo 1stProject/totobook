@@ -54,7 +54,7 @@
 	<c:otherwise>
 	<c:forEach items = "${list }" var = "print">
 		<tr>
-			<td>${print.printId }</td>
+			<td><a href = "${ctx }/print/view.do?printId=${print.printId }">${print.printId }</a></td>
 			<td>${print.optionDesp }</td>
 			<td>${print.product.name }</td>
 			<td class="text-center"><a class = "btn btn-primary" href = "${ctx }/order/register.do?printId=${print.printId}">주문하기</a></td>
