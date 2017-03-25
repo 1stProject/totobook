@@ -21,6 +21,9 @@
 </head>
 <header> <%@ include file="/views/head/header.jspf"%>
 </header>
+<div class="mypageTitle">
+		<div class="title_left">답글작성</div>
+	</div>
 <table  class="table table-boardered">
 <form action="${ctx }/answer/register.do" method="post">
 <tr>

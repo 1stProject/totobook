@@ -29,6 +29,8 @@
 			<div class="col-md-offset-2">
 			<c:choose>
 			<c:when test="${product.category  eq 'PRINT' }">
+			<form method = "get" action = "${ctx }/print/register.do?">
+			<input type = "hidden" name = "productId" value = "${product.productId}">
 				<table border="1">
 					<tr>
 						<td>제품사진</td>
@@ -52,7 +54,7 @@
 						<td colspan="2">옵션</td>
 						<tr>
 						<td>사이즈</td>
-					<td><select name="optionName" id="optionName"
+					<td><select name="option1" id="option1"
 							style="width: 80px;" class="select_02">
 							<c:forEach items="${product.options }" var="option">
 								<option value="${option.optionName}">${option.optionName}</option>
@@ -62,7 +64,7 @@
 					</tr>
 				<tr>
 					<td>규격</td>
-					<td><select name="optionName" id="optionName"
+					<td><select name="option2" id="option2"
 							style="width: 80px;" class="select_02">
 							<c:forEach items="${product.options }" var="option">
 								<option value="${option.optionDesp}">${option.optionDesp}</option>
@@ -106,8 +108,8 @@
 					</table>
 				<button type="button" onclick="javascript:history.back(-1);"
 					class="btn">목록</button>
-				<a class="btn btn-sm btn-success"
-					href="${ctx }/print/register.do?productId=${product.productId}">주문하기</a>
+				<input type = "submit" class = "btn btn-success" value = "주문하기">
+				</form>
 			</c:when>
 			
 			

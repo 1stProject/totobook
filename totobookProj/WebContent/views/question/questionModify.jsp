@@ -19,6 +19,10 @@
 <body>
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
+	<div class="mypageTitle">
+		<div class="title_left">문의사항 수정</div>
+		
+	</div>
 	<table class="table table-boardered">
 		<form action="${ctx }/question/modify.do" method="post"
 			enctype="multipart/form-data">

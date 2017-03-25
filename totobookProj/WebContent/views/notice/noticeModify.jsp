@@ -19,6 +19,10 @@
 <body>
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
+	<div class="mypageTitle">
+		<div class="title_left">공지사항수정</div>
+		
+	</div>
 	<table class="table table-boardered">
 		<form action="${ctx }/notice/modify.do" method="post"
 			enctype="multipart/form-data">

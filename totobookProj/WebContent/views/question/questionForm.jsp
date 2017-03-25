@@ -19,7 +19,10 @@
 <body>
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
-
+<div class="mypageTitle">
+		<div class="title_left">문의사항작성</div>
+		
+	</div>
 	<div class="table table-boardered">
 		<header> </header>
 		<form action="${ctx }/question/register.do" method="post"

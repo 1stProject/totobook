@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 
 import totoBook.domain.Member;
+import totoBook.domain.Option;
 import totoBook.domain.Photo;
 import totoBook.domain.Print;
 import totoBook.domain.Product;
@@ -42,6 +43,11 @@ public class PrintRegisterController extends HttpServlet {
 		String productId = request.getParameter("productId");
 		Product product = productService.findProductById(productId);
 		request.setAttribute("product", product);
+		String optionDesp = "";
+		optionDesp += request.getParameter("option1") + ";";
+		optionDesp += request.getParameter("option2") + ";";
+		request.setAttribute("optionDesp", optionDesp);
+		System.out.println(optionDesp);
 		request.getRequestDispatcher("/views/print/printUpload.jsp").forward(request, response);
 	}
 
@@ -55,20 +61,17 @@ public class PrintRegisterController extends HttpServlet {
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){
 			String element = (String)params.nextElement();
-			System.out.println(element);
 			String fileName = multi.getFilesystemName(element);
 			if(fileName == null){
 				continue;
 			} else {
 				i++;
 				String selectname = "amount" + i;
-				System.out.println(selectname + " : " + multi.getParameter(selectname));
 				Photo photo = new Photo();
 				photo.setAmount(Integer.parseInt(multi.getParameter(selectname)));
 				photo.setContentType(multi.getContentType(element));
 				photo.setFileName(fileName);
 				photos.add(photo);
-				System.out.println(fileName);
 			}
 		}
 		Print print = new Print();
@@ -76,10 +79,15 @@ public class PrintRegisterController extends HttpServlet {
 		
 		Member member = (Member)session.getAttribute("member");
 		String memberId = member.getMemberId();
-		Product product = new Product();
-		product.setProductId("2");
+		String productId = multi.getParameter("productId");
+		Product product = productService.findProductById(productId);
+		product.setOptions(productService.findOption(productId));
 		print.setMember(member);
-		print.setOptionDesp("반짝이는 황금색으로");
+		List<Option> options = product.getOptions();
+		System.out.println("option size : " + options.size());
+		String optionString = multi.getParameter("optionDesp");
+		
+		print.setOptionDesp(optionString);
 		print.setProduct(product);
 		print.setPhotos(photos);
 		printService.registerPrint(print);
