@@ -5,6 +5,12 @@
 <div id = "sidebar-wrapper">
 <ul class = "sidebar-nav">
 	<li>
+		<a href = "${ctx }/order/list.do">주문조회</a>
+	</li>
+	<li>
+		<a href = "${ctx }/review/list.do">상품평 조회</a>
+	</li>
+	<li>
 		<a href = "${ctx }/views/member/memberModify.jsp?memberId=${member.memberId }">개인정보 수정</a>
 	</li>
 	<li>
@@ -13,12 +19,8 @@
 	<li>
 		<a href = "${ctx }/print/list.do">나의 사진인화 관리</a>
 	</li>
-	<li>
-		<a href = "${ctx }/order/list.do">주문조회</a>
-	</li>
-	<li>
-		<a href = "${ctx }/review/list.do">상품평 조회</a>
-	</li>
+
+
 	<li>
 		<a href = "${ctx }/question/list.do">문의하기</a>
 	</li> 
