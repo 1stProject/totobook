@@ -45,6 +45,7 @@ div.header2Div {
 	m
 }
 
+/* footer */
 footer {
 	background-color : #eee;
 	border-color : e7e7e7;
@@ -59,7 +60,7 @@ div.footerDiv {
 	width : 1200px;
 	margin :0 auto;
 }
-
+/* footer */
 div.contentsContainer {
 	width : 1200px;
 	height : 1000px;
@@ -259,4 +260,11 @@ li.title_li_icon{
 	margin : 0 10px 0 20px;
 }
 
+/* 로그인 페이지 */
+div.login-wrap {
+	margin : 20px auto;
+	padding : 40px;
+	height : auto;
+	background-color : antiquewhite;	
+}
 
