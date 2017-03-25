@@ -26,10 +26,11 @@
 								type : "GET",
 								success : function(data) {
 									if(data==null){
-										var test = document.getElementById("btn-reg");
+										var test = document.getElementById("btn");
 										test.innerHTML = "<a href='${ctx }/answer/register.do?answerId="+ postId +" '><button type='button'>버튼</button></a>";
 									}else{
-										alert("nn");
+										var test = document.getElementById("btn");
+										test.innerHTML = "<a href='${ctx }/answer/delete.do?answerId="+ postId +" '><button type='button'>버튼</button></a>";
 									}
 									
 								},
@@ -69,7 +70,7 @@
 			<!--${question.postId }  -->
 			<td><input type="hidden" id="postId" value="${question.postId }">
 
-				<div id="btn-reg">
+				<div id="btn">
 				
 				</div>
 		</tr>

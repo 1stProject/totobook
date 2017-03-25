@@ -59,16 +59,6 @@ public class ReviewModifyController extends HttpServlet {
 		ReviewService reviewService = new ReviewServiceLogic();
 		OrderService orderService = new OrderServiceLogic();
 		
-		
-		String orderId ="3";
-//		= request.getParameter("orderId");
-		System.out.println(orderId);
-		List<Order> list = new ArrayList<>();
-		list = orderService.findOrdersByOrderId(orderId);
-
-		Order order = list.get(0);
-		
-		
 		System.out.println("수정");
 		int maxPostSize = 10 * 1024 * 1024;
 		response.setContentType("text/html; charset=UTF-8");
@@ -76,6 +66,14 @@ public class ReviewModifyController extends HttpServlet {
 		String dir = cxt.getRealPath("/upload/review");
 		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
 
+		String orderId =multi.getParameter("orderId");
+		System.out.println(orderId);
+		List<Order> list = new ArrayList<>();
+		list = orderService.findOrdersByOrderId(orderId);
+
+		Order order = list.get(0);		
+		
+		
 		Photo photo = new Photo();
 
 		photo.setContentType(multi.getContentType("file1"));
