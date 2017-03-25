@@ -29,6 +29,7 @@
 
 		<form action="${ctx }/review/register.do" method="post"
 			enctype="multipart/form-data">
+			<input type="hidden" value="${order.orderId}" name="orderId">
 			<table border="1">
 			
 							<tr>
@@ -42,7 +43,6 @@
 				</tr>
 			</table>	
 			<button type="button" onclick="javascript:history.back(-1);" class="btn">목록</button>
-<input type="hidden" value="${orderId}" name="orderId">
 			
 			<button type="submit" class="btn">등록</button>
 		</form>
