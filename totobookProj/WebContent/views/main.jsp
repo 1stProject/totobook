@@ -22,7 +22,7 @@
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
 <!-- First Container -->
-<div class="container-fluid bg-1 text-center col-sm-8 col-md-offset-2" style="border: 1px solid red;padding:20px;">    
+<div class="container-fluid bg-1 text-center col-sm-8 col-md-offset-2" style="border: 1px solid red;padding:20px;"> 
   <h3>Where To Find Me?</h3><br>
   <div class="row">
     <div class="col-sm-6" style="border: 1px solid gold;">
