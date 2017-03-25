@@ -26,7 +26,8 @@
 	<div class="mypageTitle">
 		<div class="title_left">마이페이지</div>
 		<ul class="title_ul">
-			<li class="title_li_home"><a href="${ctx }/views/main.jsp">HOME</a> > </li>
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
 			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
 		</ul>
 	</div>

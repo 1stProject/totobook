@@ -1,6 +1,7 @@
 package totoBook.controller.order;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ public class OrderFindController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderService service = new OrderServiceLogic();
-		final int pageSize = 5;
+		final int pageSize = 50;
 		int borderId = 0;
 		if(request.getParameter("borderId") == null){
 			borderId = 1;
@@ -31,7 +32,7 @@ public class OrderFindController extends HttpServlet {
 		}
 		String category = request.getParameter("category");
 		List<Order> orders = null;
-		List<Order> list = null;
+		List<Order> list = new ArrayList<>();
 		String search = request.getParameter("search");
 		if(category.equals("orderId")){
 			orders = service.findOrdersByOrderId(search);
@@ -39,14 +40,14 @@ public class OrderFindController extends HttpServlet {
 		else {
 			orders = service.findOrdersByMemberId(search);
 		}
-		for(int i=pageSize*borderId-pageSize;i<pageSize*borderId;i++){
+		/*for(int i=pageSize*borderId-pageSize;i<pageSize*borderId;i++){
 			if(i >= orders.size()){
 				break;
 			}
 			else
 				list.add(orders.get(i));
-		}
-		request.setAttribute("orders", list);
+		}*/
+		request.setAttribute("orders", orders);
 		request.setAttribute("pageSize", pageSize);
 		request.setAttribute("arraysize", orders.size());
 		int maxBorder = orders.size()/pageSize;

@@ -34,7 +34,6 @@ public class ProductRegisterController extends HttpServlet {
 			throws ServletException, IOException {
 
 		ProductService productService = new ProductServiceLogic();
-		System.out.println("등록");
 		int maxPostSize = 10 * 1024 * 1024;
 		response.setContentType("text/html; charset=UTF-8");
 		ServletContext cxt = getServletContext();

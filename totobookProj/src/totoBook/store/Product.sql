@@ -18,4 +18,6 @@ VALUES(PRODUCT_SEQ.NEXTVAL, '결혼식포토북', 20000, 'BOOK', '행복한 결�
 INSERT INTO PRODUCT_TB(PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL, IMAGE_ADDRESS)
 VALUES(PRODUCT_SEQ.NEXTVAL, '사진인화-반명함', 5000, 'PRINT', '반명함 사진을 인화합니다. 보정가능 짱짱', '');
 
+-- upload파일경로 /upload/product
+
 COMMIT;

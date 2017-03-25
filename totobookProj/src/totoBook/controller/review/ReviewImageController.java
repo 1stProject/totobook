@@ -39,7 +39,6 @@ public class ReviewImageController extends HttpServlet {
 		phto.setContentType(imagead);
 		
 		
-		System.out.println(imagead);
 		
 		list.get(0).setPhoto(phto);
 		String fileName = null;
@@ -49,7 +48,6 @@ public class ReviewImageController extends HttpServlet {
 			ServletContext cxt = getServletContext();
 			String dir = cxt.getRealPath("/upload/review/");
 			fileName = dir + "/"  + list.get(0).getImageAddress();
-			System.out.println(fileName);
 			in = new BufferedInputStream(new FileInputStream(fileName));
 		}
 
