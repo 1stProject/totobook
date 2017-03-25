@@ -62,6 +62,8 @@
 	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
 </c:forEach>
 </div>
-</div>
+<footer>
+		<%@include file="../foot/footer.jspf"%>
+	</footer>
 </body>
 </html>

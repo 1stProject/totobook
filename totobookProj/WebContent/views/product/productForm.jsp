@@ -38,8 +38,8 @@
 					<tr>
 						<td>상품카테고리</td>
 						<td><select name="category">
-								<option value="book">포토북</option>
-								<option value="print">사진</option>
+								<option value="BOOK">포토북</option>
+								<option value="PRINT">사진</option>
 						</select></td>
 					</tr>
 					<tr>

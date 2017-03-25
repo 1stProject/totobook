@@ -1,6 +1,8 @@
 package totoBook.controller.product;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Product;
 import totoBook.service.ProductService;
-import totoBook.service.ReviewService;
 import totoBook.service.logic.ProductServiceLogic;
-import totoBook.service.logic.ReviewServiceLogic;
 
 /**
- * @author
- * @version 1.0
+ * Servlet implementation class ProductAdminListController
  */
-@WebServlet("/product/remove.do")
-public class ProductRemoveController extends HttpServlet {
+@WebServlet("/product/adminlist.do")
+public class ProductAdminListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -27,20 +26,14 @@ public class ProductRemoveController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		ProductService productService = new ProductServiceLogic();
-		ReviewService reviewService = new ReviewServiceLogic();
+
+		List<Product> list = new ArrayList<>();
+		list = productService.findAllProducts();
+		request.setAttribute("product", list);
+		request.getRequestDispatcher("/views/product/prodcutManage.jsp").forward(request, response);
 		
-		Product product= new Product();
-		product = productService.findProductById(request.getParameter("productId"));
-		
-		String productId = product.getProductId();
-		
-		productService.removeProduct(product);
-		productService.removeOption(productId);
-		reviewService.deleteCommentByProduct(product);
-		
-		response.sendRedirect("adminlist.do");
-	
 	
 	}
 

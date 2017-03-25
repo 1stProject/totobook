@@ -80,7 +80,7 @@ public class ProductRegisterController extends HttpServlet {
 
 		product.setOptions(list);
 
-		response.sendRedirect("list.do");
+		response.sendRedirect("adminlist.do");
 
 	}
 
