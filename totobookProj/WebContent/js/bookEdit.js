@@ -36,16 +36,19 @@ $(document).ready(
 			});
 
 			$(".layoutIcon1").click(function() {
+				console.log("머여");
 				var src = $(this).attr("src");
 				$(selectedPage).empty();
 
 				var node1 = document.createElement("div");
 				node1.id = "photoLayoutDiv1";
 				if (src == "/totobookProj/views/book/A3_layout_1.jpg") {
-					node1.className = "container";
+					console.log("머지");
+					node1.className = "photoLayoutLarge";
 					$(selectedPage).append(node1);
 				}
 				if (src == "/totobookProj/views/book/A3_layout_2.jpg") {
+					console.log("머지?");
 					node1.className = "photoLayoutMedium";
 					node1.setAttribute("style", "margin-top:45%")
 					$(selectedPage).append(node1);
