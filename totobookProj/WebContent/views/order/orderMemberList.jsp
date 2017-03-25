@@ -45,7 +45,13 @@
 		</tr>
 	</thead>
 	<tbody>
-	
+	<c:choose>
+	<c:when test="${empty orders }">
+	<tr>
+		<td colspan = 5 class = "text-center">주문 내역이 없습니다</td>
+	</tr>
+	</c:when>
+	<c:otherwise>
 <c:forEach items = "${orders }" var = "order">
 		<tr>
 			<td>${order.orderId }</td>
@@ -55,6 +61,8 @@
 			<td><a href = "${ctx }/review/register.do?orderId=${order.orderId}">상품평 쓰러가기</a></td>
 		</tr>
 </c:forEach>
+</c:otherwise>
+</c:choose>
 	</tbody>
 </table>
 <div class = "text-right">
@@ -65,6 +73,7 @@
 				<a href="${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
 			</c:forEach>
 			<br>
+</div>
 </div>
 </div>
 <footer>

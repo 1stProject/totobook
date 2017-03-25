@@ -1,7 +1,6 @@
 package totoBook.domain;
 
 import java.sql.Date;
-import java.util.List;
 
 /**
  * @author

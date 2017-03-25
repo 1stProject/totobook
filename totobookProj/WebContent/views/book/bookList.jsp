@@ -59,6 +59,13 @@
 					<th>편집</th>
 					<th>삭제</th>
 				</tr>
+				<c:choose>
+				<c:when test="${empty list }">
+				<tr>
+					<td colspan = 5 class = "text-center">포토북 내역이 없습니다</td>
+				</tr>
+				</c:when>
+				<c:otherwise>
 				<c:forEach items="${books }" var="book" varStatus="sts">
 					<tr>
 						<td>${sts.count}</td>
@@ -70,6 +77,8 @@
 						<td><button type="button" onclick="window.location.href='${ctx }/book/remove.do?bookId=${book.bookId}'">삭제</button></td>
 					</tr>
 				</c:forEach>
+				</c:otherwise>
+				</c:choose>
 			</table>
 		
 		</div>

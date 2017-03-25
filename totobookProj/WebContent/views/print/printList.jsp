@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <c:set var = "ctx" value = "${pageContext.request.contextPath }"/>
 <html>
@@ -43,7 +45,13 @@
 		</tr>
 	</thead>
 	<tbody>
-	
+	<c:choose>
+	<c:when test="${empty list }">
+	<tr>
+		<td colspan = 5 class = "text-center">사진인화 내역이 없습니다</td>
+	</tr>
+	</c:when>
+	<c:otherwise>
 	<c:forEach items = "${list }" var = "print">
 		<tr>
 			<td>${print.printId }</td>
@@ -53,6 +61,8 @@
 			<td class="text-center"><a class = "btn btn-default" href = "${ctx }/print/remove.do?printId=${print.printId }">삭제하기</a></td>
 		</tr>
 	</c:forEach>
+	</c:otherwise>
+	</c:choose>
 	</tbody>
 </table>
 </div>
