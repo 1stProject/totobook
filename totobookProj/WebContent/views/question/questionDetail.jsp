@@ -92,7 +92,7 @@
 		<tr>
 			<!--${question.postId }  -->
 			<td><input type="hidden" id="postId" value="${question.postId }"></td>
-			<c:if test="${question.member.memberId eq 'admin'}">
+			<c:if test="${member.memberId eq 'admin'}">
 				<tr>
 					<td><span id="content" /></td>
 					<td>

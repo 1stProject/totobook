@@ -25,6 +25,7 @@ public class NoticeListController extends HttpServlet {
 			throws ServletException, IOException {
 		NoticeService service = new NoticeServiceLogic();
 
+		
 		List<Post> list = service.findAllNotice();
 		request.setAttribute("NoticeList", list);
 		request.getRequestDispatcher("/views/notice/noticeList.jsp").forward(request, response);

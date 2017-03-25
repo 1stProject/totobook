@@ -6,16 +6,19 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<header>
-	<%@ include file = "/views/head/header.jspf" %>
+	<header>
+		<%@ include file="/views/head/header.jspf"%>
 	</header>
 	<table>
 		<thead>
@@ -39,19 +42,24 @@
 							<td><a class="detail_btn"
 								href="${ctx }/notice/detail.do?noticeId=${notice.postId }">${notice.title }</a></td>
 							<td>${notice.member.memberId }</td>
-							<td><a class="remove_btn"
-								href="${ctx }/notice/remove.do?noticeId=${notice.postId }">삭제</a></td>
+							<c:if test="${member.memberId eq 'admin'}">
+								<td><a class="remove_btn"
+									href="${ctx }/notice/remove.do?noticeId=${notice.postId }">삭제</a></td>
+							</c:if>
 						</tr>
 					</c:forEach>
-
 				</c:otherwise>
 			</c:choose>
-			<td><a class="register_btn"
-				href="${ctx }/views/notice/noticeForm.jsp" />글쓰기</td>
+			<c:if test="${member.memberId eq 'admin'}">
+				<tr>
+					<td><a class="register_btn"
+						href="${ctx }/views/notice/noticeForm.jsp" />글쓰기</td>
+				</tr>
+			</c:if>
 		</tbody>
 	</table>
 	<footer>
-		<%@include file="../foot/footer.jspf" %>
+		<%@include file="../foot/footer.jspf"%>
 	</footer>
 
 </body>
