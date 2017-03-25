@@ -19,7 +19,7 @@ public interface ReviewService {
 	public List<Review> findCommentsByMember(String memberId);
 	public List<Review> findCommentByOrder(String orderId);
 	public void deleteCommentByMember(String orderId); 
-
+	public List<Review> findAllComents();
 	
 	
 }

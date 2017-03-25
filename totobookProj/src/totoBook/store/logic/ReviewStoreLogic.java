@@ -20,9 +20,6 @@ public class ReviewStoreLogic implements ReviewStore {
 		factory = SqlSessionFactoryProvider.getSqlSessionFactory();
 	}
 
-	
-	
-	
 	@Override
 	public void deleteCommentByMember(String orderId) {
 		SqlSession session = factory.openSession();
@@ -111,11 +108,27 @@ public class ReviewStoreLogic implements ReviewStore {
 		SqlSession session = factory.openSession();
 
 		List<Review> list = new ArrayList<>();
-		
+
 		try {
-		ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-		list = mapper.selectCommentByOrder(orderId);
-		session.commit();
+			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+			list = mapper.selectCommentByOrder(orderId);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+
+	@Override
+	public List<Review> selectAllComents() {
+		SqlSession session = factory.openSession();
+
+		List<Review> list = new ArrayList<>();
+
+		try {
+			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+			list = mapper.selectAllComents();
+			session.commit();
 		} finally {
 			session.close();
 		}

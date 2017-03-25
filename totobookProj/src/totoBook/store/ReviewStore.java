@@ -19,5 +19,5 @@ public interface ReviewStore {
 	List<Review> selectCommentsByMember(String memberId);
 	List<Review> selectCommentByOrder(String orderId);
 	void deleteCommentByMember(String orderId);
-	
+	List<Review> selectAllComents();
 }
