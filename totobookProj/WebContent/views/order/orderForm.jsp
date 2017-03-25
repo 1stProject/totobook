@@ -29,7 +29,7 @@
 		<h1>주문 창</h1>
 		<form method="post" action="${ctx }/order/register.do">
 
-			<div class="table-responsive col-sm-9 col-lg-9">
+			<div class="table-responsive col-sm-9 col-lg-9" style="display:block;">
 				<table class="table table-striped table-bordered table-hover">
 					<colgroup>
 						<col width="20%" />
@@ -76,21 +76,6 @@
 			</div>
 			<input type="hidden" value="${order.member.memberId }"
 				name="memberId"> <br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
 			<br>&nbsp;&nbsp;&nbsp; <input type="submit" value="주문하기!"
 				class="btn btn-success">
 		</form>

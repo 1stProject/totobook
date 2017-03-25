@@ -1,4 +1,4 @@
-DROP TABLE order_tb;
+DROP TABLE order_tb cascade constraints;
 DROP TABLE print_tb;
 DROP TABLE photo_tb;
 
@@ -20,10 +20,12 @@ CREATE TABLE order_tb (
   product_id varchar2(50),
   PRIMARY KEY (order_id)
 );
-
 ALTER TABLE order_tb
-ADD CONSTRAINT order_tb FOREIGN KEY (member_id)
+ADD CONSTRAINT order_tb_fk FOREIGN KEY (member_id)
 REFERENCES member_tb (member_id);
+ALTER TABLE order_tb
+ADD CONSTRAINT order_tb_fk2 FOREIGN KEY (product_id)
+REFERENCES product_tb (product_id);
 insert into order_tb (order_id, member_id, order_date, payment, total_price, address, product_id) 
 values (order_seq.NEXTVAL,'Lee@Lee.com','2017-3-20','신용카드', '150000', '서울시 광진구', '2');
 
@@ -32,14 +34,14 @@ CREATE TABLE print_tb (
 	member_id varchar2(50),
 	product_id varchar2(50),
 	print_option varchar2(50),
-	PRIMARY KEY (order_id)
+	PRIMARY KEY (print_id)
 );
 
 ALTER TABLE print_tb
-ADD CONSTRAINT print_tb FOREIGN KEY (member_id)
+ADD CONSTRAINT print_tb_fk1 FOREIGN KEY (member_id)
 REFERENCES member_tb (member_id);
 ALTER TABLE print_tb
-ADD CONSTRAINT print_tb FOREIGN KEY (product_id)
+ADD CONSTRAINT print_tb_fk2 FOREIGN KEY (product_id)
 REFERENCES product_tb (product_id);
 
 insert into print_tb (print_id, member_id, product_id, print_option) 
