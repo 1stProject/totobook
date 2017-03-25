@@ -1,3 +1,4 @@
+<%@page import="totoBook.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -63,6 +64,9 @@
 </script>
 </head>
 <body>
+<head>
+<%@ include file="../member/header.jspf"%>
+</head>
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 
@@ -97,12 +101,14 @@
 					</td>
 				</tr>
 			</c:if>
+		
 		<tr>
-			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
-				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
-
+			<c:if test="${question.member.memberId eq member.memberId  }">
+				<td><input type="button" value="수정"
+					onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
+					<input type="button" value="삭제"
+					onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
+			</c:if>
 		</tr>
 
 	</table>
@@ -110,7 +116,5 @@
 
 	<footer> <%@include file="../foot/footer.jspf"%>
 	</footer>
-
-
 </body>
 </html>

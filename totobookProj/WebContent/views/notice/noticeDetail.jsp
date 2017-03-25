@@ -7,16 +7,18 @@
 <head>
 
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<header>
-	<%@ include file = "/views/head/header.jspf" %>
+	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 	<table border="1">
 		<tr>
@@ -38,16 +40,17 @@
 			<br>
 		</tr>
 		<tr>
-			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
-				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/notice/remove.do?noticeId=${notice.postId }'"></td>
+			<c:if test="${notice.member.memberId eq 'admin' }">
+				<td><input type="button" value="수정"
+					onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
+					<input type="button" value="삭제"
+					onclick="location.href='${ctx }/notice/remove.do?noticeId=${notice.postId }'"></td>
+			</c:if>
 		</tr>
 
 	</table>
 
-<footer>
-		<%@include file="../foot/footer.jspf" %>
+	<footer> <%@include file="../foot/footer.jspf"%>
 	</footer>
 
 </body>

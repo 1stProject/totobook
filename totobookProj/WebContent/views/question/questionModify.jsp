@@ -17,42 +17,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header> <%@ include file="/views/head/header.jspf"%>
-	</header>
+	<head>
+<%@ include file="../member/header.jspf"%>
+</head>
 
-	<table border="1">
-		<form action="${ctx }/question/modify.do" method="post">
 
-			<tr>
-				<td>제목 : <input type="text" name="question_title"
-					value="${question.title }"></td>
-				<br>
-				<input type="hidden" name="postId" value="${question.postId }">
-			</tr>
-			<tr>
-				<td>내용 : <input type="text" name="content"
-					value="${question.content }"></td>
-				<br>
-			</tr>
-			<tr>
-
-				<td><img src=""></td>
-				<br>
-			</tr>
-
-			<tr>
-				<td>작성자 : ${question.member.memberId }</td>
-				<br>
-			</tr>
-			<tr>
-
-				<td><input type="submit" value="수정완료">
-		</form>
-		</tr>
-
-	</table>
-	<footer> <%@include file="../foot/footer.jspf"%>
-	</footer>
-
-</body>
 </html>

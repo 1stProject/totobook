@@ -13,7 +13,9 @@ import com.sun.xml.internal.txw2.Document;
 import totoBook.domain.Member;
 import totoBook.domain.Photo;
 import totoBook.domain.Post;
+import totoBook.service.MemberService;
 import totoBook.service.QuestionService;
+import totoBook.service.logic.MemberServiceLogic;
 import totoBook.service.logic.QuestionServiceLogic;
 
 @WebServlet("/question/register.do")
@@ -25,13 +27,17 @@ public class QuestionRegisterController extends HttpServlet {
 			throws ServletException, IOException {
 		Post post = new Post();
 		QuestionService service = new QuestionServiceLogic();
+		MemberService m_service = new MemberServiceLogic();
 		HttpSession session = request.getSession();
 		post.setTitle(request.getParameter("question_title"));
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
-		Member member = (Member) session.getAttribute("member");
+		Member member = (Member)session.getAttribute("member");
+		String memberId = member.getMemberId();
+		System.out.println(memberId);
 		post.setMember(member);
+
 		service.registerQuestion(post);
 
 		response.sendRedirect(request.getContextPath() + "/question/list.do");

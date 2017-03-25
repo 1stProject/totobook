@@ -15,6 +15,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<head>
+<%@ include file="../member/header.jspf"%>
+</head>
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 	</header>
