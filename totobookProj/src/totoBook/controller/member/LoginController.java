@@ -40,7 +40,10 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("member", member);
 			response.sendRedirect("list.do");
 		}else{
+
 			response.sendRedirect(request.getContextPath()+"/views/main.jsp");
+
+
 			
 		
 			

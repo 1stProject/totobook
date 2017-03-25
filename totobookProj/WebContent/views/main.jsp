@@ -15,12 +15,14 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <title>totoBook</title>
 </head>
 <body>
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center col-sm-8 col-md-offset-2" style="border: 1px solid red;padding:20px;"> 
   <h3>Where To Find Me?</h3><br>
@@ -31,7 +33,6 @@
     <div class="col-sm-6" style="border: 1px solid gold;"> 
       <p>최고의 포토북들.</p>
     </div>
-    
   </div>
 </div>
 <div class="container-fluid bg-2 text-center col col-sm-8 col-md-offset-2" style="padding:20px;">
