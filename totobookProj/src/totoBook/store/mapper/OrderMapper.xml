@@ -38,9 +38,9 @@
 		<association property = "member" column = "member_id"
 					select="totoBook.store.mapper.MemberMapper.selectMemberById"
 					javaType = "Member" jdbcType = "VARCHAR"/>
-		<collection property = "product" column = "product_id" ofType = "Product" 
+		<association property = "product" column = "product_id"
 		select = "totoBook.store.mapper.ProductMapper.selectProductById"
-		javaType = "ArrayList" jdbcType = "VARCHAR"/>
+		javaType = "Product" jdbcType = "VARCHAR"/>
 	</resultMap>
 	<insert id = "insertOrder" parameterType = "Order">
 		INSERT INTO order_tb (order_id, order_date, payment, total_price, address, member_id, product_id)

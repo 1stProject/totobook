@@ -24,7 +24,6 @@ public class OrderFindController extends HttpServlet {
 		OrderService service = new OrderServiceLogic();
 		final int pageSize = 5;
 		int borderId = 0;
-		int borderId = 0;
 		if(request.getParameter("borderId") == null){
 			borderId = 1;
 		} else {
