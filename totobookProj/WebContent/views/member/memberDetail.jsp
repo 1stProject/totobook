@@ -25,8 +25,14 @@
 </header>
 	<div class="contentsContainer">
 <nav>
-	
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
+	<c:choose>
+						<c:when test="${memberList.memberId eq 'admin'}">
+							<%@ include file = "/views/left/leftManagePage.jsp" %>
+						</c:when>
+						<c:otherwise>
+							<%@ include file = "/views/left/leftMyPage.jsp" %>	
+							</c:otherwise>
+					</c:choose>
 	</nav>
 	
 	<div class="col-md-offset-2 col-sm-6 col-lg-6">
