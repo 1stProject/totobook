@@ -27,7 +27,7 @@
 
 
 	<header>
-		<%@ include file="header.jspf"%>
+		<%@ include file="../head/header.jspf"%>
 	</header>
 
 	<div class="contentsContainer">
