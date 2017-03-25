@@ -68,11 +68,11 @@
 
 	<table border="1">
 		<tr>
-			<td>${question.title }</td>
+			<td>제목 : ${question.title }</td>
 			<br>
 		</tr>
 		<tr>
-			<td>${question.content }</td>
+			<td>내용 : ${question.content }</td>
 			<br>
 		</tr>
 		<tr>
@@ -82,7 +82,7 @@
 		</tr>
 
 		<tr>
-			<td>${question.member.memberId }</td>
+			<td>작성자 : ${question.member.memberId }</td>
 			<br>
 		</tr>
 		<tr>

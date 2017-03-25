@@ -20,7 +20,7 @@
 		onclick="location.href='${ctx }/question/detail.do?questionId=${answer.post.postId }'">
 	<table border="1">
 		<tr>
-			<td>${answer.content }</td>
+			<td>답글 내용 : ${answer.content }</td>
 			<td>관리자</td>
 			<br>
 		</tr>

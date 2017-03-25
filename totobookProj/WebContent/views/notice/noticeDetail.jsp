@@ -20,11 +20,11 @@
 	</header>
 	<table border="1">
 		<tr>
-			<td>${notice.title }</td>
+			<td>제목 : ${notice.title }</td>
 			<br>
 		</tr>
 		<tr>
-			<td>${notice.content }</td>
+			<td>내용 : ${notice.content }</td>
 			<br>
 		</tr>
 		<tr>
@@ -34,7 +34,7 @@
 		</tr>
 
 		<tr>
-			<td>${notice.member.memberId }</td>
+			<td>작성자 : ${notice.member.memberId }</td>
 			<br>
 		</tr>
 		<tr>

@@ -6,29 +6,31 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<header>
-	<%@ include file = "/views/head/header.jspf" %>
+	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 
 	<table border="1">
 		<form action="${ctx }/question/modify.do" method="post">
 
 			<tr>
-				<td><input type="text" name="question_title"
+				<td>제목 : <input type="text" name="question_title"
 					value="${question.title }"></td>
 				<br>
 				<input type="hidden" name="postId" value="${question.postId }">
 			</tr>
 			<tr>
-				<td><input type="text" name="content"
+				<td>내용 : <input type="text" name="content"
 					value="${question.content }"></td>
 				<br>
 			</tr>
@@ -39,7 +41,7 @@
 			</tr>
 
 			<tr>
-				<td>${question.member.memberId }</td>
+				<td>작성자 : ${question.member.memberId }</td>
 				<br>
 			</tr>
 			<tr>
@@ -49,9 +51,8 @@
 		</tr>
 
 	</table>
-	<footer>
-		<%@include file="../foot/footer.jspf" %>
+	<footer> <%@include file="../foot/footer.jspf"%>
 	</footer>
-	
+
 </body>
 </html>

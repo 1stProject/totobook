@@ -21,7 +21,7 @@
 	<table border="1">
 		<form action="${ctx }/answer/modify.do" method="post">
 		<tr>
-			<td><input type="text" name="content" value="${answer.content }"></td>
+			<td>내용 : <input type="text" name="content" value="${answer.content }"></td>
 			<input type="hidden" name="postId" value="${answer.post.postId }">
 			<td>관리자</td>
 			<br>
