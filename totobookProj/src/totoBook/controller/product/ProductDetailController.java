@@ -41,46 +41,52 @@ public class ProductDetailController extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		Member member = (Member) session.getAttribute("member");
-		String memberId = member.getMemberId();
-		if (!memberId.equals("admin")) {
 
-			String productId = request.getParameter("productId");
-			Product product = new Product();
-			product = productService.findProductById(productId);
-			Photo phto = new Photo();
-			String imagead = product.getImageAddress();
-			phto.setContentType(imagead);
-
-			product.setPhoto(phto);
-
-			List<Option> list = new ArrayList<>();
-			list = productService.findOption(productId);
-			product.setOptions(list);
-			List<Review> list3 = new ArrayList<>();
-			list3 = reviewService.findCommentsByProduct(productId);
-			request.setAttribute("review", list3);
-			request.setAttribute("product", product);
-			request.getRequestDispatcher("/views/product/productDetail.jsp").forward(request, response);
-
+		if (member == null) {
+			response.sendRedirect("../views/member/login.jsp");
 		} else {
-			String productId = request.getParameter("productId");
-			Product product = new Product();
-			product = productService.findProductById(productId);
-			Photo phto = new Photo();
-			String imagead = product.getImageAddress();
-			phto.setContentType(imagead);
 
-			product.setPhoto(phto);
+			String memberId = member.getMemberId();
+			if (!memberId.equals("admin")) {
 
-			List<Option> list = new ArrayList<>();
-			list = productService.findOption(productId);
-			product.setOptions(list);
-			List<Review> list3 = new ArrayList<>();
-			list3 = reviewService.findCommentsByProduct(productId);
-			request.setAttribute("review", list3);
-			request.setAttribute("product", product);
-			request.getRequestDispatcher("/views/product/productDetailManage.jsp").forward(request, response);
+				String productId = request.getParameter("productId");
+				Product product = new Product();
+				product = productService.findProductById(productId);
+				Photo phto = new Photo();
+				String imagead = product.getImageAddress();
+				phto.setContentType(imagead);
 
+				product.setPhoto(phto);
+
+				List<Option> list = new ArrayList<>();
+				list = productService.findOption(productId);
+				product.setOptions(list);
+				List<Review> list3 = new ArrayList<>();
+				list3 = reviewService.findCommentsByProduct(productId);
+				request.setAttribute("review", list3);
+				request.setAttribute("product", product);
+				request.getRequestDispatcher("/views/product/productDetail.jsp").forward(request, response);
+
+			} else {
+				String productId = request.getParameter("productId");
+				Product product = new Product();
+				product = productService.findProductById(productId);
+				Photo phto = new Photo();
+				String imagead = product.getImageAddress();
+				phto.setContentType(imagead);
+
+				product.setPhoto(phto);
+
+				List<Option> list = new ArrayList<>();
+				list = productService.findOption(productId);
+				product.setOptions(list);
+				List<Review> list3 = new ArrayList<>();
+				list3 = reviewService.findCommentsByProduct(productId);
+				request.setAttribute("review", list3);
+				request.setAttribute("product", product);
+				request.getRequestDispatcher("/views/product/productDetailManage.jsp").forward(request, response);
+
+			}
 		}
 	}
 }
