@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<ul>
+<!-- Sidebar -->
+<div id = "sidebar-wrapper">
+<ul class = "sidebar-nav">
 	<li>
 		<a href = "${ctx }/member/modify.do">개인정보 수정</a>
 	</li>
@@ -25,3 +26,8 @@
 		<a href = "${ctx }/member/remove.do">회원탈퇴</a>
 	</li>
 </ul>
+</div>
+ <!-- /#sidebar-wrapper -->
+
+ 
+       
