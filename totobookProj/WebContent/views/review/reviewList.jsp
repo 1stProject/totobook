@@ -37,12 +37,10 @@
 						<h3>나의 상품평</h3>
 <table class = "table table-striped table-bordered table-hover">
 							<colgroup>
-								<col width="80" align="center">
-								<col width="100">
-								<col width="30%">
+								<col width="20%">
 								<col width="*">
-								<col width="100">
-								<col width="100">
+								<col width="10%">
+								<col width="10%">
 							</colgroup>
 							<thead>
 

@@ -14,17 +14,23 @@ import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 
+import totoBook.domain.Book;
 import totoBook.domain.Member;
 import totoBook.domain.Order;
 import totoBook.domain.Photo;
+import totoBook.domain.Print;
 import totoBook.domain.Product;
 import totoBook.domain.Review;
+import totoBook.service.BookService;
 import totoBook.service.MemberService;
 import totoBook.service.OrderService;
+import totoBook.service.PrintService;
 import totoBook.service.ProductService;
 import totoBook.service.ReviewService;
+import totoBook.service.logic.BookServiceLogic;
 import totoBook.service.logic.MemberServiceLogic;
 import totoBook.service.logic.OrderServiceLogic;
+import totoBook.service.logic.PrintServiceLogic;
 import totoBook.service.logic.ProductServiceLogic;
 import totoBook.service.logic.ReviewServiceLogic;
 
@@ -63,7 +69,7 @@ public class ReviewRegister extends HttpServlet {
 
 		ReviewService reviewService = new ReviewServiceLogic();
 		OrderService orderService = new OrderServiceLogic();
-
+		ProductService productService = new ProductServiceLogic();
 		
 		HttpSession session = request.getSession();
 
@@ -98,7 +104,18 @@ public class ReviewRegister extends HttpServlet {
 		review.setImageAddress(imageAddress);
 		review.setOrder(order);
 		review.setMember(list.get(0).getMember());
-		review.setProduct(list.get(0).getProduct());
+		Product product = new Product();
+		if(list.get(0).getCategory().equals("사진")){
+			PrintService service = new PrintServiceLogic();
+			Print print = service.findPrintByPrintId(list.get(0).getBookPhotoId());
+			product = print.getProduct();
+		}
+		else{
+			BookService service = new BookServiceLogic();
+			Book book = service.findBook(list.get(0).getBookPhotoId());
+			product = book.getProduct();
+		}
+		review.setProduct(product);
 		reviewService.registerComment(review);
 		
 
