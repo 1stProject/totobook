@@ -229,9 +229,39 @@ table.blueListTab tr:nth-child(even) {
 div.mypageTitle{
 	width : 1200px;
 	margin : 0 px;
+<<<<<<< HEAD
 	
 }
+=======
+	border-bottom : 1px solid #e3e3e3;
+	display : block;
+	height : 50px;
+	padding-top : 10px;
+}
+div.title_left{
+	width : 750px;
+	font-size : 20px;
+	float:left;
+	margin-left : 20px;
+}
+ul.title_ul{
+	width : 400px;
+	float:left;
+	list-style : none;
+	position: relative;
+}
 
+ul.title_ul>li{
+	position : relative;
+	float:left;
+}
+li.title_li{
+	width:100px;
+}
+li.title_li_icon{
+	width: 20px;
+	margin : 0 10px 0 20px;
+}
 
 /* 문제생기면 이 아래꺼 지우세영 이승건 */
 /*
@@ -682,3 +712,4 @@ footer {
 z.screen_out a {
     color: #fff;
 }*/
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook
