@@ -23,8 +23,15 @@
 <header>
 		<%@ include file="../head/header.jspf"%>
 </header>
-	<div class="contentsContainer">
-<nav>
+			<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	<nav>
 	<c:choose>
 						<c:when test="${loginId eq 'admin'}">
 							<%@ include file = "/views/left/leftManagePage.jsp" %>
@@ -33,8 +40,8 @@
 							<%@ include file = "/views/left/leftMyPage.jsp" %>	
 							</c:otherwise>
 					</c:choose>
-	</nav>
 	
+	</nav>
 	<div class="col-md-offset-2 col-sm-6 col-lg-6">
     <h2 class="page-title">정보보기</h2>
 	
@@ -56,7 +63,7 @@
                 <td>${memberList.address }</td>
                 <td>${memberList.phone }</td>
                 <td>${memberList.receiveEmail }</td>
-				<td><a href="${ctx }/views/member/pwCheck.jsp?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">삭제</a></td>
+				<td><a href="${ctx }/views/member/pwCheck.jsp?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">탈퇴</a></td>
 					<c:choose>
 						<c:when test="${loginId eq 'admin'}">
 						</c:when>
