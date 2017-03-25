@@ -50,7 +50,6 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${memberList }" var="ml">
-
 							<tr>
 								<td><a href="${ctx }/member/detail.do?memberId=${ml.memberId }">${ml.name }</a></td>
 								<td>${ml.phone }</td>
