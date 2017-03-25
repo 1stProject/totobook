@@ -17,6 +17,7 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 	</header>
+	<div class="contentsContainer">
 	<table>
 		<thead>
 			<tr>
@@ -46,10 +47,10 @@
 
 				</c:otherwise>
 			</c:choose>
-			<td><a class="register_btn"
-				href="${ctx }/views/notice/noticeForm.jsp" />글쓰기</td>
+			<td><a class="register_btn" href="${ctx }/views/notice/noticeForm.jsp">글쓰기</a></td>
 		</tbody>
 	</table>
+	</div>
 	<footer>
 		<%@include file="../foot/footer.jspf" %>
 	</footer>

@@ -13,26 +13,23 @@
 			<a class="navbar-brand"
 				href="http://localhost:8080/totobookProj/views/main.jsp">토토북</a>
 		</div>
-		<c:choose>
-			<c:when test="${member.memberId eq null || member.memberId eq ''}">
+	
 				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right">	
+					<c:choose>
+						<c:when test="${member.memberId eq null || member.memberId eq ''}">
 						<li><a href="${ctx }/views/member/login.jsp">로그인</a></li>
 						<li><a href="${ctx }/views/member/memberRegister.jsp">회원가입</a></li>
-					</ul>
-				</div>
-			</c:when>
-			<c:otherwise>
-			
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav navbar-right">
-						<li><b>${member.name}</b>님 환영합니다.</li>
+						</c:when>
+						<c:otherwise>
+						<li><a href="#"><b>${member.name}</b>님 환영합니다.</a></li>
 						<li><a href="${ctx }/member/logout.do">로그아웃</a></li>
 						<li><a href="${ctx }/member/detail.do?memberId=${member.memberId }">마이페이지</a></li>
+						</c:otherwise>
+					</c:choose>
+						<li><a href="${ctx }/notice/list.do">공지사항</a></li>
 					</ul>
 				</div>
-			</c:otherwise>
-		</c:choose>
 		<c:if test="">
 
 		</c:if>

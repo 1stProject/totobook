@@ -10,6 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/css/cropper.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>totoBook</title>
 		<script src="${ctx }/js/cropper.js"></script>
       	<script src="${ctx }/js/jquery-3.1.1.js"></script>
@@ -62,7 +64,7 @@
 					<img class="layoutIcon1" src="${ctx }/views/book/A3_layout_3.jpg" draggable="false">
 
 						<div class="btn-group">
-							<button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
+<!-- 							<button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
 								<span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(-45)">
 									<span class="fa fa-rotate-left">좌로 회전</span>
 								</span>
@@ -71,13 +73,15 @@
 								<span class="docs-tooltip" data-toggle="tooltip" title="cropper.rotate(45)">
 									<span class="fa fa-rotate-right">우로 회전</span>
 								</span>
-							</button>
-							<h4>현재 페이지</h4>
+							</button> -->
+							<Br>
+							현재 페이지
 							    <span id="currentRightPage"></span>/${fn:length(book.pages)}
 						</div>
 				</div>
 			</div>
-			<div id="photoListDiv">사진목록
+			<div id="photoListDiv">
+				<h4>사진목록</h4>
 				<input type="file" name="photofile" style="width:250px;" accept="image/*" multiple onchange="fileInfo(this)" >
 				<div id="img_box"></div>
 			</div>
