@@ -23,7 +23,7 @@
 		<a href = "${ctx }/question/list.do">문의하기</a>
 	</li> 
 	<li>
-		<a href = "${ctx }/member/remove.do">회원탈퇴</a>
+		<a href = "${ctx }/views/member/pwCheck.jsp">회원탈퇴</a>
 	</li>
 </ul>
 </div>
