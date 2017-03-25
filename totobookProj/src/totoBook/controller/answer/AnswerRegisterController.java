@@ -27,7 +27,7 @@ public class AnswerRegisterController extends HttpServlet {
 
 		req.setAttribute("answerId", answer);
 		req.getRequestDispatcher("/views/question/answerForm.jsp").forward(req, resp);
-		;
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

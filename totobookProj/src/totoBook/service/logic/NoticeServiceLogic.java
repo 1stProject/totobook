@@ -12,7 +12,6 @@ public class NoticeServiceLogic implements NoticeService {
 	@Override
 	public void registerNotice(Post post) {
 		NoticeStore store = new NoticeStoreLogic();
-		System.out.println(post.getImageAddressPath());
 		System.out.println(post.getMember().getMemberId());
 		store.insertNotice(post);
 

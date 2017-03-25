@@ -47,12 +47,12 @@ div.header2Div {
 
 /* footer */
 footer {
+	border-top : 1px solid #e3e3e3;
 	background-color : #eee;
-	border-color : e7e7e7;
 	display : block;
-	max-height : 200px;
 	width : 100%;
 	float : left;
+	height : 125px;
 	
 }
 
@@ -60,7 +60,13 @@ div.footerDiv {
 	width : 1200px;
 	margin :0 auto;
 }
-/* footer */
+
+div.footerText {
+	margin : 10px 0px 0px 20px;
+	float:left;
+}
+
+/* END footer */
 div.contentsContainer {
 	width : 1200px;
 	height : 1000px;

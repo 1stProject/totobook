@@ -67,54 +67,55 @@
 <head>
 <%@ include file="../head/header.jspf"%>
 </head>
-	<header> <%@ include file="/views/head/header.jspf"%>
-	</header>
+<header> <%@ include file="/views/head/header.jspf"%>
+</header>
 
-	<table border="1">
-		<tr>
-			<td>제목 : ${question.title }</td>
-			<br>
-		</tr>
-		<tr>
-			<td>내용 : ${question.content }</td>
-			<br>
-		</tr>
-		<tr>
+<table border="1">
+	<tr>
+		<td>제목 : ${question.title }</td>
+		<br>
+	</tr>
+	<tr>
+		<td>내용 : ${question.content }</td>
+		<br>
+	</tr>
+	<tr>
 
-			<td><img src=""></td>
-			<br>
-		</tr>
+		<td><img
+			src="${ctx }/question/image.do?imageId=${question.postId}"
+			width="128" height="123"></td>
+		<br>
+	</tr>
 
-		<tr>
-			<td>작성자 : ${question.member.memberId }</td>
-			<br>
-		</tr>
-		<tr>
-			<!--${question.postId }  -->
-			<td><input type="hidden" id="postId" value="${question.postId }"></td>
-			<c:if test="${member.memberId eq 'admin'}">
-				<tr>
-					<td><span id="content" /></td>
-					<td>
-						<div id="btn1"></div>
-						<div id="btn2"></div>
-					</td>
-				</tr>
-			</c:if>
-		
-		<tr>
-			<c:if test="${question.member.memberId eq member.memberId  }">
-				<td><input type="button" value="수정"
-					onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
-					<input type="button" value="삭제"
-					onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
-			</c:if>
-		</tr>
+	<tr>
+		<td>작성자 : ${question.member.memberId }</td>
+		<br>
+	</tr>
+	<tr>
+		<!--${question.postId }  -->
+		<td><input type="hidden" id="postId" value="${question.postId }"></td>
+		<c:if test="${member.memberId eq 'admin'}">
+			<tr>
+				<td><span id="content" /></td>
+				<td>
+					<div id="btn1"></div>
+					<div id="btn2"></div>
+				</td>
+			</tr>
+		</c:if>
+	<tr>
+		<c:if test="${question.member.memberId eq member.memberId  }">
+			<td><input type="button" value="수정"
+				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
+				<input type="button" value="삭제"
+				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
+		</c:if>
+	</tr>
 
-	</table>
+</table>
 
 
-	<footer> <%@include file="../foot/footer.jspf"%>
-	</footer>
+<footer> <%@include file="../foot/footer.jspf"%>
+</footer>
 </body>
 </html>

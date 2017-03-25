@@ -24,23 +24,21 @@
 	<table border="1">
 		<tr>
 			<td>제목 : ${notice.title }</td>
-			<br> =======
-			<td>${notice.title }</td>
+			<br>
 		</tr>
 		<tr>
 			<td>내용 : ${notice.content }</td>
-			<br> =======
-			<td>${notice.content }</td> 
+			<br>
 		</tr>
 		<tr>
 
-			<td><img src=""></td>
+			<td><img src="${ctx }/notice/image.do?imageId=${notice.postId}"
+				width="128" height="123"></td>
 		</tr>
 
 		<tr>
 			<td>작성자 : ${notice.member.memberId }</td>
-			<br> 
-			<td>${notice.member.memberId }</td>
+			<br>
 		</tr>
 		<tr>
 			<c:if test="${member.memberId eq 'admin' }">
