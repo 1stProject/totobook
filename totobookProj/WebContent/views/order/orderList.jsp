@@ -71,6 +71,19 @@
 			<c:forEach begin="1" end="${maxBorder }" step="1" varStatus="status">
 				<a href="${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
 			</c:forEach>
+			<br>
+			<form method = "post" action = "${ctx }/order/find.do">
+			<div class = "col-sm-3 col-lg-3">
+				<select name="category" class = "form-control">
+					<option value="orderId">주문번호</option>
+					<option value="memberId">회원 아이디</option>
+				</select> 
+				</div>
+				<div class = "col-sm-6 col-lg-6">
+				<input type="text" name="search" placeholder="입력" class = "form-control"> </div>
+				<div class = "col-sm-3 col-lg-3">
+				<input class="btn btn-default" type="submit" value="검색"></div>
+				</form>
 			</div>
 		</div>
 	</div>
