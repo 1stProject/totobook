@@ -21,11 +21,15 @@
 </head>
 <header> <%@ include file="/views/head/header.jspf"%>
 </header>
+<table  class="table table-boardered">
 <form action="${ctx }/answer/register.do" method="post">
-	답글내용 : <input type="text" name="content"><br> <br> <input
-		type="hidden" name="postId" value="${answerId }"> <input
-		type="submit" value="등록">
+<tr>
+	<td>답글내용 : <input type="text" name="content"></td>
+	<td><input type="hidden" name="postId" value="${answerId }"> </td>
+	<td><input type="submit" value="등록"></td>
+</tr>
 </form>
+</table>
 <footer> <%@include file="../foot/footer.jspf"%>
 </footer>
 

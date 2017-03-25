@@ -70,7 +70,7 @@
 <header> <%@ include file="/views/head/header.jspf"%>
 </header>
 
-<table border="1">
+<table class="table table-boardered">
 	<tr>
 		<td>제목 : ${question.title }</td>
 		<br>
@@ -79,13 +79,15 @@
 		<td>내용 : ${question.content }</td>
 		<br>
 	</tr>
-	<tr>
+	<c:if test="${not empty question.imageAddressPath  }">
+		<tr>
 
-		<td><img
-			src="${ctx }/question/image.do?imageId=${question.postId}"
-			width="128" height="123"></td>
-		<br>
-	</tr>
+			<td><img
+				src="${ctx }/question/image.do?imageId=${question.postId}"
+				width="128" height="123"></td>
+			<br>
+		</tr>
+	</c:if>
 
 	<tr>
 		<td>작성자 : ${question.member.memberId }</td>

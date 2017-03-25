@@ -20,7 +20,7 @@
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 
-	<table>
+	<table class="table table-boardered">
 		<thead>
 			<tr>
 				<th>번호</th>

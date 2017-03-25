@@ -52,6 +52,7 @@ public class NoticeStoreLogic implements NoticeStore {
 	public void updateNotice(Post post) {
 		SqlSession session = factory.openSession();
 		try {
+			System.out.println("thie is " + post.getMember().getMemberId());
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
 			mapper.updateNotice(post);
 			session.commit();
@@ -80,7 +81,6 @@ public class NoticeStoreLogic implements NoticeStore {
 		try {
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
 			mapper.insertNotice(post);
-			
 
 			session.commit();
 		} finally {

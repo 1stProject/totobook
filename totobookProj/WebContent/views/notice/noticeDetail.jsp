@@ -21,7 +21,7 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-	<table border="1">
+	<table class="table table-boardered">
 		<tr>
 			<td>제목 : ${notice.title }</td>
 			<br>
@@ -30,11 +30,13 @@
 			<td>내용 : ${notice.content }</td>
 			<br>
 		</tr>
-		<tr>
+		<c:if test="${not empty notice.imageAddressPath  }">
+			<tr>
 
-			<td><img src="${ctx }/notice/image.do?imageId=${notice.postId}"
-				width="128" height="123"></td>
-		</tr>
+				<td><img src="${ctx }/notice/image.do?imageId=${notice.postId}"
+					width="128" height="123"></td>
+			</tr>
+		</c:if>
 
 		<tr>
 			<td>작성자 : ${notice.member.memberId }</td>

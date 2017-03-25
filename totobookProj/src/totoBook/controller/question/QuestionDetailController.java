@@ -26,10 +26,12 @@ public class QuestionDetailController extends HttpServlet {
 		post = service.findQuestionById(request.getParameter("questionId"));
 		Member member = (Member) session.getAttribute("member");
 		String memberId = member.getMemberId();
-		System.out.println(memberId);
-		session.setAttribute("member", member);
-		request.setAttribute("question", post);
-		if (memberId == post.getMember().getMemberId() || memberId.equals("admin")) {
+		System.out.println("세션" + memberId);
+		System.out.println("페이지 작성자" + post.getMember().getMemberId());
+
+		if (memberId.equals(post.getMember().getMemberId()) || memberId.equals("admin")) {
+			session.setAttribute("member", member);
+			request.setAttribute("question", post);
 			request.getRequestDispatcher("/views/question/questionDetail.jsp").forward(request, response);
 		} else {
 			response.sendRedirect(request.getContextPath() + "/question/list.do");

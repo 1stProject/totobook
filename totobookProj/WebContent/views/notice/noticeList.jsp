@@ -21,7 +21,7 @@
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
 	<div class="contentsContainer">
-		<table>
+		<table  class="table table-boardered">
 			<thead>
 				<tr>
 					<th>번호</th>

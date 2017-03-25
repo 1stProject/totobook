@@ -66,11 +66,12 @@ public class QuestionStoreLogic implements QuestionStore {
 	@Override
 	public void updateQuestion(Post post) {
 		SqlSession session = factory.openSession();
-		try{
+		System.out.println("this is postId" + post.getPostId());
+		try {
 			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
 			mapper.updateQuestion(post);
 			session.commit();
-		}finally {
+		} finally {
 			session.close();
 		}
 

@@ -28,8 +28,8 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-
-	<div>
+ 	
+	<div class="table table-boardered" > 
 		<header> </header>
 		<form action="${ctx }/notice/register.do" method="post"
 			enctype="multipart/form-data">
