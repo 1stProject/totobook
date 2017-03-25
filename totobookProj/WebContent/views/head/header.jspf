@@ -12,7 +12,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand"
-					href="http://localhost:8080/totobookProj/views/main.jsp">토토북</a>
+					href="../index.jsp">토토북</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">

@@ -80,7 +80,7 @@
 			</div>
 			<div class="col-sm-6">
 				<h1>
-					<a href="#" class="a">문의 게시판</a>
+					<a href="${ctx }/question/list.do" class = "text">문의 게시판</a>
 				</h1>
 				<ul>
 					<li><a href="#" class="a">문의 게시판</a>
