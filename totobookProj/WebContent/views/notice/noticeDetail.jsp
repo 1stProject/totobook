@@ -18,24 +18,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header> <%@ include file="/views/head/header.jspf"%>
+	<header>
+		<%@ include file="/views/head/header.jspf"%>
 	</header>
 	<table border="1">
 		<tr>
-<<<<<<< HEAD
+			<<<<<<< HEAD
 			<td>제목 : ${notice.title }</td>
-			<br>
-=======
-			<td>${notice.title }</td>
->>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
+			<br> =======
+			<td>${notice.title }</td> >>>>>>> branch 'development' of
+			https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
-<<<<<<< HEAD
+			<<<<<<< HEAD
 			<td>내용 : ${notice.content }</td>
-			<br>
-=======
-			<td>${notice.content }</td>
->>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
+			<br> =======
+			<td>${notice.content }</td> >>>>>>> branch 'development' of
+			https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
 
@@ -43,15 +42,14 @@
 		</tr>
 
 		<tr>
-<<<<<<< HEAD
+			<<<<<<< HEAD
 			<td>작성자 : ${notice.member.memberId }</td>
-			<br>
-=======
-			<td>${notice.member.memberId }</td>
->>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
+			<br> =======
+			<td>${notice.member.memberId }</td> >>>>>>> branch 'development' of
+			https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
-			<c:if test="${notice.member.memberId eq 'admin' }">
+			<c:if test="${member.memberId eq 'admin' }">
 				<td><input type="button" value="수정"
 					onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
 					<input type="button" value="삭제"
@@ -61,7 +59,8 @@
 
 	</table>
 
-	<footer> <%@include file="../foot/footer.jspf"%>
+	<footer>
+		<%@include file="../foot/footer.jspf"%>
 	</footer>
 
 </body>

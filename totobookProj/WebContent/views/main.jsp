@@ -32,20 +32,6 @@
 	<!-- First Container -->
 	<div class="contentsContainer">
 		<div class="col-md-offset-2"></div>
-		<div class="container-fluid bg-1 text-center col-sm-8 col-md-offset-2"
-			style="border: 1px solid red; padding: 20px;">
-
-			<h3>Where To Find Me?</h3>
-			<br>   
-			<div class="row">
-				<div class="col-sm-6" style="border: 1px solid gold;">
-					<a href="${ctx }/product/list.do?category=print"><img src="${ctx }/images/mainImage/btn/printBtn.png" alt="최고의 사진들"></a>
-				</div>
-				<div class="col-sm-6" style="border: 1px solid gold;">
-					<a href="${ctx }/product/list.do?category=book"> <img src="${ctx }/images/mainImage/btn/bookBtn.png" alt="최고의 포토북"> </a>
-				</div>
-			</div>
-		</div>
 		<div
 			class="container-fluid bg-2 text-center col col-sm-8 col-md-offset-2"
 			style="padding: 20px;">

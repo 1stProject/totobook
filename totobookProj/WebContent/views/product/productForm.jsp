@@ -31,8 +31,7 @@
 
 	<div class="col-md-offset-2">
 		<div class="contents-wrap">
-			<form action="${ctx }/product/register.do" method="post"
-				enctype="multipart/form-data">
+			<form action="${ctx }/product/register.do" method="post" enctype="multipart/form-data">
 
 				<table border="1">
 
