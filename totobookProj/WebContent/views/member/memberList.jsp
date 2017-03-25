@@ -6,7 +6,11 @@
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
+<!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <head>
 <%@ include file="header.jspf" %>
 </head>
@@ -14,7 +18,7 @@
 	<%@ include file = "/views/left/leftManagePage.jsp" %>
 </nav>
 <body>
-<div class="col-md-offset-2">
+<div class="col-sm-7 col-lg-7 col-md-offset-2">
 <form action="list.do" method="post">
 	<select name="slist">
 		<option value="name" >이름</option>
@@ -22,7 +26,7 @@
 		<option value="memberId" >아이디</option>
 	</select>
 	<input type="text" name="search" placeholder="입력ㄱ">
-	<input class="btn btn-xs btn-default" type="submit" value="검색">
+	<input class="btn btn-default" type="submit" value="검색">
 </form>
     <h2 class="page-title">회원목록</h2>
     <div class="contents">
