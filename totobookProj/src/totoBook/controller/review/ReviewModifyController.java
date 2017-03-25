@@ -38,15 +38,10 @@ public class ReviewModifyController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		String memberId = request.getParameter("memberId");
-		
-		
-		
 		String orderId = request.getParameter("orderId");
 		List<Review> list = new ArrayList<>();
 		list = reviewService.findCommentByOrder((orderId));
 		request.setAttribute("review", list);
-		System.out.println(list.size());
 		request.getRequestDispatcher("/views/review/reviewModify.jsp").forward(request, response);
 
 
@@ -59,7 +54,6 @@ public class ReviewModifyController extends HttpServlet {
 		ReviewService reviewService = new ReviewServiceLogic();
 		OrderService orderService = new OrderServiceLogic();
 		
-		System.out.println("수정");
 		int maxPostSize = 10 * 1024 * 1024;
 		response.setContentType("text/html; charset=UTF-8");
 		ServletContext cxt = getServletContext();
@@ -67,7 +61,6 @@ public class ReviewModifyController extends HttpServlet {
 		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
 
 		String orderId =multi.getParameter("orderId");
-		System.out.println(orderId);
 		List<Order> list = new ArrayList<>();
 		list = orderService.findOrdersByOrderId(orderId);
 

@@ -13,13 +13,13 @@ ALTER TABLE option_tb
 ADD CONSTRAINT option_tb FOREIGN KEY(product_id)
 REFERENCES product_tb(product_id);
 INSERT INTO option_tb(option_id, option_name, value, option_price, product_id)
-VALUES(option_seq.nextval, '사이즈', 'B5', 5000, 2);
+VALUES(option_seq.nextval, '반명함', '광택', 5000, 1);
 
 INSERT INTO option_tb(option_id, option_name, value, option_price, product_id)
-VALUES(option_seq.nextval, '사이즈', '증명사진', 3000, 2);
+VALUES(option_seq.nextval, '증명사진', '광택', 3000, 1);
 
 INSERT INTO option_tb(option_id, option_name, value, option_price, product_id)
-VALUES(option_seq.nextval, '사이즈', 'A3', 2000, 2);
+VALUES(option_seq.nextval, 'B4', '광택', 2000, 1);
 
 INSERT INTO option_tb(option_id, option_name, value, option_price, product_id)
 VALUES(option_seq.nextval, '15X15', '20', 2000, 2);
@@ -32,3 +32,5 @@ VALUES(option_seq.nextval, '12X12', '20', 2000, 2);
 
 INSERT INTO option_tb(option_id, option_name, value, option_price, product_id)
 VALUES(option_seq.nextval, '12X12', '40', 2000, 2);
+
+

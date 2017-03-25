@@ -32,7 +32,6 @@ public class ReviewDetailController extends HttpServlet {
 		List<Review> list = new ArrayList<>();
 		list = reviewService.findCommentByOrder((orderId));
 		request.setAttribute("review", list);
-		System.out.println(list.size());
 		request.getRequestDispatcher("/views/review/reviewDetail.jsp").forward(request, response);
 		
 	

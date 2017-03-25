@@ -16,4 +16,6 @@ VALUES('RURE1114', '1', '예뻐요 배송빠름', '','1');
 INSERT INTO REVIEW_TB(MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, ORDER_ID)
 VALUES('RURE1114', '2', '별로... 배송빠름', '', '2');
 
+-- review 사진폴더 /upload/review 
+
 COMMIT;
