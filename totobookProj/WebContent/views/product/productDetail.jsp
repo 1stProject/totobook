@@ -27,7 +27,8 @@
 	</header>
 	<div class="contents-wrap">
 			<div class="col-md-offset-2">
-			<c:if test="${product.category }.equals(PRINT) ">
+			<c:choose>
+			<c:when test="${product.category  eq 'PRINT' }">
 				<table border="1">
 					<tr>
 						<td>제품사진</td>
@@ -78,6 +79,7 @@
 							</c:forEach>
 					</select>
 					</tr>
+					
 					<c:choose>
 							<c:when test="${review eq null || empty review }">
 								<tr>
@@ -106,13 +108,13 @@
 					class="btn">목록</button>
 				<a class="btn btn-sm btn-success"
 					href="${ctx }/print/register.do?productId=${product.productId}">주문하기</a>
-			</c:if>
+			</c:when>
 			
 			
 			
 			
 			
-			
+			<c:otherwise>
 			<table border="1">
 				<tr>
 					<td>상품명</td>
@@ -196,6 +198,8 @@
 				class="btn">목록</button>
 			<a class="btn btn-sm btn-success"
 				href="${ctx }/book/register.do?productId=${product.productId}">주문하기</a>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
 </body>

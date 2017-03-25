@@ -35,6 +35,7 @@
 				//비밀번호  확인 버튼 클릭
 				$("#pwCheck").click(function() {
 					var password = $("#password").val();
+					console.log(password);
 					$.ajax({
 						type : 'POST',
 						url : "${ctx }/member/pwCheck.do",
@@ -45,14 +46,12 @@
 							console.log(data);
 							$("#result").html(data);
 							if ($.trim(data) == 'yes') {
-								console.log("확인 성공");
-								$('#password').submit;
-								return true;
-							} else {
-								
-								console.log("확인 실패");
-								$('#password').val("");
-								return false;
+								console.log("삭제 완료");
+								$("form").submit();
+							} else if($.trim(data) == 'no') {
+								console.log("삭제 실패");
+								$("#loginResult").html("비밀번호가 일치하지않습니다");
+
 							}
 
 						}
@@ -67,7 +66,7 @@
 			</div>
 			<div class="alignRight">
 				<button type="reset" >취소</button>
-				<button type="submit" id="pwCheck" onsubmit="return loginValidate();">탈퇴</button>
+				<button type="button" id="pwCheck" onsubmit="return loginValidate();">탈퇴</button>
 			</div>
 		</form>
 	<footer>

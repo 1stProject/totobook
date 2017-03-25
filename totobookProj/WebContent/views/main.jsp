@@ -31,18 +31,11 @@
 
 	<!-- First Container -->
 	<div class="contentsContainer">
-		<div class="col-md-offset-2"></div>
-		<div
-			class="container-fluid bg-2 text-center col col-sm-8 col-md-offset-2"
-			style="padding: 20px;">
-			<img src="${ctx }/views/main.jpg" class="img-responsive"
-				style="display: inline" alt="main1" width="100%">
-		</div>
-		<div
-			class="container-fluid bg-3 text-center col col-sm-8 col-md-offset-2"
-			style="padding: 20px;">
-			<img src="${ctx }/views/main.jpg" class="img-responsive"
-				style="display: inline" alt="main1" width="100%">
+		<div class="mainImg" >
+			<img src="${ctx }/images/mainImage/main_img_book.jpg" class="img-responsive"
+				style="display: inline" alt="main1" width="49%" style="margin-left:10px">
+				<img src="${ctx }/images/mainImage/main_img_print.jpg" class="img-responsive"
+				style="display: inline" alt="main1" width="49%">
 		</div>
 		<div
 			class="container-fluid bg-4 text-center col col-sm-8 col-md-offset-2"
@@ -55,22 +48,22 @@
 			style="padding: 20px;">
 			<div class="col-sm-6">
 				<h1>
-					<a style = "color:black;font-weight: bold;" href="${ctx }/notice/list.do">공지 게시판</a>
+					<a style = "color:black;font-weight: bold;text-decoration:none" href="${ctx }/notice/list.do">공지 게시판</a>
 				</h1>
 				<ul>
 					<c:forEach items="${noticeList }" var = "post">
-						<li><a style = "color:black;" href="${ctx }/notice/detail.do?noticeId=${post.postId}">${post.title }</a>
+						<li><a style = "color:black;text-decoration:none" href="${ctx }/notice/detail.do?noticeId=${post.postId}">${post.title }</a>
 					</c:forEach>
 				</ul>
 
 			</div>
 			<div class="col-sm-6">
 				<h1>
-					<a style = "color:black;font-weight: bold;" href="${ctx }/question/list.do" class = "text">문의 게시판</a>
+					<a style = "color:black;font-weight: bold;text-decoration:none" href="${ctx }/question/list.do" class = "text">문의 게시판</a>
 				</h1>
 				<ul>
 					<c:forEach items="${qnaList }" var = "post">
-						<li><a style = "color:black;" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>
+						<li><a style = "color:black;text-decoration:none" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>
 					</c:forEach>
 				</ul>
 			</div>
