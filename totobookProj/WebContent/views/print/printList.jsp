@@ -30,8 +30,9 @@
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 </nav>
 
+
+<div class="table-responsive col-sm-10 col-lg-10 col-md-offset-2">
 <h2 class="page-title">나의 사진 목록</h2>
-<div class="table-responsive col-sm-10 col-lg-10">
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width = "10%"/>

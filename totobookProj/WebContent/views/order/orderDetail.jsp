@@ -19,10 +19,13 @@
 </head>
 <body>
 <header>
-	<%@ include file = "/views/head/header.jspf" %>
-</header>
+		<%@ include file="/views/head/header.jspf"%>
+	</header>
+
+	<div class="contentsContainer">
+
+<div class="table-responsive col-sm-7 col-lg-7 col-md-offset-2">
 <h1>주문 상세</h1>
-<div class="table-responsive col-sm-7 col-lg-7">
 <c:forEach items = "${orders }" var = "order">
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
@@ -73,5 +76,9 @@
 <a href = "${ctx }/order/modify.do?orderId=${order.orderId}" class = "btn btn-default">배송지 수정</a>
 </c:forEach>
 </div>
+</div>
+	<footer>
+		<%@include file="../foot/footer.jspf"%>
+	</footer>
 </body>
 </html>

@@ -19,11 +19,14 @@
 </head>
 <body>
 <header>
-	<%@ include file = "/views/head/header.jspf" %>
-</header>
-<h1>주문 창</h1>
+		<%@ include file="/views/head/header.jspf"%>
+	</header>
+
+	<div class="contentsContainer">
+
 <form method = "post" action = "${ctx }/order/register.do">
-<div class="table-responsive col-sm-9 col-lg-9">
+<div class="table-responsive col-sm-9 col-lg-9 col-md-offset-2">
+<h1>주문 창</h1>
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width = "20%"/>
@@ -69,9 +72,31 @@
 	
 </table>
 </div>
-<input type = "hidden" value = "${order.member.memberId }" name = "memberId">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;&nbsp;
-<input type = "submit" value = "주문하기!" class = "btn btn-success">
-</form>
+<input type="hidden" value="${order.member.memberId }"
+				name="memberId"> <br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>&nbsp;&nbsp;&nbsp; <input type="submit" value="주문하기!"
+				class="btn btn-success">
+		</form>
+	</div>
+
+	<footer>
+		<%@include file="../foot/footer.jspf"%>
+	</footer>
+
 </body>
 </html>

@@ -21,9 +21,10 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-<h1>배송지 수정</h1>
+
 <form action = "${ctx }/order/modify.do" method = "post">
-<div class="table-responsive col-sm-5 col-lg-5">
+<div class="table-responsive col-sm-5 col-lg-5 col-md-offset-2">
+<h1>배송지 수정</h1>
 <table class = "table table-striped table-bordered table-hover">
 	<tr>
 		<th>주문번호</th>
