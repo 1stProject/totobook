@@ -47,6 +47,10 @@
 </div>
 <br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;
 <input type = "submit" value = "수정완료" class = "btn btn-success">
+
 </form>
+<footer>
+		<%@include file="../foot/footer.jspf"%>
+	</footer>
 </body>
 </html>
