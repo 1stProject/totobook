@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <title>totoBook</title>
@@ -21,6 +22,15 @@
 	</header>
 	
 	<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li_home"><a href="${ctx }/views/main.jsp">HOME</a> > </li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	
 	<nav>
 		<%@ include file = "/views/left/leftMyPage.jsp" %>
 	</nav>
