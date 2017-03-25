@@ -37,7 +37,6 @@
 				src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 			<script>
 				$(document).ready(function() {
-					//아이디  중복 확인 버튼 클릭
 					$("#loginCheck").click(function() {
 						var id = $("#memberId").val();
 						var password = $("#password").val();
@@ -54,13 +53,10 @@
 								console.log(data);
 								$("#result").html(data);
 								if ($.trim(data) == 'yes') {
-									console.log("로그인 성공");
-									alert("★☆★☆★☆환영합니다☆★☆★☆★")
-									return true;
+									alert("★☆★☆★☆환영합니다☆★☆★☆★");
+									$(form).submit();
 								} else if ($.trim(data) == 'no') {
-									console.log("로그인 실패");
-									alert("로그인에 실패하였습니다.")
-									return false;
+									$("#loginResult").html("로그인에 실패하였습니다. 아이디 혹은 비밀번호를 확인하세요.");
 
 								}
 							}
@@ -68,20 +64,23 @@
 					});
 				});
 			</script>
-			<form action="${ctx }/member/login.do" method="post"
-				onsubmit="return loginValidate();">
+			<form action="${ctx }/member/login.do" method="post" >
 				<label>아이디</label> <input type="text" id="memberId" name="memberId"
-					placeholder="아이디를 입력하세요."> <label>비밀번호</label> <input
+					placeholder="아이디를 입력하세요."><Br> <label>비밀번호</label> <input
 					type="password" id="password" name="password"
 					placeholder="패스워드를 입력하세요.">
+					
+				<p id="loginResult"></p>	
 				<div class="login-btn">
-					<button type="button"
-						onclick="location.href='${ctx }/member/list.do'">취소</button>
-					<button type="submit" id="loginCheck"
+					<button type="button" id="loginCheck"
 						onsubmit="return loginValidate();">로그인</button>
-					<button type="button" onclick="location.href='memberRegister.jsp'">회원가입</button>
+					<button type="button"
+						onclick="location.href='${ctx }/main/main.do'">취소</button>
 				</div>
 			</form>
+			<div>
+					<button type="button" onclick="location.href='memberRegister.jsp'">회원가입</button>
+			</div>
 		</div>
 	</div>
 	<footer>
