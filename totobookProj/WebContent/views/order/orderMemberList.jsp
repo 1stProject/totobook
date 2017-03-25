@@ -24,9 +24,9 @@
 <nav>
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 </nav>
+<div class="contentsContainer">
 <div class="table-responsive col-sm-9 col-lg-9 col-md-offset-2">
 <h1>주문 목록</h1>
-
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width="100"/>
@@ -61,6 +61,7 @@
 <c:forEach begin="1" end="${maxBorder }" step="1" varStatus="status">
 	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
 </c:forEach>
+</div>
 </div>
 <footer>
 		<%@include file="../foot/footer.jspf"%>
