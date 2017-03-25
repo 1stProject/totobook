@@ -56,9 +56,16 @@
                 <td>${memberList.address }</td>
                 <td>${memberList.phone }</td>
                 <td>${memberList.receiveEmail }</td>
-               	<td><a href="${ctx }/member/modify.do?memberId=${memberList.memberId }" class="btn btn-xs btn-warning">수정</a></td>
 				<td><a href="${ctx }/views/member/pwCheck.jsp?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">삭제</a></td>
-							
+					<c:choose>
+						<c:when test="${memberList.memberId eq 'admin'}">
+						</c:when>
+						<c:otherwise>
+							<a href="${ctx }/member/modify.do?memberId=${memberList.memberId }" class="btn btn-xs btn-warning">수정</a></td>	
+							</c:otherwise>
+					</c:choose>
+				
+				
              </tr>
            
             </tbody>
