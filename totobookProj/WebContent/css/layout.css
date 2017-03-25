@@ -4,9 +4,7 @@
 header {
 	background-color: #f8f8f8;
 	border-color : e7e7e7;
-	
 }
-
 nav {	
     width: 100%;
 }
@@ -225,7 +223,14 @@ table.blueListTab tr{
 table.blueListTab tr:nth-child(even) {
 	background-color: #f2f2f2
 	}
-
+	
+	
+	/* 마이페이지 타이틀 */
+div.mypageTitle{
+	width : 1200px;
+	margin : 0 px;
+	
+}
 
 
 /* 문제생기면 이 아래꺼 지우세영 이승건 */
