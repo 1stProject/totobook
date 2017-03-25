@@ -20,7 +20,7 @@
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 
-	<div class="table table-boardered"s>
+	<div class="table table-boardered">
 		<header> </header>
 		<form action="${ctx }/question/register.do" method="post"
 			enctype="multipart/form-data">
