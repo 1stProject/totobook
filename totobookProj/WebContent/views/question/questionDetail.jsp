@@ -88,15 +88,15 @@
 		<tr>
 			<!--${question.postId }  -->
 			<td><input type="hidden" id="postId" value="${question.postId }"></td>
-		<tr>
-			<td><span id="content" /></td>
-			<td>
-				<div id="btn1"></div>
-				<div id="btn2"></div>
-			</td>
-		</tr>
-
-		</tr>
+			<c:if test="${question.member.memberId eq 'admin'}">
+				<tr>
+					<td><span id="content" /></td>
+					<td>
+						<div id="btn1"></div>
+						<div id="btn2"></div>
+					</td>
+				</tr>
+			</c:if>
 		<tr>
 			<td><input type="button" value="수정"
 				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">

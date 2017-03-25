@@ -16,28 +16,26 @@ import totoBook.domain.Post;
 import totoBook.service.QuestionService;
 import totoBook.service.logic.QuestionServiceLogic;
 
-
 @WebServlet("/question/register.do")
 public class QuestionRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//request.getContextPath()+"/views/question/questionList.jsp"
+	// request.getContextPath()+"/views/question/questionList.jsp"
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Post post = new Post();
-		Member member = new Member();
 		QuestionService service = new QuestionServiceLogic();
 		HttpSession session = request.getSession();
 		post.setTitle(request.getParameter("question_title"));
 		post.setContent(request.getParameter("content"));
 		post.setImageAddressPath("");
 		post.setImage_ext("");
-		member.setMemberId("");
+		Member member = (Member) session.getAttribute("member");
 		post.setMember(member);
 		service.registerQuestion(post);
-		
-		response.sendRedirect(request.getContextPath()+"/question/list.do");
-		
+
+		response.sendRedirect(request.getContextPath() + "/question/list.do");
+
 	}
 
 }
