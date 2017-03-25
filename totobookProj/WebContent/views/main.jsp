@@ -63,7 +63,16 @@
 				</h1>
 				<ul>
 					<c:forEach items="${qnaList }" var = "post">
-						<li><a style = "color:black;text-decoration:none" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>
+						<li>
+							<c:choose>
+								<c:when test="${member.memberId eq null || member.memberId eq '' }">
+									<a style = "color:black;text-decoration:none" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>						
+								</c:when>
+								<c:otherwise>
+									${post.title }						
+								</c:otherwise>
+							</c:choose>
+							
 					</c:forEach>
 				</ul>
 			</div>
