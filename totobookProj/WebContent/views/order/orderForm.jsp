@@ -28,8 +28,8 @@
 	<div class="contentsContainer">
 		<h1>주문 창</h1>
 		<form method="post" action="${ctx }/order/register.do">
-
-			<div class="table-responsive col-sm-9 col-lg-9" style="display:block;">
+		<div style="display:block;">
+			<div class="table-responsive col-sm-9 col-lg-9">
 				<table class="table table-striped table-bordered table-hover">
 					<colgroup>
 						<col width="20%" />
@@ -53,30 +53,34 @@
 					</tr>
 					<tr>
 						<th>카테고리</th>
-						<td>사진</td>
+						<td>${order.category }</td>
 					</tr>
 					<tr>
-						<th>상품 이름</th>
-						<td>아름다웠던 봄</td>
+						<th>번호</th>
+						<td>${order.bookPhotoId }</td>
 					</tr>
 					<tr>
 						<th>결제 수단</th>
 						<td><input type="radio" name="payment" value="신용카드">
-							시뇽카드 <input type="radio" name="payment" value="무통장입금">
-							유통장입금 <input type="radio" name="payment" value="현금">
-							현금박치기</td>
+							신용카드 <input type="radio" name="payment" value="무통장입금">
+							무통장입금 <input type="radio" name="payment" value="계좌이체">
+							계좌이체 </td>
 					</tr>
 					<tr>
 						<th>가격</th>
 						<td><input type="text" class="ui-corner-all form-control"
-							name="price" value="35000" readonly></td>
+							name="price" value="${order.ordPrice }" readonly></td>
 					</tr>
 
 				</table>
+				<input type="hidden" value="${order.member.memberId }" name="memberId">
+				<input type="hidden" value ="${order.bookPhotoId }" name = "bookPhotoId">
+				<input type="hidden" value = "${order.category }" name = "category">
 			</div>
-			<input type="hidden" value="${order.member.memberId }"
-				name="memberId"> <br>
-			<br>&nbsp;&nbsp;&nbsp; <input type="submit" value="주문하기!"
+			</div>
+		
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br>&nbsp;&nbsp;&nbsp; <input type="submit" value="주문하기!"
 				class="btn btn-success">
 		</form>
 	</div>

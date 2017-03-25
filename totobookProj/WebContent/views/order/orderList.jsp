@@ -61,7 +61,6 @@
 							<td class="text-center"><a
 								href="${ctx }/order/detail.do?orderId=${order.orderId}"
 								class="btn btn btn-primary">상세보기</a></td>
-						</tr>
 					</c:forEach>
 				</tbody>
 			</table>

@@ -26,8 +26,8 @@ REFERENCES member_tb (member_id);
 ALTER TABLE order_tb
 ADD CONSTRAINT order_tb_fk2 FOREIGN KEY (product_id)
 REFERENCES product_tb (product_id);
-insert into order_tb (order_id, member_id, order_date, payment, total_price, address, product_id) 
-values (order_seq.NEXTVAL,'Lee@Lee.com','2017-3-20','신용카드', '150000', '서울시 광진구', '2');
+insert into order_tb (order_id, member_id, order_date, payment, total_price, address, bookPhoto_id, category) 
+values (order_seq.NEXTVAL,'Lee@Lee.com','2017-3-20','신용카드', '150000', '1', '사진');
 
 CREATE TABLE print_tb (
 	print_id varchar2(50) NOT NULL,

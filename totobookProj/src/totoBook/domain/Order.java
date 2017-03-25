@@ -14,8 +14,21 @@ public class Order {
 	private int ordPrice;
 	private Member member;
 	private String ordWay;
-	private Product product;
+	private String bookPhotoId;
+	private String category;
 	
+	public String getBookPhotoId() {
+		return bookPhotoId;
+	}
+	public void setBookPhotoId(String bookPhotoId) {
+		this.bookPhotoId = bookPhotoId;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public String getOrderId() {
 		return orderId;
 	}
@@ -53,16 +66,6 @@ public class Order {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	public Product getProduct() {
-		return product;
-	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-	@Override
-	public String toString() {
-		return "Order [orderId=" + orderId + ", ordDate=" + ordDate + ", payment=" + payment + ", ordPrice=" + ordPrice
-				+ ", member=" + member + ", ordWay=" + ordWay + ", product=" + product + "]";
-	}
+
 	
 }
