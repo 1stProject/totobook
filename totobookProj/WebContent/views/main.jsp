@@ -66,10 +66,10 @@
 						<li>
 							<c:choose>
 								<c:when test="${member.memberId eq null || member.memberId eq '' }">
-									<a style = "color:black;text-decoration:none" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>						
-								</c:when>
+									<a style = "color:black;text-decoration:none" href="${ctx }/views/member/login.jsp">${post.title }</a>						
+									</c:when>
 								<c:otherwise>
-									${post.title }						
+									<a style = "color:black;text-decoration:none" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>						
 								</c:otherwise>
 							</c:choose>
 							
