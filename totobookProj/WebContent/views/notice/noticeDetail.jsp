@@ -2,52 +2,66 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<header>
-	<%@ include file = "/views/head/header.jspf" %>
+	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 	<table border="1">
 		<tr>
-			<td>${notice.title }</td>
+<<<<<<< HEAD
+			<td>제목 : ${notice.title }</td>
 			<br>
+=======
+			<td>${notice.title }</td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
-			<td>${notice.content }</td>
+<<<<<<< HEAD
+			<td>내용 : ${notice.content }</td>
 			<br>
+=======
+			<td>${notice.content }</td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
 
 			<td><img src=""></td>
-			<br>
 		</tr>
 
 		<tr>
-			<td>${notice.member.memberId }</td>
+<<<<<<< HEAD
+			<td>작성자 : ${notice.member.memberId }</td>
 			<br>
+=======
+			<td>${notice.member.memberId }</td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 		</tr>
 		<tr>
-			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
-				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/notice/remove.do?noticeId=${notice.postId }'"></td>
+			<c:if test="${notice.member.memberId eq 'admin' }">
+				<td><input type="button" value="수정"
+					onclick="location.href='${ctx }/notice/modify.do?noticeId=${notice.postId }'">
+					<input type="button" value="삭제"
+					onclick="location.href='${ctx }/notice/remove.do?noticeId=${notice.postId }'"></td>
+			</c:if>
 		</tr>
 
 	</table>
 
-<footer>
-		<%@include file="../foot/footer.jspf" %>
+	<footer> <%@include file="../foot/footer.jspf"%>
 	</footer>
 
 </body>

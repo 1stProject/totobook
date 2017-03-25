@@ -13,11 +13,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<head>
+<%@ include file="../member/header.jspf"%>
+</head>
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 	</header>
 	<form action="${ctx }/answer/register.do" method="post">
-		<input type="text" name="content"><br> <br> 
+		답글내용 : <input type="text" name="content"><br> <br> 
 		<input type="hidden" name="postId" value="${answerId }"> 
 		<input type="submit" value="등록">
 	</form>

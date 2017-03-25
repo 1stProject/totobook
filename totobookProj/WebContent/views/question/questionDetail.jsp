@@ -1,3 +1,4 @@
+<%@page import="totoBook.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -63,16 +64,19 @@
 </script>
 </head>
 <body>
+<head>
+<%@ include file="../member/header.jspf"%>
+</head>
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 
 	<table border="1">
 		<tr>
-			<td>${question.title }</td>
+			<td>제목 : ${question.title }</td>
 			<br>
 		</tr>
 		<tr>
-			<td>${question.content }</td>
+			<td>내용 : ${question.content }</td>
 			<br>
 		</tr>
 		<tr>
@@ -82,27 +86,29 @@
 		</tr>
 
 		<tr>
-			<td>${question.member.memberId }</td>
+			<td>작성자 : ${question.member.memberId }</td>
 			<br>
 		</tr>
 		<tr>
 			<!--${question.postId }  -->
 			<td><input type="hidden" id="postId" value="${question.postId }"></td>
+			<c:if test="${question.member.memberId eq 'admin'}">
+				<tr>
+					<td><span id="content" /></td>
+					<td>
+						<div id="btn1"></div>
+						<div id="btn2"></div>
+					</td>
+				</tr>
+			</c:if>
+		
 		<tr>
-			<td><span id="content" /></td>
-			<td>
-				<div id="btn1"></div>
-				<div id="btn2"></div>
-			</td>
-		</tr>
-
-		</tr>
-		<tr>
-			<td><input type="button" value="수정"
-				onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
-				<input type="button" value="삭제"
-				onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
-
+			<c:if test="${question.member.memberId eq member.memberId  }">
+				<td><input type="button" value="수정"
+					onclick="location.href='${ctx }/question/modify.do?questionId=${question.postId }'">
+					<input type="button" value="삭제"
+					onclick="location.href='${ctx }/question/remove.do?questionId=${question.postId }'"></td>
+			</c:if>
 		</tr>
 
 	</table>
@@ -110,7 +116,5 @@
 
 	<footer> <%@include file="../foot/footer.jspf"%>
 	</footer>
-
-
 </body>
 </html>
