@@ -35,9 +35,16 @@ public class ReviewListController extends HttpServlet {
 		MemberService MemberService = new MemberServiceLogic();
 
 		HttpSession session = request.getSession();
-		Member member = (Member) request.getSession();
+		
+		Member member = (Member)session.getAttribute("member");
+		
+		
+		
+		System.out.println(member);
 		String memberId = member.getMemberId();
+		System.out.println(memberId);
 		List<Review> list = reviewService.findCommentsByMember(memberId);
+		System.out.println(list.size());
 		request.setAttribute("review", list);
 		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);
 

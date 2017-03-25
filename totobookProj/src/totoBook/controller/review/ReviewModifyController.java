@@ -87,7 +87,7 @@ public class ReviewModifyController extends HttpServlet {
 		
 		reviewService.modifyComment(review);
 		
-		response.sendRedirect("list.do");		
+		response.sendRedirect("adminlist.do");
 
 	}
 

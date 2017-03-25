@@ -39,7 +39,7 @@ public class ProductRemoveController extends HttpServlet {
 		productService.removeOption(productId);
 		reviewService.deleteCommentByProduct(product);
 		
-		response.sendRedirect("list.do");
+		response.sendRedirect("adminlist.do");
 	
 	
 	}
