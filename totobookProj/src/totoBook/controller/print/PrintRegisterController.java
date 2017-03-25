@@ -42,7 +42,7 @@ public class PrintRegisterController extends HttpServlet {
 		String productId = request.getParameter("productId");
 		Product product = productService.findProductById(productId);
 		request.setAttribute("product", product);
-		request.getRequestDispatcher("/views/print/printUpload.do");
+		request.getRequestDispatcher("/views/print/printUpload.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +50,7 @@ public class PrintRegisterController extends HttpServlet {
 		ServletContext ctx = getServletContext();
 		String dir = ctx.getRealPath("/upload");
 		int i = 0;
-		MultipartRequest multi = new MultipartRequest(request,"c:/totobook/images" , maxSize, "UTF-8");
+		MultipartRequest multi = new MultipartRequest(request, dir , maxSize, "UTF-8");
 		List<Photo> photos = new ArrayList<>();
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){

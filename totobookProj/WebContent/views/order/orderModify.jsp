@@ -21,7 +21,9 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-
+<nav>
+		<%@ include file="/views/left/leftManagePage.jsp"%>
+	</nav>
 <form action = "${ctx }/order/modify.do" method = "post">
 <div class="table-responsive col-sm-5 col-lg-5 col-md-offset-2">
 <h1>배송지 수정</h1>
