@@ -49,8 +49,6 @@ public class ReviewRegister extends HttpServlet {
 		list = orderService.findOrdersByOrderId(orderId);
 		Order order = list.get(0);
 	
-		System.out.println(list.size());
-		System.out.println(order.getOrdWay());
 		
 		request.setAttribute("order", order);
 		
@@ -64,13 +62,10 @@ public class ReviewRegister extends HttpServlet {
 			throws ServletException, IOException {
 
 		ReviewService reviewService = new ReviewServiceLogic();
-		MemberService memberService = new MemberServiceLogic();
-		ProductService productService = new ProductServiceLogic();
 		OrderService orderService = new OrderServiceLogic();
 
 		
 		HttpSession session = request.getSession();
-		System.out.println("orderId프린트전");
 
 		int maxPostSize = 10 * 1024 * 1024;
 		response.setContentType("text/html; charset=UTF-8");
@@ -80,21 +75,15 @@ public class ReviewRegister extends HttpServlet {
 		
 		
 		String orderId= multi.getParameter("orderId");
-		System.out.println(orderId);
 
 		List<Order> list = new ArrayList<>();
 		list = orderService.findOrdersByOrderId(orderId);
 		
-//		System.out.println(list.get(0).getProduct().getProductId());
 		
 		Order order = list.get(0);
 		Member member = (Member)session.getAttribute("member");
-		System.out.println("멤버");
-		System.out.println(member);
-		System.out.println(list);
 
 		
-//		Product product = productService.findProductById(list.get(0).getProduct().getProductId());
 		
 		
 		Photo photo = new Photo();

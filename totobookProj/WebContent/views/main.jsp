@@ -55,11 +55,12 @@
 			style="padding: 20px;">
 			<div class="col-sm-6">
 				<h1>
-					<a href="#" class="a">공지 게시판</a>
+					<a href="${ctx }/notice/list.do">공지 게시판</a>
 				</h1>
 				<ul>
-					<li><a href="#">공지사항 첫번째 글~!!</a>
-					<li><a href="#">공지사항 두번째 글~~!!</a>
+					<c:forEach items="${noticeList }" var = "post">
+						<li><a href="#">${post.title }</a>
+					</c:forEach>
 				</ul>
 
 			</div>
@@ -68,8 +69,8 @@
 					<a href="#" class="a">문의 게시판</a>
 				</h1>
 				<ul>
-					<li><a href="#">문의 게시판 첫번째 글~!!</a>
-					<li><a href="#">문의 게시판 두번째 글~~!!</a>
+					<li><a href="#" class="a">문의 게시판</a>
+					<li><a href="#" class="a">문의 게시판</a>
 				</ul>
 			</div>
 		</div>

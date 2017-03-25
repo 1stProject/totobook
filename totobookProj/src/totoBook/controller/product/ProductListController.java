@@ -29,22 +29,6 @@ public class ProductListController extends HttpServlet {
 
 		ProductService productService = new ProductServiceLogic();
 
-//		HttpSession session = request.getSession();
-//		System.out.println("list테스트");
-//		Member member = (Member) session.getAttribute("member");
-//
-//		System.out.println(member);
-//		String memberId = member.getMemberId();
-//		System.out.println(memberId);
-//		String admin = "admin";
-//
-//		if (memberId == admin) {
-//			List<Product> list = new ArrayList<>();
-//			list = productService.findAllProducts();
-//			System.out.println("1");
-//			request.setAttribute("product", list);
-//			request.getRequestDispatcher("/views/product/prodcutManage.jsp").forward(request, response);
-//		}
 
 			String category = request.getParameter("category");
 			List<Product> list = new ArrayList<>();
