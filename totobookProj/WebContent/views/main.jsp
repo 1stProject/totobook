@@ -20,7 +20,7 @@
 </head>
 <body>
 <header>
-	<%@ include file = "/views/member/header.jspf" %>
+	<%@ include file = "/views/head/header.jspf" %>
 </header>
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 <!-- First Container -->
