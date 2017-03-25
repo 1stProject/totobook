@@ -14,6 +14,7 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href = "${ctx }/css/layout.css">
 <link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <title>Insert title here</title>
 </head>
@@ -61,9 +62,11 @@
 	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
 </c:forEach>
 </div>
-<footer>
-		<%@include file="/views/foot/footer.jspf" %>
-	</footer>
+<div id="footer">
+      <div class="container">
+        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      </div>
+    </div>
 
 </body>
 </html>
