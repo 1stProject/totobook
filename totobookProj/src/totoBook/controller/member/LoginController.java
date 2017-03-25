@@ -36,6 +36,8 @@ public class LoginController extends HttpServlet {
 		
 		System.out.println(member.toString());
 		if(memberId.equals("admin")){
+//			뭐야 이거 db에 admin 있어?
+//			수정해 admin admin으로 로그인 안되는데
 			HttpSession session = request.getSession();
 			session.setAttribute("member", member);
 			response.sendRedirect("list.do");
