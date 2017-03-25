@@ -21,6 +21,10 @@
 </head>
 <header> <%@ include file="/views/head/header.jspf"%>
 	</header>
+	<div class="mypageTitle">
+		<div class="title_left"></div>
+		
+	</div>
 	<input type="button" value="이전페이지"
 		onclick="location.href='${ctx }/question/detail.do?questionId=${answer.post.postId }'">
 	<table  class="table table-boardered">

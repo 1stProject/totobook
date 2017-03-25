@@ -21,6 +21,10 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
+	<div class="mypageTitle">
+		<div class="title_left">공지사항</div>
+		
+	</div>
 	<table class="table table-boardered">
 		<tr>
 			<td>제목 : ${notice.title }</td>
