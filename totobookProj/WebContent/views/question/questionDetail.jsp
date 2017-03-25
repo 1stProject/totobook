@@ -64,12 +64,12 @@
 </script>
 </head>
 <body>
-<head>
-<%@ include file="../head/header.jspf"%>
-</head>
 <header> <%@ include file="/views/head/header.jspf"%>
 </header>
-
+<div class="mypageTitle">
+		<div class="title_left">문의사항</div>
+		
+	</div>
 <table class="table table-boardered">
 	<tr>
 		<td>제목 : ${question.title }</td>

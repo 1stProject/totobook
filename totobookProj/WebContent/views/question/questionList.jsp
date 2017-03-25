@@ -19,7 +19,10 @@
 
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
-
+<div class="mypageTitle">
+		<div class="title_left">문의사항</div>
+		
+	</div>
 	<table class="table table-boardered">
 		<thead>
 			<tr>
