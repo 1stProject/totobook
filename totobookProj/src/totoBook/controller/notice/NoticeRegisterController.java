@@ -24,17 +24,23 @@ public class NoticeRegisterController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("등록");
+		int maxPostSize = 10 * 1024 * 1024;
+		response.setContentType("text/html; charset=UTF-8");
+		ServletContext cxt = getServletContext();
+		String dir = cxt.getRealPath("/upload/product");
+		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
+		String imageAddress = multi.getFilesystemName("file1");
 		Post post = new Post();
 		Member member = new Member();
 		NoticeService service = new NoticeServiceLogic();
 
 		post.setTitle(request.getParameter("notice_title"));
 		post.setContent(request.getParameter("content"));
-		System.out.println(post.getContent());
-		post.setImageAddressPath("");
+		post.setImageAddressPath(imageAddress);
 		post.setImage_ext("");
 		member.setMemberId("admin");
-		
+
 		post.setMember(member);
 		service.registerNotice(post);
 		response.sendRedirect(request.getContextPath() + "/notice/list.do");

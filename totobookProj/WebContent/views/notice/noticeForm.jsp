@@ -26,7 +26,7 @@
 
 	<div>
 		<header> </header>
-		<form action="${ctx }/notice/register.do" method="post">
+		<form action="${ctx }/notice/register.do" method="post" enctype="multipart/form-data">
 			제목 : <input type="text" name="notice_title"><br>
 			<br>내용 : <input type="text" name="content" ><br>
 			<td>사진 첨부 : <input type="file" name="file1"></td>
