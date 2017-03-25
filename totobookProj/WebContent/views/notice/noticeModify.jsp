@@ -21,12 +21,12 @@
 		<form action="${ctx }/notice/modify.do" method="post">
 
 		<tr>
-			<td><input type="text" name="notice_title" value="${notice.title }"></td>
+			<td>제목 : <input type="text" name="notice_title" value="${notice.title }"></td>
 			<br>
 			<input type="hidden" name="postId" value="${notice.postId }">
 		</tr>
 		<tr>
-			<td><input type="text" name="content" value="${notice.content }" ></td>
+			<td>내용 : <input type="text" name="content" value="${notice.content }" ></td>
 			<br>
 		</tr>
 		<tr>
@@ -36,7 +36,7 @@
 		</tr>
 
 		<tr>
-			<td>${notice.member.memberId }</td>
+			<td>작성자 : ${notice.member.memberId }</td>
 			<br>
 		</tr>
 		<tr>

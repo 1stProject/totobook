@@ -9,14 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import totoBook.domain.Member;
 import totoBook.domain.Product;
-import totoBook.domain.Review;
 import totoBook.service.ProductService;
-import totoBook.service.ReviewService;
 import totoBook.service.logic.ProductServiceLogic;
-import totoBook.service.logic.ReviewServiceLogic;
 
 /**
  * @author
@@ -26,30 +24,34 @@ import totoBook.service.logic.ReviewServiceLogic;
 public class ProductListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		
 		ProductService productService = new ProductServiceLogic();
 
-		
-		
-//		String category = request.getParameter("category");
-		String category="book";
-		List<Product> list = new ArrayList<>();
-		list = productService.findProductsByCategory(category);
-		request.setAttribute("product", list);
-		request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);	
+//		HttpSession session = request.getSession();
+//		System.out.println("list테스트");
+//		Member member = (Member) session.getAttribute("member");
+//
+//		System.out.println(member);
+//		String memberId = member.getMemberId();
+//		System.out.println(memberId);
+//		String admin = "admin";
+//
+//		if (memberId == admin) {
+//			List<Product> list = new ArrayList<>();
+//			list = productService.findAllProducts();
+//			System.out.println("1");
+//			request.setAttribute("product", list);
+//			request.getRequestDispatcher("/views/product/prodcutManage.jsp").forward(request, response);
+//		}
 
-		
-		
-//관리자일 경우		
-	
+			String category = request.getParameter("category");
+			List<Product> list = new ArrayList<>();
+			list = productService.findProductsByCategory(category);
+			request.setAttribute("product", list);
+			request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);
 
-//		List<Product> list = new ArrayList<>();
-//		list = productService.findAllProducts();
-//		request.setAttribute("product", list);
-//		request.getRequestDispatcher("/views/product/prodcutManage.jsp").forward(request, response);	
-		
-	}
+		}
 
 }
