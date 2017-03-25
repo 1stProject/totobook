@@ -94,15 +94,15 @@
 				<label>주소 : </label> <input type="text" name="address">
 			</div>
 			<div>
-				<label>휴대폰번호 : </label> <input type="text" name="phone" size="11"
+				<label>휴대폰 번호 : </label> <input type="text" name="phone" size="11"
 					maxlength="13">
 
 			</div>
 			<div >
-				<label>스팸매일받을래? </label>
+				<label>이벤트 알림 메일 수신</label>
 				<div class="radio">
-					<input type="radio" name="receiveEmail" value="yes"> ㅇㅇ <input
-						type="radio" name="receiveEmail" value="no"> ㄴㄴ
+					<input type="radio" name="receiveEmail" value="yes"> yes <input
+						type="radio" name="receiveEmail" value="no"> no
 				</div>
 			</div>
 			<div class="alignRight">

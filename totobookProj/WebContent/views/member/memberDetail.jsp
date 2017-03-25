@@ -4,18 +4,20 @@
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
-
 <head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href = "${ctx }/css/layout.css">
-<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
-</head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${ctx }/css/layout.css">
+<link rel="stylesheet" href="${ctx }/css/sidebarheader.css">
+</head>
 <title>회원 정보</title>
 <body>
 <header>
@@ -23,32 +25,33 @@
 </header>
 	<div class="contentsContainer">
 <nav>
+	
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 	</nav>
 	
-	<div class="col-md-offset-2">
+	<div class="col-md-offset-2 col-sm-6 col-lg-6">
     <h2 class="page-title">정보보기</h2>
 	
-        <table border="1">     
+        <table class = "table table-bordered table-stripped">     
             <thead>
             <tr>
+                <th>아이디</th>
                 <th>이름</th>
                 <th>주소</th>
-                <th>아이디</th>
-                <th>폰번</th>
+                <th>휴대폰 번호</th>
                 <th>이메일</th>
             </tr>
             </thead>
             <tbody>
             
             <tr>
+            	<td>${memberList.memberId }</td>
 				<td>${memberList.name }</td>
                 <td>${memberList.address }</td>
-                <td>${memberList.memberId }</td>
                 <td>${memberList.phone }</td>
                 <td>${memberList.receiveEmail }</td>
-               	<td><a href="${ctx }/member/modify.do?memberId=${memberList.memberId }" class="btn btn-xs btn-warning">UPDATE</a></td>
-				<td><a href="${ctx }/views/member/pwCheck.jsp?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">DELETE</a></td>
+               	<td><a href="${ctx }/member/modify.do?memberId=${memberList.memberId }" class="btn btn-xs btn-warning">수정</a></td>
+				<td><a href="${ctx }/views/member/pwCheck.jsp?memberId=${memberList.memberId }" class="btn btn-xs btn-danger">삭제</a></td>
 							
              </tr>
            

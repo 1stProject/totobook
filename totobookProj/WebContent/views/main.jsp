@@ -55,22 +55,23 @@
 			style="padding: 20px;">
 			<div class="col-sm-6">
 				<h1>
-					<a href="${ctx }/notice/list.do">공지 게시판</a>
+					<a style = "color:black;font-weight: bold;" href="${ctx }/notice/list.do">공지 게시판</a>
 				</h1>
 				<ul>
 					<c:forEach items="${noticeList }" var = "post">
-						<li><a href="#">${post.title }</a>
+						<li><a style = "color:black;" href="${ctx }/notice/detail.do?noticeId=${post.postId}">${post.title }</a>
 					</c:forEach>
 				</ul>
 
 			</div>
 			<div class="col-sm-6">
 				<h1>
-					<a href="${ctx }/question/list.do" class = "text">문의 게시판</a>
+					<a style = "color:black;font-weight: bold;" href="${ctx }/question/list.do" class = "text">문의 게시판</a>
 				</h1>
 				<ul>
-					<li><a href="#" class="a">문의 게시판</a>
-					<li><a href="#" class="a">문의 게시판</a>
+					<c:forEach items="${qnaList }" var = "post">
+						<li><a style = "color:black;" href="${ctx }/question/detail.do?questionId=${post.postId}">${post.title }</a>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
