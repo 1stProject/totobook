@@ -36,14 +36,35 @@ import totoBook.service.logic.ReviewServiceLogic;
 public class ReviewRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		OrderService orderService = new OrderServiceLogic();
+		
+		String orderId= request.getParameter("orderId");
+		List<Order> list = new ArrayList<>();
+		list = orderService.findOrdersByOrderId(orderId);
+		Order order = list.get(0);
+	
+		request.setAttribute("order", order);
+		
+		request.getRequestDispatcher("views/review/reviewForm.jsp").forward(request, response);
+		
+	
+	}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		ReviewService reviewService = new ReviewServiceLogic();
-		OrderService orderService = new OrderServiceLogic();
 		MemberService memberService = new MemberServiceLogic();
 		ProductService productService = new ProductServiceLogic();
-		
+		OrderService orderService = new OrderServiceLogic();
+
 		
 		HttpSession session = request.getSession();
 		
@@ -79,7 +100,6 @@ public class ReviewRegister extends HttpServlet {
 		review.setProduct(product);
 		reviewService.registerComment(review);
 		
-
 
 		
 		response.sendRedirect("list.do");
