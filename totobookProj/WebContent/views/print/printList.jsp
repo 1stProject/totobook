@@ -16,9 +16,13 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href = "${ctx }/css/layout.css">
-<title></title>
+<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
+<title>Insert title here</title>
 </head>
 <body>
+<header>
+	<%@ include file = "/views/head/header.jspf" %>
+</header>
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
