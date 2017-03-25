@@ -20,9 +20,9 @@
 </head>
 <body>
 <header>
-	<%@ include file = "/views/member/header.jspf" %>
+	<%@ include file = "/views/head/header.jspf" %>
 </header>
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
+
 <!-- First Container -->
 
 <div class = "col-md-offset-2"></div>
@@ -50,7 +50,7 @@
   	항상 열심히 하는 토토북이 되겠습니다.
   	고객님들 감사합니다.</p>
 </div>
-<div class="container-fluid bg-5 col-sm-8 col-md-offset-2" style="padding:20px;">
+<div class="container-fluid col-sm-8 col-md-offset-2" style="padding:20px;">
 	<div class="col-sm-6">
       <h1><a href = "#" class = "a">공지 게시판</a></h1>
        <ul>
@@ -66,11 +66,11 @@
       		<li><a href = "#">문의 게시판 두번째 글~~!!</a>
       	</ul>
     </div>
-</div>
-<footer class="footer">
+    <div id="footer">
       <div class="container">
-        <p class="text-muted">Since 2017.03.24</p>
+        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
       </div>
-    </footer>
+    </div>
+</div>
 </body>
 </html>
