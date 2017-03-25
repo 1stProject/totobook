@@ -22,9 +22,9 @@
 	<%@ include file = "/views/left/leftMyPage.jsp" %>
 </nav>
 
-
+<div class="contentsContainer">
 <div class="table-responsive col-sm-8 col-lg-8 col-md-offset-2">
-<h2 class="page-title">나의 사진 목록</h2>
+<h1>나의 사진 목록</h1>
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width = "20%"/>
@@ -55,6 +55,7 @@
 	</c:forEach>
 	</tbody>
 </table>
+</div>
 </div>
 <footer>
 		<%@include file="../foot/footer.jspf"%>

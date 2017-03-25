@@ -164,38 +164,7 @@
 								<option value="${option.optionPrice}">${option.optionPrice}</option>
 							</c:forEach>
 					</select>
-				
 				</tr>
-				
-				
-				
-				<c:choose>
-					<c:when test="${review eq null || empty review }">
-						<tr>
-							<td>
-							
-							<td colspan="2" align="center">상품평이 없습니다.</td>
-						</tr>
-					</c:when>
-					<c:otherwise>
-						<c:forEach items="${review }" var="review">
-							<tr>
-								<td colspan="2" align="center"><img
-									src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
-									width="128" height="123"></td>
-							</tr>
-
-							<tr>
-								<td colspan="2" align="center">${review.comment }</td>
-							</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</table>
-			<button type="button" onclick="javascript:history.back(-1);"
-				class="btn">목록</button>
-			<a class="btn btn-sm btn-success"
-				href="${ctx }/book/register.do?productId=${product.productId}">주문하기</a>
 		</div>
 	</div>
 </body>

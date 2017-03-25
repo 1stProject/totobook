@@ -6,33 +6,33 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<head>
-<%@ include file="../head/header.jspf"%>
-</head>
-<header>
-	<%@ include file = "/views/head/header.jspf" %>
+	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
 
 	<div>
 		<header> </header>
-		<form action="${ctx }/question/register.do" method="post">
-			제목 : <input type="text" name="question_title"><br>
-			<br>내용 : <input type="text" name="content" ><br>
-			<br> <input type="submit" value="등록">
+		<form action="${ctx }/question/register.do" method="post"
+			enctype="multipart/form-data">
+			제목 : <input type="text" name="question_title"><br> <br>내용
+			: <input type="text" name="content"><br>
+			<td>사진 첨부 : <input type="file" name="file1"></td> <br> <br>
+			<input type="submit" value="등록">
 		</form>
 		<footer> </footer>
 	</div>
-	
-<footer>
-		<%@include file="../foot/footer.jspf" %>
+
+	<footer> <%@include file="../foot/footer.jspf"%>
 	</footer>
 </body>
 </html>

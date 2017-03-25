@@ -29,9 +29,11 @@ public class ProductListController extends HttpServlet {
 
 		ProductService productService = new ProductServiceLogic();
 
-
 			String category = request.getParameter("category");
+			
 			List<Product> list = new ArrayList<>();
+			
+			System.out.println(list.size());
 			list = productService.findProductsByCategory(category);
 			request.setAttribute("product", list);
 			request.getRequestDispatcher("/views/product/productList.jsp").forward(request, response);
