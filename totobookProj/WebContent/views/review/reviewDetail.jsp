@@ -38,12 +38,14 @@
 						<c:forEach items="${review }" var="review">
 							<input type="hidden" value="${review.order.orderId }"
 								name="orderId" id="orderId">
-							<tr>
-								<td>사진</td>
-								<td><img
-									src="${ctx }/review/image.do?orderId=${review.order.orderId}"
-									width="128" height="123"></td>
-							</tr>
+							<c:if test="${not empty review.imageAddress  }">
+								<tr>
+									<td>사진</td>
+									<td><img
+										src="${ctx }/review/image.do?orderId=${review.order.orderId}"
+										width="128" height="123"></td>
+								</tr>
+							</c:if>
 							<tr>
 								<td>작성내용</td>
 								<td>${review.comment}</td>

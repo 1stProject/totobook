@@ -65,8 +65,6 @@ public class ReviewModifyController extends HttpServlet {
 		list = orderService.findOrdersByOrderId(orderId);
 
 		Order order = list.get(0);		
-		
-		
 		Photo photo = new Photo();
 
 		photo.setContentType(multi.getContentType("file1"));
@@ -80,7 +78,7 @@ public class ReviewModifyController extends HttpServlet {
 		
 		reviewService.modifyComment(review);
 		
-		response.sendRedirect("adminlist.do");
+		response.sendRedirect("list.do");
 
 	}
 

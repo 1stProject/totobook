@@ -46,7 +46,6 @@
 							<col width="100">
 						</colgroup>
 						<thead>
-						
 							<tr>
 								<th>상품명</th>
 								<th>내용</th>
