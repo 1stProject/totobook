@@ -53,7 +53,7 @@
 						<td>${book.bookName }</td>
 						<td>${book.product.name}</td>
 						<td>${fn:length(book.pages)}</td>
-						<td>${book.product.price}</td>
+						<td>${book.product.productprice}</td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/edit.do?bookId=${book.bookId}'">편집</button></td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/remove.do?bookId=${book.bookId}'">삭제</button></td>
 					</tr>
