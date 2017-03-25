@@ -14,6 +14,7 @@
 <head>
 <%@ include file="header.jspf" %>
 </head>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
 <title>회원 정보</title>
 <body>
 

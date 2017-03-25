@@ -5,7 +5,7 @@
 <div id = "sidebar-wrapper">
 <ul class = "sidebar-nav">
 	<li>
-		<a href = "${ctx }/member/modify.do">개인정보 수정</a>
+		<a href = "${ctx }/views/member/modify.jsp?memberId=${member.memberId }">개인정보 수정</a>
 	</li>
 	<li>
 		<a href = "${ctx }/book/list.do">나의 포토북 관리</a>
