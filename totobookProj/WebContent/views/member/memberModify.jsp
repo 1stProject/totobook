@@ -38,7 +38,6 @@
 	
 
 		<div class="contentsWithLeft">
-	<a href="list.do">회원리스트</a>
 	<h3>회원정보수정</h3>
 	<form action="${ctx }/member/modify.do" method="post">
 			<input id="memberId" name="memberId" type="hidden"
