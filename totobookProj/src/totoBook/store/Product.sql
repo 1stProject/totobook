@@ -1,4 +1,4 @@
-DROP TABLE product_tb;
+DROP TABLE product_tb CASCADE CONSTRAINT;
 DROP SEQUENCE product_seq;
 CREATE SEQUENCE product_seq START WITH 1 INCREMENT BY 1;
 
@@ -13,11 +13,12 @@ PRIMARY KEY (product_id)
 );
 
 INSERT INTO PRODUCT_TB(PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL, IMAGE_ADDRESS)
-VALUES(PRODUCT_SEQ.NEXTVAL, '결혼식포토북', 20000, 'BOOK', '행복한 결혼을 기록하세요.', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, '사진인화', 5000, 'PRINT', '항상 어디에서도 빛나는 사진들입니다', '');
 
 INSERT INTO PRODUCT_TB(PRODUCT_ID, PRODUCT_NAME, PRICE, category, DETAIL, IMAGE_ADDRESS)
-VALUES(PRODUCT_SEQ.NEXTVAL, '사진인화-반명함', 5000, 'PRINT', '반명함 사진을 인화합니다. 보정가능 짱짱', '');
+VALUES(PRODUCT_SEQ.NEXTVAL, '결혼식포토북', 20000, 'BOOK', '행복한 결혼을 기록하세요.', '');
+
+COMMIT;
 
 -- upload파일경로 /upload/product
 
-COMMIT;
