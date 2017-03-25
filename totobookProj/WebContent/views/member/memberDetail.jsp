@@ -79,7 +79,6 @@
         </table>
         
      </div>
-	</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>
