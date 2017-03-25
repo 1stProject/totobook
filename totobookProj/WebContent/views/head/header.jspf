@@ -36,7 +36,7 @@
 	</div>
 	<hr>
 	<div class="widMargin textCenter">
-		<img class="logo" src="${ctx }/images/logo.png" alt="totobookLogo">
+		<a href="http://localhost:8080/totobookProj/views/main.jsp"><img class="logo" src="${ctx }/images/logo.png" alt="totobookLogo"></a>
 	</div>
 	<hr>
 	<div class="widMargin textCenter topBoard">
