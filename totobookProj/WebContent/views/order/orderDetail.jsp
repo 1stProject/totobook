@@ -23,7 +23,9 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-
+	<nav>
+		<%@ include file="/views/left/leftManagePage.jsp"%>
+	</nav>
 	<div class="contentsContainer">
 	<h1>주문 상세</h1>
 		<div class="table-responsive col-sm-7 col-lg-7">

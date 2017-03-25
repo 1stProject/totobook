@@ -57,10 +57,14 @@
 </c:forEach>
 	</tbody>
 </table>
-총 ${arraysize}건<br>
-<c:forEach begin="1" end="${maxBorder }" step="1" varStatus="status">
-	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
-</c:forEach>
+<div class = "text-right">
+			총 ${arraysize}건<br>
+			</div>
+			<div class = "text-center">
+			<c:forEach begin="1" end="${maxBorder }" step="1" varStatus="status">
+				<a href="${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
+			</c:forEach>
+			<br>
 </div>
 </div>
 <footer>
