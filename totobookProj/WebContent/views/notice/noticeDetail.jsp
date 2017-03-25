@@ -23,18 +23,14 @@
 	</header>
 	<table border="1">
 		<tr>
-			<<<<<<< HEAD
 			<td>제목 : ${notice.title }</td>
 			<br> =======
-			<td>${notice.title }</td> >>>>>>> branch 'development' of
-			https://github.com/1stProject/totobook.git
+			<td>${notice.title }</td>
 		</tr>
 		<tr>
-			<<<<<<< HEAD
 			<td>내용 : ${notice.content }</td>
 			<br> =======
-			<td>${notice.content }</td> >>>>>>> branch 'development' of
-			https://github.com/1stProject/totobook.git
+			<td>${notice.content }</td> 
 		</tr>
 		<tr>
 
@@ -42,11 +38,9 @@
 		</tr>
 
 		<tr>
-			<<<<<<< HEAD
 			<td>작성자 : ${notice.member.memberId }</td>
-			<br> =======
-			<td>${notice.member.memberId }</td> >>>>>>> branch 'development' of
-			https://github.com/1stProject/totobook.git
+			<br> 
+			<td>${notice.member.memberId }</td>
 		</tr>
 		<tr>
 			<c:if test="${member.memberId eq 'admin' }">
