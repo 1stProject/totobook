@@ -81,6 +81,12 @@ public class NoticeStoreLogic implements NoticeStore {
 		try {
 			NoticeMapper mapper = session.getMapper(NoticeMapper.class);
 			mapper.insertNotice(post);
+			System.out.println(post.getPostId());
+			System.out.println(post.getTitle());
+			System.out.println(post.getContent());
+			System.out.println(post.getMember().getMemberId());
+			System.out.println(post.getImageAddressPath());
+
 			session.commit();
 		} finally {
 			session.close();

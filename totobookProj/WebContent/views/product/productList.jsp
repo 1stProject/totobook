@@ -22,7 +22,6 @@
 <link rel="stylesheet" href="${ctx }/css/layout.css">
 <head>
 <title>상품리스트</title>
-<%@ include file="/views/member/header.jspf" %>
 </head>
 <body>
 	<header>

@@ -36,32 +36,65 @@ import totoBook.service.logic.ReviewServiceLogic;
 public class ReviewRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	
+	
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		ReviewService reviewService = new ReviewServiceLogic();
+		
 		OrderService orderService = new OrderServiceLogic();
-		MemberService memberService = new MemberServiceLogic();
-		ProductService productService = new ProductServiceLogic();
-		
-		
-		HttpSession session = request.getSession();
-		
 		
 		String orderId= request.getParameter("orderId");
 		List<Order> list = new ArrayList<>();
 		list = orderService.findOrdersByOrderId(orderId);
 		Order order = list.get(0);
-		Member member = (Member)session.getAttribute("member");
+	
+		System.out.println(list.size());
+		System.out.println(order.getOrdWay());
+		
+		request.setAttribute("order", order);
+		
+		request.getRequestDispatcher("/views/review/reviewForm.jsp").forward(request, response);
+		
+	
+	}
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ReviewService reviewService = new ReviewServiceLogic();
+		MemberService memberService = new MemberServiceLogic();
+		ProductService productService = new ProductServiceLogic();
+		OrderService orderService = new OrderServiceLogic();
 
 		
-//		Member member = memberService.findMemberById("RURE1114");
+		HttpSession session = request.getSession();
+		System.out.println("orderId프린트전");
+
 		int maxPostSize = 10 * 1024 * 1024;
 		response.setContentType("text/html; charset=UTF-8");
 		ServletContext cxt = getServletContext();
 		String dir = cxt.getRealPath("/upload/review");
 		MultipartRequest multi = new MultipartRequest(request, dir, maxPostSize, "UTF-8");
-		Product product = productService.findProductById(order.getProduct().getProductId());
+		
+		
+		String orderId= multi.getParameter("orderId");
+		System.out.println(orderId);
+
+		List<Order> list = new ArrayList<>();
+		list = orderService.findOrdersByOrderId(orderId);
+		
+//		System.out.println(list.get(0).getProduct().getProductId());
+		
+		Order order = list.get(0);
+		Member member = (Member)session.getAttribute("member");
+		System.out.println("멤버");
+		System.out.println(member);
+		System.out.println(list);
+
+		
+//		Product product = productService.findProductById(list.get(0).getProduct().getProductId());
 		
 		
 		Photo photo = new Photo();
@@ -75,11 +108,10 @@ public class ReviewRegister extends HttpServlet {
 		review.setComment(multi.getParameter("comment"));
 		review.setImageAddress(imageAddress);
 		review.setOrder(order);
-		review.setMember(member);
-		review.setProduct(product);
+		review.setMember(list.get(0).getMember());
+		review.setProduct(list.get(0).getProduct());
 		reviewService.registerComment(review);
 		
-
 
 		
 		response.sendRedirect("list.do");

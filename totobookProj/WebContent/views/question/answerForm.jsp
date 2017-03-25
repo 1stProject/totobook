@@ -4,9 +4,12 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="${ctx }/css/layout.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
@@ -14,19 +17,17 @@
 </head>
 <body>
 <head>
-<%@ include file="../member/header.jspf"%>
+<%@ include file="../head/header.jspf"%>
 </head>
-<header>
-	<%@ include file = "/views/head/header.jspf" %>
-	</header>
-	<form action="${ctx }/answer/register.do" method="post">
-		답글내용 : <input type="text" name="content"><br> <br> 
-		<input type="hidden" name="postId" value="${answerId }"> 
-		<input type="submit" value="등록">
-	</form>
-<footer>
-		<%@include file="../foot/footer.jspf" %>
-	</footer>
-	
+<header> <%@ include file="/views/head/header.jspf"%>
+</header>
+<form action="${ctx }/answer/register.do" method="post">
+	답글내용 : <input type="text" name="content"><br> <br> <input
+		type="hidden" name="postId" value="${answerId }"> <input
+		type="submit" value="등록">
+</form>
+<footer> <%@include file="../foot/footer.jspf"%>
+</footer>
+
 </body>
 </html>

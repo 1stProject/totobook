@@ -7,13 +7,15 @@ import totoBook.service.NoticeService;
 import totoBook.store.NoticeStore;
 import totoBook.store.logic.NoticeStoreLogic;
 
-public class NoticeServiceLogic implements NoticeService{
+public class NoticeServiceLogic implements NoticeService {
 
 	@Override
 	public void registerNotice(Post post) {
 		NoticeStore store = new NoticeStoreLogic();
+		System.out.println(post.getImageAddressPath());
+		System.out.println(post.getMember().getMemberId());
 		store.insertNotice(post);
-		
+
 	}
 
 	@Override
@@ -27,14 +29,14 @@ public class NoticeServiceLogic implements NoticeService{
 	public void modifyNotice(Post post) {
 		NoticeStore store = new NoticeStoreLogic();
 		store.updateNotice(post);
-		
+
 	}
 
 	@Override
 	public void removeNotice(String noticeId) {
 		NoticeStore store = new NoticeStoreLogic();
 		store.deleteNotice(noticeId);
-		
+
 	}
 
 	@Override

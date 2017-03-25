@@ -38,9 +38,9 @@
 		<association property = "member" column = "member_id"
 					select="totoBook.store.mapper.MemberMapper.selectMemberById"
 					javaType = "Member" jdbcType = "VARCHAR"/>
-		<!-- <collection property = "product" column = "product_id" ofType = "Product" 
+		<association property = "product" column = "product_id"
 		select = "totoBook.store.mapper.ProductMapper.selectProductById"
-		javaType = "ArrayList" jdbcType = "VARCHAR"/> -->
+		javaType = "Product" jdbcType = "VARCHAR"/>
 	</resultMap>
 	<insert id = "insertOrder" parameterType = "Order">
 		INSERT INTO order_tb (order_id, order_date, payment, total_price, address, member_id, product_id)
@@ -52,7 +52,7 @@
 		WHERE order_id = #{orderId}
 	</update>
 	<select id = "selectAllOrders" resultMap = "orderMap">
-		SELECT order_id, order_date, payment, total_price, address, member_id
+		SELECT order_id, order_date, payment, total_price, address, member_id, product_id
 		FROM order_tb
 	</select>
 	<select id = "selectOrdersByMemberId" parameterType = "string" resultMap = "orderMap">
@@ -66,7 +66,7 @@
 		WHERE order_date between #{startDate} and #{endDate}
 	</select>
 	<select id = "selectOrdersByOrderId" parameterType = "string" resultMap = "orderMap">
-		SELECT order_id, order_date, payment, total_price, address, member_id
+		SELECT order_id, order_date, payment, total_price, address, member_id, product_id
 		FROM order_tb
 		WHERE order_id = #{orderId}
 	</select>

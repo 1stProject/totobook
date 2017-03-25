@@ -245,7 +245,7 @@ var drop = function(ev) {
 			}
 			parent.appendChild(nodeCopy);
 			imgCutting(parent);
-		} if (ev.target.nodeName == "DIV"){
+		} if (ev.target.nodeName == "DIV" && ev.target.className != "RightPageDiv" && ev.target.className != "LeftPageDiv"){
 			ev.target.appendChild(nodeCopy);
 
 			imgCutting(ev.target);

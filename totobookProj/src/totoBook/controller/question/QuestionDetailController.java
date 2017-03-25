@@ -27,11 +27,12 @@ public class QuestionDetailController extends HttpServlet {
 		Member member = (Member) session.getAttribute("member");
 		String memberId = member.getMemberId();
 		System.out.println(memberId);
+		session.setAttribute("member", member);
 		request.setAttribute("question", post);
-		if (memberId == post.getMember().getMemberId()) {
+		if (memberId == post.getMember().getMemberId() || memberId.equals("admin")) {
 			request.getRequestDispatcher("/views/question/questionDetail.jsp").forward(request, response);
 		} else {
-			response.sendRedirect(request.getContextPath() + "question/list.do");
+			response.sendRedirect(request.getContextPath() + "/question/list.do");
 		}
 
 	}

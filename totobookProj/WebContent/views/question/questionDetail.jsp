@@ -65,7 +65,7 @@
 </head>
 <body>
 <head>
-<%@ include file="../member/header.jspf"%>
+<%@ include file="../head/header.jspf"%>
 </head>
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>

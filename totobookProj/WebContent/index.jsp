@@ -4,13 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<header>
-		
-	</header>
+	<c:redirect url="/views/main.jsp" />
 
 </body>
 </html>

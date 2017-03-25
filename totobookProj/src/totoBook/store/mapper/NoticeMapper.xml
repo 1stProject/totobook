@@ -6,18 +6,20 @@
 <mapper namespace="totoBook.store.mapper.NoticeMapper">
 
 	<resultMap type="Post" id="noticeMap">
-	<id column="post_id" property="postId" />
+		<id column="post_id" property="postId" />
 		<result column="post_name" property="title" />
 		<result column="content" property="content" />
 		<result column="image_address" property="imageAddressPath" />
 		<result column="image_ext" property="image_ext" />
-		<association property="member" column="member_id" select="totoBook.store.mapper.MemberMapper.selectMemberById"
-				javaType="Member" jdbcType="VARCHAR"/>
+		<association property="member" column="member_id"
+			select="totoBook.store.mapper.MemberMapper.selectMemberById"
+			javaType="Member" jdbcType="VARCHAR" />
 	</resultMap>
 	<select id="selectAllNotice" resultMap="noticeMap">
 		SELECT
 		post_id,member_id,post_name,content,image_address,image_ext
-		FROM notice_tb
+		FROM
+		notice_tb
 	</select>
 	<select id="selectNoticeById" parameterType="String" resultMap="noticeMap">
 		SELECT post_id,member_id,post_name,content,image_address,image_ext
@@ -27,7 +29,7 @@
 	<insert id="insertNotice" parameterType="Post">
 		INSERT INTO notice_tb
 		(post_id,member_id,post_name,content,image_address,image_ext)
-		VALUES(NOTICE_SEQ.NEXTVAL,#{member.memberId},#{title},#{content},#{imageAddressPath},#{image_ext})
+		VALUES(NOTICE_SEQ.NEXTVAL,#{member.memberId,jdbcType=VARCHAR},#{title},#{content},#{imageAddressPath},#{image_ext})
 	</insert>
 	<delete id="deleteNotice" parameterType="String">
 		DELETE

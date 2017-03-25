@@ -2,9 +2,8 @@
 
 /* 사이드바 css */
 
-
 #sidebar-wrapper {
-    position: absolute;
+    float : left;
     height: 100%;
     overflow-y: auto;
     width: 250px;
@@ -19,12 +18,11 @@
 /* Sidebar Styles */
 
 .sidebar-nav {
-    position: absolute;
-    top: 0;
     width: 250px;
     margin: 0;
     padding: 0;
     list-style: none;
+    float : left;
 }
 
 .sidebar-nav li {

@@ -1,13 +1,48 @@
 @CHARSET "UTF-8";
 
+/* header영역  */
 header {
 	background-color: #f8f8f8;
 	border-color : e7e7e7;
-	
 }
+nav {	
+    width: 100%;
+}
+nav>hr {
+	margin : 0px;
+}
+
 div.headerDiv {
 	width : 1200px;
 	margin :0 auto;
+	border-bottom : 1px solid black;
+}
+div.textCenter {
+	text-align : center;
+}
+div.topBoard {
+	border-top : 1px solid e7e7e7;
+}
+
+img.logo {
+	width : 300px;
+	margin : 0 auto;
+}
+
+div.headerContainer{
+    background-color:beige;
+    height: auto;
+    margin:auto; 
+}
+
+div.widMargin {
+	width : 1200px;
+    margin:auto; 
+}
+
+div.header2Div {
+	width : 1200px;
+	m
 }
 
 footer {
@@ -26,7 +61,7 @@ div.footerDiv {
 }
 
 div.contentsContainer {
-	width : 1200x;
+	width : 1200px;
 	height : 1000px;
 	margin :0 auto;
 	display : block;
@@ -37,6 +72,7 @@ div.photoBookContainer {
 	height : auto;
 	margin :0 auto;
     align-content: center;
+    display : block;
 }
 
 div.photoBookContent {
@@ -92,15 +128,9 @@ div #layoutDiv {
     margin-left: 10px;
     height: 665px;
     float: left;
-    border: 1px solid aqua;
+    border: 1px solid white;
 }
 
-div.container{
-    background-color:beige;
-    width: 100%;
-    height: 100%;
-    margin:auto; 
-}
 
 div.photoLayoutMedium{
     background-color:beige;
@@ -193,6 +223,14 @@ table.blueListTab tr{
 table.blueListTab tr:nth-child(even) {
 	background-color: #f2f2f2
 	}
+	
+	
+	/* 마이페이지 타이틀 */
+div.mypageTitle{
+	width : 1200px;
+	margin : 0 px;
+	
+}
 
 
 /* 문제생기면 이 아래꺼 지우세영 이승건 */
