@@ -4,16 +4,24 @@
 <!DOCTYPE html>
 <c:set var="ctx">${pageContext.request.contextPath }</c:set>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <body>
-	<div class="contents-wrap">
+	<div class="col-md-offset-2">
 		<h2 class="page-title">신규회원등록</h2>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
 			      $("#btn").click(function () {
-			            var ps1 = $("ps1").val();
-			            var ps2 = $("ps2").val();
+			            var ps1 = $("password1").val();
+			            var ps2 = $("password2").val();
 			            if (ps1 == ps2) {
 			            	$('#spnText').html("일치합니다");
 			            	
