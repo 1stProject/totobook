@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 
@@ -71,8 +72,10 @@ public class PrintRegisterController extends HttpServlet {
 			}
 		}
 		Print print = new Print();
-		Member member = new Member();
-		member.setMemberId("Lee@Lee.com");
+		HttpSession session = request.getSession();
+		
+		Member member = (Member)session.getAttribute("member");
+		String memberId = member.getMemberId();
 		Product product = new Product();
 		product.setProductId("2");
 		print.setMember(member);
