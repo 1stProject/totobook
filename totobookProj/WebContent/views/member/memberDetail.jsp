@@ -45,7 +45,7 @@
 	
 	</nav>
 	<div class = "contentsWithLeft">
-<h3>나의 사진 목록</h3>
+<h3>내 정보</h3>
 	
         <table class = "table table-bordered table-stripped">     
             <thead>
@@ -79,7 +79,7 @@
            
             </tbody>
         </table>
-        
+        </div>
      </div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>

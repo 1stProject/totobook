@@ -89,7 +89,8 @@
 						</c:choose>
 					</tbody>
 				</table>
-					<a class="btn btn-sm btn-success" href="${ctx }/views/product/productForm.jsp">상품추가</a>
+					<a style = "float:right" class = "btn btn-sm btn-success" href = "${ctx }/views/product/productForm.jsp">상품추가</a>
+					<%-- <a class="btn btn-sm btn-success" href="${ctx }/views/product/productForm.jsp">상품추가</a> --%>
 
 			</div>
 		</div>

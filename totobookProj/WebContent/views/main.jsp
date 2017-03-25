@@ -41,8 +41,8 @@
 			class="container-fluid bg-4 text-center col col-sm-8 col-md-offset-2"
 			style="padding: 20px;">
 			<h1>최고의 사진 사이트를 만들기 위해...</h1>
-			<p>오늘도 열심히 노력을 하며 한땀한땀 장인의 손길로 포토북 만들고 있습니다. 항상 열심히 하는 토토북이
-				되겠습니다. 고객님들 감사합니다.</p>
+			<p>오늘도 열심히 노력을 하며 한땀한땀 장인의 손길로 포토북 만들고 있습니다. <br>항상 열심히 하는 토토북이
+				되겠습니다. <strong>고객님들 감사합니다!!!</strong></p>
 		</div>
 		<div class="container-fluid col-sm-8 col-md-offset-2"
 			style="padding: 20px;">

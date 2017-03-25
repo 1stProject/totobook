@@ -36,7 +36,6 @@
 	<nav>
 		<%@ include file="/views/left/leftManagePage.jsp"%>
 	</nav>	
-		<!-- <div class="col-sm-7 col-lg-7 col-md-offset-2"> -->
 		<div class = "contentsWithLeft">
 	<h3>주문 상세</h3>
 		<div class="table-responsive col-sm-7 col-lg-7">
