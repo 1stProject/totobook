@@ -14,7 +14,7 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href = "${ctx }/css/layout.css">
+<link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -24,9 +24,9 @@
 <nav>
 	<%@ include file = "/views/left/leftManagePage.jsp" %>
 </nav>
-<div class = "contents-wrap">
+<div class="col-sm-7 col-lg-7 col-md-offset-2">
 <h1>주문 목록</h1>
-<div class="text-center col-sm-7 col-lg-7">
+
 <table class = "table table-striped table-bordered table-hover">
 	<colgroup>
 		<col width="100"/>
@@ -61,6 +61,9 @@
 	<a href = "${ctx }/order/list.do?borderId=${status.count}">${status.count }</a>
 </c:forEach>
 </div>
-</div>
+<footer>
+		<%@include file="/views/foot/footer.jspf" %>
+	</footer>
+
 </body>
 </html>
