@@ -20,7 +20,6 @@
 <link rel="stylesheet" href = "${ctx }/css/sidebarheader.css">
 <title>Insert title here</title>
 </head>
-<<<<<<< HEAD
 <body>
 <header>
 		<%@ include file="/views/head/header.jspf"%>
@@ -102,7 +101,6 @@
 		<%@include file="../foot/footer.jspf"%>
 	</footer>
 
-=======
 <body>
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
@@ -183,6 +181,5 @@
 		<%@include file="../foot/footer.jspf"%>
 	</footer>
 
->>>>>>> branch 'development' of https://github.com/1stProject/totobook
 </body>
 </html>
