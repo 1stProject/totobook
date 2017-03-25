@@ -14,7 +14,7 @@ import totoBook.domain.Post;
 import totoBook.service.NoticeService;
 import totoBook.service.logic.NoticeServiceLogic;
 
-@WebServlet("/main/list.do")
+@WebServlet("/main/main.do")
 public class MainViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,16 +23,16 @@ public class MainViewController extends HttpServlet {
 		
 		List<Post> tempList = noticeService.findAllNotice();
 		List<Post> noticeList = new ArrayList<>();
-		if(tempList.size() < 5){
+		if(tempList.size() < 4){
 			for(Post post : tempList)
 				noticeList.add(post);
 		}
 		else
 			noticeList = tempList;
+		System.out.println("noticeList size : " + noticeList.size());
 		request.setAttribute("noticeList", noticeList);
-		System.out.println("tempList Size : " + tempList.size());
-		System.out.println("noticeList Size : " + noticeList.size()) ;
-				
+		
+		List<Post> qnaList = new ArrayList<>();
 		request.getRequestDispatcher("/views/main.jsp").forward(request, response);
 	}
 }

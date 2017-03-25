@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:redirect url="/main/list.do" />
+	<c:redirect url="/main/main.do" />
 
 </body>
 </html>
