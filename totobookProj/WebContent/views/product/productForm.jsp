@@ -45,11 +45,11 @@
 				<table border="1">
 
 					<tr>
-						<td>상품카테고리</td>
-						<td><select name="category">
+						<th width="100">상품카테고리</th>
+						<th><select name="category">
 								<option value="BOOK">포토북</option>
 								<option value="PRINT">사진</option>
-						</select></td>
+						</select></th>
 					</tr>
 					<tr>
 						<td>상품명</td>
@@ -66,21 +66,21 @@
 					</tr>
 					<tr>
 						<td>옵션</td>
-						<td>사이즈<input type="text" name="optionname" value="">
-							설명<input type="text" name="optiondesp" value=""> 금액<input
-							type="text" name="optionprice" value="">
+						<td>사이즈<input type="text" name="optionname" value="" width="40px">
+							설명<input type="text" name="optiondesp" value="" width="40px"> 금액<input
+							type="text" name="optionprice" value="" width="40px">
 						</td>
 					</tr>
 					<tr>
-						<td>옵션1</td>
-						<td>사이즈1<input type="text" name="optionname" value="">
-							설명1<input type="text" name="optiondesp" value=""> 금액1<input
-							type="text" name="optionprice" value="">
+						<td>옵션</td>
+						<td>사이즈<input type="text" name="optionname" value="" width="40">
+							설명<input type="text" name="optiondesp" value="" width="40"> 금액<input
+							type="text" name="optionprice" value="" width="40">
 						</td>
 					</tr>
 					<tr>
 						<td>사진</td>
-						<td><input type="file" name="file1"></td>
+						<td><input type="file" name="file1" accept="image/*"></td>
 					</tr>
 				</table>
 				<button type="button" onclick="javascript:history.back(-1);"

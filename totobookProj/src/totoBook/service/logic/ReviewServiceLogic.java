@@ -32,8 +32,8 @@ public class ReviewServiceLogic implements ReviewService {
 	}
 
 	@Override
-	public void deleteCommentByProduct(Product product) {
-		reviewStore.deleteCommentByProduct(product);
+	public void deleteCommentByProduct(String productId) {
+		reviewStore.deleteCommentByProduct(productId);
 	}
 
 	@Override
