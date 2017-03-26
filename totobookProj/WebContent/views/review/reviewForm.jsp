@@ -54,7 +54,7 @@
 				</tr>
 				<tr>
 					<td>사진</td>
-					<td><input type="file" name="file1"></td>
+					<td><input type="file" name="file1" accept="image/*"></td>
 				</tr>
 			</table>	
 			<button type="button" onclick="javascript:history.back(-1);" class="btn">목록</button>

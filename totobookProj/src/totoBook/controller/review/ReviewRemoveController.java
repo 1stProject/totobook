@@ -27,8 +27,7 @@ public class ReviewRemoveController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
 		String memberId = member.getMemberId();
-
-		if (!memberId.equals("admin")) {
+		if (memberId.equals("admin")) {
 			String orderId = request.getParameter("orderId");
 			reviewService.deleteCommentByMember(orderId);
 			response.sendRedirect("adminlist.do");

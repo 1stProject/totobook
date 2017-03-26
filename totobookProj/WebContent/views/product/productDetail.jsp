@@ -26,63 +26,147 @@
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
 	<div class="contents-wrap">
-			<div class="col-md-offset-2">
+		<div class="col-md-offset-2">
 			<c:choose>
-			<c:when test="${product.category  eq 'PRINT' }">
-			<form method = "get" action = "${ctx }/print/register.do?">
-			<input type = "hidden" name = "productId" value = "${product.productId}">
-				<table border="1">
-					<tr>
-						<td>제품사진</td>
-						<td><img
-							src="${ctx }/product/image.do?productId=${product.productId}"
-							width="128" height="123"></td>
-					</tr>
-					<tr>
-						<td>상품명</td>
-						<td>${product.name }</td>
-					</tr>
-					<tr>
-						<td>상품가격</td>
-						<td>${product.productprice}</td>
-					</tr>
-					<tr>
-						<td>상품설명</td>
-						<td>${product.descript }</td>
-					</tr>
-					<tr>
-						<td colspan="2">옵션</td>
+				<c:when test="${product.category  eq 'PRINT' }">
+					<form method="get" action="${ctx }/print/register.do?">
+						<input type="hidden" name="productId" value="${product.productId}">
+						<table border="1">
+							<tr>
+								<td>제품사진</td>
+								<td><img
+									src="${ctx }/product/image.do?productId=${product.productId}"
+									width="128" height="123"></td>
+							</tr>
+							<tr>
+								<td>상품명</td>
+								<td>${product.name }</td>
+							</tr>
+							<tr>
+								<td>상품가격</td>
+								<td>${product.productprice}</td>
+							</tr>
+							<tr>
+								<td>상품설명</td>
+								<td>${product.descript }</td>
+							</tr>
+							<tr>
+								<td colspan="2">옵션</td>
+							<tr>
+								<td>사이즈</td>
+								<td><select name="option1" id="option1"
+									style="width: 80px;" class="select_02">
+										<c:forEach items="${product.options }" var="option">
+											<option value="${option.optionName}">${option.optionName}</option>
+										</c:forEach>
+								</select>
+							</tr>
+							<tr>
+								<td>규격</td>
+								<td><select name="option2" id="option2"
+									style="width: 80px;" class="select_02">
+										<c:forEach items="${product.options }" var="option">
+											<option value="${option.optionDesp}">${option.optionDesp}</option>
+										</c:forEach>
+								</select>
+							</tr>
+							<tr>
+								<td>가격</td>
+								<td><select name="optionPrice" id="optionPrice"
+									style="width: 80px;" class="select_02">
+										<c:forEach items="${product.options }" var="option">
+											<option value="${option.optionPrice}">${option.optionPrice}</option>
+										</c:forEach>
+								</select>
+							</tr>
+
+							<c:choose>
+								<c:when test="${review eq null || empty review }">
+									<tr>
+										<td>
+										<td colspan="2" align="center">상품평이 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach items="${review }" var="review">
+										<c:if test="${not empty review.imageAddress  }">
+											<tr>
+												<td colspan="2" align="center"><img
+													src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
+													width="128" height="123"></td>
+											</tr>
+										</c:if>
+										<tr>
+											<td colspan="2" align="center">${review.comment }</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</table>
+						<button type="button" onclick="javascript:history.back(-1);"
+							class="btn">목록</button>
+						<input type="submit" class="btn btn-success" value="주문하기">
+					</form>
+				</c:when>
+
+
+
+
+
+				<c:otherwise>
+					<table border="1">
 						<tr>
-						<td>사이즈</td>
-					<td><select name="option1" id="option1"
-							style="width: 80px;" class="select_02">
-							<c:forEach items="${product.options }" var="option">
-								<option value="${option.optionName}">${option.optionName}</option>
-							</c:forEach>
-					</select>
-				
-					</tr>
-				<tr>
-					<td>규격</td>
-					<td><select name="option2" id="option2"
-							style="width: 80px;" class="select_02">
-							<c:forEach items="${product.options }" var="option">
-								<option value="${option.optionDesp}">${option.optionDesp}</option>
-							</c:forEach>
-					</select>
-				
-					</tr>
-				<tr>
-					<td>가격</td>
-					<td><select name="optionPrice" id="optionPrice"
-							style="width: 80px;" class="select_02">
-							<c:forEach items="${product.options }" var="option">
-								<option value="${option.optionPrice}">${option.optionPrice}</option>
-							</c:forEach>
-					</select>
-					</tr>
-					
-					<c:choose>
+							<td>상품명</td>
+							<td>${product.name }</td>
+						</tr>
+						<tr>
+							<td>제품사진</td>
+							<td><img
+								src="${ctx }/product/image.do?productId=${product.productId}"
+								width="128" height="123"></td>
+						</tr>
+						<tr>
+							<td>상품가격</td>
+							<td>${product.productprice}</td>
+						</tr>
+						<tr>
+							<td>상품설명</td>
+							<td>${product.descript }</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">옵션</td>
+						<tr>
+							<td>사이즈</td>
+							<td><select name="optionName" id="optionName"
+								style="width: 80px;" class="select_02">
+									<c:forEach items="${product.options }" var="option">
+										<option value="${option.optionName}">${option.optionName}</option>
+									</c:forEach>
+							</select>
+						</tr>
+						<tr>
+							<td>설정값</td>
+							<td><select name="optionName" id="optionName"
+								style="width: 80px;" class="select_02">
+									<c:forEach items="${product.options }" var="option">
+										<option value="${option.optionDesp}">${option.optionDesp}</option>
+									</c:forEach>
+							</select>
+						</tr>
+						<tr>
+							<td>가격</td>
+							<td><select name="optionPrice" id="optionPrice"
+								style="width: 80px;" class="select_02">
+									<c:forEach items="${product.options }" var="option">
+										<option value="${option.optionPrice}">${option.optionPrice}</option>
+									</c:forEach>
+							</select>
+						</tr>
+
+
+
+						<c:choose>
 							<c:when test="${review eq null || empty review }">
 								<tr>
 									<td>
@@ -91,14 +175,13 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${review }" var="review">
-									<tr>
-										<td colspan="2" align="center"><img
-											src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
-											width="128" height="123"></td>
-
-									</tr>
-
-
+									<c:if test="${not empty review.imageAddress  }">
+										<tr>
+											<td colspan="2" align="center"><img
+												src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
+												width="128" height="123"></td>
+										</tr>
+									</c:if>
 									<tr>
 										<td colspan="2" align="center">${review.comment }</td>
 									</tr>
@@ -106,100 +189,10 @@
 							</c:otherwise>
 						</c:choose>
 					</table>
-				<button type="button" onclick="javascript:history.back(-1);"
-					class="btn">목록</button>
-				<input type = "submit" class = "btn btn-success" value = "주문하기">
-				</form>
-			</c:when>
-			
-			
-			
-			
-			
-			<c:otherwise>
-			<table border="1">
-				<tr>
-					<td>상품명</td>
-					<td>${product.name }</td>
-				</tr>
-				<tr>
-					<td>제품사진</td>
-					<td><img
-						src="${ctx }/product/image.do?productId=${product.productId}"
-						width="128" height="123"></td>
-				</tr>
-				<tr>
-					<td>상품가격</td>
-					<td>${product.productprice}</td>
-				</tr>
-				<tr>
-					<td>상품설명</td>
-					<td>${product.descript }</td>
-				</tr>
-				
-				<tr>
-					<td colspan="2">옵션</td>
-				
-				<tr>
-					<td>사이즈</td>
-					<td><select name="optionName" id="optionName"
-						style="width: 80px;" class="select_02">
-							<c:forEach items="${product.options }" var="option">
-								<option value="${option.optionName}">${option.optionName}</option>
-							</c:forEach>
-					</select>
-				
-				</tr>
-				<tr>
-					<td>설정값</td>
-					<td><select name="optionName" id="optionName"
-						style="width: 80px;" class="select_02">
-							<c:forEach items="${product.options }" var="option">
-								<option value="${option.optionDesp}">${option.optionDesp}</option>
-							</c:forEach>
-					</select>
-				
-				</tr>
-				<tr>
-					<td>가격</td>
-					<td><select name="optionPrice" id="optionPrice"
-						style="width: 80px;" class="select_02">
-							<c:forEach items="${product.options }" var="option">
-								<option value="${option.optionPrice}">${option.optionPrice}</option>
-							</c:forEach>
-					</select>
-				
-				</tr>
-				
-				
-				
-				<c:choose>
-					<c:when test="${review eq null || empty review }">
-						<tr>
-							<td>
-							
-							<td colspan="2" align="center">상품평이 없습니다.</td>
-						</tr>
-					</c:when>
-					<c:otherwise>
-						<c:forEach items="${review }" var="review">
-							<tr>
-								<td colspan="2" align="center"><img
-									src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
-									width="128" height="123"></td>
-							</tr>
-
-							<tr>
-								<td colspan="2" align="center">${review.comment }</td>
-							</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</table>
-			<button type="button" onclick="javascript:history.back(-1);"
-				class="btn">목록</button>
-			<a class="btn btn-sm btn-success"
-				href="${ctx }/book/register.do?productId=${product.productId}">주문하기</a>
+					<button type="button" onclick="javascript:history.back(-1);"
+						class="btn">목록</button>
+					<a class="btn btn-sm btn-success"
+						href="${ctx }/book/register.do?productId=${product.productId}">주문하기</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -207,7 +200,7 @@
 </body>
 
 <footer>
-	<%@ include file = "/views/foot/footer.jspf" %>
+	<%@ include file="/views/foot/footer.jspf"%>
 
 </footer>
 

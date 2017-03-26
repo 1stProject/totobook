@@ -101,7 +101,13 @@ public class ReviewRegister extends HttpServlet {
 
 		Review review = new Review();
 		review.setComment(multi.getParameter("comment"));
-		review.setImageAddress(imageAddress);
+		if (imageAddress == null) {
+			review.setImageAddress("");
+		} else {
+			review.setImageAddress(imageAddress);
+		}
+		
+		
 		review.setOrder(order);
 		review.setMember(list.get(0).getMember());
 		Product product = new Product();
