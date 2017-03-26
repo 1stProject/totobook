@@ -41,11 +41,14 @@ public class PrintRegisterController extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String productId = request.getParameter("productId");
+		String price = request.getParameter("price");
 		Product product = productService.findProductById(productId);
 		request.setAttribute("product", product);
 		String optionDesp = "";
 		optionDesp += request.getParameter("option1") + ";";
-		optionDesp += request.getParameter("option2") + ";";
+		optionDesp += request.getParameter("size");
+		request.setAttribute("price", price);
+		System.out.println(price);
 		request.setAttribute("optionDesp", optionDesp);
 		System.out.println(optionDesp);
 		request.getRequestDispatcher("/views/print/printUpload.jsp").forward(request, response);
@@ -83,9 +86,9 @@ public class PrintRegisterController extends HttpServlet {
 		
 		Print print = new Print();
 		HttpSession session = request.getSession();
-		
+		System.out.println("업로드 될때 price : " + multi.getParameter("price"));
+		print.setPrice(Integer.parseInt(multi.getParameter("price")));
 		Member member = (Member)session.getAttribute("member");
-		String memberId = member.getMemberId();
 		String productId = multi.getParameter("productId");
 		Product product = productService.findProductById(productId);
 		product.setOptions(productService.findOption(productId));

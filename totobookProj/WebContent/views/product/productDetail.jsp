@@ -19,18 +19,38 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${ctx }/css/layout.css">
+<script>
+	$(function(){
+		var optionDesp = new Array();
+		var price = new Array();
+		
+		<c:forEach items = "${product.options}" var = "option" varStatus="status">
+		optionDesp.push("${option.optionDesp}");
+		price.push("${option.optionPrice}");
+		</c:forEach>
+		$("#option1").change(function(){
+			var index = $("#option1 option").index($("#option1 option:selected"));
+			
+			$("#option2").html("<input type = 'hidden' name = 'size' value = '"+ optionDesp[index]+"'>" + optionDesp[index]);
+			$("#price").html("<input type = 'hidden' name = 'price' value = '"+ price[index] + "'>"+price[index]);
+		});
+	});
+</script>
 <title>제품상세</title>
 </head>
 <body>
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-	<div class="col-md-offset-2">
+	
 		<c:choose>
 			<c:when test="${product.category  eq 'PRINT' }">
+			<div class="contentsContainer">
+			<div class = "contentsWithLeft">
+		<h3>사진 주문</h3>
 				<form method="get" action="${ctx }/print/register.do?">
 					<input type="hidden" name="productId" value="${product.productId}">
-					<table border="1">
+					<table class = "table table-bordered">
 						<tr>
 							<td>제품사진</td>
 							<td><img
@@ -41,10 +61,12 @@
 							<td>상품명</td>
 							<td>${product.name }</td>
 						</tr>
-						<tr>
-							<td>상품가격</td>
-							<td>${product.productprice}</td>
-						</tr>
+						<c:if test="${product.category eq 'BOOK'}">
+							<tr>
+								<td>상품가격</td>
+								<td>${product.productprice}</td>
+							</tr>
+						</c:if>
 						<tr>
 							<td>상품설명</td>
 							<td>${product.descript }</td>
@@ -53,30 +75,28 @@
 							<td colspan="2">옵션</td>
 						<tr>
 							<td>사이즈</td>
-							<td><select name="option1" id="option1" style="width: 80px;"
-								class="select_02">
+							<td><div class = "col-sm-6"><select name="option1" id="option1" class = "form-control">
 									<c:forEach items="${product.options }" var="option">
 										<option value="${option.optionName}">${option.optionName}</option>
 									</c:forEach>
 							</select>
+							</div>
+							</td>
+							
 						</tr>
 						<tr>
 							<td>규격</td>
-							<td><select name="option2" id="option2" style="width: 80px;"
-								class="select_02">
-									<c:forEach items="${product.options }" var="option">
-										<option value="${option.optionDesp}">${option.optionDesp}</option>
-									</c:forEach>
-							</select>
+							<td><div id = "option2">
+									<input type = "hidden" name = "size" value = "8.3cm X 5.2cm">
+									8.3cm X 5.2cm
+								</div>
 						</tr>
 						<tr>
 							<td>가격</td>
-							<td><select name="optionPrice" id="optionPrice"
-								style="width: 80px;" class="select_02">
-									<c:forEach items="${product.options }" var="option">
-										<option value="${option.optionPrice}">${option.optionPrice}</option>
-									</c:forEach>
-							</select>
+							<td><div id = "price">
+									<input type = "hidden" name = "price" value = "500">
+									500
+								</div>
 						</tr>
 
 						<c:choose>
@@ -92,7 +112,7 @@
 										<tr>
 											<td colspan="2" align="center"><img
 												src="${ctx }/product/reviewimage.do?productId=${review.product.productId}"
-												width="265px"></td>
+												width="128px" height="123px"></td>
 										</tr>
 									</c:if>
 									<tr>
@@ -106,9 +126,9 @@
 						class="btn">목록</button>
 					<input type="submit" class="btn btn-success" value="주문하기">
 				</form>
+				</div>
+				</div>
 			</c:when>
-
-
 
 
 
@@ -116,7 +136,6 @@
 				<form method="post" action="${ctx }/book/register.do">
 
 					<!-- Container ======================================================================================= -->
-					<div class="contentsContainer">
 
 						<div class="container">
 							<div class="row">
@@ -126,7 +145,7 @@
 							</div>
 
 							<div class="row">
-								<di	v class="col-sm-12">
+								<div class="col-sm-12">
 									<ol class="breadcrumb">
 										<li>홈</li>
 										<li>포토북</li>
@@ -242,11 +261,9 @@
 
 
 						</div>
-					</div>
 				</form>
 			</c:otherwise>
 		</c:choose>
-	</div>
 </body>
 
 <footer>

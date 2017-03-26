@@ -41,9 +41,10 @@
 					width="128" height="123">
 						</td>
 				</tr>
+				
 				<tr>
 					<td><a href="detail.do?productId=${product.productId}">${product.name}</a> 
-					<br> ${product.productprice }원</td>
+					<br><c:if test="${product.category eq 'BOOK' }"> ${product.productprice }원</c:if></td>
 				</tr>
 			</table>
 

@@ -31,6 +31,7 @@ CREATE TABLE print_tb (
 	member_id varchar2(50),
 	product_id varchar2(50),
 	print_option varchar2(50),
+	price number
 	PRIMARY KEY (print_id)
 );
 
