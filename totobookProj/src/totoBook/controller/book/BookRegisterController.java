@@ -65,10 +65,10 @@ public class BookRegisterController extends HttpServlet {
 			Page page = new Page();
 			page.setBook(book);
 			if(layoutnum == 0 || layoutnum == (pageOption-1)){
-				page.setImageAddress("/images/pageLayout/"+sizeOption+"_layout_"+layoutnum+".jpg");
+				page.setImageAddress("/images/pageLayout/"+sizeOption+"_layout_0.jpg");
 				
 			}
-			page.setImageAddress("/images/pageLayout/"+sizeOption+"_blue_layout_"+layoutnum+".jpg");
+			page.setImageAddress("/images/pageLayout/"+sizeOption+"_layout_"+layoutnum+".jpg");
 			
 			pages.add(page);
 			

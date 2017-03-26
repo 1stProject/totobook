@@ -61,6 +61,12 @@ $(document).ready(
 			});
 
 			$("#toBeforePage").click(function() {
+				
+				srat(pageCount*2);
+				if(pageCount <maxPage){
+					srat(pageCount*2+1);
+				}
+				
 				pageCount = parseInt(pageCount - 1);
 				$("#currentRightPage").html(pageCount*2);
 				
@@ -99,6 +105,14 @@ $(document).ready(
 			});
 
 			$("#toNextPage").click(function() {
+				
+				if(pageCount == 0){
+					srat(1);
+				}else {
+					srat(pageCount*2);
+					srat(pageCount*2+1);					
+				}
+				
 				pageCount = parseInt(pageCount + 1);
 				$("#currentRightPage").html(pageCount*2);
 				
@@ -141,12 +155,10 @@ $(document).ready(
 			
 			//save 버튼을 눌렀을 때
 			$("#saveBook").on('click', function() {
+				srat(pageCount*2);
+				srat(pageCount*2+1);
 				
-				//현재 div의 갯수 = maxpage*2 임		
-				for(var i = 1; i <= maxpage; i++){
-					srat(i);
-				}//END for
-			
+				$("form").submit();
 });
 			
 			$("#btn-Convert-Html2Image").on(
@@ -195,6 +207,7 @@ var savePages = function(pageNum){
         },
         success: function (data) {
             try{
+            	$("#bookPage"+pageNum+"Input").val(data);
             	console.log("완료");
                 
             }catch(e){                
