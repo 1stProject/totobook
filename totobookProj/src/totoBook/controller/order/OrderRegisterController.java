@@ -1,6 +1,7 @@
 package totoBook.controller.order;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import totoBook.domain.Book;
 import totoBook.domain.Order;
+import totoBook.domain.Photo;
 import totoBook.domain.Print;
 import totoBook.domain.Product;
 import totoBook.service.BookService;
@@ -39,14 +41,18 @@ public class OrderRegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String printId = request.getParameter("printId");
 		Order order = new Order();
+		int price = 0;
 		if(printId != null){
 			PrintService printService = new PrintServiceLogic();
 			Print print = printService.findPrintByPrintId(printId);
-			
+			List<Photo> photos = printService.findPhotosByPrintId(printId);
 			order.setBookPhotoId(printId);
 			order.setCategory("사진");
 			order.setMember(print.getMember());
-			order.setOrdPrice(35000);
+			for(Photo photo : photos){
+				price += photo.getAmount()*1000;
+			}
+			order.setOrdPrice(price);
 		}
 		else {
 			String bookId = request.getParameter("bookId");
@@ -69,10 +75,6 @@ public class OrderRegisterController extends HttpServlet {
 		order.setMember(memberService.findMemberById(request.getParameter("memberId")));
 		order.setPayment(request.getParameter("payment"));
 		order.setOrdPrice(Integer.parseInt(request.getParameter("price")));
-		System.out.println("bookPhotoId : " + request.getParameter("bookPhotoId"));
-		System.out.println("category : " + request.getParameter("category"));
-		System.out.println("member : " +memberService.findMemberById(request.getParameter("memberId").toString()));
-		System.out.println(request.getParameter("payment"));
 		orderService.registerOrder(order);
 		response.sendRedirect(request.getContextPath() + "/order/list.do");
 	}
