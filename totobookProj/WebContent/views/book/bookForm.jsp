@@ -44,6 +44,7 @@
 			 	<c:forEach items="${book.pages }" var="page" varStatus="sts">
 			 		<c:if test="${(sts.count mod 2) eq 0 }">
 			 			<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
+	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value="">
 						<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
 			 		</c:if>
 				</c:forEach>
@@ -53,6 +54,7 @@
 		 		<c:forEach items="${book.pages }" var="page" varStatus="sts">
 					<c:if test="${(sts.count mod 2) != 0 }">
 						<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
+	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value="">
 						<div id="bookPage${sts.count }" class="RightPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
 					</c:if>
 				</c:forEach>
@@ -87,13 +89,14 @@
 			</div>
 
 			<div class="btnDiv">
-				<button type="submit" id="saveBook">편집저장</button>
+				<button type="button" id="saveBook">편집저장</button>
 				<button type="reset">취소</button>
 			</div>
 			
-			<input type="hidden" name="imgSrc" id="imgSrc" >
-			<input type="hidden" name="bookId" value="${book.bookId}" name="bookId" >
+			<input type="hidden" name="bookId" value="${book.bookId}" >
 			<input type="hidden" id="pageCount" value="${fn:length(book.pages)}">
+			<input type="hidden" id="curPage" name="curPage">
+			
 		</form>
 	</div>
 	<div id="previewImage">

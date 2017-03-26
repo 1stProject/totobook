@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import totoBook.domain.Book;
 import totoBook.domain.Member;
@@ -29,9 +30,10 @@ public class BookListController extends HttpServlet {
 		BookService service = new BookServiceLogic();
 		
 		String memberId = ((Member)session.getAttribute("member")).getMemberId();
+		System.out.println(memberId);
 		
 		List<Book> books = service.findBooksByMemberId(memberId);
-		
+		System.out.println(books.size());
 		request.setAttribute("books", books);
 		
 		request.getRequestDispatcher("/views/book/bookList.jsp").forward(request, response);

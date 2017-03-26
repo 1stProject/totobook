@@ -60,7 +60,7 @@
 					<th>삭제</th>
 				</tr>
 				<c:choose>
-				<c:when test="${empty list }">
+				<c:when test="${empty books }">
 				<tr>
 					<td colspan = 5 class = "text-center">포토북 내역이 없습니다</td>
 				</tr>
