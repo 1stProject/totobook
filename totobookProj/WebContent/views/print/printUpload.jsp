@@ -52,8 +52,6 @@
 </header>
 <div class=" col-md-offset-2">
 <h1>사진 업로드</h1>
-한장에 ${price }원
-<h3>${product.name }</h3>
 	<div id = "image">
 		
 	</div>
