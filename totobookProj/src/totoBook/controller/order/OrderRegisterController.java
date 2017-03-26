@@ -45,12 +45,14 @@ public class OrderRegisterController extends HttpServlet {
 		if(printId != null){
 			PrintService printService = new PrintServiceLogic();
 			Print print = printService.findPrintByPrintId(printId);
+			System.out.println(print.getPrice());
 			List<Photo> photos = printService.findPhotosByPrintId(printId);
 			order.setBookPhotoId(printId);
 			order.setCategory("사진");
 			order.setMember(print.getMember());
 			for(Photo photo : photos){
-				price += photo.getAmount()*1000;
+				System.out.println("print price : " + print.getPrice());
+				price += photo.getAmount()*print.getPrice();
 			}
 			order.setOrdPrice(price);
 		}

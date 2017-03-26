@@ -52,7 +52,6 @@
 </header>
 <div class=" col-md-offset-2">
 <h1>사진 업로드</h1>
-<h3>${product.name }</h3>
 	<div id = "image">
 		
 	</div>
@@ -62,8 +61,9 @@
 		<select name = "amount1" id = "amount1"></select> 개 구매
 		<br>
 	</div>
-	<input type = "hidden" name = "optionDesp" value = ${optionDesp }">
+	<input type = "hidden" name = "optionDesp" value = "${optionDesp }">
 	<input type = "hidden" name = "productId" value = "${product.productId }">
+	<input type = "hidden" name = "price" value = "${price }">
 	<input type = "button" id = "add" value = "사진 추가!">
 	<input type = "submit" value = "저장!">
 </form>
