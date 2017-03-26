@@ -56,9 +56,9 @@ public class PrintRegisterController extends HttpServlet {
 		ServletContext ctx = getServletContext();
 		String dir = ctx.getRealPath("/upload");
 		int i = 0;
-		MultipartRequest multi = new MultipartRequest(request, dir , maxSize, "UTF-8");
 		List<Photo> photos = new ArrayList<>();
 		List<Integer> temp = new ArrayList<>();
+		MultipartRequest multi = new MultipartRequest(request, dir , maxSize, "UTF-8");
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){
 			String element = (String)params.nextElement();

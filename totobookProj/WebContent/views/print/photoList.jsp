@@ -20,11 +20,42 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-<nav>
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
-</nav>
 
 <div class="contentsContainer">
+	<c:choose>
+	<c:when test="${member.memberId eq 'admin' }">
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
+		</ul>
+	</div>
+	</c:when>
+	<c:otherwise>
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	</c:otherwise>
+	</c:choose>
+	
+<nav>
+	<c:choose>
+	<c:when test="${member.memberId eq 'admin' }">
+	<%@ include file = "/views/left/leftManagePage.jsp" %>
+	</c:when>
+	<c:otherwise>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+	</c:otherwise>
+	</c:choose>
+</nav>
+		<div class = "contentsWithLeft">
 <h1>사진인화 사진</h1>
 	<div style = "display:block;padding:20px;">
 	<c:forEach items="${photos }" var = "photo">
@@ -37,6 +68,7 @@
 	</div>
 	<input type = "button" onclick = "javascript:history.back(-1);" class = "btn btn-default" value = "돌아가기">
 	
+</div>
 </div>
 <footer>
 		<%@include file="../foot/footer.jspf"%>

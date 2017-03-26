@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import totoBook.domain.Member;
 import totoBook.domain.Photo;
 import totoBook.service.PrintService;
 import totoBook.service.logic.PrintServiceLogic;
@@ -21,6 +23,9 @@ public class PrintVIewController extends HttpServlet {
 		PrintService printService = new PrintServiceLogic();
 		List<Photo> photos = printService.findPhotosByPrintId(request.getParameter("printId"));
 		request.setAttribute("photos", photos);
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("member");
+		request.setAttribute("member", member);
 		request.getRequestDispatcher("/views/print/photoList.jsp").forward(request, response);
 	}
 }
