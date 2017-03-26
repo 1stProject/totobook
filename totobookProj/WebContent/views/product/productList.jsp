@@ -28,29 +28,45 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-	<div class="contents-wrap">
-	<div class="col-md-offset-2">
-
-
-		<c:forEach items="${product }" var="product">
-			<table class="section">
+	<c:forEach items="${product }" var = "product" varStatus="status">
+	<c:choose>
+	<c:when test="${status.count mod 3 eq 1 }">
+	<div class="col-md-offset-2 col-md-12" style="display:inline-block">
+		<div class = "col-sm-3" >
+		<table class="section table table-bordered">
+			<colgroup>
+				<col width = "*%"/>
+				<col width = "40%"/>
+			</colgroup>
 				<tr>
-				<td>상품</td>
-					<td><img
-					src="${ctx }/product/image.do?productId=${product.productId}"
-					width="128" height="123">
-						</td>
-				</tr>
-				
-				<tr>
-					<td><a href="detail.do?productId=${product.productId}">${product.name}</a> 
-					<br><c:if test="${product.category eq 'BOOK' }"> ${product.productprice }원</c:if></td>
-				</tr>
+				<td><img src="${ctx }/product/image.do?productId=${product.productId}" width="128" height="123"></td>
+				<td style="vertical-align: middle;"><a href="detail.do?productId=${product.productId}">${product.name}</a>
+					<br><c:if test="${product.category eq 'BOOK' }"> ${product.productprice }원</c:if>
+					</td>
 			</table>
+				</div>
+		</c:when>
+		<c:otherwise>
+			<div class = "col-sm-3" >
+		<table class="section table table-bordered">
+			<colgroup>
+				<col width = "*%"/>
+				<col width = "40%"/>
+			</colgroup>
+				<tr>
+				<td><img src="${ctx }/product/image.do?productId=${product.productId}" width="128" height="123"></td>
+				<td style="vertical-align: middle;"><a href="detail.do?productId=${product.productId}">${product.name}</a>
+					<br><c:if test="${product.category eq 'BOOK' }"> ${product.productprice }원</c:if>
+					</td>
+			</table>
+				</div>
+				<c:if test="${status.count mod 3 eq 0}">
+					</div>
+				</c:if>
+		</c:otherwise>
+		</c:choose>
+	</c:forEach>
 
-		</c:forEach>
-	</div>
-	</div>
 </body>
 
 <footer>
