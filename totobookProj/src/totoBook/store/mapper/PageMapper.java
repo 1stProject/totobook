@@ -11,7 +11,7 @@ import totoBook.domain.Page;
 
 public interface PageMapper {
 	
-	void insertPages(List<Page> pages);
+	void insertPage(Page page);
 	void deletePages(String bookId);
 	List<Page> selectPagesByBookId(String bookId);
 

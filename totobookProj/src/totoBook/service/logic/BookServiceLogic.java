@@ -3,6 +3,7 @@ package totoBook.service.logic;
 import java.util.List;
 
 import totoBook.domain.Book;
+import totoBook.domain.Page;
 import totoBook.service.BookService;
 import totoBook.store.BookStore;
 import totoBook.store.PageStore;
@@ -26,15 +27,21 @@ public class BookServiceLogic implements BookService{
 	
 	@Override
 	public void registerBook(Book book) {
-		bookStore.insertBook(book);
-		pageStore.insertPages(book.getPages());
+		String bookId = bookStore.insertBook(book);
+		
+		for(Page page : book.getPages()){
+			book.setBookId(bookId);
+			page.setBook(book);
+			pageStore.insertPage(page);
+		}
 	}
 
 	@Override
 	public void modifyBook(Book book) {
 		pageStore.deletePages(book.getBookId());
-		pageStore.insertPages(book.getPages());
-		
+		for(Page page : book.getPages()){
+			pageStore.insertPage(page);
+		}		
 		bookStore.updateBook(book);
 	}
 

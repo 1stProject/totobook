@@ -18,18 +18,21 @@ public class BookStoreLogic implements BookStore{
 	}
 
 	@Override
-	public void insertBook(Book book) {
+	public String insertBook(Book book) {
 		SqlSession session = null;
+		String bookId = "";
 		
 		try {
 			session = factory.openSession();
 			BookMapper mapper = session.getMapper(BookMapper.class);
 			
 			mapper.insertBook(book);
+			bookId = book.getBookId();
 			session.commit();
 		} finally {
 			session.close();
 		}
+		return bookId;
 	}
 
 	@Override

@@ -21,10 +21,11 @@
 	</resultMap>
 
 	<insert id="insertBook" parameterType="Book">
+		 <selectKey keyProperty="bookId" resultType="string" order="BEFORE">
+	  		SELECT book_seq.nextval FROM DUAL
+	  	</selectKey>
 		INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, BOOK_OPTION, PRODUCT_ID)
-		VALUES(BOOK_SEQ.NEXTVAL, #{book_name}, #{member.memberId}, #{option}, #{product.productId})
-
-		<foreach collection=""></foreach>
+		VALUES(#{bookId}, #{bookName}, #{member.memberId}, #{option}, #{product.productId})
 
 	</insert>
 	<update id="updateBook" parameterType="Book">

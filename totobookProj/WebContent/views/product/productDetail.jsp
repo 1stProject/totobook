@@ -25,9 +25,9 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-	<div class="col-md-offset-2">
-		<c:choose>
-			<c:when test="${product.category  eq 'PRINT' }">
+	<c:choose>
+		<c:when test="${product.category  eq 'PRINT' }">
+			<div class="col-md-offset-2">
 				<form method="get" action="${ctx }/print/register.do?">
 					<input type="hidden" name="productId" value="${product.productId}">
 					<table border="1">
@@ -106,27 +106,29 @@
 						class="btn">목록</button>
 					<input type="submit" class="btn btn-success" value="주문하기">
 				</form>
-			</c:when>
+			</div>
+		</c:when>
 
 
 
 
 
-			<c:otherwise>
+		<c:otherwise>
+			<div class="contentsContainer">
 				<form method="post" action="${ctx }/book/register.do">
 
 					<!-- Container ======================================================================================= -->
-					<div class="contentsContainer">
 
-						<div class="container">
-							<div class="row">
-								<div class="jumbotron">
-									<h2>포토북</h2>
-								</div>
+
+					<div class="container">
+						<div class="row">
+							<div class="jumbotron">
+								<h2>포토북</h2>
 							</div>
+						</div>
 
-							<div class="row">
-								<di v class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-12">
 								<ol class="breadcrumb">
 									<li>홈</li>
 									<li>포토북</li>
@@ -156,14 +158,33 @@
 									</li>
 									<li class="media">
 										<div class="media-body">
-											<h4 class="media-heading">상품설명 : ${product.descript }</h4>
+											<h4 class="media-heading">옵션선택</h4>
 										</div>
 									</li>
-									<li class="media">
-										<div class="media-body">
-											<h4 class="media-heading">옵션선택 :</h4>
-										</div>
-									</li>
+									<c:forEach items="${product.options }" var="option">
+										<li class="media">
+											<div class="media-body">
+												<h4 class="media-heading">${option.optionName}
+													: <select name="${option.optionName}" id="${option.optionName}"
+														style="width: 300px;" class="select_02">
+														<option value="${option.optionDesp}">${option.optionDesp}</option>
+													</select>
+												</h4>
+											</div>
+										</li>
+									</c:forEach>
+										<li class="media">
+											<div class="media-body">
+												<h4 class="media-heading">페이지 수
+													: <select name="pageOption" id="pageOption"
+														style="width: 300px;" class="select_02">
+														<option value="10">10 페이지</option>
+														<option value="20">20 페이지</option>
+														<option value="30">30 페이지</option>
+													</select>
+												</h4>
+											</div>
+										</li>
 									<li class="media">
 										<div class="media-body text-right">
 											<h4 class="media-heading">가격 : ${product.productprice}</h4>
@@ -172,14 +193,16 @@
 								</ul>
 							</div>
 							<div class="text-right">
-								<a class="btn btn-sm btn-success"
-									href="${ctx }/book/register.do?productId=${product.productId}">포토북
-									추가</a>
+								<input type="hidden" name="productId" value="${product.productId}">
+								<button type="submit" class="btn btn-success">추가</button>
 								<button type="button" onclick="javascript:history.back(-1);"
 									class="btn btn btn-warning">목록</button>
 							</div>
 
-							<div class="row"><h3>상품 설명 영역</h3></div>
+							<div class="row">
+								<h3>상품 설명</h3>
+								${product.descript }
+							</div>
 							<div class="row">
 								<h3>상품평</h3>
 								<table style="width: 100%">
@@ -210,24 +233,7 @@
 
 
 						</div>
-						<%-- 						<tr>
-							<td>사이즈</td>
-							<td><select name="optionName" id="optionName"
-								style="width: 80px;" class="select_02">
-									<c:forEach items="${product.options }" var="option">
-										<option value="${option.optionName}">${option.optionName}</option>
-									</c:forEach>
-							</select>
-						</tr>
-						<tr>
-							<td>설정값</td>
-							<td><select name="optionName" id="optionName"
-								style="width: 80px;" class="select_02">
-									<c:forEach items="${product.options }" var="option">
-										<option value="${option.optionDesp}">${option.optionDesp}</option>
-									</c:forEach>
-							</select>
-						</tr> --%>
+
 
 						<%-- 						<tr>
 							<td>가격</td>
@@ -239,12 +245,12 @@
 							</select>
 						</tr> --%>
 
-
 					</div>
 				</form>
-			</c:otherwise>
-		</c:choose>
-	</div>
+
+			</div>
+		</c:otherwise>
+	</c:choose>
 </body>
 
 <footer>
