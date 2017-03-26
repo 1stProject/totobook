@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -72,7 +73,10 @@ public class PageUploader extends HttpServlet {
 					byte[] file = Base64.decodeBase64(binaryData);
 					System.out.println("file :::::::: " + file + " || " + file.length);
 					String fileName = bookId + "_page" + pageNum;
-					stream = new FileOutputStream("C:/Users/kosta/rure/" + fileName + ".png");
+
+					ServletContext cxt = getServletContext();
+					String dir = cxt.getRealPath("/upload/book/");
+					stream = new FileOutputStream(dir+ fileName + ".png");
 					stream.write(file);
 					stream.close();
 					System.out.println("파일 작성 완료");
