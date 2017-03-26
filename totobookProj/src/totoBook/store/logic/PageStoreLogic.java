@@ -16,14 +16,14 @@ public class PageStoreLogic implements PageStore{
 	}
 
 	@Override
-	public void insertPages(List<Page> pages) {
+	public void insertPage(Page page) {
 		SqlSession session = null;
 		
 		try {
 			session = factory.openSession();
 			PageMapper mapper = session.getMapper(PageMapper.class);
 			
-			mapper.insertPages(pages);
+				mapper.insertPage(page);
 			session.commit();
 		} finally {
 			session.close();

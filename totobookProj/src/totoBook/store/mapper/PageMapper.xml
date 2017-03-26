@@ -13,11 +13,9 @@
 			javaType="Book" jdbcType="NUMERIC" />
 	</resultMap>
 
-	<insert id="insertPages" parameterType="List">
-		<foreach collection="List" item="Page">
+	<insert id="insertPage" parameterType="Page">
 			insert into Page_Tb(PAGE_ID, BOOK_ID, IMAGE_ADDRESS)
-			VALUES(PAGE_seq.nextval, #{Page.bookId}, #{Page.ImageAddress});
-		</foreach>
+			VALUES(PAGE_seq.nextval, #{book.bookId}, #{imageAddress})
 	</insert>
 	
 	<delete id="deletePages" parameterType="String">

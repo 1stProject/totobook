@@ -10,7 +10,7 @@ import totoBook.domain.Book;
  */
 public interface BookStore {
 	
-	void insertBook(Book book);
+	String insertBook(Book book);
 	void updateBook(Book book);
 	void deleteBook(String bookId);
 	List<Book> selectBooksByMemberId(String memberId);
