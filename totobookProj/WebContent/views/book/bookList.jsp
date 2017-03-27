@@ -39,15 +39,16 @@
 		<div class="contentsWithLeft">
 			<h3>나의 포토북 관리</h3>
 			
-			<table class="blueListTab">
+			<table class="table table-striped table-bordered table-hover" style="width:950px; text-align:center;">
 				<colgroup>
 					<col width="50px">
-					<col width="220px"> 
-					<col width="150px">
+					<col width="150px"> 
+					<col width="220px">
 					<col width="80px">
+					<col width="50px">
 					<col width="100px">
-					<col width="50px">
-					<col width="50px">
+					<col width="100px">
+					<col width="100px">
 				
 				</colgroup>
 				<tr>
@@ -58,6 +59,7 @@
 					<th>가격</th>
 					<th>편집</th>
 					<th>삭제</th>
+					<th>주문</th>
 				</tr>
 				<c:choose>
 				<c:when test="${empty books }">
@@ -75,6 +77,8 @@
 						<td>${book.product.productprice}</td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/edit.do?bookId=${book.bookId}'">편집</button></td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/remove.do?bookId=${book.bookId}'">삭제</button></td>
+						<td><button type="button" onclick="window.location.href='${ctx }/order/register.do?bookId=${book.bookId}'">주문</button></td>
+				
 					</tr>
 				</c:forEach>
 				</c:otherwise>

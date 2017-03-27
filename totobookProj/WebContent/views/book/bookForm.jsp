@@ -29,7 +29,7 @@
 	
 	<div class="photoBookContainer">
 		<h3>포토북 편집</h3>
-		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data" id="photoForm">
+		<form action="${ctx }/book/list.do" method="post" enctype="multipart/form-data" id="photoForm">
         	<div id="photoBookDesciption">
 				포토북명 : <input type ="text" value="${book.bookName}" name="bookName" placeholder="${book.bookName}">
 				전체 페이지 수 : ${fn:length(book.pages)} 장

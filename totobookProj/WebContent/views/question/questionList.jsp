@@ -55,7 +55,7 @@
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
-			<c:if test="${member.memberId }">
+			<c:if test="${member.memberId != '' }">
 				<td><a class="register_btn"	href="${ctx }/views/question/questionForm.jsp">문의글쓰기</a></td>
 			</c:if>
 
