@@ -19,9 +19,9 @@
 
 	<header> <%@ include file="/views/head/header.jspf"%>
 	</header>
-<div class="mypageTitle">
+	<div class="mypageTitle">
 		<div class="title_left">문의사항</div>
-		
+
 	</div>
 	<table class="table table-boardered">
 		<thead>
@@ -49,7 +49,7 @@
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
-			<c:if test="${member.memberId }">
+			<c:if test="${not empty member.memberId }">
 				<td><a class="register_btn"
 					href="${ctx }/views/question/questionForm.jsp" />문의글쓰기</td>
 			</c:if>
