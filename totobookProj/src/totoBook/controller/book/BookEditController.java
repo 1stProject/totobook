@@ -1,7 +1,9 @@
 package totoBook.controller.book;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 
 import totoBook.domain.Book;
+import totoBook.domain.Page;
 import totoBook.service.BookService;
 import totoBook.service.logic.BookServiceLogic;
 
@@ -55,8 +58,15 @@ public class BookEditController extends HttpServlet {
 		System.out.println(book.getBookName());
 		Date date = new Date();
 		
-//		List<Page> pages = request.getParameter();
-		
+		List<Page> pages = book.getPages();
+		List<Page> pages2 = new ArrayList<>();
+		int i=0;
+		for(Page page : pages){
+			i++;
+			page.setImageAddress(multi.getParameter("pageInput"+i));
+			pages2.add(page);
+		}
+		book.setPages(pages2);
 //		book.setBookName(multi.getParameter("bookName"));
 		
 		service.modifyBook(book);		

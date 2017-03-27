@@ -208,8 +208,8 @@ var savePages = function(pageNum){
         success: function (data) {
             try{
 //            	document.getElementById("bookPage"+pageNum+"Input").value = data;
-            	$("#bookPage"+pageNum+"Input").val(data);
-            	console.log("뭐지"+data+"완료");
+            	$("#pageInput"+pageNum).val(data);
+            	console.log("#pageInput"+pageNum+"뭐지"+data+"완료");
                 
             }catch(e){                
             	console.log('server Error!!');

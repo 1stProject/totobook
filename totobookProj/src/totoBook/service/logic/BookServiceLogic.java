@@ -38,11 +38,12 @@ public class BookServiceLogic implements BookService{
 
 	@Override
 	public void modifyBook(Book book) {
-		pageStore.deletePages(book.getBookId());
 		for(Page page : book.getPages()){
 			pageStore.insertPage(page);
+			System.out.println("음");
 		}		
-		bookStore.updateBook(book);
+//		bookStore.updateBook(book);
+		pageStore.deletePages(book.getBookId());
 	}
 
 	@Override
