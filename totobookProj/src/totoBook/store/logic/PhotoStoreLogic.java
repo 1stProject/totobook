@@ -46,4 +46,30 @@ public class PhotoStoreLogic implements PhotoStore {
 		}
 	}
 
+	@Override
+	public List<Photo> selectPhotosByPrintId(String printId) {
+		SqlSession session = factory.openSession();
+		List<Photo> photos = null;
+		try{
+			PhotoMapper mapper = session.getMapper(PhotoMapper.class);
+			photos = mapper.selectPhotosByPrintId(printId);
+		} finally {
+			session.close();	
+		}
+		return photos;
+	}
+
+	@Override
+	public Photo selectPhotoByPhotoId(String photoId) {
+		SqlSession session = factory.openSession();
+		Photo photo = null;
+		try{
+			PhotoMapper mapper = session.getMapper(PhotoMapper.class);
+			photo = mapper.selectPhotoByPhotoId(photoId);
+		} finally {
+			session.close();	
+		}
+		return photo;
+	}
+	
 }

@@ -32,7 +32,6 @@ public class MainViewController extends HttpServlet {
 		}
 		else
 			noticeList = tempList;
-		System.out.println("noticeList size : " + noticeList.size());
 		request.setAttribute("noticeList", noticeList);
 		
 		tempList = questionService.findAllQuestion();

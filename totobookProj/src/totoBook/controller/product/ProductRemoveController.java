@@ -34,10 +34,10 @@ public class ProductRemoveController extends HttpServlet {
 		product = productService.findProductById(request.getParameter("productId"));
 		
 		String productId = product.getProductId();
-		
+
+		reviewService.deleteCommentByProduct(productId);
 		productService.removeProduct(product);
 		productService.removeOption(productId);
-		reviewService.deleteCommentByProduct(product);
 		
 		response.sendRedirect("adminlist.do");
 	

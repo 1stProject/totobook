@@ -23,7 +23,9 @@
 <header>
 		<%@ include file="../head/header.jspf"%>
 </header>
-			<div class="mypageTitle">
+<div class="contentsContainer">
+	
+	<div class="mypageTitle">
 		<div class="title_left">마이페이지</div>
 		<ul class="title_ul">
 			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
@@ -42,8 +44,8 @@
 					</c:choose>
 	
 	</nav>
-	<div class="col-md-offset-2 col-sm-6 col-lg-6">
-    <h2 class="page-title">정보보기</h2>
+	<div class = "contentsWithLeft">
+<h3>내 정보</h3>
 	
         <table class = "table table-bordered table-stripped">     
             <thead>
@@ -77,9 +79,8 @@
            
             </tbody>
         </table>
-        
+        </div>
      </div>
-	</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>

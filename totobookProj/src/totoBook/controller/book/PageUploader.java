@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,30 +50,45 @@ public class PageUploader extends HttpServlet {
 		 * { // TODO Auto-generated catch block e.printStackTrace(); }
 		 */
 
-		String binaryData = request.getParameter("imgSrc");
-		FileOutputStream stream = null;
-		PrintWriter out = response.getWriter();
-		try {
-			System.out.println("binary file " + binaryData);
-			if (binaryData == null || binaryData == "") {
-				throw new Exception();
-			}
-			binaryData = binaryData.replaceAll("data:image/png;base64,", "");
-			byte[] file = Base64.decodeBase64(binaryData);
-			System.out.println("file :::::::: " + file + " || " + file.length);
-			String fileName = request.getParameter("bookId")+"_";
-			stream = new FileOutputStream("C:/Users/kosta/rure/" + fileName + ".png");
-			stream.write(file);
-			stream.close();
-			System.out.println("파일 작성 완료");
-			
-			out.print("yes");
-		} catch (Exception e) {
-			System.out.println("파일이 정상적으로 넘어오지 않았습니다");
-			out.print("no");
-		} finally {
-			stream.close();
-		}
-	}
+//		String[] binaryDataList = request.getParameterValues("imgSrc");
+		// String binaryData = request.getParameter("imgInput");
+		int pageNum = Integer.parseInt(request.getParameter("curPage"));
+		String bookId = request.getParameter("bookId");
 
+		System.out.println("페이지수" + pageNum);
+//		System.out.println("갯수"+binaryDataList.length);
+
+		PrintWriter out = response.getWriter();
+
+//		for (String binaryData : binaryDataList) {
+//		String binaryData = binaryDataList[pageNum];
+		String binaryData = request.getParameter("imgSrc"+pageNum);
+			FileOutputStream stream = null;
+
+			if (binaryData == null || binaryData == "") {
+				out.print("no");
+			} else {
+				try {
+					binaryData = binaryData.replaceAll("data:image/png;base64,", "");
+					byte[] file = Base64.decodeBase64(binaryData);
+					System.out.println("file :::::::: " + file + " || " + file.length);
+					String fileName = bookId + "_page" + pageNum;
+
+					ServletContext cxt = getServletContext();
+					String dir = cxt.getRealPath("/upload/book/");
+					stream = new FileOutputStream(dir+ fileName + ".png");
+					stream.write(file);
+					stream.close();
+					System.out.println(dir+ fileName + ".png"+"//파일 작성 완료");
+
+					out.print(dir+ fileName + ".png");
+					stream.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("파일이 정상적으로 넘어오지 않았습니다");
+					out.print("no");
+				} 
+			}
+
+	}
 }

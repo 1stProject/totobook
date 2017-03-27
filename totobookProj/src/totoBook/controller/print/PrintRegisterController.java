@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 
 import totoBook.domain.Member;
+import totoBook.domain.Option;
 import totoBook.domain.Photo;
 import totoBook.domain.Print;
 import totoBook.domain.Product;
@@ -40,8 +41,14 @@ public class PrintRegisterController extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String productId = request.getParameter("productId");
+		String price = request.getParameter("price");
 		Product product = productService.findProductById(productId);
 		request.setAttribute("product", product);
+		String optionDesp = "";
+		optionDesp += request.getParameter("option1") + ";";
+		optionDesp += request.getParameter("size");
+		request.setAttribute("price", price);
+		request.setAttribute("optionDesp", optionDesp);
 		request.getRequestDispatcher("/views/print/printUpload.jsp").forward(request, response);
 	}
 
@@ -50,36 +57,44 @@ public class PrintRegisterController extends HttpServlet {
 		ServletContext ctx = getServletContext();
 		String dir = ctx.getRealPath("/upload");
 		int i = 0;
-		MultipartRequest multi = new MultipartRequest(request, dir , maxSize, "UTF-8");
 		List<Photo> photos = new ArrayList<>();
+		List<Integer> temp = new ArrayList<>();
+		MultipartRequest multi = new MultipartRequest(request, dir , maxSize, "UTF-8");
 		Enumeration<?> params = multi.getFileNames();
 		while(params.hasMoreElements()){
 			String element = (String)params.nextElement();
-			System.out.println(element);
+			System.out.println("element : " + element);
 			String fileName = multi.getFilesystemName(element);
 			if(fileName == null){
 				continue;
 			} else {
 				i++;
 				String selectname = "amount" + i;
-				System.out.println(selectname + " : " + multi.getParameter(selectname));
 				Photo photo = new Photo();
-				photo.setAmount(Integer.parseInt(multi.getParameter(selectname)));
+				temp.add(Integer.parseInt(multi.getParameter(selectname)));
 				photo.setContentType(multi.getContentType(element));
 				photo.setFileName(fileName);
 				photos.add(photo);
-				System.out.println(fileName);
 			}
 		}
+		
+		for(int k=0;k<temp.size();k++){
+			photos.get(k).setAmount(temp.get(temp.size()-1-k));
+		}
+		
 		Print print = new Print();
 		HttpSession session = request.getSession();
-		
+		print.setPrice(Integer.parseInt(multi.getParameter("price")));
 		Member member = (Member)session.getAttribute("member");
-		String memberId = member.getMemberId();
-		Product product = new Product();
-		product.setProductId("2");
+		String productId = multi.getParameter("productId");
+		Product product = productService.findProductById(productId);
+		product.setOptions(productService.findOption(productId));
 		print.setMember(member);
-		print.setOptionDesp("반짝이는 황금색으로");
+		List<Option> options = product.getOptions();
+		System.out.println("option size : " + options.size());
+		String optionString = multi.getParameter("optionDesp");
+		
+		print.setOptionDesp(optionString);
 		print.setProduct(product);
 		print.setPhotos(photos);
 		printService.registerPrint(print);

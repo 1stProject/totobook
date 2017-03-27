@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="totoBook.store.mapper.PhotoMapper">
-	<resultMap type = "Photo" id = "PhotoMap">
+	<resultMap type = "Photo" id = "photoMap">
 		<id property = "photoId" column = "photo_id"/>
 		<result property = "fileName" column = "image_address"/>
 		<result property = "amount" column = "amount"/>
@@ -17,8 +17,20 @@
 		delete FROM photo_tb
 		WHERE print_id = #{printId}
 	</delete>
+	<select id = "selectPhotosByPrintId" parameterType = "string" resultMap = "photoMap">
+		select photo_id, image_address, amount, print_id
+		from photo_tb
+		where print_id = #{printId}
+	</select>
+	<select id = "selectPhotoByPhotoId" parameterType = "string" resultMap = "photoMap">
+		select photo_id, image_address, amount, print_id
+		from photo_tb
+		where photo_id = #{photoId}
+	</select>
 </mapper>
 <!-- 
 	void insertPhotos(List<Photo> photos);
 	void deletePhotos(String PrintId);
+	List<Photo> selectPhotosByPrintId(String printId);
+	Photo selectPhotoByPhotoId(String photoId);
  -->

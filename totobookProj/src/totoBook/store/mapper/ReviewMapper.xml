@@ -37,10 +37,8 @@
 		WHERE ORDER_ID = #{order.orderId}
 	</delete>
 
-	<delete id="deleteCommentByProduct">
-		DELETE review_tb
-		WHERE MEMBER_ID = #{product.productId}
-	</delete>
+	<delete id="deleteCommentByProduct">DELETE review_tb
+		WHERE PRODUCT_ID = #{product.productId}</delete>
 
 	<select id="selectCommentsByProduct" parameterType="string"	resultMap="reviewMap">
 		Select MEMBER_ID, PRODUCT_ID, CONTENT, IMAGE_ADDRESS, ORDER_ID FROM REVIEW_TB where PRODUCT_ID = #{product.productId}

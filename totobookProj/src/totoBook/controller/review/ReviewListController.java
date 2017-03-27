@@ -35,10 +35,7 @@ public class ReviewListController extends HttpServlet {
 		MemberService MemberService = new MemberServiceLogic();
 
 		HttpSession session = request.getSession();
-		
 		Member member = (Member)session.getAttribute("member");
-		
-		
 		
 		String memberId = member.getMemberId();
 		List<Review> list = reviewService.findCommentsByMember(memberId);
@@ -46,13 +43,6 @@ public class ReviewListController extends HttpServlet {
 		request.getRequestDispatcher("/views/review/reviewList.jsp").forward(request, response);
 
 		
-		
-		// request.getAttribute("member");
-		// userId를 받아온다 세션에 있나?
-		// Member member = MemberService.findMemberById("RURE1114");
-		// String memberId = member.getMemberId();
-
-		// //관리자일경우
 
 	}
 

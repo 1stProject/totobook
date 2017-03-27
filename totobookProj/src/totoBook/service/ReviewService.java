@@ -14,7 +14,7 @@ public interface ReviewService {
 
 	public void registerComment(Review review);
 	public void modifyComment(Review review);
-	public void deleteCommentByProduct(Product product);
+	public void deleteCommentByProduct(String productId);
 	public List<Review> findCommentsByProduct(String productId);
 	public List<Review> findCommentsByMember(String memberId);
 	public List<Review> findCommentByOrder(String orderId);

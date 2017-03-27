@@ -27,19 +27,21 @@
 	</header>
 
 	<div class="contentsContainer">
-					<div class="mypageTitle">
-		<div class="title_left">마이페이지</div>
+	
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
 		<ul class="title_ul">
 			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
 			<li class="title_li_icon">></li>
-			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
 		</ul>
 	</div>
-		<nav>
-			<%@ include file="/views/left/leftManagePage.jsp"%>
-		</nav>
-		<div class="col-md-offset-2 col-sm-6 col-lg-6">
-			<h2 class="page-title">회원목록</h2>
+	<nav>
+		<%@ include file="/views/left/leftManagePage.jsp"%>
+	</nav>	
+		<!-- <div class="col-sm-7 col-lg-7 col-md-offset-2"> -->
+		<div class = "contentsWithLeft">
+			<h3>회원 목록</h3>
 			<div class="contents">
 				<table class = "table table-bordered table-stripped">
 					<colgroup>

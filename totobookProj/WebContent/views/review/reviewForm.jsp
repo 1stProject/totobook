@@ -27,14 +27,21 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
-<nav>
-	<%@ include file = "/views/left/leftMyPage.jsp" %>
-</nav>
-	<div class="contents-wrap">
-		<div class="col-md-offset-2">
-			<div class="container-fluid">
-				<div class="row">
-
+<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	<nav>
+		<%@ include file="/views/left/leftMyPage.jsp"%>
+	</nav>	
+		<div class = "contentsWithLeft">
+		<h3>상품평 작성</h3>
 		<form action="${ctx }/review/register.do" method="post"
 			enctype="multipart/form-data">
 			<input type="hidden" value="${order.orderId}" name="orderId">
@@ -47,7 +54,7 @@
 				</tr>
 				<tr>
 					<td>사진</td>
-					<td><input type="file" name="file1"></td>
+					<td><input type="file" name="file1" accept="image/*"></td>
 				</tr>
 			</table>	
 			<button type="button" onclick="javascript:history.back(-1);" class="btn">목록</button>
@@ -55,8 +62,6 @@
 			<button type="submit" class="btn">등록</button>
 		</form>
 </div>
-	</div>
-	</div>
 	</div>
 	
 </body>

@@ -12,6 +12,7 @@ public class Print {
 	private Member member;
 	private Product product;
 	private String optionDesp;
+	private int price;
 	
 	public String getPrintId() {
 		return printId;
@@ -42,6 +43,12 @@ public class Print {
 	}
 	public void setOptionDesp(String optionDesp) {
 		this.optionDesp = optionDesp;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 	

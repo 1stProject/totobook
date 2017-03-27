@@ -9,6 +9,7 @@
 		<id property="bookId" column="book_id" />
 		<result property="bookName" column="book_name" />
 		<result property="saveDate" column="save_date" />
+		<result property="option" column="book_option"/>
 	<association property="product" column="product_id"
 			select="totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType="Product" jdbcType="NUMERIC" />
@@ -21,15 +22,16 @@
 	</resultMap>
 
 	<insert id="insertBook" parameterType="Book">
+		 <selectKey keyProperty="bookId" resultType="string" order="BEFORE">
+	  		SELECT book_seq.nextval FROM DUAL
+	  	</selectKey>
 		INSERT INTO BOOK_TB(BOOK_ID, BOOK_NAME, MEMBER_ID, BOOK_OPTION, PRODUCT_ID)
-		VALUES(BOOK_SEQ.NEXTVAL, #{book_name}, #{member.memberId}, #{option}, #{product.productId})
-
-		<foreach collection=""></foreach>
+		VALUES(#{bookId}, #{bookName}, #{member.memberId}, #{option}, #{product.productId})
 
 	</insert>
 	<update id="updateBook" parameterType="Book">
 		UPDATE BOOK_TB
-		SET BOOK_NAME = #{bookName}, SAVE_DATE = #{saveDate}
+		SET BOOK_NAME = #{bookName}, SAVE_DATE = '2017-03-27'
 		WHERE BOOK_ID = #{bookId}
 	</update>
 	<delete id="deleteBook" parameterType="String">

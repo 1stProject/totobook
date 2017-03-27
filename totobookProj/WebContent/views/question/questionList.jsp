@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }"></c:set>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,13 +16,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<header> <%@ include file="/views/head/header.jspf"%>
+	<header> 
+		<%@ include file="/views/head/header.jspf"%>
 	</header>
+<<<<<<< HEAD
 	<div class="mypageTitle">
 		<div class="title_left">문의사항</div>
 
+=======
+	<!-- <div class="mypageTitle">
+		<div class="title_left">문의게시판</div>
+		
+	</div> -->
+	<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">문의 게시판</div>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 	</div>
+		<div class = "contentsWithLeft">
 	<table class="table table-boardered">
 		<thead>
 			<tr>
@@ -49,15 +61,22 @@
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
+<<<<<<< HEAD
 			<c:if test="${not empty member.memberId }">
 				<td><a class="register_btn"
 					href="${ctx }/views/question/questionForm.jsp" />문의글쓰기</td>
+=======
+			<c:if test="${member.memberId != '' }">
+				<td><a class="register_btn"	href="${ctx }/views/question/questionForm.jsp">문의글쓰기</a></td>
+>>>>>>> branch 'development' of https://github.com/1stProject/totobook.git
 			</c:if>
 
 		</tbody>
 	</table>
-
-	<footer> <%@include file="../foot/footer.jspf"%>
+	</div>
+	</div>
+	<footer>
+		<%@include file="../foot/footer.jspf"%>
 	</footer>
 </body>
 </html>

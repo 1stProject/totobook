@@ -5,6 +5,7 @@
 	<resultMap type="Print" id = "printMap">
 		<id property = "printId" column = "print_id"/>
 		<result property = "optionDesp" column = "print_option"/>
+		<result property = "price" column = "price"/>
 		<association property = "member" column = "member_id"
 			select="totoBook.store.mapper.MemberMapper.selectMemberById"
 			javaType = "Member" jdbcType = "VARCHAR"/>
@@ -18,7 +19,7 @@
 	  		SELECT print_seq.nextval FROM DUAL
 	  	</selectKey>
 	  	INSERT INTO print_tb
-	  	VALUES (#{printId}, #{member.memberId}, #{product.productId}, #{optionDesp})
+	  	VALUES (#{printId}, #{member.memberId}, #{product.productId}, #{optionDesp}, #{price})
   	</insert>
   	
   	<delete id="deletePrint" parameterType = "string">
@@ -26,14 +27,16 @@
   		where print_id = #{printId}
   	</delete>
   	<select id="selectPrintsByMemberId" parameterType = "string" resultMap = "printMap">
-  		SELECT print_id, member_id, product_id, print_option 
+  		SELECT print_id, member_id, product_id, print_option, price
   		FROM print_tb
   		WHERE member_id = #{memberId}
+  		order by print_id
   	</select>
   	<select id="selectPrintByPrintId" parameterType = "string" resultMap = "printMap">
-  		SELECT print_id, member_id, product_id, print_option
+  		SELECT print_id, member_id, product_id, print_option, price
   		FROM print_tb
   		WHERE print_id = #{printId}
+  		order by print_id
   	</select>
 </mapper>
 

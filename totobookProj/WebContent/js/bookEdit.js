@@ -36,19 +36,16 @@ $(document).ready(
 			});
 
 			$(".layoutIcon1").click(function() {
-				console.log("머여");
 				var src = $(this).attr("src");
 				$(selectedPage).empty();
 
 				var node1 = document.createElement("div");
 				node1.id = "photoLayoutDiv1";
 				if (src == "/totobookProj/views/book/A3_layout_1.jpg") {
-					console.log("머지");
 					node1.className = "photoLayoutLarge";
 					$(selectedPage).append(node1);
 				}
 				if (src == "/totobookProj/views/book/A3_layout_2.jpg") {
-					console.log("머지?");
 					node1.className = "photoLayoutMedium";
 					node1.setAttribute("style", "margin-top:45%")
 					$(selectedPage).append(node1);
@@ -64,6 +61,12 @@ $(document).ready(
 			});
 
 			$("#toBeforePage").click(function() {
+				
+				srat(pageCount*2);
+				if(pageCount <maxPage){
+					srat(pageCount*2+1);
+				}
+				
 				pageCount = parseInt(pageCount - 1);
 				$("#currentRightPage").html(pageCount*2);
 				
@@ -88,10 +91,8 @@ $(document).ready(
 				}
 
 				//currentPage update
-				console.log("과거"+currentLeftPage+"&&"+currentRightPage);
 				currentLeftPage = '#bookPage'+(pageCount*2);
 				currentRightPage = '#bookPage'+((pageCount*2)+1);
-				console.log("현재"+currentLeftPage+"&&"+currentRightPage);			
 				
 				
 				//currentPage를 visibility로 변경
@@ -104,6 +105,14 @@ $(document).ready(
 			});
 
 			$("#toNextPage").click(function() {
+				
+				if(pageCount == 0){
+					srat(1);
+				}else {
+					srat(pageCount*2);
+					srat(pageCount*2+1);					
+				}
+				
 				pageCount = parseInt(pageCount + 1);
 				$("#currentRightPage").html(pageCount*2);
 				
@@ -143,35 +152,14 @@ $(document).ready(
 
 
 			});
-
-			var element = $("#bookPageRight");
-			var getCanvas;
+			
+			//save 버튼을 눌렀을 때
 			$("#saveBook").on('click', function() {
-				html2canvas(element, {
-					onrendered : function(canvas) {
-						
-						$("#imgSrc").val(canvas.toDataURL("image/png"));
-						var params = $("#photoForm").serialize();
-	                
-	                    $.ajax({
-	                        type: "post",
-	                        data : $("form").serialize(),
-	                        url: "pageUpload.do",
-	                        error: function(a, b, c){        
-	                            alert("fail!!");
-	                        },
-	                        success: function (data) {
-	                            try{
-	                            	(this).submit();
-	                                
-	                            }catch(e){                
-	                                alert('server Error!!');
-	                            }
-	                        }
-	                    });
-					}
-				});
-			});
+/*				srat(pageCount*2);
+				srat(pageCount*2+1);*/
+				
+				$("form").submit();
+});
 			
 			$("#btn-Convert-Html2Image").on(
 					'click',
@@ -186,6 +174,50 @@ $(document).ready(
 					});
 
 		});
+
+var srat = function(i){
+	var element;
+	var pageNum;
+
+element = $("div[id='bookPage"+i+"']");
+html2canvas(element, {
+	onrendered : function(canvas) {
+		var imgInput = $("input[id='imgSrc"+i+"']");
+		pageNum = i;
+		var getCanvas;
+			
+		imgInput.val(canvas.toDataURL("image/png"));	
+		savePages(pageNum) ;
+	}
+});
+
+//END HTML2CANVAS
+}
+var savePages = function(pageNum){
+	var params = $("#photoForm").serialize();
+	$("#curPage").val(pageNum);
+	console.log($("#curPage").val()+"페이지수");
+	
+    $.ajax({
+        type: "post",
+       data :$("form").serialize(),
+        url: "pageUpload.do",
+        error: function(a, b, c){        
+            alert("fail!!");
+        },
+        success: function (data) {
+            try{
+//            	document.getElementById("bookPage"+pageNum+"Input").value = data;
+            	$("#pageInput"+pageNum).val(data);
+            	console.log("#pageInput"+pageNum+"뭐지"+data+"완료");
+                
+            }catch(e){                
+            	console.log('server Error!!');
+            }
+        }
+    });
+    //END AJAX
+}
 
 var fileInfo = function(f) {
 	var file = f.files; // files 를 사용하면 파일의 정보를 알 수 있음

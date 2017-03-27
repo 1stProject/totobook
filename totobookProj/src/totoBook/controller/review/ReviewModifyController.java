@@ -65,22 +65,27 @@ public class ReviewModifyController extends HttpServlet {
 		list = orderService.findOrdersByOrderId(orderId);
 
 		Order order = list.get(0);		
-		
-		
 		Photo photo = new Photo();
 
 		photo.setContentType(multi.getContentType("file1"));
 		photo.setFileName(multi.getFilesystemName("file1"));
 
-		String imageAddress = photo.getFileName();
 		Review review = new Review();
+		String imageAddress = photo.getFileName();
+		if (imageAddress == null) {
+			review.setImageAddress("");
+		} else {
+			review.setImageAddress(imageAddress);
+		}		
+		
+		
 		review.setComment(multi.getParameter("comment"));
 		review.setImageAddress(imageAddress);
 		review.setOrder(order);
 		
 		reviewService.modifyComment(review);
 		
-		response.sendRedirect("adminlist.do");
+		response.sendRedirect("list.do");
 
 	}
 

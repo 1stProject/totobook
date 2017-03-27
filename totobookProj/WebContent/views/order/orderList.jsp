@@ -26,13 +26,23 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
+	
+	<div class="contentsContainer">
+	
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
+		</ul>
+	</div>
 	<nav>
 		<%@ include file="/views/left/leftManagePage.jsp"%>
-	</nav>
-	<div class="contentsContainer">
-		
-		<div class="col-sm-7 col-lg-7 col-md-offset-2">
-			<h1>주문 목록</h1>
+	</nav>	
+		<!-- <div class="col-sm-7 col-lg-7 col-md-offset-2"> -->
+		<div class = "contentsWithLeft">
+			<h3>주문 목록</h3>
 
 			<table class="table table-striped table-bordered table-hover">
 				<colgroup>
@@ -52,6 +62,13 @@
 					</tr>
 				</thead>
 				<tbody>
+				<c:choose>
+				<c:when test="${empty orders }">
+				<tr>
+					<td colspan = 5 class = "text-center">주문 내역이 없습니다</td>
+				</tr>
+				</c:when>
+				<c:otherwise>
 					<c:forEach items="${orders }" var="order">
 						<tr>
 							<td>${order.orderId }</td>
@@ -61,8 +78,9 @@
 							<td class="text-center"><a
 								href="${ctx }/order/detail.do?orderId=${order.orderId}"
 								class="btn btn btn-primary">상세보기</a></td>
-						</tr>
 					</c:forEach>
+					</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 			<div class = "text-right">

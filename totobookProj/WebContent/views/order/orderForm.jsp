@@ -24,11 +24,25 @@
 	<header>
 		<%@ include file="/views/head/header.jspf"%>
 	</header>
-
 	<div class="contentsContainer">
-		<h1>주문 창</h1>
-		<form method="post" action="${ctx }/order/register.do">
+	
+	<div class="mypageTitle">
+		<div class="title_left">마이페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
+		</ul>
+	</div>
+	
+	<nav>
+		<%@ include file = "/views/left/leftMyPage.jsp" %>
+	</nav>
 
+		<div class="contentsWithLeft">
+		<h3>주문 창</h3>
+		<form method="post" action="${ctx }/order/register.do">
+		<div style="display:block;">
 			<div class="table-responsive col-sm-9 col-lg-9">
 				<table class="table table-striped table-bordered table-hover">
 					<colgroup>
@@ -53,49 +67,38 @@
 					</tr>
 					<tr>
 						<th>카테고리</th>
-						<td>사진</td>
+						<td>${order.category }</td>
 					</tr>
 					<tr>
-						<th>상품 이름</th>
-						<td>아름다웠던 봄</td>
+						<th>번호</th>
+						<td>${order.bookPhotoId }</td>
 					</tr>
 					<tr>
 						<th>결제 수단</th>
 						<td><input type="radio" name="payment" value="신용카드">
-							시뇽카드 <input type="radio" name="payment" value="무통장입금">
-							유통장입금 <input type="radio" name="payment" value="현금">
-							현금박치기</td>
+							신용카드 <input type="radio" name="payment" value="무통장입금">
+							무통장입금 <input type="radio" name="payment" value="계좌이체">
+							계좌이체 </td>
 					</tr>
 					<tr>
 						<th>가격</th>
 						<td><input type="text" class="ui-corner-all form-control"
-							name="price" value="35000" readonly></td>
+							name="price" value="${order.ordPrice }" readonly></td>
 					</tr>
 
 				</table>
+				<input type="hidden" value="${order.member.memberId }" name="memberId">
+				<input type="hidden" value ="${order.bookPhotoId }" name = "bookPhotoId">
+				<input type="hidden" value = "${order.category }" name = "category">
 			</div>
-			<input type="hidden" value="${order.member.memberId }"
-				name="memberId"> <br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>&nbsp;&nbsp;&nbsp; <input type="submit" value="주문하기!"
+			</div>
+		
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br>&nbsp;&nbsp;&nbsp; <input type="submit" value="주문하기!"
 				class="btn btn-success">
 		</form>
 	</div>
-
+</div>
 	<footer>
 		<%@include file="../foot/footer.jspf"%>
 	</footer>

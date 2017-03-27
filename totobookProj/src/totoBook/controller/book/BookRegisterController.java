@@ -13,11 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import totoBook.domain.Book;
 import totoBook.domain.Member;
+import totoBook.domain.Option;
 import totoBook.domain.Page;
-import totoBook.domain.Photo;
 import totoBook.domain.Product;
 import totoBook.service.BookService;
+import totoBook.service.ProductService;
 import totoBook.service.logic.BookServiceLogic;
+import totoBook.service.logic.ProductServiceLogic;
 
 /**
  * @author 김주희
@@ -31,19 +33,28 @@ public class BookRegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Book book = new Book();
 		BookService service = new BookServiceLogic();
-		Member member = new Member();
-		Product product = new Product();
+		ProductService productService = new ProductServiceLogic();
 		HttpSession session = request.getSession();
 		
-		String memberId = (String)session.getAttribute("memberId");
-		member.setMemberId(memberId);
+		Member member = (Member)session.getAttribute("member");
+		System.out.println(member.getMemberId());
 		
-		String productId = (String)request.getAttribute("productId");
-		int pageOption = (Integer)request.getAttribute("pageOption");
-		String sizeOption = (String)request.getAttribute("sizeOption");
+		String productId = request.getParameter("productId");
+		String sizeOption = request.getParameter("size");
+		int pageOption = Integer.parseInt(request.getParameter("pageOption"));
 		
-		product.setProductId(productId);
-		book.setBookName((String) request.getAttribute("productName"));
+		Product product = productService.findProductById(productId);
+		product.setOptions(productService.findOption(productId));
+		
+		book.setBookName(product.getName());
+		
+		String optionValue="";
+		List<Option> optionList = product.getOptions();
+		for(Option option : optionList){
+			optionValue += option.getOptionName() +" : "+ request.getParameter(option.getOptionName())+"\t";
+		}
+		System.out.println(optionValue);
+		book.setOption(optionValue);
 		book.setMember(member);
 		book.setProduct(product);
 		
@@ -54,10 +65,10 @@ public class BookRegisterController extends HttpServlet {
 			Page page = new Page();
 			page.setBook(book);
 			if(layoutnum == 0 || layoutnum == (pageOption-1)){
-				page.setImageAddress("/images/pageLayout/"+sizeOption+"_layout_"+layoutnum+".jpg");
+				page.setImageAddress("/images/pageLayout/"+sizeOption+"_layout_0.jpg");
 				
 			}
-			page.setImageAddress("/images/pageLayout/"+sizeOption+"_blue_layout_"+layoutnum+".jpg");
+			page.setImageAddress("/images/pageLayout/"+sizeOption+"_layout_"+layoutnum+".jpg");
 			
 			pages.add(page);
 			
@@ -68,6 +79,7 @@ public class BookRegisterController extends HttpServlet {
 		}
 		
 		book.setPages(pages);
+		System.out.println(book.toString());
 		service.registerBook(book);
 		
 		response.sendRedirect(request.getContextPath()+"/book/list.do");

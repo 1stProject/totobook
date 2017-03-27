@@ -35,16 +35,15 @@
 		<result property="payment" column = "payment"/>
 		<result property="ordPrice" column = "total_price"/>
 		<result property = "ordWay" column = "address"/>
+		<result property = "bookPhotoId" column = "bookphoto_id"/>
+		<result property = "category" column = "category"/>
 		<association property = "member" column = "member_id"
 					select="totoBook.store.mapper.MemberMapper.selectMemberById"
 					javaType = "Member" jdbcType = "VARCHAR"/>
-		<association property = "product" column = "product_id"
-		select = "totoBook.store.mapper.ProductMapper.selectProductById"
-		javaType = "Product" jdbcType = "VARCHAR"/>
 	</resultMap>
 	<insert id = "insertOrder" parameterType = "Order">
-		INSERT INTO order_tb (order_id, order_date, payment, total_price, address, member_id, product_id)
-		VALUES (order_seq.NEXTVAL, SYSDATE, #{payment}, #{ordPrice}, #{member.address}, #{member.memberId}, #{product.productId})
+		INSERT INTO order_tb (order_id, order_date, payment, total_price, address, member_id, bookPhoto_id, category)
+		VALUES (order_seq.NEXTVAL, SYSDATE, #{payment}, #{ordPrice}, #{member.address}, #{member.memberId}, #{bookPhotoId}, #{category})
 	</insert>
 	<update id = "updateOrder" parameterType = "Order">
 		Update order_tb 
@@ -52,23 +51,27 @@
 		WHERE order_id = #{orderId}
 	</update>
 	<select id = "selectAllOrders" resultMap = "orderMap">
-		SELECT order_id, order_date, payment, total_price, address, member_id, product_id
+		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
+		Order by order_id
 	</select>
 	<select id = "selectOrdersByMemberId" parameterType = "string" resultMap = "orderMap">
-		SELECT order_id, order_date, payment, total_price, address, member_id, product_id
+		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
 		WHERE member_id = #{memberId}
+		Order by order_id
 	</select>
 	<select id = "selectOrdersByDates" parameterType = "date" resultMap = "orderMap">
-		SELECT order_id, order_date, payment, total_price, address, member_id, product_id
+		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
 		WHERE order_date between #{startDate} and #{endDate}
+		Order by order_id
 	</select>
 	<select id = "selectOrdersByOrderId" parameterType = "string" resultMap = "orderMap">
-		SELECT order_id, order_date, payment, total_price, address, member_id, product_id
+		SELECT order_id, order_date, payment, total_price, address, member_id, bookphoto_id, category
 		FROM order_tb
 		WHERE order_id = #{orderId}
+		Order by order_id
 	</select>
 </mapper>
 <!--void insertOrder(Order order);

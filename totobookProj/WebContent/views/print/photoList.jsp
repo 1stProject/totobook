@@ -20,8 +20,20 @@
 <header>
 	<%@ include file = "/views/head/header.jspf" %>
 </header>
+
 <div class="contentsContainer">
-	
+	<c:choose>
+	<c:when test="${member.memberId eq 'admin' }">
+	<div class="mypageTitle">
+		<div class="title_left">관리자 페이지</div>
+		<ul class="title_ul">
+			<li class="title_li"><a href="${ctx }/views/main.jsp">HOME</a></li>
+			<li class="title_li_icon">></li>
+			<li class="title_li"><a href="${ctx }/order/list.do">관리자 페이지</a></li>
+		</ul>
+	</div>
+	</c:when>
+	<c:otherwise>
 	<div class="mypageTitle">
 		<div class="title_left">마이페이지</div>
 		<ul class="title_ul">
@@ -30,49 +42,32 @@
 			<li class="title_li"><a href="${ctx }/order/list.do">마이페이지</a></li>
 		</ul>
 	</div>
-	<nav>
-		<%@ include file="/views/left/leftMyPage.jsp"%>
-	</nav>	
-		<div class = "contentsWithLeft">
-<h3>나의 사진 목록</h3>
-<table class = "table table-striped table-bordered table-hover">
-	<colgroup>
-		<col width = "20%"/>
-		<col width = "30%"/>
-		<col width = "*"/>
-		<col width = "10%"/>
-		<col width = "10%"/>
-	</colgroup>
-	<thead>
-		<tr>
-			<th>사진 인화 번호</th>
-			<th>사진 옵션</th>
-			<th>상품 이름</th>
-			<th class="text-center">주문하기</th>
-			<th class="text-center">삭제하기</th>
-		</tr>
-	</thead>
-	<tbody>
-	<c:choose>
-	<c:when test="${empty list }">
-	<tr>
-		<td colspan = 5 class = "text-center">사진인화 내역이 없습니다</td>
-	</tr>
-	</c:when>
-	<c:otherwise>
-	<c:forEach items = "${list }" var = "print">
-		<tr>
-			<td><a href = "${ctx }/print/view.do?printId=${print.printId }">${print.printId }</a></td>
-			<td>${print.optionDesp }</td>
-			<td>${print.product.name }</td>
-			<td class="text-center"><a class = "btn btn-primary" href = "${ctx }/order/register.do?printId=${print.printId}">주문하기</a></td>
-			<td class="text-center"><a class = "btn btn-default" href = "${ctx }/print/remove.do?printId=${print.printId }">삭제하기</a></td>
-		</tr>
-	</c:forEach>
 	</c:otherwise>
 	</c:choose>
-	</tbody>
-</table>
+	
+<nav>
+	<c:choose>
+	<c:when test="${member.memberId eq 'admin' }">
+	<%@ include file = "/views/left/leftManagePage.jsp" %>
+	</c:when>
+	<c:otherwise>
+	<%@ include file = "/views/left/leftMyPage.jsp" %>
+	</c:otherwise>
+	</c:choose>
+</nav>
+		<div class = "contentsWithLeft">
+<h1>사진인화 사진</h1>
+	<div style = "display:block;padding:20px;">
+	<c:forEach items="${photos }" var = "photo">
+	
+	<div style="display:inline-block;">
+		<img src = "${ctx }/print/image.do?photoId=${photo.photoId}" width ="200" height="200">
+		<br>${photo.amount }개 주문
+	</div>
+	</c:forEach>
+	</div>
+	<input type = "button" onclick = "javascript:history.back(-1);" class = "btn btn-default" value = "돌아가기">
+	
 </div>
 </div>
 <footer>

@@ -49,4 +49,13 @@ public class PrintServiceLogic implements PrintService {
 	public Print findPrintByPrintId(String printId) {
 		return printStore.selectPrintByPrintId(printId);
 	}
+	@Override
+	public List<Photo> findPhotosByPrintId(String printId) {
+		return photoStore.selectPhotosByPrintId(printId);
+	}
+	@Override
+	public Photo findPhotoByPhotoId(String photoId) {
+		return photoStore.selectPhotoByPhotoId(photoId);
+	}
+	
 }
