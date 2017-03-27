@@ -111,9 +111,9 @@ public class ReviewRegister extends HttpServlet {
 		review.setOrder(order);
 		review.setMember(list.get(0).getMember());
 		Product product = new Product();
-		if(list.get(0).getCategory().equals("사진")){
+		if(order.getCategory().equals("사진")){
 			PrintService service = new PrintServiceLogic();
-			Print print = service.findPrintByPrintId(list.get(0).getBookPhotoId());
+			Print print = service.findPrintByPrintId(order.getBookPhotoId());
 			product = print.getProduct();
 		}
 		else{

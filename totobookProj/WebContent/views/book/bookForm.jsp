@@ -44,22 +44,16 @@
 				
 			 	<c:forEach items="${book.pages }" var="page" varStatus="sts">
 			 		<c:if test="${(sts.count mod 2) eq 0 }">
-	 					<c:choose>
-	 						<c:when test="${fn:substring(page.imageAddress,0,5) eq '/images' }">
-							<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;">
+						<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;">
 			 			
 			 			<input type="hidden" id="bookPage${sts.count }Input" name="${page.pageId}" value="${page.imageAddress }">
 	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value=""></div>
-			 				</c:when>
-			 				<c:otherwise>			 				
-							<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;background-image:'C:/Users/kosta/Downloads/수업자료/144기_김주희/03.Tomcat/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/totobookProj/upload\book/${book.bookId}_page${sts.count }'">
+			 				 				
+				<%-- 			<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;background-image:'C:/Users/kosta/Downloads/수업자료/144기_김주희/03.Tomcat/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/totobookProj/upload\book/${book.bookId}_page${sts.count }'">
 			 			
 			 			<input type="hidden" id="bookPage${sts.count }Input" name="${page.pageId}" value="${page.imageAddress }">
-			 			
 	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value=""></div>
-			 				</c:otherwise>
-			 			</c:choose>	
-			 		</c:if>		 			
+			 --%> 		</c:if>		 			
 				</c:forEach>
 				
 				<div class="bookPaging1"></div>
