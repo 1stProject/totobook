@@ -79,7 +79,7 @@ public class PageUploader extends HttpServlet {
 					stream = new FileOutputStream(dir+ fileName + ".png");
 					stream.write(file);
 					stream.close();
-					System.out.println("파일 작성 완료");
+					System.out.println(dir+ fileName + ".png"+"//파일 작성 완료");
 
 					out.print(dir+ fileName + ".png");
 					stream.close();

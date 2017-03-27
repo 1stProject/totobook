@@ -155,8 +155,8 @@ $(document).ready(
 			
 			//save 버튼을 눌렀을 때
 			$("#saveBook").on('click', function() {
-				srat(pageCount*2);
-				srat(pageCount*2+1);
+/*				srat(pageCount*2);
+				srat(pageCount*2+1);*/
 				
 				$("form").submit();
 });
@@ -207,8 +207,9 @@ var savePages = function(pageNum){
         },
         success: function (data) {
             try{
+//            	document.getElementById("bookPage"+pageNum+"Input").value = data;
             	$("#bookPage"+pageNum+"Input").val(data);
-            	console.log("완료");
+            	console.log("뭐지"+data+"완료");
                 
             }catch(e){                
             	console.log('server Error!!');

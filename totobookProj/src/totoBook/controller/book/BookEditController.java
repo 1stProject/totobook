@@ -36,10 +36,10 @@ public class BookEditController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("이야!");
 		BookService service = new BookServiceLogic();
 		
 		String bookId = request.getParameter("bookId");
+		System.out.println("아이디"+bookId);
 		
 		Book book = service.findBook(bookId);
 //		List<Page> pages = request.getParameter();
