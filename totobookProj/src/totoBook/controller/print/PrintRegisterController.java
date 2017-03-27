@@ -48,9 +48,7 @@ public class PrintRegisterController extends HttpServlet {
 		optionDesp += request.getParameter("option1") + ";";
 		optionDesp += request.getParameter("size");
 		request.setAttribute("price", price);
-		System.out.println(price);
 		request.setAttribute("optionDesp", optionDesp);
-		System.out.println(optionDesp);
 		request.getRequestDispatcher("/views/print/printUpload.jsp").forward(request, response);
 	}
 
@@ -86,7 +84,6 @@ public class PrintRegisterController extends HttpServlet {
 		
 		Print print = new Print();
 		HttpSession session = request.getSession();
-		System.out.println("업로드 될때 price : " + multi.getParameter("price"));
 		print.setPrice(Integer.parseInt(multi.getParameter("price")));
 		Member member = (Member)session.getAttribute("member");
 		String productId = multi.getParameter("productId");
