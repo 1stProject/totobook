@@ -34,7 +34,7 @@
 				포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
 				전체 페이지 수 : ${fn:length(book.pages)} 장
 				선택한 상품명 : ${book.product.name}
-				선택된 옵션 : ${book.option }      
+				선택된 옵션 : ${book.option}      
 
 			</div>
 
@@ -43,10 +43,22 @@
 				
 			 	<c:forEach items="${book.pages }" var="page" varStatus="sts">
 			 		<c:if test="${(sts.count mod 2) eq 0 }">
-			 			<input type="hidden" id="${page.pageId}" name="pageInput" value="${page.imageAddress }">
-	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value="">
-						<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;"></div>
-			 		</c:if>
+	 					<c:choose>
+	 						<c:when test="${fn:substring(page.imageAddress,0,5) eq '/images' }">
+							<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;">
+			 			
+			 			<input type="hidden" id="bookPage${sts.count }Input" name="${page.pageId}" value="${page.imageAddress }">
+	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value=""></div>
+			 				</c:when>
+			 				<c:otherwise>			 				
+							<div id="bookPage${sts.count }" class="LeftPageDiv" ondrop="drop(event)" ondragover="allowDrop(event)" style="display:none;background-image:">
+			 			
+			 			<input type="hidden" id="bookPage${sts.count }Input" name="${page.pageId}" value="${page.imageAddress }">
+			 			
+	 					<input type="hidden" name="imgSrc${sts.count }" id="imgSrc${sts.count }" value=""></div>
+			 				</c:otherwise>
+			 			</c:choose>	
+			 		</c:if>		 			
 				</c:forEach>
 				
 				<div class="bookPaging1"></div>
@@ -60,10 +72,10 @@
 				</c:forEach>
 
 			  <img src="${ctx }/views/book/toRight.png" class="leftRightBtnImg" id="toNextPage">
-				<div id="layoutDiv">레이아웃선택
+				<div id="layoutDiv">레이아웃선택 <br><br>
 					<img class="layoutIcon1" src="${ctx }/views/book/A3_layout_1.jpg" draggable="false">
 					<img class="layoutIcon1" src="${ctx }/views/book/A3_layout_2.jpg" draggable="false">
-					<img class="layoutIcon1" src="${ctx }/views/book/A3_layout_3.jpg" draggable="false">
+					<img class="layoutIcon1" src="${ctx }/views/book/A3_layout_3.jpg" draggable="false"> 
 
 						<div class="btn-group">
 <!-- 							<button type="button" class="btn btn-primary" data-method="rotate" data-option="-45" title="Rotate Left">
@@ -76,9 +88,10 @@
 									<span class="fa fa-rotate-right">우로 회전</span>
 								</span>
 							</button> -->
-							<Br>
-							현재 페이지
-							    <span id="currentRightPage"></span>/${fn:length(book.pages)}
+							<Br><Br><Br><br>
+							현재 페이지<br>
+							    <span id="currentRightPage" style="font-weight:bold"></span>/${fn:length(book.pages)}
+							    
 						</div>
 				</div>
 			</div>

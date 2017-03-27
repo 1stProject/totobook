@@ -81,13 +81,13 @@ public class PageUploader extends HttpServlet {
 					stream.close();
 					System.out.println("파일 작성 완료");
 
-					out.print("yes");
+					out.print(dir+ fileName + ".png");
+					stream.close();
 				} catch (Exception e) {
+					e.printStackTrace();
 					System.out.println("파일이 정상적으로 넘어오지 않았습니다");
 					out.print("no");
-				} finally {
-					stream.close();
-				}
+				} 
 			}
 
 	}

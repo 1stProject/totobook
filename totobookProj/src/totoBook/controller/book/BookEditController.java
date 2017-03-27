@@ -30,10 +30,7 @@ public class BookEditController extends HttpServlet {
 		request.setAttribute("book", service.findBook(bookId));
 		
 		request.getRequestDispatcher("/views/book/bookForm.jsp").forward(request, response);
-		
-		/*
-		request.getRequestDispatcher("/views/book/cropper/examples/multiple-croppers.jsp").forward(request, response);
-	*/
+
 	}
 	
 

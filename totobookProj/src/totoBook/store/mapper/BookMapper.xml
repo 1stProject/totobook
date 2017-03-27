@@ -9,6 +9,7 @@
 		<id property="bookId" column="book_id" />
 		<result property="bookName" column="book_name" />
 		<result property="saveDate" column="save_date" />
+		<result property="option" column="book_option"/>
 	<association property="product" column="product_id"
 			select="totoBook.store.mapper.ProductMapper.selectProductById"
 			javaType="Product" jdbcType="NUMERIC" />
