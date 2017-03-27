@@ -70,7 +70,7 @@
 					<tr>
 						<td>${sts.count}</td>
 						<td>${book.bookName }</td>
-						<td>${book.product.name}</td>
+						<td>${book.option}</td>
 						<td>${fn:length(book.pages)}</td>
 						<td>${book.product.productprice}</td>
 						<td><button type="button" onclick="window.location.href='${ctx }/book/edit.do?bookId=${book.bookId}'">편집</button></td>

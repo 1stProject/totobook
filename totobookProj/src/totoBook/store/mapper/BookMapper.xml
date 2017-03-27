@@ -31,7 +31,7 @@
 	</insert>
 	<update id="updateBook" parameterType="Book">
 		UPDATE BOOK_TB
-		SET BOOK_NAME = #{bookName}, SAVE_DATE = #{saveDate}
+		SET BOOK_NAME = #{bookName}, SAVE_DATE = '2017-03-27'
 		WHERE BOOK_ID = #{bookId}
 	</update>
 	<delete id="deleteBook" parameterType="String">

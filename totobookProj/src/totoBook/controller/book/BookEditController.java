@@ -1,12 +1,16 @@
 package totoBook.controller.book;
 
 import java.io.IOException;
+import java.util.Date;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
 
 import totoBook.domain.Book;
 import totoBook.service.BookService;
@@ -37,14 +41,23 @@ public class BookEditController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		BookService service = new BookServiceLogic();
+		ServletContext ctx = getServletContext();
+		String dir = ctx.getRealPath("/upload");
 		
-		String bookId = request.getParameter("bookId");
+		MultipartRequest multi = new MultipartRequest(request, dir);
+				
+		String bookId = multi.getParameter("bookId");
+		String bookName = multi.getParameter("bookName");
 		System.out.println("아이디"+bookId);
 		
 		Book book = service.findBook(bookId);
+		book.setBookName(bookName);
+		System.out.println(book.getBookName());
+		Date date = new Date();
+		
 //		List<Page> pages = request.getParameter();
 		
-		book.setBookName(request.getParameter("bookName"));
+//		book.setBookName(multi.getParameter("bookName"));
 		
 		service.modifyBook(book);		
 		

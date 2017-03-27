@@ -31,13 +31,14 @@
 		<h3>포토북 편집</h3>
 		<form action="${ctx }/book/edit.do" method="post" enctype="multipart/form-data" id="photoForm">
         	<div id="photoBookDesciption">
-				포토북명 : <input type ="text" value="" name="bookName" placeholder="${book.bookName}">
+				포토북명 : <input type ="text" value="${book.bookName}" name="bookName" placeholder="${book.bookName}">
 				전체 페이지 수 : ${fn:length(book.pages)} 장
 				선택한 상품명 : ${book.product.name}
 				선택된 옵션 : ${book.option}      
 
 			</div>
 
+			<input type="hidden" name="bookId" value="${book.bookId}" >
 			<div class="photoBookContent" style="display:block">           
 			  	<img src="${ctx }/views/book/toLeft.png" id="toBeforePage" class="leftRightBtnImg" style="visibility: hidden">
 				
@@ -106,7 +107,6 @@
 				<button type="reset">취소</button>
 			</div>
 			
-			<input type="hidden" name="bookId" value="${book.bookId}" >
 			<input type="hidden" id="pageCount" value="${fn:length(book.pages)}">
 			<input type="hidden" id="curPage" name="curPage">
 			
