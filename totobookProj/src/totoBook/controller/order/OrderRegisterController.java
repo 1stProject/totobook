@@ -33,10 +33,8 @@ import totoBook.service.logic.ProductServiceLogic;
 public class OrderRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	OrderService orderService = null;
-	ProductService productService = null;
 	public OrderRegisterController() {
 		orderService = new OrderServiceLogic();
-		productService = new ProductServiceLogic();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String printId = request.getParameter("printId");

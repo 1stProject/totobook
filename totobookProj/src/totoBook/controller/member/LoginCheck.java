@@ -23,28 +23,22 @@ import totoBook.service.logic.MemberServiceLogic;
 public class LoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private MemberServiceLogic service;
-
-	
+	private MemberServiceLogic service;	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		MemberService service = new MemberServiceLogic();
-		Member member = new Member();
-		member.setMemberId(request.getParameter("id"));
-		member.setPassword(request.getParameter("password"));
-		boolean result;
-		result = service.findMember(member);
+		String inputId = request.getParameter("id");
+		String inputPw = request.getParameter("password");
+		
+		Member member = service.findMemberById(inputId);
 		PrintWriter out = response.getWriter();
 		
-		if (result == true) {
+		if(member!=null && member.getPassword().equals(inputPw)){
 			out.print("yes");
-
-		} else {
+		}else {
 			out.print("no");
-
-	}
-
+		}
 	}
 }
 	

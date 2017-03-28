@@ -19,7 +19,6 @@ public interface MemberService {
 	List<Member> findMembersByTel(String memberTel);
 	List<Member> findMembersByName(String memberName);
 	List<Member> findAllMembers();
-	boolean findMember(Member member);
 	
 	
 	

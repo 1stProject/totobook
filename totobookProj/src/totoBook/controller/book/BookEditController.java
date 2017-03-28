@@ -62,8 +62,13 @@ public class BookEditController extends HttpServlet {
 		List<Page> pages2 = new ArrayList<>();
 		int i=0;
 		for(Page page : pages){
+
 			i++;
 			page.setImageAddress(multi.getParameter("pageInput"+i));
+			if(page.getImageAddress()==null){
+				page.setImageAddress("/images/pageLayout/null_layout_3.jpg");
+			}
+			System.out.println(i+"번째"+page.getImageAddress());
 			pages2.add(page);
 		}
 		book.setPages(pages2);

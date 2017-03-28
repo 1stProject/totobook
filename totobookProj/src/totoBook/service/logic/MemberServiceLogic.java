@@ -84,16 +84,4 @@ public class MemberServiceLogic implements MemberService {
 	public List<Member> findAllMembers() {
 		return memberStore.selectAllmembers();
 	}
-
-	@Override
-	public boolean findMember(Member member) {
-		Member searchedMember = new Member();
-		searchedMember = memberStore.selectMember(member);
-			 if(searchedMember!=null && searchedMember.getPassword().equals(member.getPassword())) {
-		
-				 return true;
-				}else{
-		return false;
-	}
-	}
 }

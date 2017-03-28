@@ -31,25 +31,6 @@ public class PageUploader extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		/*
-		 * // String path = getServletContext().getRealPath("files"); String
-		 * path = "C:/Users/kosta/rure"; DiskFileItemFactory factory = new
-		 * DiskFileItemFactory(); ServletFileUpload upload = new
-		 * ServletFileUpload(factory);
-		 * 
-		 * try { List<FileItem> list = upload.parseRequest(request);
-		 * 
-		 * Iterator iterator = list.iterator(); while (iterator.hasNext()) {
-		 * System.out.println("흡"); FileItem fItem = (FileItem) iterator.next();
-		 * 
-		 * if (!(fItem.isFormField())) { System.out.println("여기가 아닌가"); String
-		 * fileName = fItem.getName(); if ((fileName != null) &&
-		 * (!fileName.equals(""))) { fileName = (new File(fileName)).getName();
-		 * fItem.write(new File(path + "/" + fileName)); } } } } catch
-		 * (FileUploadException e) { e.printStackTrace(); } catch (Exception e)
-		 * { // TODO Auto-generated catch block e.printStackTrace(); }
-		 */
-
 //		String[] binaryDataList = request.getParameterValues("imgSrc");
 		// String binaryData = request.getParameter("imgInput");
 		int pageNum = Integer.parseInt(request.getParameter("curPage"));
